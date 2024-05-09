@@ -12,7 +12,6 @@ class BarbeiroAdmin(admin.ModelAdmin):
     
     autocomplete_fields = [
         'barbearia',
-        'servicos'
     ]
     
     search_fields = [
