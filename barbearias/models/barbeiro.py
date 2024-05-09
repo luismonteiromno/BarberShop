@@ -1,0 +1,36 @@
+from django.db import models
+from django.contrib.auth.models import User
+
+from .barbearia import Barbearia
+
+class Barbeiro(models.Model):
+    barbeiro = models.ForeignKey(
+        User,
+        verbose_name='Barbeiro',
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+        related_name='barbeiro'
+    )
+    
+    servicos = models.ManyToManyField(
+        'agendamentos.Servico',
+        verbose_name='Serviços',
+        blank=True,
+    )
+    
+    barbearia = models.ForeignKey(
+        Barbearia,
+        verbose_name='Barbearia',
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+    )
+    
+    def __str__(self):
+        return str(self.barbeiro)
+    
+    class Meta:
+        verbose_name = 'Barbeiro'
+        verbose_name_plural = 'Barbeiros'
+        
