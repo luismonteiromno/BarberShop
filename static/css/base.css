@@ -118,7 +118,7 @@
     
     .selector-chosen h2 {
       background: var(--primary-color-faded) !important;
-      color: var(--primary-color) !important;
+      color: var(--secondary-color) !important;
     }
     
     .select2-container--admin-autocomplete .select2-selection--multiple .select2-selection__choice {

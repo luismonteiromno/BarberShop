@@ -11,10 +11,6 @@ class HistoricoDeAgendamentoAdmin(admin.ModelAdmin):
         'data_do_agendamento',
     ]
     
-    readonly_fields = [
-        'preco_do_servico'
-    ]
-    
     list_filter = [
         'barbeiro',
         'servico_fornecido',

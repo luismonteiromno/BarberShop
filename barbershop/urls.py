@@ -35,6 +35,10 @@ from barbearias.viewsets import (
     BarbeiroViewSet,
 )
 
+from barbearias.views import (
+    Home
+)
+
 admin.site.site_header = 'BarberShop Admin'
 admin.site.index_title = 'BarberShop Administração'
 admin.site.site_title = 'BarberShop'
@@ -52,7 +56,7 @@ main_router.register(r'servicos', ServicoViewSet, basename='servicos')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", include('agendamentos.urls')),
+    path("", Home.as_view(), name='Home'),
     path('api/', include(main_router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

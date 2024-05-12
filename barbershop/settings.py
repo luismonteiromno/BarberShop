@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'django_admin_listfilter_dropdown',
     'django_filters',
     'django_editorjs',
+    'django_object_actions',
     'import_export',
     'corsheaders'
 ]
