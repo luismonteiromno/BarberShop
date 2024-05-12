@@ -17,9 +17,14 @@ class AgendamentoViewSet(ModelViewSet):
     def get_queryset(self):
         queryset =  super().get_queryset()
         
+        servico = self.request.query_params.get('servico')
+        
         queryset = queryset.filter(
             Q(escolher_barbeiro=self.request.user) |
             Q(usuario=self.request.user)
         )
+        
+        if servico:
+            queryset = queryset.filter(servico__nome_do_servico__icontains=servico)
         
         return queryset

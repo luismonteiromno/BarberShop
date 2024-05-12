@@ -16,12 +16,12 @@ class AvisoViewSet(ModelViewSet):
     def get_queryset(self):
         queryset = super().get_queryset()
         
-        barbearia = self.request.query_params.get('barbearia')
+        nome_da_barbearia = self.request.query_params.get('nome_da_barbearia')
         data_de_inicio = self.request.query_params.get('data_de_inicio')
         data_de_encerramento = self.request.query_params.get('data_de_encerramento')
         
-        if barbearia:
-            queryset = queryset.filter(barbearia=barbearia)
+        if nome_da_barbearia:
+            queryset = queryset.filter(barbearia__nome_da_barbearia__icontains=nome_da_barbearia)
                      
         if data_de_inicio:
             queryset = queryset.filter(data_de_inicio__gte=data_de_inicio)
