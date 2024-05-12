@@ -11,6 +11,14 @@ class HistoricoDeAgendamento(models.Model):
         null=True
     )
     
+    preco_do_servico = models.DecimalField(
+        'Preço do serviço',
+        max_digits=10,
+        decimal_places=2,
+        blank=True,
+        null=True
+    )
+    
     cliente = models.ForeignKey(
         User, 
         verbose_name='Cliente',
@@ -33,6 +41,15 @@ class HistoricoDeAgendamento(models.Model):
         blank=True,
         null=True
     )
+    
+    @property
+    def preco_total(self):
+        preco = self.servico_fornecido.preco
+        return preco if preco else 0
+    
+    def save(self, *args, **kwargs):
+        self.preco_do_servico = self.preco_total
+        super().save(*args, **kwargs)
     
     def __str__(self):
         return str(self.servico_fornecido)

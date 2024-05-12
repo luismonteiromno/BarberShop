@@ -4,6 +4,7 @@ from ..models import Aviso
 @admin.register(Aviso)
 class AvisoAdmin(admin.ModelAdmin):
     list_display = [
+        'id',
         'barbearia',
         'data_de_inicio',
         'data_de_encerramento',

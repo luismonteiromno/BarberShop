@@ -25,9 +25,14 @@ from agendamentos.viewsets import (
     ServicoViewSet,
 )
 
+from utilidades.viewsets import (
+    AvisoViewSet,
+)
+
 from barbearias.viewsets import (
     AvaliacaoViewSet,
-    BarbeariaViewSet
+    BarbeariaViewSet,
+    BarbeiroViewSet,
 )
 
 admin.site.site_header = 'BarberShop Admin'
@@ -38,8 +43,10 @@ main_router = DefaultRouter()
 
 
 main_router.register(r'avaliacoes', AvaliacaoViewSet, basename='avaliacoes')
+main_router.register(r'avisos', AvisoViewSet, basename='avisos')
 main_router.register(r'agendamentos', AgendamentoViewSet, basename='agendamentos')
 main_router.register(r'barbearias', BarbeariaViewSet, basename='barbearias')
+main_router.register(r'barbeiros', BarbeiroViewSet, basename='barbeiros')
 main_router.register(r'historico-agendamentos', HistoricoDeAgendamentoViewSet, basename='historico-agendamentos')
 main_router.register(r'servicos', ServicoViewSet, basename='servicos')
 
