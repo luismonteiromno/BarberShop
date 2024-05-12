@@ -18,14 +18,22 @@ class Aviso(models.Model):
         null=True,
     )
     
-    data_de_inicio = models.DateTimeField(
+    data_de_inicio = models.DateField(
         'Data de início',
         blank=True,
         null=True
     )
     
-    data_de_encerramento = models.DateTimeField(
+    data_de_encerramento = models.DateField(
         'Data de encerramento',
         blank=True,
         null=True
     )
+    
+    def __str__(self):
+        return f"{self.id}"
+
+    class Meta:
+        verbose_name = 'Aviso'
+        verbose_name_plural = 'Avisos'
+        

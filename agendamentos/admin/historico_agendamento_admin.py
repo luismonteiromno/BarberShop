@@ -5,9 +5,14 @@ from ..models import HistoricoDeAgendamento
 class HistoricoDeAgendamentoAdmin(admin.ModelAdmin):
     list_display = [
         'servico_fornecido',
+        'preco_do_servico',
         'cliente',
         'barbeiro',
         'data_do_agendamento',
+    ]
+    
+    readonly_fields = [
+        'preco_do_servico'
     ]
     
     list_filter = [

@@ -4,10 +4,12 @@ from django.contrib.auth.models import User
 from crum import get_current_user
 
 class Agendamento(models.Model):
-    servico = models.ManyToManyField(
+    servico = models.ForeignKey(
         Servico,
         verbose_name='Serviço',
+        on_delete=models.SET_NULL,
         blank=True,
+        null=True
     )
     
     escolher_barbeiro = models.ForeignKey(
@@ -43,16 +45,15 @@ class Agendamento(models.Model):
     
     @property
     def preco_total(self):
-        preco = sum(preco_do_corte.preco for preco_do_corte in self.servico.all())
-        if preco:
-            return preco
-    
+        preco = self.servico.preco
+        return preco if preco else 0
+
     def save(self, *args, **kwargs):
         if not self.pk:
             user = get_current_user()
             self.usuario = user
         self.preco_do_servico = self.preco_total
-        super().save()
+        super().save(*args, **kwargs)
     
     def __str__(self):
         return f"{self.usuario} - {self.data_marcada}"
