@@ -47,6 +47,11 @@ class HistoricoDeAgendamento(models.Model):
         preco = self.servico_fornecido.preco
         return preco if preco else 0
     
+    @property
+    def barbearia(self):
+        barbearia = self.servico_fornecido.disponivel_na_barbearia
+        return barbearia
+    
     def save(self, *args, **kwargs):
         self.preco_do_servico = self.preco_total
         super().save(*args, **kwargs)

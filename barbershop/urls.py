@@ -33,6 +33,7 @@ from barbearias.viewsets import (
     AvaliacaoViewSet,
     BarbeariaViewSet,
     BarbeiroViewSet,
+    ContatoViewSet,
 )
 
 from barbearias.views import (
@@ -51,6 +52,7 @@ main_router.register(r'avisos', AvisoViewSet, basename='avisos')
 main_router.register(r'agendamentos', AgendamentoViewSet, basename='agendamentos')
 main_router.register(r'barbearias', BarbeariaViewSet, basename='barbearias')
 main_router.register(r'barbeiros', BarbeiroViewSet, basename='barbeiros')
+main_router.register(r'contatos', ContatoViewSet, basename='contatos')
 main_router.register(r'historico-agendamentos', HistoricoDeAgendamentoViewSet, basename='historico-agendamentos')
 main_router.register(r'servicos', ServicoViewSet, basename='servicos')
 

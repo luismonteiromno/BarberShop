@@ -10,11 +10,13 @@ class AvaliacaoAdmin(admin.ModelAdmin):
         'usuario',
     ]
     
-    def has_add_permission(self, request, obj=None):
-        return False
+    autocomplete_fields = [
+        'barbearia'
+    ]
     
-    def has_change_permission(self, request, obj=None):
-        return False
+    readonly_fields = [
+        'usuario'
+    ]
     
     def has_delete_permission(self, request, obj=None):
         return False

@@ -132,19 +132,42 @@
       margin-top: 5px;
       padding: 0 5px;
     }
+
+    .object-tools a.addlink {
+      background-position: calc(100% - 8px);
+      background-repeat: no-repeat;
+      background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIHZpZXdCb3g9IjAgMCAxMCAxMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTUgMVY5IiBzdHJva2U9IiMxMUQyNzYiIHN0cm9rZS13aWR0aD0iMC41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPHBhdGggZD0iTTkgNUgxIiBzdHJva2U9IiMxMUQyNzYiIHN0cm9rZS13aWR0aD0iMC41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9zdmc+Cg==) !important;
+      background-repeat: no-repeat !important;
+      background-size: .875rem !important;
+      padding-right: 28px !important;
+      text-decoration: none !important;
+    }
+
+    .object-tools a {
+      color: #333;
+      text-align: center;
+      background-color: #ededed8f;
+      border: .0625rem solid #33333317;
+      padding: 6px 12px;
+      font-weight: 600;
+      transition: border .3s;
+      border-radius: .25rem !important;
+    }
     
     .object-tools a:link, .object-tools a:visited {
       text-align: center;
-      background-color: #6b6666e0;
-      border: 0.0625rem solid #33333317;
+      background-color: #353333e0;
+      border: 0.0625rem solid #20202017;
+      border-color: rgb(111, 116, 119);
       font-weight: 600;
       transition: border 0.3s !important;
       border-radius: 0.25rem !important;
+      text-decoration: none !important;
     }
     
     .object-tools a:hover {
       transition: 5ms ease;
-      background-color: #353635 !important;
+      background-color: #1b1b1b !important;
     }
     
     .dashboard .add-row a {

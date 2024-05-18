@@ -8,6 +8,18 @@ class BarbeiroAdmin(admin.ModelAdmin):
     list_display = [
         'barbeiro',
         'barbearia',
+        'freelancer'
+    ]
+    
+    fieldsets = [
+        ['informações', {
+            'fields': [
+                'barbeiro', 
+                'barbearia', 
+                'servicos', 
+                'freelancer'
+            ]
+        }]
     ]
     
     autocomplete_fields = [
@@ -17,6 +29,10 @@ class BarbeiroAdmin(admin.ModelAdmin):
     search_fields = [
         'nome_do_barbeiro',
         'barbearia__nome_da_barbearia',
+    ]
+    
+    filter_horizontal = [
+        'servicos'
     ]
     
     list_select_related = [

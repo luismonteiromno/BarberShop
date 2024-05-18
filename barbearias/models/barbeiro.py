@@ -27,6 +27,11 @@ class Barbeiro(models.Model):
         null=True,
     )
     
+    freelancer =  models.BooleanField(
+        'Barbeiro Freelancer',
+        default=False
+    )
+    
     def __str__(self):
         return str(self.barbeiro)
     

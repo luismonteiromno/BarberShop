@@ -9,6 +9,7 @@ from agendamentos.admin.servico_inline import ServicoInline
 from ..models import Barbearia
 
 from .barbeiro_inline import BarbeiroInline
+from .contato_inline import ContatoInline
 
 @admin.register(Barbearia)
 class BarbeariaAdmin(DjangoObjectActions, admin.ModelAdmin):
@@ -16,6 +17,27 @@ class BarbeariaAdmin(DjangoObjectActions, admin.ModelAdmin):
         'nome_da_barbearia',
         'dono',
         'cnpj',
+        'quantidade_de_agendamentos',
+        'ultimo_agendamento',
+        'numero_de_contatos',
+        'avisos_recentes'
+    ]
+    
+    fieldsets = [
+        ['Informações', {
+            'fields': [
+                'nome_da_barbearia',
+                'dono',
+                'cnpj',
+                'funcionarios',
+                'rua',
+                'bairro',
+                'complemento',
+                'cidade',
+                'estado',
+                'cep',
+            ]
+        }],
     ]
     
     autocomplete_fields = [
@@ -36,12 +58,13 @@ class BarbeariaAdmin(DjangoObjectActions, admin.ModelAdmin):
     ]
     
     readonly_fields = [
-        'dono'
+        'dono',
     ]
 
     inlines = [
         AvaliacaoInline,
         BarbeiroInline,
+        ContatoInline,
         ServicoInline,
     ]
     

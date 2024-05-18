@@ -1,9 +1,15 @@
 from django.db import models
-from barbearias.models import Barbearia
 
 class Aviso(models.Model):
+    aviso = models.CharField(
+        'Aviso',
+        max_length=100,
+        blank=True,
+        null=True,
+    )
+    
     barbearia = models.ForeignKey(
-        Barbearia,
+        'barbearias.Barbearia',
         verbose_name='Barbearia',
         help_text='Obs: Este só precisa ser preenchido caso o aviso afete alguma barbearia!',
         on_delete=models.SET_NULL,
@@ -31,7 +37,7 @@ class Aviso(models.Model):
     )
     
     def __str__(self):
-        return f"{self.id}"
+        return f"{self.id} - {self.aviso}"
 
     class Meta:
         verbose_name = 'Aviso'

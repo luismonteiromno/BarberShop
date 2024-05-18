@@ -1,6 +1,8 @@
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 from .barbearia import Barbearia
+
+from crum import get_current_user
 from django.contrib.auth.models import User
 
 class Avaliacao(models.Model):
@@ -26,6 +28,12 @@ class Avaliacao(models.Model):
         blank=True,
         null=True
     )
+    
+    def save(self, *args, **kwargs):
+        user = get_current_user()
+        if not self.pk:
+            self.usuario = user  
+        super().save(*args, **kwargs)
     
     def __str__(self):
         return str(self.avaliacao)

@@ -3,6 +3,7 @@ from .servico import Servico
 from django.contrib.auth.models import User
 from crum import get_current_user
 
+from datetime import datetime
 class Agendamento(models.Model):
     servico = models.ForeignKey(
         Servico,
@@ -56,7 +57,8 @@ class Agendamento(models.Model):
         super().save(*args, **kwargs)
     
     def __str__(self):
-        return f"{self.usuario} - {self.data_marcada}"
+        data_formatada = datetime.strftime(self.data_marcada, '%d/%m/%Y às %H:%M:%S')
+        return f"{self.usuario} - {data_formatada}"
     
     class Meta:
         verbose_name = 'Agendamento'
