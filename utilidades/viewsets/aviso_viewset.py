@@ -4,6 +4,8 @@ from rest_framework.permissions import IsAuthenticated
 from ..models import Aviso
 from ..serializers import AvisoSerializer
 
+from datetime import datetime
+
 class AvisoViewSet(ModelViewSet):
     queryset = Aviso.objects.all()
     serializer_class = AvisoSerializer
@@ -14,11 +16,16 @@ class AvisoViewSet(ModelViewSet):
     ]
     
     def get_queryset(self):
+        now = datetime.now().date()
         queryset = super().get_queryset()
         
         nome_da_barbearia = self.request.query_params.get('nome_da_barbearia')
         data_de_inicio = self.request.query_params.get('data_de_inicio')
         data_de_encerramento = self.request.query_params.get('data_de_encerramento')
+        
+        queryset = queryset.exclude(
+            data_de_encerramento__lte=now
+        )
         
         if nome_da_barbearia:
             queryset = queryset.filter(barbearia__nome_da_barbearia__icontains=nome_da_barbearia)

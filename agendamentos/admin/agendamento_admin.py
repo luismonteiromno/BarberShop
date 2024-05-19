@@ -10,6 +10,7 @@ from django.contrib.auth.models import User
 @admin.register(Agendamento)
 class AgendamentoAdmin(DjangoObjectActions, admin.ModelAdmin):
     list_display = [
+        'id',
         'usuario',
         'servico',
         'data_marcada',
