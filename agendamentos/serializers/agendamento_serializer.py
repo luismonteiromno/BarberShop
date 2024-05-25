@@ -1,5 +1,7 @@
 from rest_framework.serializers import ModelSerializer
+
 from ..models import Agendamento
+
 
 class AgendamentoSerializer(ModelSerializer):
     class Meta:

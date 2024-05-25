@@ -1,8 +1,9 @@
-from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.viewsets import ModelViewSet
 
 from ..models import Barbeiro
 from ..serializers import BarbeiroSerializer
+
 
 class BarbeiroViewSet(ModelViewSet):
     queryset = Barbeiro.objects.all()

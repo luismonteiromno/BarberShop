@@ -1,11 +1,13 @@
+from datetime import datetime
 from decimal import Decimal
+
+from crum import get_current_user
+from django.contrib.auth.models import User
 from django.db import models
+
 from .servico import Servico
 
-from django.contrib.auth.models import User
-from crum import get_current_user
 
-from datetime import datetime
 class Agendamento(models.Model):
     servico = models.ForeignKey(
         Servico,
@@ -46,6 +48,35 @@ class Agendamento(models.Model):
         null=True
     )
     
+    numero_do_agendamento = models.CharField(
+        'Número do agendamento',
+        max_length=100,
+        blank=True,
+        null=True,
+        unique=True
+    )
+    
+    @property
+    def formatar_numero_do_pedido(self):
+        ano = datetime.today().year
+        mes = datetime.today().month
+        agendamento_id = 0
+        
+        ultimo_agendamento = Agendamento.objects.last()
+        
+        if ultimo_agendamento:
+            agendamento_id = int(ultimo_agendamento.numero_do_agendamento[12:]) + 1
+        if not ultimo_agendamento or agendamento_id == 0:
+            agendamento_id += 1
+            
+        if agendamento_id < 10:
+            agendamento_id = f'0{agendamento_id}'
+        if mes < 10:
+            mes = f'0{mes}'
+            
+        numero_agendamento = f'Barber{ano}{mes}{agendamento_id}'
+        return numero_agendamento        
+    
     @property
     def preco_total(self):
         if self.pk:
@@ -57,6 +88,7 @@ class Agendamento(models.Model):
         if not self.pk:
             user = get_current_user()
             self.usuario = user
+            self.numero_do_agendamento = self.formatar_numero_do_pedido
         self.preco_do_servico = self.preco_total
         super().save(*args, **kwargs)
     

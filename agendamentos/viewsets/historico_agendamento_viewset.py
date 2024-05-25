@@ -1,9 +1,10 @@
-from rest_framework.viewsets import ModelViewSet
-from rest_framework.permissions import IsAuthenticated
 from django.db.models import Q
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.viewsets import ModelViewSet
 
 from ..models import HistoricoDeAgendamento
 from ..serializers import HistoricoDeAgendamentoSerializer
+
 
 class HistoricoDeAgendamentoViewSet(ModelViewSet):
     queryset = HistoricoDeAgendamento.objects.all()

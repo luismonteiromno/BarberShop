@@ -1,18 +1,18 @@
 from typing import Any
+
 from django.contrib import admin
 from django.db.models.query import QuerySet
 from django.http import HttpRequest
-from import_export.admin import ImportExportModelAdmin
 from django_object_actions import DjangoObjectActions
-
-from .avaliacao_inline import AvaliacaoInline
+from import_export.admin import ImportExportModelAdmin
 
 from agendamentos.admin.servico_inline import ServicoInline
 
 from ..models import Barbearia
-
+from .avaliacao_inline import AvaliacaoInline
 from .barbeiro_inline import BarbeiroInline
 from .contato_inline import ContatoInline
+
 
 @admin.register(Barbearia)
 class BarbeariaAdmin(DjangoObjectActions, admin.ModelAdmin):

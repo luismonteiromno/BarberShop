@@ -1,21 +1,20 @@
+from datetime import datetime
 from typing import Any
+
 from django.contrib import admin, messages
+from django.contrib.auth.models import User
 from django.db.models.query import QuerySet
 from django.http import HttpRequest
 from django_object_actions import DjangoObjectActions
-from datetime import datetime
 
 from ..models import Agendamento
 
-
-from django.contrib.auth.models import User
-
-from datetime import datetime
 
 @admin.register(Agendamento)
 class AgendamentoAdmin(DjangoObjectActions, admin.ModelAdmin):
     list_display = [
         'id',
+        'numero_do_agendamento',
         'usuario',
         'data_marcada',
     ]
@@ -25,8 +24,9 @@ class AgendamentoAdmin(DjangoObjectActions, admin.ModelAdmin):
     ]
     
     readonly_fields = [
+        'numero_do_agendamento',
         'usuario',
-        'preco_do_servico'
+        'preco_do_servico',
     ]
     
     # changelist_actions = [

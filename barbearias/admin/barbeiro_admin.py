@@ -1,8 +1,11 @@
-import django.db.models
 from typing import Any
+
+import django.db.models
 from django.contrib import admin
 from django.contrib.auth.models import User
+
 from ..models import Barbeiro
+
 
 @admin.register(Barbeiro)
 class BarbeiroAdmin(admin.ModelAdmin):

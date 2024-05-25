@@ -1,5 +1,6 @@
 from django import forms
 
+
 class AvisoForm(forms.ModelForm):
     def clean(self):
         cleaned_data = super().clean()

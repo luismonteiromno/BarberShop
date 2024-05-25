@@ -3,6 +3,7 @@ from django_object_actions import DjangoObjectActions
 
 from ..models import HistoricoDeAgendamento
 
+
 @admin.register(HistoricoDeAgendamento)
 class HistoricoDeAgendamentoAdmin(DjangoObjectActions, admin.ModelAdmin):
     list_display = [

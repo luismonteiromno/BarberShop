@@ -112,7 +112,7 @@
     }
     
     /* Estilos gerais */
-    body * {
+    * {
       font-family: 'Montserrat', sans-serif;
     }
     
@@ -359,7 +359,7 @@
     tr th a {
       color: var(--models-color);
       width: 100%;
-      padding: 6.5px;
+      /* padding: 6.5px; */
       font-size: 0.875rem;
       font-weight: 600;
       display: flex;
@@ -778,3 +778,11 @@
   #changelist-filter li.selected a {
     color: var(--primary-color-faded) !important;
   }
+
+  /* .aligned label + p, .aligned label + div.help, .aligned label + div.readonly {
+    padding: 9px 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 170px;
+    overflow-wrap: break-word;
+} */

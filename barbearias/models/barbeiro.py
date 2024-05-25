@@ -1,7 +1,8 @@
-from django.db import models
 from django.contrib.auth.models import User
+from django.db import models
 
 from .barbearia import Barbearia
+
 
 class Barbeiro(models.Model):
     barbeiro = models.ForeignKey(

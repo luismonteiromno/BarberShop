@@ -1,0 +1,2854 @@
+[
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "messages",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "messages",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "messages",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "QuerySet",
+        "importPath": "django.db.models.query",
+        "description": "django.db.models.query",
+        "isExtraImport": true,
+        "detail": "django.db.models.query",
+        "documentation": {}
+    },
+    {
+        "label": "QuerySet",
+        "importPath": "django.db.models.query",
+        "description": "django.db.models.query",
+        "isExtraImport": true,
+        "detail": "django.db.models.query",
+        "documentation": {}
+    },
+    {
+        "label": "HttpRequest",
+        "importPath": "django.http",
+        "description": "django.http",
+        "isExtraImport": true,
+        "detail": "django.http",
+        "documentation": {}
+    },
+    {
+        "label": "JsonResponse",
+        "importPath": "django.http",
+        "description": "django.http",
+        "isExtraImport": true,
+        "detail": "django.http",
+        "documentation": {}
+    },
+    {
+        "label": "HttpRequest",
+        "importPath": "django.http",
+        "description": "django.http",
+        "isExtraImport": true,
+        "detail": "django.http",
+        "documentation": {}
+    },
+    {
+        "label": "HttpRequest",
+        "importPath": "django.http",
+        "description": "django.http",
+        "isExtraImport": true,
+        "detail": "django.http",
+        "documentation": {}
+    },
+    {
+        "label": "HttpResponse",
+        "importPath": "django.http",
+        "description": "django.http",
+        "isExtraImport": true,
+        "detail": "django.http",
+        "documentation": {}
+    },
+    {
+        "label": "DjangoObjectActions",
+        "importPath": "django_object_actions",
+        "description": "django_object_actions",
+        "isExtraImport": true,
+        "detail": "django_object_actions",
+        "documentation": {}
+    },
+    {
+        "label": "DjangoObjectActions",
+        "importPath": "django_object_actions",
+        "description": "django_object_actions",
+        "isExtraImport": true,
+        "detail": "django_object_actions",
+        "documentation": {}
+    },
+    {
+        "label": "DjangoObjectActions",
+        "importPath": "django_object_actions",
+        "description": "django_object_actions",
+        "isExtraImport": true,
+        "detail": "django_object_actions",
+        "documentation": {}
+    },
+    {
+        "label": "DjangoObjectActions",
+        "importPath": "django_object_actions",
+        "description": "django_object_actions",
+        "isExtraImport": true,
+        "detail": "django_object_actions",
+        "documentation": {}
+    },
+    {
+        "label": "django_editorjs.fields",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "django_editorjs.fields",
+        "description": "django_editorjs.fields",
+        "detail": "django_editorjs.fields",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "django.db.models.deletion",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "django.db.models.deletion",
+        "description": "django.db.models.deletion",
+        "detail": "django.db.models.deletion",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "Decimal",
+        "importPath": "decimal",
+        "description": "decimal",
+        "isExtraImport": true,
+        "detail": "decimal",
+        "documentation": {}
+    },
+    {
+        "label": "Decimal",
+        "importPath": "decimal",
+        "description": "decimal",
+        "isExtraImport": true,
+        "detail": "decimal",
+        "documentation": {}
+    },
+    {
+        "label": "get_current_user",
+        "importPath": "crum",
+        "description": "crum",
+        "isExtraImport": true,
+        "detail": "crum",
+        "documentation": {}
+    },
+    {
+        "label": "get_current_user",
+        "importPath": "crum",
+        "description": "crum",
+        "isExtraImport": true,
+        "detail": "crum",
+        "documentation": {}
+    },
+    {
+        "label": "get_current_user",
+        "importPath": "crum",
+        "description": "crum",
+        "isExtraImport": true,
+        "detail": "crum",
+        "documentation": {}
+    },
+    {
+        "label": "EditorJsField",
+        "importPath": "django_editorjs",
+        "description": "django_editorjs",
+        "isExtraImport": true,
+        "detail": "django_editorjs",
+        "documentation": {}
+    },
+    {
+        "label": "Barbearia",
+        "importPath": "barbearias.models",
+        "description": "barbearias.models",
+        "isExtraImport": true,
+        "detail": "barbearias.models",
+        "documentation": {}
+    },
+    {
+        "label": "ModelSerializer",
+        "importPath": "rest_framework.serializers",
+        "description": "rest_framework.serializers",
+        "isExtraImport": true,
+        "detail": "rest_framework.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "ModelSerializer",
+        "importPath": "rest_framework.serializers",
+        "description": "rest_framework.serializers",
+        "isExtraImport": true,
+        "detail": "rest_framework.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "ModelSerializer",
+        "importPath": "rest_framework.serializers",
+        "description": "rest_framework.serializers",
+        "isExtraImport": true,
+        "detail": "rest_framework.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "ModelSerializer",
+        "importPath": "rest_framework.serializers",
+        "description": "rest_framework.serializers",
+        "isExtraImport": true,
+        "detail": "rest_framework.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "ModelSerializer",
+        "importPath": "rest_framework.serializers",
+        "description": "rest_framework.serializers",
+        "isExtraImport": true,
+        "detail": "rest_framework.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "ModelSerializer",
+        "importPath": "rest_framework.serializers",
+        "description": "rest_framework.serializers",
+        "isExtraImport": true,
+        "detail": "rest_framework.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "ModelSerializer",
+        "importPath": "rest_framework.serializers",
+        "description": "rest_framework.serializers",
+        "isExtraImport": true,
+        "detail": "rest_framework.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "ModelSerializer",
+        "importPath": "rest_framework.serializers",
+        "description": "rest_framework.serializers",
+        "isExtraImport": true,
+        "detail": "rest_framework.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "post_save",
+        "importPath": "django.db.models.signals",
+        "description": "django.db.models.signals",
+        "isExtraImport": true,
+        "detail": "django.db.models.signals",
+        "documentation": {}
+    },
+    {
+        "label": "receiver",
+        "importPath": "django.dispatch",
+        "description": "django.dispatch",
+        "isExtraImport": true,
+        "detail": "django.dispatch",
+        "documentation": {}
+    },
+    {
+        "label": "FileSystemStorage",
+        "importPath": "django.core.files.storage",
+        "description": "django.core.files.storage",
+        "isExtraImport": true,
+        "detail": "django.core.files.storage",
+        "documentation": {}
+    },
+    {
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "csrf_exempt",
+        "importPath": "django.views.decorators.csrf",
+        "description": "django.views.decorators.csrf",
+        "isExtraImport": true,
+        "detail": "django.views.decorators.csrf",
+        "documentation": {}
+    },
+    {
+        "label": "django.db.models",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "django.db.models",
+        "description": "django.db.models",
+        "detail": "django.db.models",
+        "documentation": {}
+    },
+    {
+        "label": "Q",
+        "importPath": "django.db.models",
+        "description": "django.db.models",
+        "isExtraImport": true,
+        "detail": "django.db.models",
+        "documentation": {}
+    },
+    {
+        "label": "Q",
+        "importPath": "django.db.models",
+        "description": "django.db.models",
+        "isExtraImport": true,
+        "detail": "django.db.models",
+        "documentation": {}
+    },
+    {
+        "label": "Avg",
+        "importPath": "django.db.models",
+        "description": "django.db.models",
+        "isExtraImport": true,
+        "detail": "django.db.models",
+        "documentation": {}
+    },
+    {
+        "label": "IsAuthenticated",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
+        "isExtraImport": true,
+        "detail": "rest_framework.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "IsAuthenticated",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
+        "isExtraImport": true,
+        "detail": "rest_framework.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "IsAuthenticated",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
+        "isExtraImport": true,
+        "detail": "rest_framework.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "IsAuthenticated",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
+        "isExtraImport": true,
+        "detail": "rest_framework.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "IsAuthenticated",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
+        "isExtraImport": true,
+        "detail": "rest_framework.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "IsAuthenticated",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
+        "isExtraImport": true,
+        "detail": "rest_framework.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "IsAuthenticated",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
+        "isExtraImport": true,
+        "detail": "rest_framework.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "IsAuthenticated",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
+        "isExtraImport": true,
+        "detail": "rest_framework.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "ModelViewSet",
+        "importPath": "rest_framework.viewsets",
+        "description": "rest_framework.viewsets",
+        "isExtraImport": true,
+        "detail": "rest_framework.viewsets",
+        "documentation": {}
+    },
+    {
+        "label": "ModelViewSet",
+        "importPath": "rest_framework.viewsets",
+        "description": "rest_framework.viewsets",
+        "isExtraImport": true,
+        "detail": "rest_framework.viewsets",
+        "documentation": {}
+    },
+    {
+        "label": "ModelViewSet",
+        "importPath": "rest_framework.viewsets",
+        "description": "rest_framework.viewsets",
+        "isExtraImport": true,
+        "detail": "rest_framework.viewsets",
+        "documentation": {}
+    },
+    {
+        "label": "ModelViewSet",
+        "importPath": "rest_framework.viewsets",
+        "description": "rest_framework.viewsets",
+        "isExtraImport": true,
+        "detail": "rest_framework.viewsets",
+        "documentation": {}
+    },
+    {
+        "label": "ModelViewSet",
+        "importPath": "rest_framework.viewsets",
+        "description": "rest_framework.viewsets",
+        "isExtraImport": true,
+        "detail": "rest_framework.viewsets",
+        "documentation": {}
+    },
+    {
+        "label": "ModelViewSet",
+        "importPath": "rest_framework.viewsets",
+        "description": "rest_framework.viewsets",
+        "isExtraImport": true,
+        "detail": "rest_framework.viewsets",
+        "documentation": {}
+    },
+    {
+        "label": "ModelViewSet",
+        "importPath": "rest_framework.viewsets",
+        "description": "rest_framework.viewsets",
+        "isExtraImport": true,
+        "detail": "rest_framework.viewsets",
+        "documentation": {}
+    },
+    {
+        "label": "ModelViewSet",
+        "importPath": "rest_framework.viewsets",
+        "description": "rest_framework.viewsets",
+        "isExtraImport": true,
+        "detail": "rest_framework.viewsets",
+        "documentation": {}
+    },
+    {
+        "label": "AppConfig",
+        "importPath": "django.apps",
+        "description": "django.apps",
+        "isExtraImport": true,
+        "detail": "django.apps",
+        "documentation": {}
+    },
+    {
+        "label": "AppConfig",
+        "importPath": "django.apps",
+        "description": "django.apps",
+        "isExtraImport": true,
+        "detail": "django.apps",
+        "documentation": {}
+    },
+    {
+        "label": "AppConfig",
+        "importPath": "django.apps",
+        "description": "django.apps",
+        "isExtraImport": true,
+        "detail": "django.apps",
+        "documentation": {}
+    },
+    {
+        "label": "AppConfig",
+        "importPath": "django.apps",
+        "description": "django.apps",
+        "isExtraImport": true,
+        "detail": "django.apps",
+        "documentation": {}
+    },
+    {
+        "label": "TestCase",
+        "importPath": "django.test",
+        "description": "django.test",
+        "isExtraImport": true,
+        "detail": "django.test",
+        "documentation": {}
+    },
+    {
+        "label": "TestCase",
+        "importPath": "django.test",
+        "description": "django.test",
+        "isExtraImport": true,
+        "detail": "django.test",
+        "documentation": {}
+    },
+    {
+        "label": "TestCase",
+        "importPath": "django.test",
+        "description": "django.test",
+        "isExtraImport": true,
+        "detail": "django.test",
+        "documentation": {}
+    },
+    {
+        "label": "TestCase",
+        "importPath": "django.test",
+        "description": "django.test",
+        "isExtraImport": true,
+        "detail": "django.test",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "include",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "ImportExportModelAdmin",
+        "importPath": "import_export.admin",
+        "description": "import_export.admin",
+        "isExtraImport": true,
+        "detail": "import_export.admin",
+        "documentation": {}
+    },
+    {
+        "label": "ServicoInline",
+        "importPath": "agendamentos.admin.servico_inline",
+        "description": "agendamentos.admin.servico_inline",
+        "isExtraImport": true,
+        "detail": "agendamentos.admin.servico_inline",
+        "documentation": {}
+    },
+    {
+        "label": "django.core.validators",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "django.core.validators",
+        "description": "django.core.validators",
+        "detail": "django.core.validators",
+        "documentation": {}
+    },
+    {
+        "label": "MaxValueValidator",
+        "importPath": "django.core.validators",
+        "description": "django.core.validators",
+        "isExtraImport": true,
+        "detail": "django.core.validators",
+        "documentation": {}
+    },
+    {
+        "label": "MinValueValidator",
+        "importPath": "django.core.validators",
+        "description": "django.core.validators",
+        "isExtraImport": true,
+        "detail": "django.core.validators",
+        "documentation": {}
+    },
+    {
+        "label": "LoginRequiredMixin",
+        "importPath": "django.contrib.auth.mixins",
+        "description": "django.contrib.auth.mixins",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.mixins",
+        "documentation": {}
+    },
+    {
+        "label": "TemplateView",
+        "importPath": "django.views.generic",
+        "description": "django.views.generic",
+        "isExtraImport": true,
+        "detail": "django.views.generic",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "get_asgi_application",
+        "importPath": "django.core.asgi",
+        "description": "django.core.asgi",
+        "isExtraImport": true,
+        "detail": "django.core.asgi",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "static",
+        "importPath": "django.conf.urls.static",
+        "description": "django.conf.urls.static",
+        "isExtraImport": true,
+        "detail": "django.conf.urls.static",
+        "documentation": {}
+    },
+    {
+        "label": "DefaultRouter",
+        "importPath": "rest_framework.routers",
+        "description": "rest_framework.routers",
+        "isExtraImport": true,
+        "detail": "rest_framework.routers",
+        "documentation": {}
+    },
+    {
+        "label": "AgendamentoViewSet",
+        "importPath": "agendamentos.viewsets",
+        "description": "agendamentos.viewsets",
+        "isExtraImport": true,
+        "detail": "agendamentos.viewsets",
+        "documentation": {}
+    },
+    {
+        "label": "HistoricoDeAgendamentoViewSet",
+        "importPath": "agendamentos.viewsets",
+        "description": "agendamentos.viewsets",
+        "isExtraImport": true,
+        "detail": "agendamentos.viewsets",
+        "documentation": {}
+    },
+    {
+        "label": "ServicoViewSet",
+        "importPath": "agendamentos.viewsets",
+        "description": "agendamentos.viewsets",
+        "isExtraImport": true,
+        "detail": "agendamentos.viewsets",
+        "documentation": {}
+    },
+    {
+        "label": "Home",
+        "importPath": "barbearias.views",
+        "description": "barbearias.views",
+        "isExtraImport": true,
+        "detail": "barbearias.views",
+        "documentation": {}
+    },
+    {
+        "label": "AvaliacaoViewSet",
+        "importPath": "barbearias.viewsets",
+        "description": "barbearias.viewsets",
+        "isExtraImport": true,
+        "detail": "barbearias.viewsets",
+        "documentation": {}
+    },
+    {
+        "label": "BarbeariaViewSet",
+        "importPath": "barbearias.viewsets",
+        "description": "barbearias.viewsets",
+        "isExtraImport": true,
+        "detail": "barbearias.viewsets",
+        "documentation": {}
+    },
+    {
+        "label": "BarbeiroViewSet",
+        "importPath": "barbearias.viewsets",
+        "description": "barbearias.viewsets",
+        "isExtraImport": true,
+        "detail": "barbearias.viewsets",
+        "documentation": {}
+    },
+    {
+        "label": "ContatoViewSet",
+        "importPath": "barbearias.viewsets",
+        "description": "barbearias.viewsets",
+        "isExtraImport": true,
+        "detail": "barbearias.viewsets",
+        "documentation": {}
+    },
+    {
+        "label": "AvisoViewSet",
+        "importPath": "utilidades.viewsets",
+        "description": "utilidades.viewsets",
+        "isExtraImport": true,
+        "detail": "utilidades.viewsets",
+        "documentation": {}
+    },
+    {
+        "label": "get_wsgi_application",
+        "importPath": "django.core.wsgi",
+        "description": "django.core.wsgi",
+        "isExtraImport": true,
+        "detail": "django.core.wsgi",
+        "documentation": {}
+    },
+    {
+        "label": "UserAdmin",
+        "importPath": "django.contrib.auth.admin",
+        "description": "django.contrib.auth.admin",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.admin",
+        "documentation": {}
+    },
+    {
+        "label": "forms",
+        "importPath": "django",
+        "description": "django",
+        "isExtraImport": true,
+        "detail": "django",
+        "documentation": {}
+    },
+    {
+        "label": "site",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "site",
+        "description": "site",
+        "detail": "site",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "print_function",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "AgendamentoAdmin",
+        "kind": 6,
+        "importPath": "agendamentos.admin.agendamento_admin",
+        "description": "agendamentos.admin.agendamento_admin",
+        "peekOfCode": "class AgendamentoAdmin(DjangoObjectActions, admin.ModelAdmin):\n    list_display = [\n        'id',\n        'numero_do_agendamento',\n        'usuario',\n        'data_marcada',\n    ]\n    autocomplete_fields = [\n        'servico'\n    ]",
+        "detail": "agendamentos.admin.agendamento_admin",
+        "documentation": {}
+    },
+    {
+        "label": "HistoricoDeAgendamentoAdmin",
+        "kind": 6,
+        "importPath": "agendamentos.admin.historico_agendamento_admin",
+        "description": "agendamentos.admin.historico_agendamento_admin",
+        "peekOfCode": "class HistoricoDeAgendamentoAdmin(DjangoObjectActions, admin.ModelAdmin):\n    list_display = [\n        'servico_fornecido',\n        'preco_do_servico',\n        'cliente',\n        'barbeiro',\n        'data_do_agendamento',\n        'barbearia',\n    ]\n    list_filter = [",
+        "detail": "agendamentos.admin.historico_agendamento_admin",
+        "documentation": {}
+    },
+    {
+        "label": "ServicoAdmin",
+        "kind": 6,
+        "importPath": "agendamentos.admin.servico_admin",
+        "description": "agendamentos.admin.servico_admin",
+        "peekOfCode": "class ServicoAdmin(admin.ModelAdmin):\n    list_display = [\n        'nome_do_servico', \n        'tempo_de_duracao', \n        'preco'\n    ]\n    search_fields = [\n        'nome_do_servico'\n    ]\n    autocomplete_fields = [",
+        "detail": "agendamentos.admin.servico_admin",
+        "documentation": {}
+    },
+    {
+        "label": "ServicoInline",
+        "kind": 6,
+        "importPath": "agendamentos.admin.servico_inline",
+        "description": "agendamentos.admin.servico_inline",
+        "peekOfCode": "class ServicoInline(admin.StackedInline):\n    model = Servico\n    extra = 0",
+        "detail": "agendamentos.admin.servico_inline",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "agendamentos.migrations.0001_initial",
+        "description": "agendamentos.migrations.0001_initial",
+        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Servico',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),\n                ('nome_do_servico', models.CharField(blank=True, max_length=100, null=True, verbose_name='Nome do serviço')),",
+        "detail": "agendamentos.migrations.0001_initial",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "agendamentos.migrations.0002_agendamento",
+        "description": "agendamentos.migrations.0002_agendamento",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        migrations.swappable_dependency(settings.AUTH_USER_MODEL),\n        ('agendamentos', '0001_initial'),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Agendamento',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),",
+        "detail": "agendamentos.migrations.0002_agendamento",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "agendamentos.migrations.0003_historicodeagendamento",
+        "description": "agendamentos.migrations.0003_historicodeagendamento",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        migrations.swappable_dependency(settings.AUTH_USER_MODEL),\n        ('agendamentos', '0002_agendamento'),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='HistoricoDeAgendamento',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),",
+        "detail": "agendamentos.migrations.0003_historicodeagendamento",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "agendamentos.migrations.0004_agendamento_preco_do_servico",
+        "description": "agendamentos.migrations.0004_agendamento_preco_do_servico",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('agendamentos', '0003_historicodeagendamento'),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='agendamento',\n            name='preco_do_servico',\n            field=models.DecimalField(blank=True, decimal_places=2, max_digits=10, null=True, verbose_name='Preço do serviço'),\n        ),",
+        "detail": "agendamentos.migrations.0004_agendamento_preco_do_servico",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "agendamentos.migrations.0005_servico_disponivel_na_barbearia",
+        "description": "agendamentos.migrations.0005_servico_disponivel_na_barbearia",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('barbearias', '0002_remove_barbearia_servicos'),\n        ('agendamentos', '0004_agendamento_preco_do_servico'),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='servico',\n            name='disponivel_na_barbearia',\n            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='barbearias.barbearia', verbose_name='Barbearia'),",
+        "detail": "agendamentos.migrations.0005_servico_disponivel_na_barbearia",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "agendamentos.migrations.0006_remove_agendamento_servico_agendamento_servico",
+        "description": "agendamentos.migrations.0006_remove_agendamento_servico_agendamento_servico",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('agendamentos', '0005_servico_disponivel_na_barbearia'),\n    ]\n    operations = [\n        migrations.RemoveField(\n            model_name='agendamento',\n            name='servico',\n        ),\n        migrations.AddField(",
+        "detail": "agendamentos.migrations.0006_remove_agendamento_servico_agendamento_servico",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "agendamentos.migrations.0007_remove_agendamento_servico_agendamento_servico",
+        "description": "agendamentos.migrations.0007_remove_agendamento_servico_agendamento_servico",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('agendamentos', '0006_remove_agendamento_servico_agendamento_servico'),\n    ]\n    operations = [\n        migrations.RemoveField(\n            model_name='agendamento',\n            name='servico',\n        ),\n        migrations.AddField(",
+        "detail": "agendamentos.migrations.0007_remove_agendamento_servico_agendamento_servico",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "agendamentos.migrations.0008_historicodeagendamento_preco_do_servico",
+        "description": "agendamentos.migrations.0008_historicodeagendamento_preco_do_servico",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('agendamentos', '0007_remove_agendamento_servico_agendamento_servico'),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='historicodeagendamento',\n            name='preco_do_servico',\n            field=models.DecimalField(blank=True, decimal_places=2, max_digits=10, null=True, verbose_name='Preço do serviço'),\n        ),",
+        "detail": "agendamentos.migrations.0008_historicodeagendamento_preco_do_servico",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "agendamentos.migrations.0009_remove_agendamento_servico_agendamento_servico",
+        "description": "agendamentos.migrations.0009_remove_agendamento_servico_agendamento_servico",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('agendamentos', '0008_historicodeagendamento_preco_do_servico'),\n    ]\n    operations = [\n        migrations.RemoveField(\n            model_name='agendamento',\n            name='servico',\n        ),\n        migrations.AddField(",
+        "detail": "agendamentos.migrations.0009_remove_agendamento_servico_agendamento_servico",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "agendamentos.migrations.0010_remove_agendamento_servico_agendamento_servico",
+        "description": "agendamentos.migrations.0010_remove_agendamento_servico_agendamento_servico",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('agendamentos', '0009_remove_agendamento_servico_agendamento_servico'),\n    ]\n    operations = [\n        migrations.RemoveField(\n            model_name='agendamento',\n            name='servico',\n        ),\n        migrations.AddField(",
+        "detail": "agendamentos.migrations.0010_remove_agendamento_servico_agendamento_servico",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "agendamentos.migrations.0011_agendamento_numero_do_agendamento",
+        "description": "agendamentos.migrations.0011_agendamento_numero_do_agendamento",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('agendamentos', '0010_remove_agendamento_servico_agendamento_servico'),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='agendamento',\n            name='numero_do_agendamento',\n            field=models.CharField(blank=True, max_length=100, null=True, unique=True, verbose_name='Número do agendamento'),\n        ),",
+        "detail": "agendamentos.migrations.0011_agendamento_numero_do_agendamento",
+        "documentation": {}
+    },
+    {
+        "label": "Agendamento",
+        "kind": 6,
+        "importPath": "agendamentos.models.agendamento",
+        "description": "agendamentos.models.agendamento",
+        "peekOfCode": "class Agendamento(models.Model):\n    servico = models.ForeignKey(\n        Servico,\n        verbose_name='Serviço',\n        on_delete=models.SET_NULL,\n        blank=True,\n        null=True\n    )\n    escolher_barbeiro = models.ForeignKey(\n        User,",
+        "detail": "agendamentos.models.agendamento",
+        "documentation": {}
+    },
+    {
+        "label": "HistoricoDeAgendamento",
+        "kind": 6,
+        "importPath": "agendamentos.models.historico_agendamento",
+        "description": "agendamentos.models.historico_agendamento",
+        "peekOfCode": "class HistoricoDeAgendamento(models.Model):\n    servico_fornecido = models.ForeignKey(\n        Servico, \n        verbose_name='Serviço fornecido',\n        on_delete=models.SET_NULL,\n        blank=True,\n        null=True\n    )\n    preco_do_servico = models.DecimalField(\n        'Preço do serviço',",
+        "detail": "agendamentos.models.historico_agendamento",
+        "documentation": {}
+    },
+    {
+        "label": "Servico",
+        "kind": 6,
+        "importPath": "agendamentos.models.servico",
+        "description": "agendamentos.models.servico",
+        "peekOfCode": "class Servico(models.Model):\n    disponivel_na_barbearia = models.ForeignKey(\n        Barbearia,\n        verbose_name='Barbearia',\n        on_delete=models.SET_NULL,\n        blank=True,\n        null=True,\n    )\n    nome_do_servico = models.CharField(\n        'Nome do serviço',",
+        "detail": "agendamentos.models.servico",
+        "documentation": {}
+    },
+    {
+        "label": "AgendamentoSerializer",
+        "kind": 6,
+        "importPath": "agendamentos.serializers.agendamento_serializer",
+        "description": "agendamentos.serializers.agendamento_serializer",
+        "peekOfCode": "class AgendamentoSerializer(ModelSerializer):\n    class Meta:\n        model = Agendamento\n        fields = '__all__'",
+        "detail": "agendamentos.serializers.agendamento_serializer",
+        "documentation": {}
+    },
+    {
+        "label": "HistoricoDeAgendamentoSerializer",
+        "kind": 6,
+        "importPath": "agendamentos.serializers.historico_agendamento_serializer",
+        "description": "agendamentos.serializers.historico_agendamento_serializer",
+        "peekOfCode": "class HistoricoDeAgendamentoSerializer(ModelSerializer):\n    class Meta:\n        model = HistoricoDeAgendamento\n        fields = '__all__'\n        read_only_fields = [\n            'preco_do_servico',\n            'data_do_agendamento',\n            'servico_fornecido',\n            'cliente',\n            'barbeiro'",
+        "detail": "agendamentos.serializers.historico_agendamento_serializer",
+        "documentation": {}
+    },
+    {
+        "label": "ServicoSerializer",
+        "kind": 6,
+        "importPath": "agendamentos.serializers.servico_serializer",
+        "description": "agendamentos.serializers.servico_serializer",
+        "peekOfCode": "class ServicoSerializer(ModelSerializer):\n    class Meta:\n        model = Servico\n        fields = '__all__'",
+        "detail": "agendamentos.serializers.servico_serializer",
+        "documentation": {}
+    },
+    {
+        "label": "agendamento_criado",
+        "kind": 2,
+        "importPath": "agendamentos.signals.signal_registrar_agendamento",
+        "description": "agendamentos.signals.signal_registrar_agendamento",
+        "peekOfCode": "def agendamento_criado(sender, instance, created, **kwargs):\n    if created:\n        HistoricoDeAgendamento.objects.create(\n            servico_fornecido=instance.servico,\n            preco_do_servico=instance.preco_do_servico,\n            cliente=instance.usuario,\n            barbeiro=instance.escolher_barbeiro,\n            data_do_agendamento=instance.data_marcada,\n        )",
+        "detail": "agendamentos.signals.signal_registrar_agendamento",
+        "documentation": {}
+    },
+    {
+        "label": "imageUpload",
+        "kind": 2,
+        "importPath": "agendamentos.views.upload",
+        "description": "agendamentos.views.upload",
+        "peekOfCode": "def imageUpload(request):\n    '''Docstring here.'''\n    file = request.FILES['image']\n    file_system = FileSystemStorage()\n    file_name = str(file).split('.')[0]\n    file_object = file_system.save(file_name, file)\n    file_url = file_system.url(file_object)\n    return JsonResponse(\n      {\n        'success': 1,",
+        "detail": "agendamentos.views.upload",
+        "documentation": {}
+    },
+    {
+        "label": "fileUpload",
+        "kind": 2,
+        "importPath": "agendamentos.views.upload",
+        "description": "agendamentos.views.upload",
+        "peekOfCode": "def fileUpload(request):\n    file = request.FILES['file']\n    file_system = FileSystemStorage()\n    file_name, ext = str(file).split('.')[0]\n    file_object = file_system.save(file_name, file)\n    file_url = file_system.url(file_object)\n    return JsonResponse(\n      {\n        'success': 1,\n        'file': {",
+        "detail": "agendamentos.views.upload",
+        "documentation": {}
+    },
+    {
+        "label": "AgendamentoViewSet",
+        "kind": 6,
+        "importPath": "agendamentos.viewsets.agendamento_viewset",
+        "description": "agendamentos.viewsets.agendamento_viewset",
+        "peekOfCode": "class AgendamentoViewSet(ModelViewSet):\n    queryset = Agendamento.objects.all()\n    serializer_class = AgendamentoSerializer\n    permission_classes = [IsAuthenticated]\n    filterset_fields = [\n        'servico'\n    ]\n    def get_queryset(self):\n        now = datetime.now()\n        queryset =  super().get_queryset()",
+        "detail": "agendamentos.viewsets.agendamento_viewset",
+        "documentation": {}
+    },
+    {
+        "label": "HistoricoDeAgendamentoViewSet",
+        "kind": 6,
+        "importPath": "agendamentos.viewsets.historico_agendamento_viewset",
+        "description": "agendamentos.viewsets.historico_agendamento_viewset",
+        "peekOfCode": "class HistoricoDeAgendamentoViewSet(ModelViewSet):\n    queryset = HistoricoDeAgendamento.objects.all()\n    serializer_class = HistoricoDeAgendamentoSerializer\n    permission_classes = [IsAuthenticated]\n    filterset_fields = [\n        'servico_fornecido',\n        'cliente',\n        'barbeiro',\n    ]\n    def get_queryset(self):",
+        "detail": "agendamentos.viewsets.historico_agendamento_viewset",
+        "documentation": {}
+    },
+    {
+        "label": "ServicoViewSet",
+        "kind": 6,
+        "importPath": "agendamentos.viewsets.servico_viewset",
+        "description": "agendamentos.viewsets.servico_viewset",
+        "peekOfCode": "class ServicoViewSet(ModelViewSet):\n    queryset = Servico.objects.all()\n    serializer_class = ServicoSerializer\n    permission_classes = [IsAuthenticated]\n    filterset_fields = [\n        'nome_do_servico',\n        'tempo_de_duracao'\n    ]\n    def get_queryset(self):\n        queryset =  super().get_queryset()",
+        "detail": "agendamentos.viewsets.servico_viewset",
+        "documentation": {}
+    },
+    {
+        "label": "AgendamentosConfig",
+        "kind": 6,
+        "importPath": "agendamentos.apps",
+        "description": "agendamentos.apps",
+        "peekOfCode": "class AgendamentosConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'agendamentos'\n    def ready(self):\n        import agendamentos.signals",
+        "detail": "agendamentos.apps",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "agendamentos.urls",
+        "description": "agendamentos.urls",
+        "peekOfCode": "urlpatterns = [\n    path(\"fileUpload/\", fileUpload, name='file_upload'),\n    path(\"imageUpload/\", imageUpload, name='image_upload'),\n]",
+        "detail": "agendamentos.urls",
+        "documentation": {}
+    },
+    {
+        "label": "AvaliacaoAdmin",
+        "kind": 6,
+        "importPath": "barbearias.admin.avaliacao_admin",
+        "description": "barbearias.admin.avaliacao_admin",
+        "peekOfCode": "class AvaliacaoAdmin(admin.ModelAdmin):\n    list_display = [\n        'avaliacao',\n        'barbearia',\n        'usuario',\n    ]\n    autocomplete_fields = [\n        'barbearia'\n    ]\n    readonly_fields = [",
+        "detail": "barbearias.admin.avaliacao_admin",
+        "documentation": {}
+    },
+    {
+        "label": "AvaliacaoInline",
+        "kind": 6,
+        "importPath": "barbearias.admin.avaliacao_inline",
+        "description": "barbearias.admin.avaliacao_inline",
+        "peekOfCode": "class AvaliacaoInline(admin.TabularInline):\n    model = Avaliacao\n    extra = 0\n    max_num = 0\n    autocomplete_fields = [\n        'usuario'\n    ]",
+        "detail": "barbearias.admin.avaliacao_inline",
+        "documentation": {}
+    },
+    {
+        "label": "BarbeariaAdmin",
+        "kind": 6,
+        "importPath": "barbearias.admin.barbearia_admin",
+        "description": "barbearias.admin.barbearia_admin",
+        "peekOfCode": "class BarbeariaAdmin(DjangoObjectActions, admin.ModelAdmin):\n    list_display = [\n        'nome_da_barbearia',\n        'dono',\n        'cnpj',\n        'quantidade_de_agendamentos',\n        'ultimo_agendamento',\n        'numero_de_contatos',\n        'avisos_recentes',\n        'media_das_avaliacoes'",
+        "detail": "barbearias.admin.barbearia_admin",
+        "documentation": {}
+    },
+    {
+        "label": "BarbeiroAdmin",
+        "kind": 6,
+        "importPath": "barbearias.admin.barbeiro_admin",
+        "description": "barbearias.admin.barbeiro_admin",
+        "peekOfCode": "class BarbeiroAdmin(admin.ModelAdmin):\n    list_display = [\n        'barbeiro',\n        'barbearia',\n        'freelancer'\n    ]\n    fieldsets = [\n        ['informações', {\n            'fields': [\n                'barbeiro', ",
+        "detail": "barbearias.admin.barbeiro_admin",
+        "documentation": {}
+    },
+    {
+        "label": "BarbeiroInline",
+        "kind": 6,
+        "importPath": "barbearias.admin.barbeiro_inline",
+        "description": "barbearias.admin.barbeiro_inline",
+        "peekOfCode": "class BarbeiroInline(admin.TabularInline):\n    model = Barbeiro\n    extra = 0\n    max_num = 1\n    readonly_fields = [\n        'barbeiro',\n        'servicos'\n    ]\n    # def formfield_for_foreignkey(self, db_field, request,**kwargs):\n    #     if db_field.name == 'barbeiro':",
+        "detail": "barbearias.admin.barbeiro_inline",
+        "documentation": {}
+    },
+    {
+        "label": "ContatoInline",
+        "kind": 6,
+        "importPath": "barbearias.admin.contato_inline",
+        "description": "barbearias.admin.contato_inline",
+        "peekOfCode": "class ContatoInline(admin.StackedInline):\n    model = Contato\n    extra = 0",
+        "detail": "barbearias.admin.contato_inline",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "barbearias.migrations.0001_initial",
+        "description": "barbearias.migrations.0001_initial",
+        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n        ('agendamentos', '0003_historicodeagendamento'),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Barbearia',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),",
+        "detail": "barbearias.migrations.0001_initial",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "barbearias.migrations.0002_remove_barbearia_servicos",
+        "description": "barbearias.migrations.0002_remove_barbearia_servicos",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('barbearias', '0001_initial'),\n    ]\n    operations = [\n        migrations.RemoveField(\n            model_name='barbearia',\n            name='servicos',\n        ),\n    ]",
+        "detail": "barbearias.migrations.0002_remove_barbearia_servicos",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "barbearias.migrations.0003_alter_barbearia_cnpj",
+        "description": "barbearias.migrations.0003_alter_barbearia_cnpj",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('barbearias', '0002_remove_barbearia_servicos'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='barbearia',\n            name='cnpj',\n            field=models.CharField(blank=True, max_length=16, null=True, verbose_name='CNPJ'),\n        ),",
+        "detail": "barbearias.migrations.0003_alter_barbearia_cnpj",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "barbearias.migrations.0004_avaliacao",
+        "description": "barbearias.migrations.0004_avaliacao",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        migrations.swappable_dependency(settings.AUTH_USER_MODEL),\n        ('barbearias', '0003_alter_barbearia_cnpj'),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Avaliacao',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),",
+        "detail": "barbearias.migrations.0004_avaliacao",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "barbearias.migrations.0005_alter_avaliacao_avaliacao",
+        "description": "barbearias.migrations.0005_alter_avaliacao_avaliacao",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('barbearias', '0004_avaliacao'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='avaliacao',\n            name='avaliacao',\n            field=models.FloatField(blank=True, null=True, validators=[django.core.validators.MinValueValidator(0), django.core.validators.MaxValueValidator(5)], verbose_name='Avaliação'),\n        ),",
+        "detail": "barbearias.migrations.0005_alter_avaliacao_avaliacao",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "barbearias.migrations.0006_barbearia_dono_barbearia_funcionarios",
+        "description": "barbearias.migrations.0006_barbearia_dono_barbearia_funcionarios",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        migrations.swappable_dependency(settings.AUTH_USER_MODEL),\n        ('barbearias', '0005_alter_avaliacao_avaliacao'),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='barbearia',\n            name='dono',\n            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='barbearias', to=settings.AUTH_USER_MODEL, verbose_name='Dono'),",
+        "detail": "barbearias.migrations.0006_barbearia_dono_barbearia_funcionarios",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "barbearias.migrations.0007_alter_barbearia_cnpj",
+        "description": "barbearias.migrations.0007_alter_barbearia_cnpj",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('barbearias', '0006_barbearia_dono_barbearia_funcionarios'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='barbearia',\n            name='cnpj',\n            field=models.CharField(blank=True, max_length=19, null=True, verbose_name='CNPJ'),\n        ),",
+        "detail": "barbearias.migrations.0007_alter_barbearia_cnpj",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "barbearias.migrations.0008_barbeiro",
+        "description": "barbearias.migrations.0008_barbeiro",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        migrations.swappable_dependency(settings.AUTH_USER_MODEL),\n        ('agendamentos', '0006_remove_agendamento_servico_agendamento_servico'),\n        ('barbearias', '0007_alter_barbearia_cnpj'),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Barbeiro',\n            fields=[",
+        "detail": "barbearias.migrations.0008_barbeiro",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "barbearias.migrations.0009_alter_barbeiro_barbeiro",
+        "description": "barbearias.migrations.0009_alter_barbeiro_barbeiro",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('usuarios', '0004_alter_profile_tipo_do_usuario'),\n        ('barbearias', '0008_barbeiro'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='barbeiro',\n            name='barbeiro',\n            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='barbeiro', to='usuarios.profile', verbose_name='Barbeiro'),",
+        "detail": "barbearias.migrations.0009_alter_barbeiro_barbeiro",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "barbearias.migrations.0010_alter_barbeiro_barbeiro",
+        "description": "barbearias.migrations.0010_alter_barbeiro_barbeiro",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        migrations.swappable_dependency(settings.AUTH_USER_MODEL),\n        ('barbearias', '0009_alter_barbeiro_barbeiro'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='barbeiro',\n            name='barbeiro',\n            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='barbeiro', to=settings.AUTH_USER_MODEL, verbose_name='Barbeiro'),",
+        "detail": "barbearias.migrations.0010_alter_barbeiro_barbeiro",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "barbearias.migrations.0011_barbearia_bairro_barbearia_cep_barbearia_cidade_and_more",
+        "description": "barbearias.migrations.0011_barbearia_bairro_barbearia_cep_barbearia_cidade_and_more",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('barbearias', '0010_alter_barbeiro_barbeiro'),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='barbearia',\n            name='bairro',\n            field=models.CharField(blank=True, max_length=100, null=True, verbose_name='Bairro'),\n        ),",
+        "detail": "barbearias.migrations.0011_barbearia_bairro_barbearia_cep_barbearia_cidade_and_more",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "barbearias.migrations.0012_barbeiro_freelancer",
+        "description": "barbearias.migrations.0012_barbeiro_freelancer",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('barbearias', '0011_barbearia_bairro_barbearia_cep_barbearia_cidade_and_more'),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='barbeiro',\n            name='freelancer',\n            field=models.BooleanField(blank=True, default=False, null=True, verbose_name='Barbeiro Freelancer'),\n        ),",
+        "detail": "barbearias.migrations.0012_barbeiro_freelancer",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "barbearias.migrations.0013_alter_barbeiro_freelancer",
+        "description": "barbearias.migrations.0013_alter_barbeiro_freelancer",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('barbearias', '0012_barbeiro_freelancer'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='barbeiro',\n            name='freelancer',\n            field=models.BooleanField(default=False, verbose_name='Barbeiro Freelancer'),\n        ),",
+        "detail": "barbearias.migrations.0013_alter_barbeiro_freelancer",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "barbearias.migrations.0014_barbearia_agendamentos",
+        "description": "barbearias.migrations.0014_barbearia_agendamentos",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('barbearias', '0013_alter_barbeiro_freelancer'),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='barbearia',\n            name='agendamentos',\n            field=models.PositiveIntegerField(blank=True, default=0, null=True, verbose_name='Agendamentos'),\n        ),",
+        "detail": "barbearias.migrations.0014_barbearia_agendamentos",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "barbearias.migrations.0015_alter_barbearia_agendamentos",
+        "description": "barbearias.migrations.0015_alter_barbearia_agendamentos",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('barbearias', '0014_barbearia_agendamentos'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='barbearia',\n            name='agendamentos',\n            field=models.IntegerField(blank=True, default=0, null=True, verbose_name='Agendamentos'),\n        ),",
+        "detail": "barbearias.migrations.0015_alter_barbearia_agendamentos",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "barbearias.migrations.0016_remove_barbearia_agendamentos",
+        "description": "barbearias.migrations.0016_remove_barbearia_agendamentos",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('barbearias', '0015_alter_barbearia_agendamentos'),\n    ]\n    operations = [\n        migrations.RemoveField(\n            model_name='barbearia',\n            name='agendamentos',\n        ),\n    ]",
+        "detail": "barbearias.migrations.0016_remove_barbearia_agendamentos",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "barbearias.migrations.0017_barbearia_agendamentos",
+        "description": "barbearias.migrations.0017_barbearia_agendamentos",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('barbearias', '0016_remove_barbearia_agendamentos'),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='barbearia',\n            name='agendamentos',\n            field=models.PositiveIntegerField(blank=True, default=0, null=True, verbose_name='Agendamentos'),\n        ),",
+        "detail": "barbearias.migrations.0017_barbearia_agendamentos",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "barbearias.migrations.0018_remove_barbearia_agendamentos",
+        "description": "barbearias.migrations.0018_remove_barbearia_agendamentos",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('barbearias', '0017_barbearia_agendamentos'),\n    ]\n    operations = [\n        migrations.RemoveField(\n            model_name='barbearia',\n            name='agendamentos',\n        ),\n    ]",
+        "detail": "barbearias.migrations.0018_remove_barbearia_agendamentos",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "barbearias.migrations.0019_contato",
+        "description": "barbearias.migrations.0019_contato",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('barbearias', '0018_remove_barbearia_agendamentos'),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Contato',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),\n                ('contato', models.CharField(blank=True, max_length=100, null=True, verbose_name='Contato')),",
+        "detail": "barbearias.migrations.0019_contato",
+        "documentation": {}
+    },
+    {
+        "label": "Avaliacao",
+        "kind": 6,
+        "importPath": "barbearias.models.avaliacao",
+        "description": "barbearias.models.avaliacao",
+        "peekOfCode": "class Avaliacao(models.Model):\n    avaliacao = models.FloatField(\n        'Avaliação',\n        validators=[MinValueValidator(0), MaxValueValidator(5)],\n        blank=True,\n        null=True\n    )\n    barbearia = models.ForeignKey(\n        Barbearia,\n        verbose_name='Barbearia',",
+        "detail": "barbearias.models.avaliacao",
+        "documentation": {}
+    },
+    {
+        "label": "Barbearia",
+        "kind": 6,
+        "importPath": "barbearias.models.barbearia",
+        "description": "barbearias.models.barbearia",
+        "peekOfCode": "class Barbearia(models.Model):\n    dono = models.ForeignKey(\n        User,\n        verbose_name='Dono',\n        on_delete=models.SET_NULL,\n        blank=True,\n        null=True,\n        related_name='barbearias'\n    )\n    nome_da_barbearia = models.CharField(",
+        "detail": "barbearias.models.barbearia",
+        "documentation": {}
+    },
+    {
+        "label": "Barbeiro",
+        "kind": 6,
+        "importPath": "barbearias.models.barbeiro",
+        "description": "barbearias.models.barbeiro",
+        "peekOfCode": "class Barbeiro(models.Model):\n    barbeiro = models.ForeignKey(\n        User,\n        verbose_name='Barbeiro',\n        on_delete=models.SET_NULL,\n        blank=True,\n        null=True,\n        related_name='barbeiro'\n    )\n    servicos = models.ManyToManyField(",
+        "detail": "barbearias.models.barbeiro",
+        "documentation": {}
+    },
+    {
+        "label": "Contato",
+        "kind": 6,
+        "importPath": "barbearias.models.contato",
+        "description": "barbearias.models.contato",
+        "peekOfCode": "class Contato(models.Model):\n    barbearia = models.ForeignKey(\n        Barbearia,\n        verbose_name='Barbearia',\n        on_delete=models.SET_NULL,\n        blank=True,\n        null=True,\n        related_name='contatos'\n    )\n    contato = models.CharField(",
+        "detail": "barbearias.models.contato",
+        "documentation": {}
+    },
+    {
+        "label": "AvaliacaoSerializer",
+        "kind": 6,
+        "importPath": "barbearias.serializers.avaliacao_serializer",
+        "description": "barbearias.serializers.avaliacao_serializer",
+        "peekOfCode": "class AvaliacaoSerializer(ModelSerializer):\n    class Meta:\n        model = Avaliacao\n        fields = '__all__'\n        read_only_fields = ['avaliacao', 'barbearia', 'usuario']",
+        "detail": "barbearias.serializers.avaliacao_serializer",
+        "documentation": {}
+    },
+    {
+        "label": "BarbeariaSerializer",
+        "kind": 6,
+        "importPath": "barbearias.serializers.barbearia_serializer",
+        "description": "barbearias.serializers.barbearia_serializer",
+        "peekOfCode": "class BarbeariaSerializer(ModelSerializer):\n    class Meta:\n        model = Barbearia\n        fields = '__all__'",
+        "detail": "barbearias.serializers.barbearia_serializer",
+        "documentation": {}
+    },
+    {
+        "label": "BarbeiroSerializer",
+        "kind": 6,
+        "importPath": "barbearias.serializers.barbeiro_serializer",
+        "description": "barbearias.serializers.barbeiro_serializer",
+        "peekOfCode": "class BarbeiroSerializer(ModelSerializer):\n    class Meta:\n        model = Barbeiro\n        fields = '__all__'",
+        "detail": "barbearias.serializers.barbeiro_serializer",
+        "documentation": {}
+    },
+    {
+        "label": "ContatoSerializer",
+        "kind": 6,
+        "importPath": "barbearias.serializers.contato_serializer",
+        "description": "barbearias.serializers.contato_serializer",
+        "peekOfCode": "class ContatoSerializer(ModelSerializer):\n    class Meta:\n        model = Contato\n        fields = '__all__'",
+        "detail": "barbearias.serializers.contato_serializer",
+        "documentation": {}
+    },
+    {
+        "label": "Home",
+        "kind": 6,
+        "importPath": "barbearias.views.home",
+        "description": "barbearias.views.home",
+        "peekOfCode": "class Home(TemplateView, LoginRequiredMixin):\n    template_name = 'home.html'\n    def get_context_data(self, **kwargs):\n        context = super().get_context_data(**kwargs)\n        context['user'] = self.request.user\n        context['barbearias'] = Barbearia.objects.all()\n        return context",
+        "detail": "barbearias.views.home",
+        "documentation": {}
+    },
+    {
+        "label": "AvaliacaoViewSet",
+        "kind": 6,
+        "importPath": "barbearias.viewsets.avaliacao_viewset",
+        "description": "barbearias.viewsets.avaliacao_viewset",
+        "peekOfCode": "class AvaliacaoViewSet(ModelViewSet):\n    queryset = Avaliacao.objects.all()\n    serializer_class = AvaliacaoSerializer\n    permission_classes = [IsAuthenticated]\n    filterset_fields = [\n        'barbearia'\n    ]\n    def get_queryset(self):\n        queryset = super().get_queryset()\n        nome_da_barbearia = self.request.query_params.get('nome_da_barbearia')",
+        "detail": "barbearias.viewsets.avaliacao_viewset",
+        "documentation": {}
+    },
+    {
+        "label": "BarbeariaViewSet",
+        "kind": 6,
+        "importPath": "barbearias.viewsets.barbearia_viewset",
+        "description": "barbearias.viewsets.barbearia_viewset",
+        "peekOfCode": "class BarbeariaViewSet(ModelViewSet):\n    queryset = Barbearia.objects.all()\n    serializer_class = BarbeariaSerializer\n    permission_classes = [IsAuthenticated]\n    filterset_fields = [\n        'nome_da_barbearia'\n    ]",
+        "detail": "barbearias.viewsets.barbearia_viewset",
+        "documentation": {}
+    },
+    {
+        "label": "BarbeiroViewSet",
+        "kind": 6,
+        "importPath": "barbearias.viewsets.barbeiro_viewset",
+        "description": "barbearias.viewsets.barbeiro_viewset",
+        "peekOfCode": "class BarbeiroViewSet(ModelViewSet):\n    queryset = Barbeiro.objects.all()\n    serializer_class = BarbeiroSerializer\n    permission_classes = [IsAuthenticated]\n    filterset_fields = [\n        'barbeiro'\n    ]\n    def get_queryset(self):\n        queryset = super().get_queryset()\n        por_barbearia = self.request.query_params.get('por_barbearia')",
+        "detail": "barbearias.viewsets.barbeiro_viewset",
+        "documentation": {}
+    },
+    {
+        "label": "ContatoViewSet",
+        "kind": 6,
+        "importPath": "barbearias.viewsets.contato_viewset",
+        "description": "barbearias.viewsets.contato_viewset",
+        "peekOfCode": "class ContatoViewSet(ModelViewSet):\n    queryset = Contato.objects.all()\n    serializer_class = ContatoSerializer\n    permission_classes = [IsAuthenticated]\n    def get_queryset(self):\n        queryset = super().get_queryset()\n        barbearia = self.request.query_params.get('barbearia')\n        if barbearia:\n            queryset = queryset.filter(barbearia__nome_da_barbearia__icontains=barbearia)\n        return queryset",
+        "detail": "barbearias.viewsets.contato_viewset",
+        "documentation": {}
+    },
+    {
+        "label": "BarbeariasConfig",
+        "kind": 6,
+        "importPath": "barbearias.apps",
+        "description": "barbearias.apps",
+        "peekOfCode": "class BarbeariasConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'barbearias'",
+        "detail": "barbearias.apps",
+        "documentation": {}
+    },
+    {
+        "label": "application",
+        "kind": 5,
+        "importPath": "barbershop.asgi",
+        "description": "barbershop.asgi",
+        "peekOfCode": "application = get_asgi_application()",
+        "detail": "barbershop.asgi",
+        "documentation": {}
+    },
+    {
+        "label": "BASE_DIR",
+        "kind": 5,
+        "importPath": "barbershop.settings",
+        "description": "barbershop.settings",
+        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = 'django-insecure-7l&_)0af+6=9g)$p(#u55w#qmlihu7s4*nsdwgl$9l$12$zir$'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = ['*']\n# Application definition\nINSTALLED_APPS = [",
+        "detail": "barbershop.settings",
+        "documentation": {}
+    },
+    {
+        "label": "SECRET_KEY",
+        "kind": 5,
+        "importPath": "barbershop.settings",
+        "description": "barbershop.settings",
+        "peekOfCode": "SECRET_KEY = 'django-insecure-7l&_)0af+6=9g)$p(#u55w#qmlihu7s4*nsdwgl$9l$12$zir$'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = ['*']\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',",
+        "detail": "barbershop.settings",
+        "documentation": {}
+    },
+    {
+        "label": "DEBUG",
+        "kind": 5,
+        "importPath": "barbershop.settings",
+        "description": "barbershop.settings",
+        "peekOfCode": "DEBUG = True\nALLOWED_HOSTS = ['*']\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',",
+        "detail": "barbershop.settings",
+        "documentation": {}
+    },
+    {
+        "label": "ALLOWED_HOSTS",
+        "kind": 5,
+        "importPath": "barbershop.settings",
+        "description": "barbershop.settings",
+        "peekOfCode": "ALLOWED_HOSTS = ['*']\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    #apps",
+        "detail": "barbershop.settings",
+        "documentation": {}
+    },
+    {
+        "label": "INSTALLED_APPS",
+        "kind": 5,
+        "importPath": "barbershop.settings",
+        "description": "barbershop.settings",
+        "peekOfCode": "INSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    #apps\n    'agendamentos',\n    'barbearias',",
+        "detail": "barbershop.settings",
+        "documentation": {}
+    },
+    {
+        "label": "MIDDLEWARE",
+        "kind": 5,
+        "importPath": "barbershop.settings",
+        "description": "barbershop.settings",
+        "peekOfCode": "MIDDLEWARE = [\n    'django.middleware.security.SecurityMiddleware',\n    'django.contrib.sessions.middleware.SessionMiddleware',\n    'django.middleware.common.CommonMiddleware',\n    'django.middleware.csrf.CsrfViewMiddleware',\n    'django.contrib.auth.middleware.AuthenticationMiddleware',\n    'django.contrib.messages.middleware.MessageMiddleware',\n    'django.middleware.clickjacking.XFrameOptionsMiddleware',\n    \"corsheaders.middleware.CorsMiddleware\",\n    \"django.middleware.common.CommonMiddleware\",",
+        "detail": "barbershop.settings",
+        "documentation": {}
+    },
+    {
+        "label": "ROOT_URLCONF",
+        "kind": 5,
+        "importPath": "barbershop.settings",
+        "description": "barbershop.settings",
+        "peekOfCode": "ROOT_URLCONF = 'barbershop.urls'\nTEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [os.path.join(BASE_DIR, \"templates\")],\n        'APP_DIRS': True,\n        'OPTIONS': {\n            'context_processors': [\n                'django.template.context_processors.debug',\n                'django.template.context_processors.request',",
+        "detail": "barbershop.settings",
+        "documentation": {}
+    },
+    {
+        "label": "TEMPLATES",
+        "kind": 5,
+        "importPath": "barbershop.settings",
+        "description": "barbershop.settings",
+        "peekOfCode": "TEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [os.path.join(BASE_DIR, \"templates\")],\n        'APP_DIRS': True,\n        'OPTIONS': {\n            'context_processors': [\n                'django.template.context_processors.debug',\n                'django.template.context_processors.request',\n                'django.contrib.auth.context_processors.auth',",
+        "detail": "barbershop.settings",
+        "documentation": {}
+    },
+    {
+        "label": "REST_FRAMEWORK",
+        "kind": 5,
+        "importPath": "barbershop.settings",
+        "description": "barbershop.settings",
+        "peekOfCode": "REST_FRAMEWORK = {\n    # Adicionar o botao de Filtros na API\n    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],\n    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',\n    'PAGE_SIZE': 10,\n    #\n    #\n    'DEFAULT_AUTHENTICATION_CLASSES': [\n        'rest_framework.authentication.SessionAuthentication',\n        'rest_framework.authentication.BasicAuthentication',",
+        "detail": "barbershop.settings",
+        "documentation": {}
+    },
+    {
+        "label": "WSGI_APPLICATION",
+        "kind": 5,
+        "importPath": "barbershop.settings",
+        "description": "barbershop.settings",
+        "peekOfCode": "WSGI_APPLICATION = 'barbershop.wsgi.application'\n# Database\n# https://docs.djangoproject.com/en/4.0/ref/settings/#databases\nDATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.sqlite3',\n        'NAME': BASE_DIR / 'db.sqlite3',\n    }\n}\n# Password validation",
+        "detail": "barbershop.settings",
+        "documentation": {}
+    },
+    {
+        "label": "DATABASES",
+        "kind": 5,
+        "importPath": "barbershop.settings",
+        "description": "barbershop.settings",
+        "peekOfCode": "DATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.sqlite3',\n        'NAME': BASE_DIR / 'db.sqlite3',\n    }\n}\n# Password validation\n# https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators\nAUTH_PASSWORD_VALIDATORS = [\n    {",
+        "detail": "barbershop.settings",
+        "documentation": {}
+    },
+    {
+        "label": "AUTH_PASSWORD_VALIDATORS",
+        "kind": 5,
+        "importPath": "barbershop.settings",
+        "description": "barbershop.settings",
+        "peekOfCode": "AUTH_PASSWORD_VALIDATORS = [\n    {\n        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',\n    },\n    {\n        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',\n    },\n    {\n        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',\n    },",
+        "detail": "barbershop.settings",
+        "documentation": {}
+    },
+    {
+        "label": "LANGUAGE_CODE",
+        "kind": 5,
+        "importPath": "barbershop.settings",
+        "description": "barbershop.settings",
+        "peekOfCode": "LANGUAGE_CODE = 'pt-br'\nTIME_ZONE = 'America/Fortaleza'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.0/howto/static-files/\nMEDIA_URL = '/media/'\nMEDIA_ROOT = os.path.join(BASE_DIR,'media')\nSTATIC_URL = '/static/'\nSTATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')",
+        "detail": "barbershop.settings",
+        "documentation": {}
+    },
+    {
+        "label": "TIME_ZONE",
+        "kind": 5,
+        "importPath": "barbershop.settings",
+        "description": "barbershop.settings",
+        "peekOfCode": "TIME_ZONE = 'America/Fortaleza'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.0/howto/static-files/\nMEDIA_URL = '/media/'\nMEDIA_ROOT = os.path.join(BASE_DIR,'media')\nSTATIC_URL = '/static/'\nSTATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')\nSTATICFILES_DIRS = [",
+        "detail": "barbershop.settings",
+        "documentation": {}
+    },
+    {
+        "label": "USE_I18N",
+        "kind": 5,
+        "importPath": "barbershop.settings",
+        "description": "barbershop.settings",
+        "peekOfCode": "USE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.0/howto/static-files/\nMEDIA_URL = '/media/'\nMEDIA_ROOT = os.path.join(BASE_DIR,'media')\nSTATIC_URL = '/static/'\nSTATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')\nSTATICFILES_DIRS = [\n    os.path.join(BASE_DIR, 'static'),",
+        "detail": "barbershop.settings",
+        "documentation": {}
+    },
+    {
+        "label": "USE_TZ",
+        "kind": 5,
+        "importPath": "barbershop.settings",
+        "description": "barbershop.settings",
+        "peekOfCode": "USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.0/howto/static-files/\nMEDIA_URL = '/media/'\nMEDIA_ROOT = os.path.join(BASE_DIR,'media')\nSTATIC_URL = '/static/'\nSTATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')\nSTATICFILES_DIRS = [\n    os.path.join(BASE_DIR, 'static'),\n]",
+        "detail": "barbershop.settings",
+        "documentation": {}
+    },
+    {
+        "label": "MEDIA_URL",
+        "kind": 5,
+        "importPath": "barbershop.settings",
+        "description": "barbershop.settings",
+        "peekOfCode": "MEDIA_URL = '/media/'\nMEDIA_ROOT = os.path.join(BASE_DIR,'media')\nSTATIC_URL = '/static/'\nSTATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')\nSTATICFILES_DIRS = [\n    os.path.join(BASE_DIR, 'static'),\n]\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "detail": "barbershop.settings",
+        "documentation": {}
+    },
+    {
+        "label": "MEDIA_ROOT",
+        "kind": 5,
+        "importPath": "barbershop.settings",
+        "description": "barbershop.settings",
+        "peekOfCode": "MEDIA_ROOT = os.path.join(BASE_DIR,'media')\nSTATIC_URL = '/static/'\nSTATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')\nSTATICFILES_DIRS = [\n    os.path.join(BASE_DIR, 'static'),\n]\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "detail": "barbershop.settings",
+        "documentation": {}
+    },
+    {
+        "label": "STATIC_URL",
+        "kind": 5,
+        "importPath": "barbershop.settings",
+        "description": "barbershop.settings",
+        "peekOfCode": "STATIC_URL = '/static/'\nSTATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')\nSTATICFILES_DIRS = [\n    os.path.join(BASE_DIR, 'static'),\n]\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "detail": "barbershop.settings",
+        "documentation": {}
+    },
+    {
+        "label": "STATIC_ROOT",
+        "kind": 5,
+        "importPath": "barbershop.settings",
+        "description": "barbershop.settings",
+        "peekOfCode": "STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')\nSTATICFILES_DIRS = [\n    os.path.join(BASE_DIR, 'static'),\n]\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "detail": "barbershop.settings",
+        "documentation": {}
+    },
+    {
+        "label": "STATICFILES_DIRS",
+        "kind": 5,
+        "importPath": "barbershop.settings",
+        "description": "barbershop.settings",
+        "peekOfCode": "STATICFILES_DIRS = [\n    os.path.join(BASE_DIR, 'static'),\n]\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "detail": "barbershop.settings",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_AUTO_FIELD",
+        "kind": 5,
+        "importPath": "barbershop.settings",
+        "description": "barbershop.settings",
+        "peekOfCode": "DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "detail": "barbershop.settings",
+        "documentation": {}
+    },
+    {
+        "label": "admin.site.site_header",
+        "kind": 5,
+        "importPath": "barbershop.urls",
+        "description": "barbershop.urls",
+        "peekOfCode": "admin.site.site_header = 'BarberShop Admin'\nadmin.site.index_title = 'BarberShop Administração'\nadmin.site.site_title = 'BarberShop'\nmain_router = DefaultRouter()\nmain_router.register(r'avaliacoes', AvaliacaoViewSet, basename='avaliacoes')\nmain_router.register(r'avisos', AvisoViewSet, basename='avisos')\nmain_router.register(r'agendamentos', AgendamentoViewSet, basename='agendamentos')\nmain_router.register(r'barbearias', BarbeariaViewSet, basename='barbearias')\nmain_router.register(r'barbeiros', BarbeiroViewSet, basename='barbeiros')\nmain_router.register(r'contatos', ContatoViewSet, basename='contatos')",
+        "detail": "barbershop.urls",
+        "documentation": {}
+    },
+    {
+        "label": "admin.site.index_title",
+        "kind": 5,
+        "importPath": "barbershop.urls",
+        "description": "barbershop.urls",
+        "peekOfCode": "admin.site.index_title = 'BarberShop Administração'\nadmin.site.site_title = 'BarberShop'\nmain_router = DefaultRouter()\nmain_router.register(r'avaliacoes', AvaliacaoViewSet, basename='avaliacoes')\nmain_router.register(r'avisos', AvisoViewSet, basename='avisos')\nmain_router.register(r'agendamentos', AgendamentoViewSet, basename='agendamentos')\nmain_router.register(r'barbearias', BarbeariaViewSet, basename='barbearias')\nmain_router.register(r'barbeiros', BarbeiroViewSet, basename='barbeiros')\nmain_router.register(r'contatos', ContatoViewSet, basename='contatos')\nmain_router.register(r'historico-agendamentos', HistoricoDeAgendamentoViewSet, basename='historico-agendamentos')",
+        "detail": "barbershop.urls",
+        "documentation": {}
+    },
+    {
+        "label": "admin.site.site_title",
+        "kind": 5,
+        "importPath": "barbershop.urls",
+        "description": "barbershop.urls",
+        "peekOfCode": "admin.site.site_title = 'BarberShop'\nmain_router = DefaultRouter()\nmain_router.register(r'avaliacoes', AvaliacaoViewSet, basename='avaliacoes')\nmain_router.register(r'avisos', AvisoViewSet, basename='avisos')\nmain_router.register(r'agendamentos', AgendamentoViewSet, basename='agendamentos')\nmain_router.register(r'barbearias', BarbeariaViewSet, basename='barbearias')\nmain_router.register(r'barbeiros', BarbeiroViewSet, basename='barbeiros')\nmain_router.register(r'contatos', ContatoViewSet, basename='contatos')\nmain_router.register(r'historico-agendamentos', HistoricoDeAgendamentoViewSet, basename='historico-agendamentos')\nmain_router.register(r'servicos', ServicoViewSet, basename='servicos')",
+        "detail": "barbershop.urls",
+        "documentation": {}
+    },
+    {
+        "label": "main_router",
+        "kind": 5,
+        "importPath": "barbershop.urls",
+        "description": "barbershop.urls",
+        "peekOfCode": "main_router = DefaultRouter()\nmain_router.register(r'avaliacoes', AvaliacaoViewSet, basename='avaliacoes')\nmain_router.register(r'avisos', AvisoViewSet, basename='avisos')\nmain_router.register(r'agendamentos', AgendamentoViewSet, basename='agendamentos')\nmain_router.register(r'barbearias', BarbeariaViewSet, basename='barbearias')\nmain_router.register(r'barbeiros', BarbeiroViewSet, basename='barbeiros')\nmain_router.register(r'contatos', ContatoViewSet, basename='contatos')\nmain_router.register(r'historico-agendamentos', HistoricoDeAgendamentoViewSet, basename='historico-agendamentos')\nmain_router.register(r'servicos', ServicoViewSet, basename='servicos')\nurlpatterns = [",
+        "detail": "barbershop.urls",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "barbershop.urls",
+        "description": "barbershop.urls",
+        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n    path(\"\", Home.as_view(), name='Home'),\n    path('api/', include(main_router.urls)),\n    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),\n] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)",
+        "detail": "barbershop.urls",
+        "documentation": {}
+    },
+    {
+        "label": "application",
+        "kind": 5,
+        "importPath": "barbershop.wsgi",
+        "description": "barbershop.wsgi",
+        "peekOfCode": "application = get_wsgi_application()",
+        "detail": "barbershop.wsgi",
+        "documentation": {}
+    },
+    {
+        "label": "CustomUserAdmin",
+        "kind": 6,
+        "importPath": "usuarios.admin.custom_user_admin",
+        "description": "usuarios.admin.custom_user_admin",
+        "peekOfCode": "class CustomUserAdmin(UserAdmin):\n    def get_list_display(self, request):\n        list_display = super().get_list_display(request)\n        id = (\"id\",)\n        return id + list_display\n    inlines = [\n        ProfileInline,\n    ]",
+        "detail": "usuarios.admin.custom_user_admin",
+        "documentation": {}
+    },
+    {
+        "label": "ProfileInline",
+        "kind": 6,
+        "importPath": "usuarios.admin.usuario_admin",
+        "description": "usuarios.admin.usuario_admin",
+        "peekOfCode": "class ProfileInline(admin.StackedInline):\n    model = Profile\n    extra = 0\n    min_num = 1\n    can_delete = False",
+        "detail": "usuarios.admin.usuario_admin",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "usuarios.migrations.0001_initial",
+        "description": "usuarios.migrations.0001_initial",
+        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n        migrations.swappable_dependency(settings.AUTH_USER_MODEL),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Profile',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),",
+        "detail": "usuarios.migrations.0001_initial",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "usuarios.migrations.0002_profile_tipo_usuario",
+        "description": "usuarios.migrations.0002_profile_tipo_usuario",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('usuarios', '0001_initial'),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='profile',\n            name='tipo_usuario',\n            field=models.CharField(choices=[('Barbeiro', 'Barbeiro'), ('Cliente', 'Cliente')], default='Cliente', max_length=10, verbose_name='Tipo de Usuário'),\n        ),",
+        "detail": "usuarios.migrations.0002_profile_tipo_usuario",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "usuarios.migrations.0003_rename_tipo_usuario_profile_tipo_do_usuario",
+        "description": "usuarios.migrations.0003_rename_tipo_usuario_profile_tipo_do_usuario",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('usuarios', '0002_profile_tipo_usuario'),\n    ]\n    operations = [\n        migrations.RenameField(\n            model_name='profile',\n            old_name='tipo_usuario',\n            new_name='tipo_do_usuario',\n        ),",
+        "detail": "usuarios.migrations.0003_rename_tipo_usuario_profile_tipo_do_usuario",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "usuarios.migrations.0004_alter_profile_tipo_do_usuario",
+        "description": "usuarios.migrations.0004_alter_profile_tipo_do_usuario",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('usuarios', '0003_rename_tipo_usuario_profile_tipo_do_usuario'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='profile',\n            name='tipo_do_usuario',\n            field=models.CharField(blank=True, choices=[('Barbeiro', 'Barbeiro'), ('Cliente', 'Cliente')], default='Cliente', max_length=10, null=True, verbose_name='Tipo de Usuário'),\n        ),",
+        "detail": "usuarios.migrations.0004_alter_profile_tipo_do_usuario",
+        "documentation": {}
+    },
+    {
+        "label": "Profile",
+        "kind": 6,
+        "importPath": "usuarios.models.usuario",
+        "description": "usuarios.models.usuario",
+        "peekOfCode": "class Profile(models.Model):\n    TYPE_USER = (\n        ('Barbeiro', 'Barbeiro'),\n        ('Cliente', 'Cliente'),\n    )\n    usuario = models.OneToOneField(\n        User,\n        verbose_name='Usuário',\n        on_delete=models.CASCADE\n    )",
+        "detail": "usuarios.models.usuario",
+        "documentation": {}
+    },
+    {
+        "label": "UsuariosConfig",
+        "kind": 6,
+        "importPath": "usuarios.apps",
+        "description": "usuarios.apps",
+        "peekOfCode": "class UsuariosConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'usuarios'",
+        "detail": "usuarios.apps",
+        "documentation": {}
+    },
+    {
+        "label": "AvisoAdmin",
+        "kind": 6,
+        "importPath": "utilidades.admin.aviso_admin",
+        "description": "utilidades.admin.aviso_admin",
+        "peekOfCode": "class AvisoAdmin(DjangoObjectActions, admin.ModelAdmin):\n    list_display = [\n        'id',\n        'barbearia',\n        'data_de_inicio',\n        'data_de_encerramento',\n    ]\n    autocomplete_fields = [\n        'barbearia'\n    ]",
+        "detail": "utilidades.admin.aviso_admin",
+        "documentation": {}
+    },
+    {
+        "label": "AvisoForm",
+        "kind": 6,
+        "importPath": "utilidades.forms.aviso_form",
+        "description": "utilidades.forms.aviso_form",
+        "peekOfCode": "class AvisoForm(forms.ModelForm):\n    def clean(self):\n        cleaned_data = super().clean()\n        inicio = cleaned_data.get('data_de_inicio')\n        encerramento = cleaned_data.get('data_de_encerramento')\n        if inicio >= encerramento:\n            raise forms.ValidationError('A data de encerramento deve ser maior que a data de início')",
+        "detail": "utilidades.forms.aviso_form",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "utilidades.migrations.0001_initial",
+        "description": "utilidades.migrations.0001_initial",
+        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n        ('barbearias', '0007_alter_barbearia_cnpj'),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Aviso',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),",
+        "detail": "utilidades.migrations.0001_initial",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "utilidades.migrations.0002_alter_aviso_options_alter_aviso_data_de_encerramento_and_more",
+        "description": "utilidades.migrations.0002_alter_aviso_options_alter_aviso_data_de_encerramento_and_more",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('utilidades', '0001_initial'),\n    ]\n    operations = [\n        migrations.AlterModelOptions(\n            name='aviso',\n            options={'verbose_name': 'Aviso', 'verbose_name_plural': 'Avisos'},\n        ),\n        migrations.AlterField(",
+        "detail": "utilidades.migrations.0002_alter_aviso_options_alter_aviso_data_de_encerramento_and_more",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "utilidades.migrations.0003_aviso_aviso",
+        "description": "utilidades.migrations.0003_aviso_aviso",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('utilidades', '0002_alter_aviso_options_alter_aviso_data_de_encerramento_and_more'),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='aviso',\n            name='aviso',\n            field=models.CharField(blank=True, max_length=100, null=True, verbose_name='Aviso'),\n        ),",
+        "detail": "utilidades.migrations.0003_aviso_aviso",
+        "documentation": {}
+    },
+    {
+        "label": "Aviso",
+        "kind": 6,
+        "importPath": "utilidades.models.aviso",
+        "description": "utilidades.models.aviso",
+        "peekOfCode": "class Aviso(models.Model):\n    aviso = models.CharField(\n        'Aviso',\n        max_length=100,\n        blank=True,\n        null=True,\n    )\n    barbearia = models.ForeignKey(\n        'barbearias.Barbearia',\n        verbose_name='Barbearia',",
+        "detail": "utilidades.models.aviso",
+        "documentation": {}
+    },
+    {
+        "label": "AvisoSerializer",
+        "kind": 6,
+        "importPath": "utilidades.serializers.aviso_serializer",
+        "description": "utilidades.serializers.aviso_serializer",
+        "peekOfCode": "class AvisoSerializer(ModelSerializer):\n    class Meta:\n        model = Aviso\n        fields = '__all__'",
+        "detail": "utilidades.serializers.aviso_serializer",
+        "documentation": {}
+    },
+    {
+        "label": "AvisoViewSet",
+        "kind": 6,
+        "importPath": "utilidades.viewsets.aviso_viewset",
+        "description": "utilidades.viewsets.aviso_viewset",
+        "peekOfCode": "class AvisoViewSet(ModelViewSet):\n    queryset = Aviso.objects.all()\n    serializer_class = AvisoSerializer\n    permission_classes = [IsAuthenticated]\n    filterset_fields = [\n        'barbearia'\n    ]\n    def get_queryset(self):\n        now = datetime.now().date()\n        queryset = super().get_queryset()",
+        "detail": "utilidades.viewsets.aviso_viewset",
+        "documentation": {}
+    },
+    {
+        "label": "UtilidadesConfig",
+        "kind": 6,
+        "importPath": "utilidades.apps",
+        "description": "utilidades.apps",
+        "peekOfCode": "class UtilidadesConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'utilidades'",
+        "detail": "utilidades.apps",
+        "documentation": {}
+    },
+    {
+        "label": "bin_dir",
+        "kind": 5,
+        "importPath": "venv.bin.activate_this",
+        "description": "venv.bin.activate_this",
+        "peekOfCode": "bin_dir = os.path.dirname(abs_file)\nbase = bin_dir[: -len(\"bin\") - 1]  # strip away the bin part from the __file__, plus the path separator\n# prepend bin to PATH (this file is inside the bin directory)\nos.environ[\"PATH\"] = os.pathsep.join([bin_dir] + os.environ.get(\"PATH\", \"\").split(os.pathsep))\nos.environ[\"VIRTUAL_ENV\"] = base  # virtual env is right above bin directory\n# add the virtual environments libraries to the host python import mechanism\nprev_length = len(sys.path)\nfor lib in \"../lib/python3.8/site-packages\".split(os.pathsep):\n    path = os.path.realpath(os.path.join(bin_dir, lib))\n    site.addsitedir(path.decode(\"utf-8\") if \"\" else path)",
+        "detail": "venv.bin.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "base",
+        "kind": 5,
+        "importPath": "venv.bin.activate_this",
+        "description": "venv.bin.activate_this",
+        "peekOfCode": "base = bin_dir[: -len(\"bin\") - 1]  # strip away the bin part from the __file__, plus the path separator\n# prepend bin to PATH (this file is inside the bin directory)\nos.environ[\"PATH\"] = os.pathsep.join([bin_dir] + os.environ.get(\"PATH\", \"\").split(os.pathsep))\nos.environ[\"VIRTUAL_ENV\"] = base  # virtual env is right above bin directory\n# add the virtual environments libraries to the host python import mechanism\nprev_length = len(sys.path)\nfor lib in \"../lib/python3.8/site-packages\".split(os.pathsep):\n    path = os.path.realpath(os.path.join(bin_dir, lib))\n    site.addsitedir(path.decode(\"utf-8\") if \"\" else path)\nsys.path[:] = sys.path[prev_length:] + sys.path[0:prev_length]",
+        "detail": "venv.bin.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "os.environ[\"PATH\"]",
+        "kind": 5,
+        "importPath": "venv.bin.activate_this",
+        "description": "venv.bin.activate_this",
+        "peekOfCode": "os.environ[\"PATH\"] = os.pathsep.join([bin_dir] + os.environ.get(\"PATH\", \"\").split(os.pathsep))\nos.environ[\"VIRTUAL_ENV\"] = base  # virtual env is right above bin directory\n# add the virtual environments libraries to the host python import mechanism\nprev_length = len(sys.path)\nfor lib in \"../lib/python3.8/site-packages\".split(os.pathsep):\n    path = os.path.realpath(os.path.join(bin_dir, lib))\n    site.addsitedir(path.decode(\"utf-8\") if \"\" else path)\nsys.path[:] = sys.path[prev_length:] + sys.path[0:prev_length]\nsys.real_prefix = sys.prefix\nsys.prefix = base",
+        "detail": "venv.bin.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "os.environ[\"VIRTUAL_ENV\"]",
+        "kind": 5,
+        "importPath": "venv.bin.activate_this",
+        "description": "venv.bin.activate_this",
+        "peekOfCode": "os.environ[\"VIRTUAL_ENV\"] = base  # virtual env is right above bin directory\n# add the virtual environments libraries to the host python import mechanism\nprev_length = len(sys.path)\nfor lib in \"../lib/python3.8/site-packages\".split(os.pathsep):\n    path = os.path.realpath(os.path.join(bin_dir, lib))\n    site.addsitedir(path.decode(\"utf-8\") if \"\" else path)\nsys.path[:] = sys.path[prev_length:] + sys.path[0:prev_length]\nsys.real_prefix = sys.prefix\nsys.prefix = base",
+        "detail": "venv.bin.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "prev_length",
+        "kind": 5,
+        "importPath": "venv.bin.activate_this",
+        "description": "venv.bin.activate_this",
+        "peekOfCode": "prev_length = len(sys.path)\nfor lib in \"../lib/python3.8/site-packages\".split(os.pathsep):\n    path = os.path.realpath(os.path.join(bin_dir, lib))\n    site.addsitedir(path.decode(\"utf-8\") if \"\" else path)\nsys.path[:] = sys.path[prev_length:] + sys.path[0:prev_length]\nsys.real_prefix = sys.prefix\nsys.prefix = base",
+        "detail": "venv.bin.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "sys.path[:]",
+        "kind": 5,
+        "importPath": "venv.bin.activate_this",
+        "description": "venv.bin.activate_this",
+        "peekOfCode": "sys.path[:] = sys.path[prev_length:] + sys.path[0:prev_length]\nsys.real_prefix = sys.prefix\nsys.prefix = base",
+        "detail": "venv.bin.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "sys.real_prefix",
+        "kind": 5,
+        "importPath": "venv.bin.activate_this",
+        "description": "venv.bin.activate_this",
+        "peekOfCode": "sys.real_prefix = sys.prefix\nsys.prefix = base",
+        "detail": "venv.bin.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "sys.prefix",
+        "kind": 5,
+        "importPath": "venv.bin.activate_this",
+        "description": "venv.bin.activate_this",
+        "peekOfCode": "sys.prefix = base",
+        "detail": "venv.bin.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "cmd_doc",
+        "kind": 5,
+        "importPath": "venv.bin.runxlrd",
+        "description": "venv.bin.runxlrd",
+        "peekOfCode": "cmd_doc = \"\"\"\nCommands:\n2rows           Print the contents of first and last row in each sheet\n3rows           Print the contents of first, second and last row in each sheet\nbench           Same as \"show\", but doesn't print -- for profiling\nbiff_count[1]   Print a count of each type of BIFF record in the file\nbiff_dump[1]    Print a dump (char and hex) of the BIFF records in the file\nfonts           hdr + print a dump of all font objects\nhdr             Mini-overview of file (no per-sheet information)\nhotshot         Do a hotshot profile run e.g. ... -f1 hotshot bench bigfile*.xls",
+        "detail": "venv.bin.runxlrd",
+        "documentation": {}
+    },
+    {
+        "label": "options",
+        "kind": 5,
+        "importPath": "venv.bin.runxlrd",
+        "description": "venv.bin.runxlrd",
+        "peekOfCode": "options = None\nif __name__ == \"__main__\":\n    import xlrd\n    import sys\n    import time\n    import glob\n    import traceback\n    import gc\n    from xlrd.timemachine import xrange, REPR\n    class LogHandler(object):",
+        "detail": "venv.bin.runxlrd",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "manage",
+        "description": "manage",
+        "peekOfCode": "def main():\n    \"\"\"Run administrative tasks.\"\"\"\n    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'barbershop.settings')\n    try:\n        from django.core.management import execute_from_command_line\n    except ImportError as exc:\n        raise ImportError(\n            \"Couldn't import Django. Are you sure it's installed and \"\n            \"available on your PYTHONPATH environment variable? Did you \"\n            \"forget to activate a virtual environment?\"",
+        "detail": "manage",
+        "documentation": {}
+    }
+]

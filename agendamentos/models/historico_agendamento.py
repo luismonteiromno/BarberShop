@@ -1,6 +1,8 @@
-from django.db import models
 from django.contrib.auth.models import User
+from django.db import models
+
 from .servico import Servico
+
 
 class HistoricoDeAgendamento(models.Model):
     servico_fornecido = models.ForeignKey(

@@ -1,6 +1,8 @@
 from django.db import models
 from django_editorjs import EditorJsField
+
 from barbearias.models import Barbearia
+
 
 class Servico(models.Model):
     disponivel_na_barbearia = models.ForeignKey(

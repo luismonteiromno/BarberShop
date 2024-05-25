@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Aviso(models.Model):
     aviso = models.CharField(
         'Aviso',

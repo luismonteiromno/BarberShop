@@ -1,9 +1,10 @@
-from django.db import models
-from django.core.validators import MinValueValidator, MaxValueValidator
-from .barbearia import Barbearia
-
 from crum import get_current_user
 from django.contrib.auth.models import User
+from django.core.validators import MaxValueValidator, MinValueValidator
+from django.db import models
+
+from .barbearia import Barbearia
+
 
 class Avaliacao(models.Model):
     avaliacao = models.FloatField(

@@ -1,5 +1,7 @@
 from django.db import models
+
 from . import Barbearia
+
 
 class Contato(models.Model):
     barbearia = models.ForeignKey(
