@@ -1,3 +1,4 @@
+import django.db.models
 from typing import Any
 from django.contrib import admin
 from django.contrib.auth.models import User
@@ -48,3 +49,12 @@ class BarbeiroAdmin(admin.ModelAdmin):
             kwargs['queryset'] = User.objects.filter(profile__tipo_do_usuario='Barbeiro')
         return super().formfield_for_foreignkey(db_field, request, **kwargs)
     
+    def get_queryset(self, request):
+        queryset =  super().get_queryset(request)
+        
+        if not request.user.is_superuser:
+            queryset = queryset.filter(
+                barbearia__dono=request.user
+            ).select_related('barbearia__dono')
+            
+        return queryset

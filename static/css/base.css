@@ -4,7 +4,7 @@
       --primary-color-faded: #2d83e6; /* Cor dos APPS: Verde NEON */
       --models-color: #fff; /* Cor dos Models: branco */
       --secondary-color: #fff; /* Cor do footer: branco */
-      --terciary-color: #1698af;
+      --terciary-color: #3b94b8;
       --color-hover: #12236b; /* Cor do link ao passar mouse por cima: branco */
       --delete-color: #770909; 
       --delete-hover: #550606; /* Cor do link ao passar mouse por do item de exclusao: Vermelho */
@@ -113,8 +113,8 @@
     
     /* Estilos gerais */
     body * {
-      font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;;
-  }
+      font-family: 'Montserrat', sans-serif;
+    }
     
     .selector-chosen h2 {
       background: var(--primary-color-faded) !important;
@@ -766,7 +766,7 @@
   .module h2, .module caption, .inline-group {
     font-weight: 800;
     color: var(--secondary-color);
-    background-color: var(--primary-color-faded);
+    background-color: var(--delete-color);
   }
   
   .inline-group .tabular tr.has_original td {

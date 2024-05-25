@@ -1,5 +1,7 @@
+from decimal import Decimal
 from django.db import models
 from .servico import Servico
+
 from django.contrib.auth.models import User
 from crum import get_current_user
 
@@ -46,8 +48,10 @@ class Agendamento(models.Model):
     
     @property
     def preco_total(self):
-        preco = self.servico.preco
-        return preco if preco else 0
+        if self.pk:
+            return Decimal(self.servico.preco)
+        else:
+            return 0
 
     def save(self, *args, **kwargs):
         if not self.pk:

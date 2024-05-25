@@ -1,4 +1,4 @@
-from django.contrib import admin
+from django.contrib import admin, messages
 from django_object_actions import DjangoObjectActions
 
 from ..models import HistoricoDeAgendamento
@@ -25,8 +25,11 @@ class HistoricoDeAgendamentoAdmin(DjangoObjectActions, admin.ModelAdmin):
     ]
     
     def deletar_historico(self, request, obj):
-        obj.delete()
-        self.message_user(request, 'Histórico de agendamento deletado com sucesso!')
+        if obj:
+            obj.delete()
+            self.message_user(request, 'Histórico de agendamento deletado com sucesso!', level=messages.SUCCESS)
+        else:
+            self.message_user(request, 'Histórico de agendamento está vazio!', level=messages.WARNING)
     
     def has_add_permission(self, request, obj=None):
         return False
@@ -36,3 +39,13 @@ class HistoricoDeAgendamentoAdmin(DjangoObjectActions, admin.ModelAdmin):
     
     def has_delete_permission(self, request, obj=None):
         return False
+    
+    def get_queryset(self, request):
+        queryset = super().get_queryset(request)
+        
+        if not request.user.is_superuser:
+            queryset = queryset.filter(
+                barbearia__dono=request.user
+            ).select_related('barbearia__dono')
+            
+        return queryset

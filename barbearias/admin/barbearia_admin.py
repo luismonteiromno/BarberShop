@@ -1,4 +1,7 @@
+from typing import Any
 from django.contrib import admin
+from django.db.models.query import QuerySet
+from django.http import HttpRequest
 from import_export.admin import ImportExportModelAdmin
 from django_object_actions import DjangoObjectActions
 
@@ -20,7 +23,8 @@ class BarbeariaAdmin(DjangoObjectActions, admin.ModelAdmin):
         'quantidade_de_agendamentos',
         'ultimo_agendamento',
         'numero_de_contatos',
-        'avisos_recentes'
+        'avisos_recentes',
+        'media_das_avaliacoes'
     ]
     
     fieldsets = [
@@ -85,4 +89,10 @@ class BarbeariaAdmin(DjangoObjectActions, admin.ModelAdmin):
         print(obj)
         print('olja')
     
-   
+    def get_queryset(self, request):
+        queryset = super().get_queryset(request)
+        
+        if not request.user.is_superuser:
+            queryset = queryset.filter(dono=request.user)
+            
+        return queryset

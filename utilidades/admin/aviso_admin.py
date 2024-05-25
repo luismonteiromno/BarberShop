@@ -1,4 +1,4 @@
-from django.contrib import admin
+from django.contrib import admin, messages
 from django_object_actions import DjangoObjectActions
 
 from ..models import Aviso
@@ -20,12 +20,12 @@ class AvisoAdmin(DjangoObjectActions, admin.ModelAdmin):
     ]
     
     changelist_actions = [
-        'remover_anuncios'
+        'remover_anuncios_passados'
     ]
     
     form = AvisoForm
     
-    def remover_anuncios(self, request, obj):
+    def remover_anuncios_passados(self, request, obj):
         for instance in obj:
             data_atual = datetime.strftime(datetime.now(), '%d/%m/%Y %H:%M:%S')
             data_marcada = datetime.strftime(instance.data_de_encerramento, '%d/%m/%Y %H:%M:%S')

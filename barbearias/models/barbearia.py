@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import Avg
 from django.contrib.auth.models import User
 
 from crum import get_current_user
@@ -110,6 +111,13 @@ class Barbearia(models.Model):
             return avisos
         else:
             return None
+        
+    @property
+    def media_das_avaliacoes(self):
+        media = self.avaliacao_set.all()
+        if media:
+            media = media.aggregate(Avg('avaliacao'))['avaliacao__avg']
+            return media
     
     def save(self, *args, **kwargs):
         user = get_current_user()
