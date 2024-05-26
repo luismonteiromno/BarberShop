@@ -1,8 +1,9 @@
+from barbearias.models import Barbearia
 from django.db import models
 from django_editorjs import EditorJsField
+from utilidades.models.promocao import Promocao
 
-from barbearias.models import Barbearia
-
+from datetime import datetime
 
 class Servico(models.Model):
     disponivel_na_barbearia = models.ForeignKey(
@@ -73,6 +74,30 @@ class Servico(models.Model):
         blank=True,
         null=True
     )
+    
+    @property
+    def ultima_promocao(self):
+        promocao = self.promocao_set.order_by('-inicio_da_promocao').last()
+        if promocao:
+           return promocao
+        else:
+            return None
+          
+    @property
+    def promocao_atual(self):
+        promocao = (
+          self.promocao_set.filter(
+            inicio_da_promocao__lte=datetime.now().date(),
+            fim_da_promocao__gte=datetime.now().date()
+          )
+          .order_by('-inicio_da_promocao')
+          .last()
+        )
+        if promocao:
+           return promocao
+        else:
+            return 'Nenhuma promoção no momento'
+      
     
     def __str__(self):
         return self.nome_do_servico

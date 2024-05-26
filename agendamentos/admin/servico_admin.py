@@ -8,7 +8,9 @@ class ServicoAdmin(admin.ModelAdmin):
     list_display = [
         'nome_do_servico', 
         'tempo_de_duracao', 
-        'preco'
+        'preco',
+        'promocao_atual',
+        'ultima_promocao'
     ]
     
     search_fields = [

@@ -1,12 +1,11 @@
 from typing import Any
 
+from agendamentos.admin.servico_inline import ServicoInline
 from django.contrib import admin
 from django.db.models.query import QuerySet
 from django.http import HttpRequest
 from django_object_actions import DjangoObjectActions
 from import_export.admin import ImportExportModelAdmin
-
-from agendamentos.admin.servico_inline import ServicoInline
 
 from ..models import Barbearia
 from .avaliacao_inline import AvaliacaoInline
@@ -24,7 +23,7 @@ class BarbeariaAdmin(DjangoObjectActions, admin.ModelAdmin):
         'ultimo_agendamento',
         'numero_de_contatos',
         'avisos_recentes',
-        'media_das_avaliacoes'
+        'media_das_avaliacoes_0_a_5'
     ]
     
     fieldsets = [

@@ -82,7 +82,7 @@ class Barbearia(models.Model):
         if self.pk:
             agendamentos = Agendamento.objects.filter(
                 servico__disponivel_na_barbearia=self.pk
-            ).select_related('servico').count()
+            ).select_related('servico__disponivel_na_barbearia').count()
             return agendamentos
         else:
             return 0
@@ -99,7 +99,7 @@ class Barbearia(models.Model):
         if self.pk:
             agendamentos = Agendamento.objects.filter(
                 servico__disponivel_na_barbearia=self.pk
-            ).select_related('servico').last()
+            ).select_related('servico__disponivel_na_barbearia').last()
             return agendamentos
         else:
             return None
@@ -113,7 +113,7 @@ class Barbearia(models.Model):
             return None
         
     @property
-    def media_das_avaliacoes(self):
+    def media_das_avaliacoes_0_a_5(self):
         media = self.avaliacao_set.all()
         if media:
             media = media.aggregate(Avg('avaliacao'))['avaliacao__avg']
