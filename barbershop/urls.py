@@ -24,7 +24,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
 from rest_framework.routers import DefaultRouter
-from utilidades.viewsets import AvisoViewSet
+from utilidades.viewsets import AvisoViewSet, PromocaoViewSet
 
 admin.site.site_header = 'BarberShop Admin'
 admin.site.index_title = 'BarberShop Administração'
@@ -40,6 +40,7 @@ main_router.register(r'barbearias', BarbeariaViewSet, basename='barbearias')
 main_router.register(r'barbeiros', BarbeiroViewSet, basename='barbeiros')
 main_router.register(r'contatos', ContatoViewSet, basename='contatos')
 main_router.register(r'historico-agendamentos', HistoricoDeAgendamentoViewSet, basename='historico-agendamentos')
+main_router.register(r'promocoes', PromocaoViewSet, basename='promocoes')
 main_router.register(r'servicos', ServicoViewSet, basename='servicos')
 
 urlpatterns = [

@@ -7,8 +7,10 @@ from .barbearia import Barbearia
 
 
 class Avaliacao(models.Model):
-    avaliacao = models.FloatField(
+    avaliacao = models.DecimalField(
         'Avaliação',
+        max_digits=5,
+        decimal_places=1,
         validators=[MinValueValidator(0), MaxValueValidator(5)],
         blank=True,
         null=True

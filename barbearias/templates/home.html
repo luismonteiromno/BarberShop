@@ -12,6 +12,7 @@
         <h2>Welcome, {{ user.username }}!</h2>
         {% for barbearia in barbearias%}
             <h3>{{ barbearia.nome_da_barbearia }}</h3>
+            {{ media }}
         {% endfor %}
     {% else %}
         <p>Welcome, Guest!</p>

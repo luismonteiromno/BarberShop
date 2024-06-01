@@ -56,7 +56,7 @@ class AgendamentoAdmin(DjangoObjectActions, admin.ModelAdmin):
         queryset = super().get_queryset(request)
         
         queryset = queryset.exclude(
-                    data_marcada__lte=now
+                    data_marcada__lt=now
                 )
         
         if not request.user.is_superuser:

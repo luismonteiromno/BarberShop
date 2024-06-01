@@ -18,11 +18,11 @@ class BarbeariaAdmin(DjangoObjectActions, admin.ModelAdmin):
     list_display = [
         'nome_da_barbearia',
         'dono',
-        'cnpj',
         'quantidade_de_agendamentos',
         'ultimo_agendamento',
         'numero_de_contatos',
         'avisos_recentes',
+        'ultima_avaliacao',
         'media_das_avaliacoes_0_a_5'
     ]
     

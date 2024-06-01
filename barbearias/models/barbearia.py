@@ -1,4 +1,5 @@
 from crum import get_current_user
+from decimal import Decimal, InvalidOperation
 from django.contrib.auth.models import User
 from django.db import models
 from django.db.models import Avg
@@ -79,10 +80,12 @@ class Barbearia(models.Model):
     @property
     def quantidade_de_agendamentos(self):
         from agendamentos.models import Agendamento
+        from datetime import datetime
         if self.pk:
             agendamentos = Agendamento.objects.filter(
+                data_marcada__gt=datetime.now(),
                 servico__disponivel_na_barbearia=self.pk
-            ).select_related('servico__disponivel_na_barbearia').count()
+            ).count()
             return agendamentos
         else:
             return 0
@@ -114,10 +117,16 @@ class Barbearia(models.Model):
         
     @property
     def media_das_avaliacoes_0_a_5(self):
-        media = self.avaliacao_set.all()
+        media = self.avaliacao_set.aggregate(Avg('avaliacao'))['avaliacao__avg']
         if media:
-            media = media.aggregate(Avg('avaliacao'))['avaliacao__avg']
-            return media
+            return Decimal(media).quantize(Decimal('0.0'))
+        else:
+            return 'Nenhuma avaliação'
+        
+    @property
+    def ultima_avaliacao(self):
+        ultima_avaliacao = self.avaliacao_set.last()
+        return ultima_avaliacao
     
     def save(self, *args, **kwargs):
         user = get_current_user()
