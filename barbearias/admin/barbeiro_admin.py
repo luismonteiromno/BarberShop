@@ -21,6 +21,7 @@ class BarbeiroAdmin(admin.ModelAdmin):
                 'barbeiro', 
                 'barbearia', 
                 'servicos', 
+                'salario',
                 'freelancer'
             ]
         }]

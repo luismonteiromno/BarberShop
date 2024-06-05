@@ -59,4 +59,4 @@ class HistoricoDeAgendamentoAdmin(DjangoObjectActions, admin.ModelAdmin):
                 barbearia__dono=request.user
             ).select_related('barbearia__dono')
             
-        return queryset.exclude(data_do_agendamento__lt=hoje)
+        return queryset

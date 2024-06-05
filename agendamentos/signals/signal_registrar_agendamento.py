@@ -14,3 +14,4 @@ def agendamento_criado(sender, instance, created, **kwargs):
             barbeiro=instance.escolher_barbeiro,
             data_do_agendamento=instance.data_marcada,
         ) 
+    print('teste')

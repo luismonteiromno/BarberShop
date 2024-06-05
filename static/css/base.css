@@ -1,12 +1,12 @@
   /* Definição das variáveis de cores */
   :root {
-      --primary-color: #247ee4; /* Cor do header: Preto */
-      --primary-color-faded: #2d83e6; /* Cor dos APPS: Verde NEON */
-      --models-color: #fff; /* Cor dos Models: branco */
+      --primary-color: #000; /* Cor do header: Preto */
+      --primary-color-faded: #eb13bc; /* Cor dos APPS: Verde NEON */
+      --models-color: #ffffff; /* Cor dos Models: branco */
       --secondary-color: #fff; /* Cor do footer: branco */
-      --terciary-color: #3b94b8;
-      --color-hover: #12236b; /* Cor do link ao passar mouse por cima: branco */
-      --delete-color: #770909; 
+      --terciary-color: #b60ee9;
+      --color-hover: #6b2aa0; /* Cor do link ao passar mouse por cima: branco */
+      --delete-color: #f009b6; 
       --delete-hover: #550606; /* Cor do link ao passar mouse por do item de exclusao: Vermelho */
       --color-back-models: #0e0d0dea;
       --color-module: #000;
@@ -31,7 +31,9 @@
       background: var(--color-back-models);
       border-radius: 0.25rem;
       overflow: hidden;
-      box-shadow: 0 0.0625rem 0.2875rem var(--color-module), 0 0.0625rem 0.125rem var(--color-module), -0.0625rem -0.0625rem 1.25rem var(--color-back-models);
+      box-shadow: 0 0.0625rem 0.2875rem var(--color-module), 0 0.0625rem 0.125rem var(--color-module), -0.0625rem -0.0625rem var(--color-back-models);
+      /* box-shadow: 0 0.0825rem var(--color-module), 0 0.0625rem 0.125rem var(--color-module), -0.0625rem -0.0625rem var(--color-back-models); */
+      /* box-shadow: 0 .0625rem .1875rem var(--color-module), 0 .0625rem .125rem var(--color-module), -.0625rem -.0625rem 1.25rem var(--color-module); */
     }
 
     #toolbar {
@@ -766,7 +768,7 @@
   .module h2, .module caption, .inline-group {
     font-weight: 800;
     color: var(--secondary-color);
-    background-color: var(--delete-color);
+    /* background-color: var(--color-module); */
   }
   
   .inline-group .tabular tr.has_original td {

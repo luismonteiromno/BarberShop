@@ -82,14 +82,16 @@ class Agendamento(models.Model):
         if self.pk:
             return Decimal(self.servico.preco)
         else:
-            return 0
+            return Decimal(self.servico.preco)
 
     def save(self, *args, **kwargs):
         if not self.pk:
             user = get_current_user()
             self.usuario = user
             self.numero_do_agendamento = self.formatar_numero_do_pedido
-        self.preco_do_servico = self.preco_total
+            self.preco_do_servico = self.preco_total
+        else:
+            self.preco_do_servico = self.preco_total
         super().save(*args, **kwargs)
     
     def __str__(self):

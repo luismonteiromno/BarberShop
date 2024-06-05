@@ -28,6 +28,14 @@ class Barbeiro(models.Model):
         null=True,
     )
     
+    salario = models.DecimalField(
+        'Salário',
+        max_digits=10,
+        decimal_places=2,
+        blank=True,
+        null=True,
+    )
+    
     freelancer =  models.BooleanField(
         'Barbeiro Freelancer',
         default=False
