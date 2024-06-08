@@ -33,17 +33,10 @@ def registrar_lucros(sender, instance, created, **kwargs):
     receita = sum(lucro.preco_do_servico for lucro in agendamentos)
         
     with transaction.atomic():
-        defaults = {
-            'renda_mensal': lucro_mes,
-            'despesas': despesas,
-            'lucro_total': lucro_total,
-            'receita_total': receita, 
-        }  
         Financeiro.objects.update_or_create(
-            barbearia=instance,
+            barbearia=barbearia,
             renda_mensal=lucro_mes,
             despesas=despesas,
             lucro_total=lucro_total,
             receita_total=receita, 
-            defaults=defaults 
         )

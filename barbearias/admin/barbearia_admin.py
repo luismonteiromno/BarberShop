@@ -7,7 +7,7 @@ from django.http import HttpRequest
 from django_object_actions import DjangoObjectActions
 from import_export.admin import ImportExportModelAdmin
 
-from ..models import Barbearia
+from ..models import Barbearia, Financeiro
 from .avaliacao_inline import AvaliacaoInline
 from .barbeiro_inline import BarbeiroInline
 from .contato_inline import ContatoInline
@@ -72,22 +72,20 @@ class BarbeariaAdmin(DjangoObjectActions, admin.ModelAdmin):
         ServicoInline,
     ]
     
-    change_actions = [
-        'instancia'
-    ]
+    # change_actions = [
+    #     'atualizar_financas'
+    # ]
     
     # actions = [
     #     'ola'
     # ]
-    
+        
     changelist_actions = [
-        'instancia'
+        'atualizar_todas_as_financas'
     ]
     
-    def instancia(self, request, obj):
-        print(request.user)
-        print(obj)
-        print('olja')
+    def atualizar_todas_as_financas(self, request, obj):
+        Financeiro.atualizar_todas_as_financas(self, obj)
     
     def get_queryset(self, request):
         queryset = super().get_queryset(request)

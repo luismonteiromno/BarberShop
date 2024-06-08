@@ -14,14 +14,14 @@ class FinanceiroAdmin(DjangoObjectActions, ImportExportModelAdmin, admin.ModelAd
     
     change_actions = [
         'atualizar_financas',
-        'limpar_financas'
+        'limpar_financeiro',
     ]
     
     def atualizar_financas(self, request, obj):
         Financeiro.atualizar_financas(self, obj)
     
-    def limpar_financas(self, request, obj):
-        Financeiro.limpar_financas(self, obj)
+    def limpar_financeiro(self, request, obj):
+        Financeiro.limpar_financeiro(self, obj)
     
     def has_add_permission(self, request, obj=None):
         return False
