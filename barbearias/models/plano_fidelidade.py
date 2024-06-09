@@ -26,7 +26,7 @@ class PlanosDeFidelidade(models.Model):
     )
     
     preco = models.DecimalField(
-        'Preço por mês',
+        'Mensalidade',
         max_digits=10,
         decimal_places=2,
         blank=True,

@@ -11,7 +11,8 @@ class ClienteViewSet(ModelViewSet):
     permission_classes = [IsAuthenticated]
     
     filterset_fields = [
-        'cliente'
+        'cliente',
+        'plano_de_fidelidade',
     ]
     
     def get_queryset(self):
@@ -20,4 +21,9 @@ class ClienteViewSet(ModelViewSet):
         if not self.request.user.is_superuser:
             queryset = queryset.filter(cliente=self.request.user)
             
+        barbearia = self.request.query_params.get('barbearia')
+        
+        if barbearia:
+            queryset = queryset.filter(plano_de_fidelidade__barbearia__nome_da_barbearia__icontains=barbearia) 
+
         return queryset
