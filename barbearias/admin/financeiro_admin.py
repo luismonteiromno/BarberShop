@@ -11,7 +11,7 @@ class FinanceiroAdmin(DjangoObjectActions, ImportExportModelAdmin, admin.ModelAd
         'receita_total',
         'despesas',
     ]
-    
+  
     change_actions = [
         'atualizar_financas',
         'limpar_financeiro',

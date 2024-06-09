@@ -12,6 +12,7 @@ from .avaliacao_inline import AvaliacaoInline
 from .barbeiro_inline import BarbeiroInline
 from .contato_inline import ContatoInline
 from .financeiro_inline import FinanceiroInline
+from .plano_fidelidade_inline import PlanosDeFidelidadeInline
 
 @admin.register(Barbearia)
 class BarbeariaAdmin(DjangoObjectActions, admin.ModelAdmin):
@@ -69,6 +70,7 @@ class BarbeariaAdmin(DjangoObjectActions, admin.ModelAdmin):
         BarbeiroInline,
         ContatoInline,
         FinanceiroInline,
+        PlanosDeFidelidadeInline,
         ServicoInline,
     ]
     

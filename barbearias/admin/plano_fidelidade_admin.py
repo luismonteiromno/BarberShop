@@ -14,6 +14,10 @@ class PlanosDeFidelidadeAdmin(admin.ModelAdmin):
         'barbearia__nome_da_barbearia'
     ]
     
+    exclude = [
+        'quantidade_de_cortes'
+    ]
+    
     autocomplete_fields = [
         'barbearia'
     ]

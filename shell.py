@@ -3,7 +3,11 @@ from django.contrib.auth.models import User
 
 users = User.objects.all()
 for user in users:
-    cliente = Cliente.objects.create(
-        cliente=user,
-    )
-    print('usuario criado')
+    cliente = User.objects.get(pk=user.id)
+    if not cliente:
+        Cliente.objects.create(
+            cliente=user,
+        )
+        print(f'usuario {user} criado')
+    else:
+        print(f'usuario {user} ja existe')
