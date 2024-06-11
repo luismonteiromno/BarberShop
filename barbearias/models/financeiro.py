@@ -1,13 +1,15 @@
+from decimal import Decimal
 from django.db import models, transaction
 from django.db.models import Q
 
 from ..models import Barbearia
 
 class Financeiro(models.Model):
-    barbearia = models.ForeignKey(
+    barbearia = models.OneToOneField(
         Barbearia,
         verbose_name='Barbearia',
         on_delete=models.SET_NULL,
+        unique=True,
         blank=True,
         null=True,
     )
@@ -71,6 +73,7 @@ class Financeiro(models.Model):
         barbearia = Barbearia.objects.get(pk=financeiro.barbearia.id)
         barbeiros = barbearia.barbeiro_set.all()
         planos = barbearia.planosdefidelidade_set.all()
+        
         agendamentos = (
             Agendamento.objects.filter(
                 servico__disponivel_na_barbearia=barbearia,
@@ -81,11 +84,11 @@ class Financeiro(models.Model):
             data_marcada__month=pendulum.now().month 
         )
         
-        despesas = sum(barbeiro.salario for barbeiro in barbeiros)
-        lucro_total = sum(lucro.preco_do_servico for lucro in agendamentos) - despesas
-        lucro_planos = sum(lucro.preco for lucro in planos)
-        lucro_mes = sum(lucro.preco_do_servico for lucro in lucro_mensal) + lucro_planos
-        receita = sum(lucro.preco_do_servico for lucro in agendamentos)
+        despesas = Decimal(sum(barbeiro.salario for barbeiro in barbeiros))
+        lucro_total = Decimal(sum(lucro.preco_do_servico for lucro in agendamentos)) - despesas
+        lucro_planos = Decimal(sum(lucro.preco for lucro in planos))
+        lucro_mes = Decimal(sum(lucro.preco_do_servico for lucro in lucro_mensal)) + lucro_planos
+        receita = Decimal(sum(lucro.preco_do_servico for lucro in agendamentos))
             
         with transaction.atomic(): 
             financeiro.renda_mensal = lucro_mes
@@ -116,20 +119,20 @@ class Financeiro(models.Model):
             planos = barbearia.planosdefidelidade_set.all()
             agendamentos = (
                 Agendamento.objects.filter(
-                    data_marcada__lt=pendulum.now(),
                     servico__disponivel_na_barbearia=barbearia,
                 )
             )
             lucro_mensal = agendamentos.filter(
+                data_marcada__lt=pendulum.now(),
                 data_marcada__month=pendulum.now().month 
             )
             financeiros = barbearia.financeiro_set.all()
 
-            despesas = sum(barbeiro.salario for barbeiro in barbeiros)
-            lucro_total = sum(lucro.preco_do_servico for lucro in agendamentos) - despesas
-            lucro_planos = sum(lucro.preco for lucro in planos)
-            lucro_mes = sum(lucro.preco_do_servico for lucro in lucro_mensal) + lucro_planos
-            receita = sum(lucro.preco_do_servico for lucro in agendamentos)
+            despesas = Decimal(sum(barbeiro.salario for barbeiro in barbeiros))
+            lucro_total = Decimal(sum(lucro.preco_do_servico for lucro in agendamentos)) - despesas
+            lucro_planos = Decimal(sum(lucro.preco for lucro in planos))
+            lucro_mes = Decimal(sum(lucro.preco_do_servico for lucro in lucro_mensal)) + lucro_planos
+            receita = Decimal(sum(lucro.preco_do_servico for lucro in agendamentos))
             
             for financeiro in financeiros:
                 with transaction.atomic(): 

@@ -20,12 +20,20 @@ class ServicoViewSet(ModelViewSet):
         
         servico = self.request.query_params.get('servico')
         duracao = self.request.query_params.get('duracao')
+        preco_menor = self.request.query_params.get('preco_menor_que')
+        preco_maior = self.request.query_params.get('preco_maior_que')
         
         if servico:
             queryset = queryset.filter(nome_do_servico__icontains=servico)
             
         if duracao:
             queryset = queryset.filter(tempo_de_duracao=duracao)
+            
+        if preco_menor:
+            queryset = queryset.filter(preco__lte=preco_menor)
+        
+        if preco_maior:
+            queryset = queryset.filter(preco__gte=preco_maior)
             
         return queryset
     

@@ -74,7 +74,7 @@ class Agendamento(models.Model):
         if mes < 10:
             mes = f'0{mes}'
             
-        numero_agendamento = f'Barber{ano}{mes}{agendamento_id}'
+        numero_agendamento = f'BBSHP{ano}{mes}{agendamento_id}'
         return numero_agendamento        
     
     @property

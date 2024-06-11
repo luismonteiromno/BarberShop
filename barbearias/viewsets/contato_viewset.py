@@ -15,6 +15,9 @@ class ContatoViewSet(ModelViewSet):
         
         barbearia = self.request.query_params.get('barbearia')
         
+        if not self.request.user.is_superuser:
+            queryset = queryset.filter(barbearia__dono=self.request.user)
+        
         if barbearia:
             queryset = queryset.filter(barbearia__nome_da_barbearia__icontains=barbearia)
         

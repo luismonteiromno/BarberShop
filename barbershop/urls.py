@@ -60,5 +60,6 @@ urlpatterns = [
     path("", Home.as_view(), name='Home'),
     path('api/', include(main_router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('_nested_admin/', include('nested_admin.urls')),
     path('tinymce/', include('tinymce.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

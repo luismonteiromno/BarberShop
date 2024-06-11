@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'django_editorjs',
     'django_object_actions',
     'import_export',
+    'nested_admin',
     'tinymce',
     'corsheaders'
 ]

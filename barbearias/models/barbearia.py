@@ -6,6 +6,12 @@ from django.db.models import Avg
 
 
 class Barbearia(models.Model):
+    TIPO_BARBEARIA = (
+        ('Própria', 'Própria'),
+        ('Parceira', 'Parceira'),
+        ('Locação', 'Locação'),
+    )
+    
     dono = models.ForeignKey(
         User,
         verbose_name='Dono',
@@ -76,6 +82,35 @@ class Barbearia(models.Model):
         blank=True,
         null=True
     )
+    
+    tipo_de_barbearia = models.CharField(
+        'Tipo de barbearia',
+        max_length=100,
+        choices=TIPO_BARBEARIA,
+        blank=True,
+        null=True
+    )
+    
+    horario_de_abertura = models.DateTimeField(
+        'Horário de abertura',
+        blank=True,
+        null=True
+    )
+    
+    horario_de_fechamento = models.DateTimeField(
+        'Horário de fechamento',
+        blank=True,
+        null=True
+    )
+    
+    @property
+    def orcamento(self):
+        from .financeiro import Financeiro
+        orcamentos = Financeiro.objects.filter(barbearia_id=self.id)
+        for orcamento in orcamentos:
+            return orcamento.lucro_total
+        else:
+            return 0
     
     @property
     def quantidade_de_agendamentos(self):

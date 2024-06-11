@@ -1,5 +1,4 @@
-from typing import Any
-
+import nested_admin
 from agendamentos.admin.servico_inline import ServicoInline
 from django.contrib import admin
 from django.db.models.query import QuerySet
@@ -7,6 +6,7 @@ from django.http import HttpRequest
 from django_object_actions import DjangoObjectActions
 from import_export.admin import ImportExportModelAdmin
 
+import nested_admin
 from ..models import Barbearia, Financeiro
 from .avaliacao_inline import AvaliacaoInline
 from .barbeiro_inline import BarbeiroInline
@@ -20,6 +20,7 @@ class BarbeariaAdmin(DjangoObjectActions, admin.ModelAdmin):
         'nome_da_barbearia',
         'dono',
         'quantidade_de_agendamentos',
+        'orcamento',
         'ultimo_agendamento',
         'numero_de_contatos',
         'avisos_recentes',
@@ -40,6 +41,9 @@ class BarbeariaAdmin(DjangoObjectActions, admin.ModelAdmin):
                 'cidade',
                 'estado',
                 'cep',
+                'tipo_de_barbearia',
+                'horario_de_abertura',
+                'horario_de_fechamento'
             ]
         }],
     ]

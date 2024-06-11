@@ -1,4 +1,4 @@
-from django.http import HttpRequest
+import nested_admin
 from ..models import Financeiro
 from django.contrib import admin
 

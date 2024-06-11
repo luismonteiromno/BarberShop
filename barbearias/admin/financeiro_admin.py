@@ -11,6 +11,10 @@ class FinanceiroAdmin(DjangoObjectActions, ImportExportModelAdmin, admin.ModelAd
         'receita_total',
         'despesas',
     ]
+    
+    autocomplete_fields = [
+        'barbearia',
+    ]
   
     change_actions = [
         'atualizar_financas',
