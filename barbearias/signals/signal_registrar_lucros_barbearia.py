@@ -12,6 +12,7 @@ from ..models import (
     Financeiro
 )
 
+import pendulum
 from datetime import datetime
 
 @receiver(post_save, sender=Barbearia)
@@ -20,11 +21,12 @@ def registrar_lucros(sender, instance, created, **kwargs):
     barbeiros = barbearia.barbeiro_set.all()
     agendamentos = (
         Agendamento.objects.filter(
+            data_marcada__lt=pendulum.now(),
             servico__disponivel_na_barbearia=barbearia,
         )
     )
     lucro_mensal = agendamentos.filter(
-         data_marcada__month=datetime.now().month 
+         data_marcada__month=pendulum.now().month 
     )
     
     despesas = sum(barbeiro.salario for barbeiro in barbeiros)
@@ -33,10 +35,13 @@ def registrar_lucros(sender, instance, created, **kwargs):
     receita = sum(lucro.preco_do_servico for lucro in agendamentos)
         
     with transaction.atomic():
-        Financeiro.objects.update_or_create(
-            barbearia=barbearia,
-            renda_mensal=lucro_mes,
-            despesas=despesas,
-            lucro_total=lucro_total,
-            receita_total=receita, 
-        )
+        financeiro = Financeiro.objects.get(pk=barbearia.id)
+        financeiro.renda_mensal = lucro_mes
+        financeiro.despesas = despesas
+        financeiro.lucro_total = lucro_total
+        financeiro.receita_total = receita
+        financeiro.prejuizo = lucro_total < 0
+        financeiro.lucro = lucro_total > 0
+        financeiro.save()
+            
+        

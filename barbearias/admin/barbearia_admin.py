@@ -15,7 +15,7 @@ from .financeiro_inline import FinanceiroInline
 from .plano_fidelidade_inline import PlanosDeFidelidadeInline
 
 @admin.register(Barbearia)
-class BarbeariaAdmin(DjangoObjectActions, admin.ModelAdmin):
+class BarbeariaAdmin(nested_admin.NestedModelAdmin):
     list_display = [
         'nome_da_barbearia',
         'dono',

@@ -76,17 +76,17 @@ class Financeiro(models.Model):
         
         agendamentos = (
             Agendamento.objects.filter(
+                data_marcada__lt=pendulum.now(),
                 servico__disponivel_na_barbearia=barbearia,
             )
         )
         lucro_mensal = agendamentos.filter(
-            data_marcada__lt=pendulum.now(),
             data_marcada__month=pendulum.now().month 
         )
         
         despesas = Decimal(sum(barbeiro.salario for barbeiro in barbeiros))
-        lucro_total = Decimal(sum(lucro.preco_do_servico for lucro in agendamentos)) - despesas
         lucro_planos = Decimal(sum(lucro.preco for lucro in planos))
+        lucro_total = (Decimal(sum(lucro.preco_do_servico for lucro in agendamentos)) + lucro_planos) - despesas
         lucro_mes = Decimal(sum(lucro.preco_do_servico for lucro in lucro_mensal)) + lucro_planos
         receita = Decimal(sum(lucro.preco_do_servico for lucro in agendamentos))
             
@@ -94,6 +94,7 @@ class Financeiro(models.Model):
             financeiro.renda_mensal = lucro_mes
             financeiro.despesas = despesas
             financeiro.lucro_planos = lucro_planos
+            financeiro.lucro_total = lucro_total
             financeiro.receita_total = receita 
             financeiro.prejuizo = lucro_total < 0
             financeiro.lucro = lucro_total > 0
@@ -119,27 +120,27 @@ class Financeiro(models.Model):
             planos = barbearia.planosdefidelidade_set.all()
             agendamentos = (
                 Agendamento.objects.filter(
+                    data_marcada__lt=pendulum.now(),
                     servico__disponivel_na_barbearia=barbearia,
                 )
             )
             lucro_mensal = agendamentos.filter(
-                data_marcada__lt=pendulum.now(),
                 data_marcada__month=pendulum.now().month 
             )
             financeiros = barbearia.financeiro_set.all()
 
             despesas = Decimal(sum(barbeiro.salario for barbeiro in barbeiros))
-            lucro_total = Decimal(sum(lucro.preco_do_servico for lucro in agendamentos)) - despesas
             lucro_planos = Decimal(sum(lucro.preco for lucro in planos))
+            lucro_total = (Decimal(sum(lucro.preco_do_servico for lucro in agendamentos)) + lucro_planos) - despesas
             lucro_mes = Decimal(sum(lucro.preco_do_servico for lucro in lucro_mensal)) + lucro_planos
             receita = Decimal(sum(lucro.preco_do_servico for lucro in agendamentos))
             
-            for financeiro in financeiros:
-                with transaction.atomic(): 
+            with transaction.atomic(): 
+                for financeiro in financeiros:
                     financeiro.renda_mensal = lucro_mes
                     financeiro.despesas = despesas
-                    financeiro.lucro_total = lucro_total
                     financeiro.lucro_planos = lucro_planos
+                    financeiro.lucro_total = lucro_total
                     financeiro.receita_total = receita 
                     financeiro.prejuizo = lucro_total < 0
                     financeiro.lucro = lucro_total > 0

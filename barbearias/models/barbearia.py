@@ -106,9 +106,9 @@ class Barbearia(models.Model):
     @property
     def orcamento(self):
         from .financeiro import Financeiro
-        orcamentos = Financeiro.objects.filter(barbearia_id=self.id)
-        for orcamento in orcamentos:
-            return orcamento.lucro_total
+        orcamento = self.financeiro.lucro_total
+        if orcamento:
+            return orcamento
         else:
             return 0
     

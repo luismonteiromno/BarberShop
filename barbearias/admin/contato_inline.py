@@ -1,9 +1,10 @@
+import nested_admin
 from django.contrib import admin
 
 from ..models import Contato
 
 
-class ContatoInline(admin.StackedInline):
+class ContatoInline(nested_admin.NestedStackedInline):
     model = Contato
     extra = 0
     

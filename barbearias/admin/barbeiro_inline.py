@@ -1,11 +1,12 @@
 
+import nested_admin
 from django.contrib import admin
 from django.contrib.auth.models import User
 
 from ..models import Barbeiro
 
 
-class BarbeiroInline(admin.TabularInline):
+class BarbeiroInline(nested_admin.NestedTabularInline):
     model = Barbeiro
     extra = 0
     max_num = 1

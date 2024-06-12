@@ -1,4 +1,6 @@
 from django.contrib import admin
+from .cliente_inline import ClienteInline
+
 from ..models import PlanosDeFidelidade
 
 @admin.register(PlanosDeFidelidade)
@@ -24,4 +26,8 @@ class PlanosDeFidelidadeAdmin(admin.ModelAdmin):
     
     readonly_fields = [
         'usuarios'
+    ]
+    
+    inlines = [
+        ClienteInline,
     ]
