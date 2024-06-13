@@ -1,9 +1,6 @@
-from typing import Any
 from django.contrib import admin
-from django.db.models.query import QuerySet
 from datetime import datetime
 from ..models import Servico
-
 
 @admin.register(Servico)
 class ServicoAdmin(admin.ModelAdmin):
@@ -20,6 +17,7 @@ class ServicoAdmin(admin.ModelAdmin):
     ]
     
     autocomplete_fields = [
+        'categoria',
         'disponivel_na_barbearia'
     ]
     

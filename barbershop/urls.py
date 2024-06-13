@@ -13,9 +13,14 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from agendamentos.viewsets import (AgendamentoViewSet,
-                                   HistoricoDeAgendamentoViewSet,
-                                   ServicoViewSet)
+from agendamentos.viewsets import (
+    AgendamentoViewSet,
+    CategoriaDoServicoViewSet,
+    HistoricoDeAgendamentoViewSet,
+    MeuAgendamentoViewSet,
+    ServicoViewSet
+)
+
 from barbearias.views import Home
 from barbearias.viewsets import (
     AvaliacaoViewSet, 
@@ -47,10 +52,12 @@ main_router.register(r'avisos', AvisoViewSet, basename='avisos')
 main_router.register(r'agendamentos', AgendamentoViewSet, basename='agendamentos')
 main_router.register(r'barbearias', BarbeariaViewSet, basename='barbearias')
 main_router.register(r'barbeiros', BarbeiroViewSet, basename='barbeiros')
+main_router.register(r'categorias-servicos', CategoriaDoServicoViewSet, basename='categorias-servicos')
 main_router.register(r'clientes', ClienteViewSet, basename='clientes')
 main_router.register(r'contatos', ContatoViewSet, basename='contatos')
 main_router.register(r'financeiros', FinanceiroViewSet, basename='financeiros')
 main_router.register(r'historico-agendamentos', HistoricoDeAgendamentoViewSet, basename='historico-agendamentos')
+main_router.register(r'meus-agendamentos', MeuAgendamentoViewSet, basename='meu-agendamentos')
 main_router.register(r'planos-fidelidade', PlanosDeFidelidadeViewSet, basename='planos-fidelidade')
 main_router.register(r'promocoes', PromocaoViewSet, basename='promocoes')
 main_router.register(r'servicos', ServicoViewSet, basename='servicos')

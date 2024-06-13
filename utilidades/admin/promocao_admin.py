@@ -13,5 +13,6 @@ class PromocaoAdmin(admin.ModelAdmin):
     ]
     
     autocomplete_fields = [
-        'servico'
+        'servico',
+        'plano_fidelidade',
     ]

@@ -10,6 +10,14 @@ class Promocao(models.Model):
         null=True,
     )
     
+    plano_fidelidade = models.ForeignKey(
+        'barbearias.PlanosDeFidelidade',
+        verbose_name='Plano de fidelidade',
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True
+    )
+    
     nome_da_promocao = models.CharField(
         'Nome da promoção',
         max_length=100,

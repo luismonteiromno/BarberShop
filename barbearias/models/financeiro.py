@@ -98,17 +98,7 @@ class Financeiro(models.Model):
             financeiro.receita_total = receita 
             financeiro.prejuizo = lucro_total < 0
             financeiro.lucro = lucro_total > 0
-            financeiro.save()
-            
-    def limpar_financeiro(self, fincanceiro):
-        fincanceiro.renda_mensal = 0
-        fincanceiro.despesas = 0
-        fincanceiro.lucro_total = 0
-        fincanceiro.lucro_planos = 0
-        fincanceiro.receita_total = 0
-        fincanceiro.prejuizo = False
-        fincanceiro.lucro = False
-        fincanceiro.save()
+            financeiro.save()         
         
     def atualizar_todas_as_financas(self, barbearias):
         from agendamentos.models import Agendamento
@@ -146,6 +136,16 @@ class Financeiro(models.Model):
                     financeiro.lucro = lucro_total > 0
                     financeiro.save()
     
+    def limpar_financeiro(self, fincanceiro):
+        fincanceiro.renda_mensal = 0
+        fincanceiro.despesas = 0
+        fincanceiro.lucro_total = 0
+        fincanceiro.lucro_planos = 0
+        fincanceiro.receita_total = 0
+        fincanceiro.prejuizo = False
+        fincanceiro.lucro = False
+        fincanceiro.save()
+        
     def __str__(self):
         return self.barbearia.nome_da_barbearia
     

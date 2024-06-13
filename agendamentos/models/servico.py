@@ -1,8 +1,8 @@
 from barbearias.models import Barbearia
 from django.db import models
 from django_editorjs import EditorJsField
-from utilidades.models.promocao import Promocao
 
+from .categoria_servico import CategoriaDoServico
 from datetime import datetime
 
 class Servico(models.Model):
@@ -59,6 +59,14 @@ class Servico(models.Model):
             },
           }
         }
+    )
+    
+    categoria = models.ForeignKey(
+       CategoriaDoServico,
+       verbose_name='Categoria',
+       on_delete=models.SET_NULL,
+       blank=True,
+       null=True,
     )
     
     tempo_de_duracao = models.TimeField(
