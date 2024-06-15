@@ -19,7 +19,8 @@ class PlanosDeFidelidadeViewSet(ModelViewSet):
         queryset = super().get_queryset()
         
         barbearia = self.request.query_params.get('nome_da_barbearia')
-        nome_do_plano = self.request.query_params.get('plano_fidelidade')   
+        nome_do_plano = self.request.query_params.get('plano_fidelidade')  
+        clientes = self.request.query_params.get('clientes') 
         
         if not self.request.user.is_superuser:
             queryset = queryset.filter(barbearia__dono=self.request.user)     
@@ -29,5 +30,8 @@ class PlanosDeFidelidadeViewSet(ModelViewSet):
             
         if nome_do_plano:
             queryset = queryset.filter(nome__icontains=nome_do_plano)
+            
+        if clientes:
+            queryset = queryset.filter(usuarios=int(clientes))
         
         return queryset

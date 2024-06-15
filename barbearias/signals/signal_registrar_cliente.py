@@ -12,13 +12,11 @@ def registrar_cliente(sender, instance, created, **kwargs):
     planos = PlanosDeFidelidade.objects.filter(
         nome=instance.plano_de_fidelidade
     )
-    ...
+    
     with transaction.atomic():
         if created:
             for plano in planos:
                 plano.usuarios += 1
                 plano.save()
         else:
-            for plano in planos:
-                plano.usuarios += 0
-                plano.save()
+            return
