@@ -20,6 +20,16 @@ class MeuAgendamento(models.Model):
         null=True,
     )
     
+    cancelar_agendamento = models.BooleanField(
+        'Deseja cancelar este agendamento?',
+        default=False
+    )
+    
+    def cancelar_o_agendamento(self, obj):
+        obj.cancelar_agendamento = True
+        obj.agendamento.agendamento_cancelado = True
+        obj.save()
+        
     def __str__(self):
         return f"{self.cliente} - {self.agendamento}"
     

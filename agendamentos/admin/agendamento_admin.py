@@ -28,6 +28,7 @@ class AgendamentoAdmin(DjangoObjectActions, admin.ModelAdmin):
         'numero_do_agendamento',
         'usuario',
         'preco_do_servico',
+        'agendamento_cancelado'
     ]
     
     # changelist_actions = [

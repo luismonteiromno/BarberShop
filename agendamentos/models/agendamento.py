@@ -56,6 +56,11 @@ class Agendamento(models.Model):
         unique=True
     )
     
+    agendamento_cancelado = models.BooleanField(
+        'Agendamento cancelado',
+        default=False,
+    )
+    
     @property
     def formatar_numero_do_pedido(self):
         ano = datetime.today().year

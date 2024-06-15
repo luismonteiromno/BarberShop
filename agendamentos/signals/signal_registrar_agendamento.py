@@ -1,7 +1,11 @@
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
-from ..models import Agendamento, HistoricoDeAgendamento
+from ..models import (
+    Agendamento, 
+    HistoricoDeAgendamento,
+    MeuAgendamento
+)
 
 
 @receiver(post_save, sender=Agendamento)
@@ -13,4 +17,13 @@ def agendamento_criado(sender, instance, created, **kwargs):
             cliente=instance.usuario,
             barbeiro=instance.escolher_barbeiro,
             data_do_agendamento=instance.data_marcada,
-        ) 
+        )
+        
+        
+@receiver(post_save, sender=Agendamento)
+def meu_agendamento(sender, instance, created, **kwargs):
+    if created:
+        MeuAgendamento.objects.create(
+            agendamento=instance,
+            cliente=instance.usuario,
+        )
