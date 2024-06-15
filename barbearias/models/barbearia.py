@@ -91,13 +91,13 @@ class Barbearia(models.Model):
         null=True
     )
     
-    horario_de_abertura = models.DateTimeField(
+    horario_de_abertura = models.TimeField(
         'Horário de abertura',
         blank=True,
         null=True
     )
     
-    horario_de_fechamento = models.DateTimeField(
+    horario_de_fechamento = models.TimeField(
         'Horário de fechamento',
         blank=True,
         null=True

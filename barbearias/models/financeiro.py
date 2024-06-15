@@ -78,6 +78,7 @@ class Financeiro(models.Model):
             Agendamento.objects.filter(
                 data_marcada__lt=pendulum.now(),
                 servico__disponivel_na_barbearia=barbearia,
+                agendamento_cancelado=False
             )
         )
         lucro_mensal = agendamentos.filter(
@@ -112,6 +113,7 @@ class Financeiro(models.Model):
                 Agendamento.objects.filter(
                     data_marcada__lt=pendulum.now(),
                     servico__disponivel_na_barbearia=barbearia,
+                    agendamento_cancelado=False
                 )
             )
             lucro_mensal = agendamentos.filter(

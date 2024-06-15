@@ -64,7 +64,8 @@ class AgendamentoAdmin(DjangoObjectActions, admin.ModelAdmin):
         if not request.user.is_superuser:
             queryset = (
                 queryset.filter(
-                    servico__disponivel_na_barbearia__dono=request.user
+                    servico__disponivel_na_barbearia__dono=request.user,
+                    agendamento_cancelado=False
                 )
                 .select_related(
                     'servico__disponivel_na_barbearia__dono'

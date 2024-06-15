@@ -28,6 +28,9 @@ class MeuAgendamento(models.Model):
     def cancelar_o_agendamento(self, obj):
         obj.cancelar_agendamento = True
         obj.agendamento.agendamento_cancelado = True
+        # salvar o status direto no agendamento
+        obj.agendamento.save()
+        # salvar o status direto no meu agendamento
         obj.save()
         
     def __str__(self):

@@ -24,6 +24,10 @@ class FinanceiroViewSet(ModelViewSet):
         lucro_total_maior = self.request.query_params.get('lucro_total_maior')
         lucro_mensal = self.request.query_params.get('lucro_mensal')
         lucro_planos = self.request.query_params.get('lucro_planos')
+        receita_total = self.request.query_params.get('receita_total')
+        
+        if not self.request.user.is_superuser:
+            queryset = queryset.filter(barbearia__dono=self.request.user)
         
         if barbearia:
             queryset = queryset.filter(barbearia__nome_da_barbearia__icontains=barbearia)
@@ -42,5 +46,8 @@ class FinanceiroViewSet(ModelViewSet):
             
         if lucro_planos:
             queryset = queryset.filter(lucro_planos=Decimal(lucro_planos))
+            
+        if receita_total:
+            queryset = queryset.filter(receita_total=Decimal(receita_total))
         
         return queryset
