@@ -1,5 +1,4 @@
 from django.contrib import admin, messages
-from django.http import HttpRequest
 from django_object_actions import DjangoObjectActions
 
 from ..models import MeuAgendamento
