@@ -9,6 +9,7 @@ class MeuAgendamentoAdmin(DjangoObjectActions, admin.ModelAdmin):
     list_display = [
         'agendamento',
         'cliente',
+        'cancelar_agendamento',
     ]
     
     fieldsets = [

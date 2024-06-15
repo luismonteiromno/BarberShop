@@ -2,6 +2,7 @@ from barbearias.models import Barbearia
 from django.db import models
 from django_editorjs import EditorJsField
 
+from tinymce.models import HTMLField
 from .categoria_servico import CategoriaDoServico
 from datetime import datetime
 
@@ -21,44 +22,44 @@ class Servico(models.Model):
         null=True
     )
     
-    descricao = EditorJsField(
+    descricao = HTMLField(
         verbose_name='Descrição',
         blank=True,
         null=True,
         help_text='Você também pode adicionar imagens na descrição',
-        editorjs_config={
-          "tools": {
-            "Table": {
-              "disabled": True,
-            },
-            "Image": {
-              "config": {
-                "endpoints": {
-                  "byFile": '/imageUpload/',
-                  "byUrl": '/imageUpload/',
-                },
-                "additionalRequestHeaders": [
-                  {"Content-Type": "multipart/form-data"}
-                ]
-              },
-            },
-            "Attaches": {
-              "disabled": True,
-              "config": {
-                "endpoint": '/fileUpload/',
-              },
-            },
-            "Quote": {
-              "disabled": True,
-            },
-            "Link": {
-              "disabled": True,
-            },
-            "Raw": {
-              "disabled": True,
-            },
-          }
-        }
+        # editorjs_config={
+        #   "tools": {
+        #     "Table": {
+        #       "disabled": True,
+        #     },
+        #     "Image": {
+        #       "config": {
+        #         "endpoints": {
+        #           "byFile": '/imageUpload/',
+        #           "byUrl": '/imageUpload/',
+        #         },
+        #         "additionalRequestHeaders": [
+        #           {"Content-Type": "multipart/form-data"}
+        #         ]
+        #       },
+        #     },
+        #     "Attaches": {
+        #       "disabled": True,
+        #       "config": {
+        #         "endpoint": '/fileUpload/',
+        #       },
+        #     },
+        #     "Quote": {
+        #       "disabled": True,
+        #     },
+        #     "Link": {
+        #       "disabled": True,
+        #     },
+        #     "Raw": {
+        #       "disabled": True,
+        #     },
+        #   }
+        # }
     )
     
     categoria = models.ForeignKey(

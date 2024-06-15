@@ -3,10 +3,12 @@ from typing import Any
 
 from django.contrib import admin, messages
 from django.contrib.auth.models import User
-from django.db.models.query import QuerySet
-from django.http import HttpRequest
+from django.db.models import Q
+
 from django_object_actions import DjangoObjectActions
 
+
+from ..forms import AgendamentoForm
 from ..models import Agendamento
 
 
@@ -30,6 +32,8 @@ class AgendamentoAdmin(DjangoObjectActions, admin.ModelAdmin):
         'preco_do_servico',
         'agendamento_cancelado'
     ]
+    
+    form = AgendamentoForm
     
     # changelist_actions = [
     #     'excluir_agendamentos_passados'
@@ -58,7 +62,8 @@ class AgendamentoAdmin(DjangoObjectActions, admin.ModelAdmin):
         queryset = super().get_queryset(request)
         
         queryset = queryset.exclude(
-                    data_marcada__lt=now
+                    Q(data_marcada__lt=now) |
+                    Q(agendamento_cancelado=True)
                 )
         
         if not request.user.is_superuser:
