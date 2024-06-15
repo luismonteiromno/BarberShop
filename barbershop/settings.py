@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     #libs
     'rest_framework',
     'advanced_filters',
+    'colorfield',
     'django_admin_listfilter_dropdown',
     'django_filters',
     'django_editorjs',
