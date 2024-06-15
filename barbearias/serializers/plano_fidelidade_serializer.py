@@ -7,6 +7,7 @@ class PlanosDeFidelidadeSerializer(ModelSerializer):
         fields = [
             'barbearia',
             'nome',
+            'cor_do_cartao',
             'beneficios',
             'preco',
             'usuarios',

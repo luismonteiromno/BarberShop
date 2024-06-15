@@ -16,7 +16,13 @@ class BarbeariaViewSet(ModelViewSet):
     ]
     
     def get_queryset(self):
+        import pendulum
+        agora = pendulum.now().time()
         queryset = super().get_queryset()
+        
+        hora_de_abertura = self.request.query_params.get('hora_de_abertura')
+        hora_de_fechamento = self.request.query_params.get('hora_de_fechamento')
+        tipo_da_barbearia = self.request.query_params.get('tipo_da_barbearia')
         
         if not self.request.user.is_superuser:
             queryset = queryset.filter(
@@ -24,7 +30,19 @@ class BarbeariaViewSet(ModelViewSet):
                 Q(funcionarios=self.request.user)
             )
             
-        tipo_da_barbearia = self.request.query_params.get('tipo_da_barbearia')
+        if hora_de_abertura:
+            queryset = queryset.filter(
+                horario_de_abertura__lte=hora_de_abertura
+            )
+        elif hora_de_fechamento:
+            queryset = queryset.filter(
+                horario_de_fechamento__gte=hora_de_fechamento
+            )
+        else:
+            queryset = queryset.filter(
+                horario_de_abertura__lte=agora,
+                horario_de_fechamento__gte=agora,
+            )
         
         if tipo_da_barbearia:
             queryset = queryset.filter(tipo_de_barbearia=tipo_da_barbearia)

@@ -1,7 +1,9 @@
 from django.db import models
+from colorfield.fields import ColorField
+from tinymce.models import HTMLField
+
 from .barbearia import Barbearia
 
-from tinymce.models import HTMLField
 
 class PlanosDeFidelidade(models.Model):
     barbearia = models.ForeignKey(
@@ -15,6 +17,14 @@ class PlanosDeFidelidade(models.Model):
     nome = models.CharField(
         'Nome',
         max_length=100,
+        blank=True,
+        null=True,
+    )
+    
+    cor_do_cartao = ColorField(
+        'Cor do cartão',
+        default='#808080',
+        format='hexa',
         blank=True,
         null=True,
     )
