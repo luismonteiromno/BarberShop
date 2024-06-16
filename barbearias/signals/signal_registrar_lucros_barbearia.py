@@ -9,11 +9,11 @@ from agendamentos.models import (
 
 from ..models import (
     Barbearia,
+    Barbeiro,
     Financeiro
 )
 
 import pendulum
-from datetime import datetime
 
 @receiver(post_save, sender=Barbearia)
 def registrar_lucros(sender, instance, created, **kwargs):
@@ -55,4 +55,10 @@ def registrar_lucros(sender, instance, created, **kwargs):
             financeiro.lucro = lucro_total > 0
             financeiro.save()
             
-        
+# @receiver(post_save, sender=Barbeiro)
+# def atualizar_lucros(sender, instance, created, **kwargs):
+#     if created:
+#         financeiro = Financeiro.objects.get(barbearia_id=instance.barbearia.id)
+#         financeiro.despesas += instance.salario
+#         financeiro.lucro_total -= instance.salario
+#         financeiro.save()
