@@ -12,6 +12,7 @@ class BarbeiroAdmin(admin.ModelAdmin):
     list_display = [
         'barbeiro',
         'barbearia',
+        'avaliacao',
         'freelancer'
     ]
     
@@ -22,6 +23,7 @@ class BarbeiroAdmin(admin.ModelAdmin):
                 'barbearia', 
                 'servicos', 
                 'salario',
+                'avaliacao',
                 'freelancer'
             ]
         }]
@@ -46,6 +48,10 @@ class BarbeiroAdmin(admin.ModelAdmin):
     
     list_filter = [
         'barbearia',
+    ]
+    
+    readonly_fields = [
+        'avaliacao'
     ]
     
     def formfield_for_foreignkey(self, db_field, request,**kwargs):
