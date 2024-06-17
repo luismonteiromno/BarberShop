@@ -58,7 +58,7 @@ class Barbeiro(models.Model):
     @property
     def media_avaliacoes(self):
         from decimal import Decimal
-        media = self.barbeiro_avaliacao.all().aggregate(Avg('avaliacao'))['avaliacao__avg']
+        media = self.barbeiro_avaliacao.aggregate(Avg('avaliacao'))['avaliacao__avg']
         if media:
             return Decimal(media).quantize(Decimal('0.0'))
         else:
