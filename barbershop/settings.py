@@ -28,8 +28,28 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:8080',
+    'http://127.0.0.1:8080',
+]
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_METHODS = [
+    'GET', 
+    'POST', 
+    'PUT', 
+    'PATCH', 
+    'DELETE', 
+    'OPTIONS'
+]
+CORS_ALLOW_HEADERS = [
+    'Accept',
+    'Accept-Encoding',
+    'Authorization',
+    'Content-Type',
+    'Origin',
+    'User-Agent',
+]
 
-# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -65,8 +85,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    "corsheaders.middleware.CorsMiddleware",
-    "django.middleware.common.CommonMiddleware",
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'crum.CurrentRequestUserMiddleware',
 ]
 
@@ -98,6 +118,9 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.BasicAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
     ],
 }
 
@@ -212,4 +235,11 @@ TINYMCE_DEFAULT_CONFIG = {
         input.click();
     }""",
 
+}
+
+ISORT_SETTINGS = {
+    'combine_as_imports': True,
+    'force_sort_within_sections': True,
+    'lines_between_types': 1,
+    'known_third_party': ['django'],
 }

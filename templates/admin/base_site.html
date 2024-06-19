@@ -3,3 +3,19 @@
 {% load static%}
   <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
 {% endblock %}
+
+
+{% load static%}
+
+{% block extrahead %}
+  <link rel="shortcut icon" href="{% static 'imgs/Black_and_White_Barbershop_Logo.jpng' %}" />
+{% endblock %}
+
+{% block branding %}
+<h1 id="site-name">
+  <a href="{% url 'admin:index' %}">
+    <img src="{% static 'imgs/Black_and_White_Barbershop_Logo.png' %}" alt="{{ '#' }}" style="height: 50px; border-radius: 5px;">
+  </a>
+  <a href="{% url 'admin:index' %}" style="font-weight: 900;">BarberShop</a>
+</h1>
+{% endblock %}

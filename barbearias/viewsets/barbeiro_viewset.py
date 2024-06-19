@@ -1,4 +1,5 @@
 from decimal import Decimal
+from django.db.models import Q
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.viewsets import ModelViewSet
 
@@ -21,6 +22,12 @@ class BarbeiroViewSet(ModelViewSet):
         por_barbearia = self.request.query_params.get('por_barbearia')
         nome_do_barbeiro =  self.request.query_params.get('nome_do_barbeiro')
         media_de_avaliacao = self.request.query_params.get('media_de_avaliacao')
+        
+        if not self.request.user.is_superuser:
+            queryset = queryset.filter(
+                Q(barbearia__dono=self.request.user) | 
+                Q(funcionarios=self.request.user)
+            )
         
         if por_barbearia:
             queryset = queryset.filter(barbearia__nome_da_barbearia__icontains=por_barbearia)
