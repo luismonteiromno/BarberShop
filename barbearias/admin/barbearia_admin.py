@@ -1,8 +1,7 @@
 import nested_admin
 from agendamentos.admin.servico_inline import ServicoInline
 from django.contrib import admin
-from django.db.models.query import QuerySet
-from django.http import HttpRequest
+from django.db.models import Q
 from django_object_actions import DjangoObjectActions
 from import_export.admin import ImportExportModelAdmin
 
@@ -97,6 +96,9 @@ class BarbeariaAdmin(nested_admin.NestedModelAdmin):
         queryset = super().get_queryset(request)
         
         if not request.user.is_superuser:
-            queryset = queryset.filter(dono=request.user)
+            queryset = queryset.filter(
+                Q(dono=request.user) |
+                Q(funcionarios=request.user)
+            )
             
         return queryset
