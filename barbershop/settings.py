@@ -29,9 +29,22 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost:8000',
+    'http://localhost:8080',  # Substitua pelo endereço do seu frontend Vue.js
+    'http://127.0.0.1:8080',  # Se estiver usando localhost
+    # Adicione outros domínios ou IPs que você deseja permitir
 ]
-# Application definition
+
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_METHODS = ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS']
+CORS_ALLOW_HEADERS = [
+    'Accept',
+    'Accept-Encoding',
+    'Authorization',
+    'Content-Type',
+    'Origin',
+    'User-Agent',
+]
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -100,6 +113,9 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.BasicAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
     ],
 }
 
@@ -214,4 +230,11 @@ TINYMCE_DEFAULT_CONFIG = {
         input.click();
     }""",
 
+}
+
+ISORT_SETTINGS = {
+    'combine_as_imports': True,
+    'force_sort_within_sections': True,
+    'lines_between_types': 1,
+    'known_third_party': ['django'],
 }

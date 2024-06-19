@@ -1,5 +1,5 @@
 from django.db.models import Q
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.viewsets import ModelViewSet
 
 from ..models import Barbearia
@@ -9,7 +9,7 @@ from ..serializers import BarbeariaSerializer
 class BarbeariaViewSet(ModelViewSet):
     queryset = Barbearia.objects.all()
     serializer_class = BarbeariaSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
     
     filterset_fields = [
         'nome_da_barbearia'
@@ -24,11 +24,11 @@ class BarbeariaViewSet(ModelViewSet):
         hora_de_fechamento = self.request.query_params.get('hora_de_fechamento')
         tipo_da_barbearia = self.request.query_params.get('tipo_da_barbearia')
         
-        if not self.request.user.is_superuser:
-            queryset = queryset.filter(
-                Q(dono=self.request.user) |
-                Q(funcionarios=self.request.user)
-            )
+        # if not self.request.user.is_superuser:
+        #     queryset = queryset.filter(
+        #         Q(dono=self.request.user) |
+        #         Q(funcionarios=self.request.user)
+        #     )
             
         if hora_de_abertura:
             queryset = queryset.filter(

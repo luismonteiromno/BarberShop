@@ -1,16 +1,18 @@
 <template>
   <div id="app">
-    <Login />
+    <ListarBarbearias/>
   </div>
 </template>
 
 <script>
-import Login from './components/Login.vue';
+// import Login from './components/Login.vue';
+import ListarBarbearias from './vue/pages/ListarBarbearias.vue';
 
 export default {
   name: 'App',
   components: {
-    Login,
+    // Login,
+    ListarBarbearias,
   },
 };
 </script>
