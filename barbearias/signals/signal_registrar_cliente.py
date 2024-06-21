@@ -1,11 +1,9 @@
-from django.dispatch import receiver
-from django.db.models.signals import post_save
 from django.db import transaction
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
-from ..models import (
-    Cliente,
-    PlanosDeFidelidade
-)
+from ..models import Cliente, PlanosDeFidelidade
+
 
 @receiver(post_save, sender=Cliente)
 def registrar_cliente(sender, instance, created, **kwargs):

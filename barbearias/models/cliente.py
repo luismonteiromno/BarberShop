@@ -1,7 +1,8 @@
-from django.db import models
 from django.contrib.auth.models import User
+from django.db import models
 
 from .plano_fidelidade import PlanosDeFidelidade
+
 
 class Cliente(models.Model):
     cliente = models.ForeignKey(

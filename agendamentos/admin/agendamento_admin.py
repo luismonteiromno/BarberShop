@@ -4,9 +4,7 @@ from typing import Any
 from django.contrib import admin, messages
 from django.contrib.auth.models import User
 from django.db.models import Q
-
 from django_object_actions import DjangoObjectActions
-
 
 from ..forms import AgendamentoForm
 from ..models import Agendamento

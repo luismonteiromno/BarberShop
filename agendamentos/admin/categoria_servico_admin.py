@@ -1,5 +1,7 @@
 from django.contrib import admin
+
 from ..models import CategoriaDoServico
+
 
 @admin.register(CategoriaDoServico)
 class CategoriaDoServicoAdmin(admin.ModelAdmin):

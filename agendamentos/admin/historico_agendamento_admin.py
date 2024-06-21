@@ -1,9 +1,11 @@
+from datetime import datetime
+
 from django.contrib import admin, messages
 from django_object_actions import DjangoObjectActions
 
 from ..models import HistoricoDeAgendamento
 
-from datetime import datetime
+
 @admin.register(HistoricoDeAgendamento)
 class HistoricoDeAgendamentoAdmin(DjangoObjectActions, admin.ModelAdmin):
     list_display = [

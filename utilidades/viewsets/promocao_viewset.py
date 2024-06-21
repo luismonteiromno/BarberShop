@@ -1,11 +1,12 @@
+from datetime import datetime
+
 from django.db.models import Q
-from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.viewsets import ModelViewSet
 
 from ..models import Promocao
 from ..serializers import PromocaoSerializer
 
-from datetime import datetime
 
 class PromocaoViewSet(ModelViewSet):
     queryset = Promocao.objects.all()

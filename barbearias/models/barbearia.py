@@ -1,5 +1,6 @@
-from crum import get_current_user
 from decimal import Decimal, InvalidOperation
+
+from crum import get_current_user
 from django.contrib.auth.models import User
 from django.db import models
 from django.db.models import Avg
@@ -105,7 +106,6 @@ class Barbearia(models.Model):
     
     @property
     def orcamento(self):
-        from .financeiro import Financeiro
         orcamento = self.financeiro.lucro_total
         if orcamento:
             return orcamento
@@ -114,8 +114,9 @@ class Barbearia(models.Model):
     
     @property
     def quantidade_de_agendamentos(self):
-        from agendamentos.models import Agendamento
         from datetime import datetime
+
+        from agendamentos.models import Agendamento
         if self.pk:
             agendamentos = Agendamento.objects.filter(
                 data_marcada__gt=datetime.now(),
