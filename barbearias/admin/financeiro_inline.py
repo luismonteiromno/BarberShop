@@ -1,6 +1,8 @@
 import nested_admin
-from ..models import Financeiro
 from django.contrib import admin
+
+from ..models import Financeiro
+
 
 class FinanceiroInline(nested_admin.NestedTabularInline):
     model = Financeiro

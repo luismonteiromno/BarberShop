@@ -1,6 +1,6 @@
 import django.db
-from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.viewsets import ModelViewSet
 
 from ..models import PlanosDeFidelidade
 from ..serializers import PlanosDeFidelidadeSerializer

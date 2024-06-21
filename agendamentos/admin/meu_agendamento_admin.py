@@ -3,6 +3,7 @@ from django_object_actions import DjangoObjectActions
 
 from ..models import MeuAgendamento
 
+
 @admin.register(MeuAgendamento)
 class MeuAgendamentoAdmin(DjangoObjectActions, admin.ModelAdmin): 
     list_display = [

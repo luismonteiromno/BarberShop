@@ -68,6 +68,7 @@ INSTALLED_APPS = [
     'advanced_filters',
     'colorfield',
     'django_admin_listfilter_dropdown',
+    'django_cron',
     'django_filters',
     'django_editorjs',
     'django_object_actions',
@@ -243,3 +244,9 @@ ISORT_SETTINGS = {
     'lines_between_types': 1,
     'known_third_party': ['django'],
 }
+
+CRON_CLASSES = [
+    # 'agendamentos.cron.AgendamentoCron',
+    # 'barbearias.cron.BarbeariaCron',
+    # 'usuarios.cron.UsuarioCron',
+]

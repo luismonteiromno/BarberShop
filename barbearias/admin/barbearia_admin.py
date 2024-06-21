@@ -1,11 +1,15 @@
+from io import BytesIO
+
 import nested_admin
-from agendamentos.admin.servico_inline import ServicoInline
-from django.contrib import admin
+import pandas as pd
+from django.contrib import admin, messages
+from django.db import transaction
 from django.db.models import Q
 from django_object_actions import DjangoObjectActions
 from import_export.admin import ImportExportModelAdmin
 
-import nested_admin
+from agendamentos.admin.servico_inline import ServicoInline
+
 from ..models import Barbearia, Financeiro
 from .avaliacao_inline import AvaliacaoInline
 from .barbeiro_inline import BarbeiroInline
@@ -13,8 +17,9 @@ from .contato_inline import ContatoInline
 from .financeiro_inline import FinanceiroInline
 from .plano_fidelidade_inline import PlanosDeFidelidadeInline
 
+
 @admin.register(Barbearia)
-class BarbeariaAdmin(nested_admin.NestedModelAdmin):
+class BarbeariaAdmin(DjangoObjectActions, nested_admin.NestedModelAdmin):
     list_display = [
         'nome_da_barbearia',
         'dono',
@@ -77,21 +82,53 @@ class BarbeariaAdmin(nested_admin.NestedModelAdmin):
         ServicoInline,
     ]
     
-    # change_actions = [
-    #     'atualizar_financas'
-    # ]
+    change_actions = [
+        'exportar_dados'
+    ]
     
     # actions = [
     #     'ola'
     # ]
         
     changelist_actions = [
-        'atualizar_todas_as_financas'
+        'atualizar_todas_as_financas',
     ]
     
     def atualizar_todas_as_financas(self, request, obj):
         Financeiro.atualizar_todas_as_financas(self, obj)
-    
+        
+    def exportar_dados(self, request, obj):
+        from django.http import HttpResponse
+        
+        with transaction.atomic():
+            barbearia = Barbearia.objects.get(id=obj.id)
+            financeiro = barbearia.financeiro.__dict__
+            # teste = dict(teste=1, teste2=2)
+            # teste = dict(zip(['teste', 'teste2'], [1, 2]))
+            
+            for key in list(financeiro.keys()):
+                if key in ['_state', 'id', 'comparar_lucros_mes_anterior_e_atual']:
+                    financeiro.pop(key)
+                    print(f'Chave excluida: {key}')
+                    
+            financeiro['barbearia_id'] = barbearia.nome_da_barbearia
+            financeiro['lucro'] = 'Sim' if financeiro['lucro'] is True else 'Não'
+            financeiro['prejuizo'] = 'Sim' if financeiro['prejuizo'] is True else 'Não'
+            
+            df = pd.DataFrame([financeiro])
+
+            output = BytesIO()
+            
+            with pd.ExcelWriter(output, engine='xlsxwriter') as writer:
+                df.to_excel(writer, sheet_name='planilha', index=False)
+            
+            output.seek(0)
+            
+            response = HttpResponse(output.getvalue(), content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+            response['Content-Disposition'] = f'attachment; filename={barbearia.nome_da_barbearia}.xlsx'
+            
+            return response
+        
     def get_queryset(self, request):
         queryset = super().get_queryset(request)
         

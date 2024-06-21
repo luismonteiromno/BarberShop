@@ -1,8 +1,10 @@
 from decimal import Decimal
+
 from django.db import models, transaction
 from django.db.models import Q
 
 from ..models import Barbearia
+
 
 class Financeiro(models.Model):
     barbearia = models.OneToOneField(
@@ -83,8 +85,9 @@ class Financeiro(models.Model):
     )
     
     def atualizar_financas(self, financeiro):
-        from agendamentos.models import Agendamento
         import pendulum
+
+        from agendamentos.models import Agendamento
         mes_anterior = pendulum.now().subtract(months=1)
         barbearia = Barbearia.objects.get(pk=financeiro.barbearia.id)
         
@@ -130,9 +133,10 @@ class Financeiro(models.Model):
             financeiro.save()         
         
     def atualizar_todas_as_financas(self, barbearias):
-        from agendamentos.models import Agendamento
         import pendulum
-        
+
+        from agendamentos.models import Agendamento
+
         # mes_anterior = datetime.now() - relativedelta(months=1)
         mes_anterior = pendulum.now().subtract(months=1)
         for barbearia in barbearias:

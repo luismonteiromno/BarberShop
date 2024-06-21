@@ -1,7 +1,8 @@
 from django.contrib import admin
-from .cliente_inline import ClienteInline
 
 from ..models import PlanosDeFidelidade
+from .cliente_inline import ClienteInline
+
 
 @admin.register(PlanosDeFidelidade)
 class PlanosDeFidelidadeAdmin(admin.ModelAdmin):

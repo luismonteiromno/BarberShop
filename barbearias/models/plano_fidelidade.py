@@ -1,5 +1,5 @@
-from django.db import models
 from colorfield.fields import ColorField
+from django.db import models
 from tinymce.models import HTMLField
 
 from .barbearia import Barbearia

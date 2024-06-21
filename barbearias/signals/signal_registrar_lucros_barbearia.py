@@ -1,19 +1,12 @@
-from django.dispatch import receiver
-from django.db.models.signals import post_save
-from django.db import transaction
-
-from agendamentos.models import (
-    Agendamento,
-    Servico
-)
-
-from ..models import (
-    Barbearia,
-    Barbeiro,
-    Financeiro
-)
-
 import pendulum
+from django.db import transaction
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+
+from agendamentos.models import Agendamento, Servico
+
+from ..models import Barbearia, Barbeiro, Financeiro
+
 
 @receiver(post_save, sender=Barbearia)
 def registrar_lucros(sender, instance, created, **kwargs):

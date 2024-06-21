@@ -1,10 +1,13 @@
-from barbearias.models import Barbearia
+from datetime import datetime
+
 from django.db import models
 from django_editorjs import EditorJsField
-
 from tinymce.models import HTMLField
+
+from barbearias.models import Barbearia
+
 from .categoria_servico import CategoriaDoServico
-from datetime import datetime
+
 
 class Servico(models.Model):
     disponivel_na_barbearia = models.ForeignKey(

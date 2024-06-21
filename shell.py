@@ -1,5 +1,6 @@
-from barbearias.models import Cliente
 from django.contrib.auth.models import User
+
+from barbearias.models import Cliente
 
 users = User.objects.all()
 for user in users:
@@ -12,7 +13,7 @@ for user in users:
     else:
         print(f'usuario {user} ja existe')
         
-from agendamentos.models import MeuAgendamento, Agendamento
+from agendamentos.models import Agendamento, MeuAgendamento
 
 agendamentos = Agendamento.objects.all().delete()
 meus_agendamentos = MeuAgendamento.objects.all().delete()
