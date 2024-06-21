@@ -6,7 +6,7 @@ from ..models import Financeiro
 
 
 @admin.register(Financeiro)
-class FinanceiroAdmin(DjangoObjectActions, ImportExportModelAdmin, admin.ModelAdmin):
+class FinanceiroAdmin(DjangoObjectActions, admin.ModelAdmin):
     list_display = [
         'barbearia',
         'lucro_total',
@@ -22,6 +22,13 @@ class FinanceiroAdmin(DjangoObjectActions, ImportExportModelAdmin, admin.ModelAd
         'atualizar_financas',
         'limpar_financeiro',
     ]
+    
+    changelist_actions = [
+        'atualizar_todos_os_financeiros'
+    ]
+    
+    def atualizar_todos_os_financeiros(self, request, obj):
+        Financeiro.atualizar_todas_as_financas(self, obj)
     
     def atualizar_financas(self, request, obj):
         Financeiro.atualizar_financas(self, obj)
