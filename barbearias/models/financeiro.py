@@ -90,7 +90,12 @@ class Financeiro(models.Model):
         from agendamentos.models import Agendamento
 
         mes_anterior = pendulum.now().subtract(months=1)
-        barbearia = Barbearia.objects.get(pk=financeiro.barbearia.id)
+        try:
+            # Caso o valor do parâmetro venha do Admin
+            barbearia = Barbearia.objects.get(pk=financeiro.barbearia.id)
+        except:
+            # Caso o valor do parâmetro venha do Cron
+            barbearia = Barbearia.objects.get(pk=financeiro.id)
 
         barbeiros = barbearia.barbeiro_set.all()
         planos = barbearia.planosdefidelidade_set.all()
@@ -123,6 +128,16 @@ class Financeiro(models.Model):
         receita = Decimal(sum(lucro.preco_do_servico for lucro in agendamentos))
 
         comparar_lucros = Decimal(lucro_mes - lucro_mes_anterior)
+        
+        print(
+            f"Lucro do mês: {lucro_mes}",
+            f"Lucro do mês anterior: {lucro_mes_anterior}" ,
+            f"Despesas: {despesas}",
+            f"Lucro dos planos: {lucro_planos}",
+            f"Lucro total: {lucro_total}",
+            f"Receita total: {receita}",
+            f"Comparar lucros: {comparar_lucros}" 
+        )
 
         with transaction.atomic():
             financeiro.renda_mensal = lucro_mes
