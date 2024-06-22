@@ -103,7 +103,6 @@ class Barbearia(models.Model):
         blank=True,
         null=True
     )
-    
     @property
     def orcamento(self):
         orcamento = self.financeiro.lucro_total
@@ -111,70 +110,71 @@ class Barbearia(models.Model):
             return orcamento
         else:
             return 0
-    
+
     @property
     def quantidade_de_agendamentos(self):
         from datetime import datetime
 
         from agendamentos.models import Agendamento
+
         if self.pk:
             agendamentos = Agendamento.objects.filter(
                 data_marcada__gt=datetime.now(),
-                servico__disponivel_na_barbearia=self.pk
+                servico__disponivel_na_barbearia=self.pk,
             ).count()
             return agendamentos
         else:
             return 0
-        
+
     @property
     def numero_de_contatos(self):
         contatos = self.contatos.all().count()
         return contatos
 
-        
     @property
     def ultimo_agendamento(self):
         from agendamentos.models import Agendamento
+
         if self.pk:
-            agendamentos = Agendamento.objects.filter(
-                servico__disponivel_na_barbearia=self.pk
-            ).select_related('servico__disponivel_na_barbearia').last()
+            agendamentos = (
+                Agendamento.objects.filter(servico__disponivel_na_barbearia=self.pk)
+                .select_related("servico")
+                .last()
+            )
             return agendamentos
         else:
             return None
-        
+
     @property
     def avisos_recentes(self):
         if self.pk:
-            avisos = self.aviso_set.order_by('-data_de_inicio').last()
+            avisos = self.aviso_set.order_by("-data_de_inicio").last()
             return avisos
         else:
             return None
-        
+
     @property
     def media_das_avaliacoes_0_a_5(self):
-        media = self.avaliacao_set.aggregate(Avg('avaliacao'))['avaliacao__avg']
+        media = self.avaliacao_set.aggregate(Avg("avaliacao"))["avaliacao__avg"]
         if media:
-            return Decimal(media).quantize(Decimal('0.0'))
+            return Decimal(media).quantize(Decimal("0.0"))
         else:
-            return 'Nenhuma avaliação'
-        
+            return "Nenhuma avaliação"
+
     @property
     def ultima_avaliacao(self):
         ultima_avaliacao = self.avaliacao_set.last()
         return ultima_avaliacao
-    
+
     def save(self, *args, **kwargs):
         user = get_current_user()
         if not self.pk:
-            self.dono = user    
+            self.dono = user
         super().save(*args, **kwargs)
-        
+
     def __str__(self):
         return self.nome_da_barbearia
-    
+
     class Meta:
-        verbose_name = 'Barbearia'
-        verbose_name_plural = 'Barbearias'
-    
-    
+        verbose_name = "Barbearia"
+        verbose_name_plural = "Barbearias"

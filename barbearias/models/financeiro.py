@@ -83,7 +83,8 @@ class Financeiro(models.Model):
             agendamento_cancelado=False,
         )
         lucro_anterior = agendamentos.filter(
-            data_marcada__month=mes_anterior.month, data_marcada__year=mes_anterior.year
+            data_marcada__month=mes_anterior.month, 
+            data_marcada__year=mes_anterior.year
         )
         lucro_mensal = agendamentos.filter(data_marcada__month=pendulum.now().month)
 
