@@ -206,7 +206,12 @@ class Financeiro(models.Model):
 
     def atualizar_todas_as_financas(self, financeiros):
         for financeiro in financeiros:
-            self.atualizar_financas(self, financeiro)     
+            try:
+                # Caso o Parâmetro venha do Admin de Barbearias
+                self.atualizar_financas(self, financeiro)
+            except:
+                # Caso o Parâmetro venha do Admin de Finanças
+                Financeiro.atualizar_financas(self, financeiro)     
         
     def limpar_financeiro(self, fincanceiro):
         fincanceiro.renda_mensal = 0
