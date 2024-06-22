@@ -12,7 +12,7 @@ for user in users:
         print(f"usuario {user} criado")
     else:
         print(f"usuario {user} ja existe")
-
+        
 from agendamentos.models import Agendamento, MeuAgendamento
 
 agendamentos = Agendamento.objects.all().delete()

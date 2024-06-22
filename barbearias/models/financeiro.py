@@ -173,8 +173,8 @@ class Financeiro(models.Model):
 
     def atualizar_todas_as_financas(self, financeiros):
         for financeiro in financeiros:
-            self.atualizar_financas(self, financeiro)
-
+            self.atualizar_financas(self, financeiro)     
+        
     def limpar_financeiro(self, fincanceiro):
         fincanceiro.renda_mensal = 0
         fincanceiro.despesas = 0
