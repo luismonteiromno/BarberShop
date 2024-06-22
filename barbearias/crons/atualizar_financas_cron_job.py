@@ -1,10 +1,7 @@
 from django_cron import Schedule, CronJobBase
 
-from django.db import transaction
 from barbearias.models.financeiro import Financeiro
 from ..models import Barbearia
-from agendamentos.models import Agendamento
-import pendulum
 import logging
 
 logger = logging.getLogger(__name__)
