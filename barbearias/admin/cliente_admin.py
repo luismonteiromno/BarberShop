@@ -15,6 +15,6 @@ class ClienteAdmin(admin.ModelAdmin):
         'plano_de_fidelidade',
     ]
     
-    list_select_related = True
+    list_select_related = ['cliente']
     
     

@@ -17,11 +17,7 @@ class Financeiro(models.Model):
     )
 
     lucro_mes_anterior = models.DecimalField(
-        "Lucro do mês anterior", 
-        max_digits=10, 
-        decimal_places=5, 
-        blank=True, 
-        null=True
+        "Lucro do mês anterior", max_digits=10, decimal_places=5, blank=True, null=True
     )
 
     renda_mensal = models.DecimalField(
@@ -50,6 +46,14 @@ class Financeiro(models.Model):
         null=True,
     )
 
+    comparar_lucros_mes_anterior_e_atual_porcentagem = models.DecimalField(
+        "Lucro do mês atual em comparação ao anterior(Porcentagem)",
+        max_digits=5,
+        decimal_places=2,
+        blank=True,
+        null=True,
+    )
+
     lucro_planos = models.DecimalField(
         "Lucro dos planos de fidelidade",
         max_digits=10,
@@ -59,30 +63,16 @@ class Financeiro(models.Model):
     )
 
     lucro_total = models.DecimalField(
-        "Lucro total", 
-        max_digits=10, 
-        decimal_places=2, 
-        blank=True, 
-        null=True
+        "Lucro total", max_digits=10, decimal_places=2, blank=True, null=True
     )
 
     receita_total = models.DecimalField(
-        "Receita total", 
-        max_digits=10, 
-        decimal_places=2, 
-        blank=True, 
-        null=True
+        "Receita total", max_digits=10, decimal_places=2, blank=True, null=True
     )
 
-    prejuizo = models.BooleanField(
-        "Prejuízo", 
-        default=False
-    )
+    prejuizo = models.BooleanField("Prejuízo", default=False)
 
-    lucro = models.BooleanField(
-        "Lucro", 
-        default=False
-    )
+    lucro = models.BooleanField("Lucro", default=False)
 
     def atualizar_financas(self, financeiro):
         import pendulum
@@ -113,7 +103,7 @@ class Financeiro(models.Model):
         despesas = Decimal(sum(barbeiro.salario for barbeiro in barbeiros))
 
         # lucro_planos = Decimal(sum(lucro.preco*lucro.quantidade_de_usuarios for lucro in planos))
-        lucro_planos = Decimal(0)
+        lucro_planos = Decimal(0.00)
         for lucro in planos:
             lucro_planos = lucro.preco * lucro.quantidade_de_usuarios
 
@@ -133,11 +123,27 @@ class Financeiro(models.Model):
         receita = Decimal(sum(lucro.preco_do_servico for lucro in agendamentos))
 
         comparar_lucros = Decimal(lucro_mes - lucro_mes_anterior)
+        # como é porcentagem ent segue a seguinte regra
+        # 1 = 100%
+        # 0,9 = 90%
+        # 0,8 = 80%
+        # 0,7 = 70%
+        # 0,6 = 60%
+        # 0,5 = 50%
+        # 0,4 = 40%
+        # 0,3 = 30%
+        # 0,2 = 20%
+        # 0,1 = 10%
+        # 0,0 = 0%
+        comparar_lucros_porcentagem = Decimal(comparar_lucros / 100).quantize(
+            Decimal("0.0")
+        )
 
         print(
             f"Lucro do mês: {lucro_mes}",
             f"Lucro do mês anterior: {lucro_mes_anterior}",
             f"Despesas: {despesas}",
+            f"comparar valores porcentagem: {comparar_lucros_porcentagem}"
             f"Lucro dos planos: {lucro_planos}",
             f"Lucro total: {lucro_total}",
             f"Receita total: {receita}",
@@ -149,6 +155,9 @@ class Financeiro(models.Model):
             financeiro.lucro_mes_anterior = lucro_mes_anterior
             financeiro.despesas = despesas
             financeiro.comparar_lucros_mes_anterior_e_atual = comparar_lucros
+            financeiro.comparar_lucros_mes_anterior_e_atual_porcentagem = (
+                f"{comparar_lucros_porcentagem:.2}"
+            )
             financeiro.lucro_planos = lucro_planos
             financeiro.lucro_total = lucro_total
             financeiro.receita_total = receita

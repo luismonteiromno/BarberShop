@@ -1,4 +1,5 @@
 from decimal import Decimal
+from django.db.models import Q
 
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.viewsets import ModelViewSet
@@ -26,7 +27,10 @@ class FinanceiroViewSet(ModelViewSet):
         receita_total = self.request.query_params.get("receita_total")
 
         if not self.request.user.is_superuser:
-            queryset = queryset.filter(barbearia__dono=self.request.user)
+            queryset = queryset.filter(
+                Q(barbearia__dono=self.request.user)
+                | Q(barbearia__funcionarios=self.request.user)
+            )
 
         if barbearia:
             queryset = queryset.filter(
