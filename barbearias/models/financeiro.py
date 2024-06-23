@@ -74,9 +74,15 @@ class Financeiro(models.Model):
         null=True
     )
 
-    prejuizo = models.BooleanField("Prejuízo", default=False)
+    prejuizo = models.BooleanField(
+        "Prejuízo", 
+        default=False
+    )
 
-    lucro = models.BooleanField("Lucro", default=False)
+    lucro = models.BooleanField(
+        "Lucro", 
+        default=False
+    )
 
     def atualizar_financas(self, financeiro):
         import pendulum
