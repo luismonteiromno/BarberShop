@@ -218,15 +218,17 @@ class Financeiro(models.Model):
                 # Caso o Parâmetro venha do Admin de Finanças
                 Financeiro.atualizar_financas(self, financeiro)
 
-    def limpar_financeiro(self, fincanceiro):
-        fincanceiro.renda_mensal = 0
-        fincanceiro.despesas = 0
-        fincanceiro.lucro_total = 0
-        fincanceiro.lucro_planos = 0
-        fincanceiro.receita_total = 0
-        fincanceiro.prejuizo = False
-        fincanceiro.lucro = False
-        fincanceiro.save()
+    def limpar_financeiro(self, financeiro):
+        financeiro.renda_mensal = 0
+        financeiro.lucro_mes_anterior = 0
+        financeiro.despesas = 0
+        financeiro.comparar_lucros_mes_anterior_e_atual = 0
+        financeiro.lucro_planos = 0
+        financeiro.lucro_total = 0
+        financeiro.receita_total = 0
+        financeiro.prejuizo = False
+        financeiro.lucro = False
+        financeiro.save()
 
     def __str__(self):
         return self.barbearia.nome_da_barbearia

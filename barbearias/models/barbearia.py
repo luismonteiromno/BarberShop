@@ -103,6 +103,21 @@ class Barbearia(models.Model):
         blank=True,
         null=True
     )
+    
+    data_de_criacao = models.DateTimeField(
+        'Data de criação',
+        auto_now_add=True,
+        blank=True,
+        null=True
+    )
+    
+    data_de_atualizacao = models.DateTimeField(
+        'Data de atualização',
+        auto_now=True,
+        blank=True,
+        null=True
+    )
+    
     @property
     def orcamento(self):
         orcamento = self.financeiro.lucro_total

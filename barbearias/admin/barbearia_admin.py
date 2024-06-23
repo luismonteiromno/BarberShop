@@ -50,6 +50,8 @@ class BarbeariaAdmin(DjangoObjectActions, nested_admin.NestedModelAdmin):
                     "tipo_de_barbearia",
                     "horario_de_abertura",
                     "horario_de_fechamento",
+                    "data_de_criacao",
+                    "data_de_atualizacao",
                 ]
             },
         ],
@@ -68,6 +70,8 @@ class BarbeariaAdmin(DjangoObjectActions, nested_admin.NestedModelAdmin):
 
     readonly_fields = [
         "dono",
+        "data_de_criacao",
+        "data_de_atualizacao",
     ]
 
     inlines = [
