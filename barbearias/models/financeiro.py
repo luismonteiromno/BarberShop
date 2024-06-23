@@ -106,13 +106,18 @@ class Financeiro(models.Model):
             agendamento_cancelado=False,
         )
         lucro_anterior = agendamentos.filter(
-            data_marcada__month=mes_anterior.month, 
-            data_marcada__year=mes_anterior.year
+            data_marcada__month=mes_anterior.month, data_marcada__year=mes_anterior.year
         )
         lucro_mensal = agendamentos.filter(data_marcada__month=pendulum.now().month)
 
         despesas = Decimal(sum(barbeiro.salario for barbeiro in barbeiros))
-        lucro_planos = Decimal(sum(lucro.preco for lucro in planos))
+
+        # lucro_planos = Decimal(sum(lucro.preco*lucro.quantidade_de_usuarios for lucro in planos))
+        lucro_planos = Decimal(0)
+        for lucro in planos:
+            lucro_planos = lucro.preco * lucro.quantidade_de_usuarios
+
+        receita = Decimal(sum(lucro.preco_do_servico for lucro in agendamentos))
         lucro_total = (
             Decimal(sum(lucro.preco_do_servico for lucro in agendamentos))
             + lucro_planos
@@ -128,15 +133,15 @@ class Financeiro(models.Model):
         receita = Decimal(sum(lucro.preco_do_servico for lucro in agendamentos))
 
         comparar_lucros = Decimal(lucro_mes - lucro_mes_anterior)
-        
+
         print(
             f"Lucro do mês: {lucro_mes}",
-            f"Lucro do mês anterior: {lucro_mes_anterior}" ,
+            f"Lucro do mês anterior: {lucro_mes_anterior}",
             f"Despesas: {despesas}",
             f"Lucro dos planos: {lucro_planos}",
             f"Lucro total: {lucro_total}",
             f"Receita total: {receita}",
-            f"Comparar lucros: {comparar_lucros}" 
+            f"Comparar lucros: {comparar_lucros}",
         )
 
         with transaction.atomic():
@@ -206,8 +211,13 @@ class Financeiro(models.Model):
 
     def atualizar_todas_as_financas(self, financeiros):
         for financeiro in financeiros:
-            self.atualizar_financas(self, financeiro)     
-        
+            try:
+                # Caso o Parâmetro venha do Admin de Barbearias
+                self.atualizar_financas(self, financeiro)
+            except:
+                # Caso o Parâmetro venha do Admin de Finanças
+                Financeiro.atualizar_financas(self, financeiro)
+
     def limpar_financeiro(self, fincanceiro):
         fincanceiro.renda_mensal = 0
         fincanceiro.despesas = 0

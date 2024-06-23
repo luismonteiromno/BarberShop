@@ -26,3 +26,12 @@ meus_agendamentos = MeuAgendamento.objects.all().delete()
 #     filtros['nome'] = barbearia.nome_da_barbearia
 # print(filtros)
 # print("nome: {nome}".format(**filtros))
+
+from barbearias.models import Barbearia
+
+barbearia = Barbearia.objects.first()
+print(barbearia.orcamento)
+
+from barbearias.crons import AtualizarFinancasCronJob
+job = AtualizarFinancasCronJob()
+job.do()
