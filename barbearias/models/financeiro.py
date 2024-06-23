@@ -17,11 +17,7 @@ class Financeiro(models.Model):
     )
 
     lucro_mes_anterior = models.DecimalField(
-        "Lucro do mês anterior", 
-        max_digits=10, 
-        decimal_places=5, 
-        blank=True, 
-        null=True
+        "Lucro do mês anterior", max_digits=10, decimal_places=5, blank=True, null=True
     )
 
     renda_mensal = models.DecimalField(
@@ -59,30 +55,16 @@ class Financeiro(models.Model):
     )
 
     lucro_total = models.DecimalField(
-        "Lucro total", 
-        max_digits=10, 
-        decimal_places=2, 
-        blank=True, 
-        null=True
+        "Lucro total", max_digits=10, decimal_places=2, blank=True, null=True
     )
 
     receita_total = models.DecimalField(
-        "Receita total", 
-        max_digits=10, 
-        decimal_places=2, 
-        blank=True, 
-        null=True
+        "Receita total", max_digits=10, decimal_places=2, blank=True, null=True
     )
 
-    prejuizo = models.BooleanField(
-        "Prejuízo", 
-        default=False
-    )
+    prejuizo = models.BooleanField("Prejuízo", default=False)
 
-    lucro = models.BooleanField(
-        "Lucro", 
-        default=False
-    )
+    lucro = models.BooleanField("Lucro", default=False)
 
     def atualizar_financas(self, financeiro):
         import pendulum
@@ -106,13 +88,18 @@ class Financeiro(models.Model):
             agendamento_cancelado=False,
         )
         lucro_anterior = agendamentos.filter(
-            data_marcada__month=mes_anterior.month, 
-            data_marcada__year=mes_anterior.year
+            data_marcada__month=mes_anterior.month, data_marcada__year=mes_anterior.year
         )
         lucro_mensal = agendamentos.filter(data_marcada__month=pendulum.now().month)
 
         despesas = Decimal(sum(barbeiro.salario for barbeiro in barbeiros))
-        lucro_planos = Decimal(sum(lucro.preco for lucro in planos))
+
+        # lucro_planos = Decimal(sum(lucro.preco*lucro.quantidade_de_usuarios for lucro in planos))
+        lucro_planos = Decimal(0)
+        for lucro in planos:
+            lucro_planos = lucro.preco * lucro.quantidade_de_usuarios
+
+        receita = Decimal(sum(lucro.preco_do_servico for lucro in agendamentos))
         lucro_total = (
             Decimal(sum(lucro.preco_do_servico for lucro in agendamentos))
             + lucro_planos
@@ -128,15 +115,15 @@ class Financeiro(models.Model):
         receita = Decimal(sum(lucro.preco_do_servico for lucro in agendamentos))
 
         comparar_lucros = Decimal(lucro_mes - lucro_mes_anterior)
-        
+
         print(
             f"Lucro do mês: {lucro_mes}",
-            f"Lucro do mês anterior: {lucro_mes_anterior}" ,
+            f"Lucro do mês anterior: {lucro_mes_anterior}",
             f"Despesas: {despesas}",
             f"Lucro dos planos: {lucro_planos}",
             f"Lucro total: {lucro_total}",
             f"Receita total: {receita}",
-            f"Comparar lucros: {comparar_lucros}" 
+            f"Comparar lucros: {comparar_lucros}",
         )
 
         with transaction.atomic():
@@ -211,8 +198,8 @@ class Financeiro(models.Model):
                 self.atualizar_financas(self, financeiro)
             except:
                 # Caso o Parâmetro venha do Admin de Finanças
-                Financeiro.atualizar_financas(self, financeiro)     
-        
+                Financeiro.atualizar_financas(self, financeiro)
+
     def limpar_financeiro(self, fincanceiro):
         fincanceiro.renda_mensal = 0
         fincanceiro.despesas = 0

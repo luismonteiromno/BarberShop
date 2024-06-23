@@ -11,8 +11,7 @@
     {% if user.is_authenticated %}
         <h2>Welcome, {{ user.username }}!</h2>
         {% for barbearia in barbearias%}
-            <h3>{{ barbearia.nome_da_barbearia }}</h3>
-            {{ media }}
+            <h3>{{ barbearia.nome_da_barbearia }}: {{ barbearia.orcamento }}</h3>
         {% endfor %}
     {% else %}
         <p>Welcome, Guest!</p>

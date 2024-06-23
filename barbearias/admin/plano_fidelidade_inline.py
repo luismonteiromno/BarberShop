@@ -16,6 +16,7 @@ class PlanosDeFidelidadeInline(nested_admin.NestedTabularInline):
     fields = [
         'nome',
         'beneficios',
+        'cor_do_cartao',
         'preco',
         'usuarios',
     ]
