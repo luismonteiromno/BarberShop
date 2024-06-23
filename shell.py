@@ -31,3 +31,7 @@ from barbearias.models import Barbearia
 
 barbearia = Barbearia.objects.first()
 print(barbearia.orcamento)
+
+from barbearias.crons import AtualizarFinancasCronJob
+job = AtualizarFinancasCronJob()
+job.do()

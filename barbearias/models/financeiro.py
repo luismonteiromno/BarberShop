@@ -17,7 +17,11 @@ class Financeiro(models.Model):
     )
 
     lucro_mes_anterior = models.DecimalField(
-        "Lucro do mês anterior", max_digits=10, decimal_places=5, blank=True, null=True
+        "Lucro do mês anterior", 
+        max_digits=10, 
+        decimal_places=5, 
+        blank=True, 
+        null=True
     )
 
     renda_mensal = models.DecimalField(
@@ -55,11 +59,19 @@ class Financeiro(models.Model):
     )
 
     lucro_total = models.DecimalField(
-        "Lucro total", max_digits=10, decimal_places=2, blank=True, null=True
+        "Lucro total", 
+        max_digits=10, 
+        decimal_places=2, 
+        blank=True, 
+        null=True
     )
 
     receita_total = models.DecimalField(
-        "Receita total", max_digits=10, decimal_places=2, blank=True, null=True
+        "Receita total", 
+        max_digits=10, 
+        decimal_places=2, 
+        blank=True, 
+        null=True
     )
 
     prejuizo = models.BooleanField("Prejuízo", default=False)
