@@ -112,17 +112,21 @@ class Financeiro(models.Model):
             Decimal(sum(lucro.preco_do_servico for lucro in agendamentos))
             + lucro_planos
         ) - despesas
+        
         lucro_mes = (
             Decimal(sum(lucro.preco_do_servico for lucro in lucro_mensal))
             + lucro_planos
-        )
+        ) - despesas
         lucro_mes_anterior = (
             Decimal(sum(lucro.preco_do_servico for lucro in lucro_anterior))
             + lucro_planos
         ) - despesas
         receita = Decimal(sum(lucro.preco_do_servico for lucro in agendamentos))
-
+           
         comparar_lucros = Decimal(lucro_mes - lucro_mes_anterior)
+        comparar_lucros_porcentagem = (
+            Decimal(comparar_lucros / 100).quantize(Decimal("0.0"))
+        )
         # como é porcentagem ent segue a seguinte regra
         # 1 = 100%
         # 0,9 = 90%
@@ -135,15 +139,12 @@ class Financeiro(models.Model):
         # 0,2 = 20%
         # 0,1 = 10%
         # 0,0 = 0%
-        comparar_lucros_porcentagem = Decimal(comparar_lucros / 100).quantize(
-            Decimal("0.0")
-        )
 
         print(
             f"Lucro do mês: {lucro_mes}",
             f"Lucro do mês anterior: {lucro_mes_anterior}",
             f"Despesas: {despesas}",
-            f"comparar valores porcentagem: {comparar_lucros_porcentagem}"
+            f"comparar valores porcentagem: {comparar_lucros_porcentagem}",
             f"Lucro dos planos: {lucro_planos}",
             f"Lucro total: {lucro_total}",
             f"Receita total: {receita}",
@@ -155,9 +156,7 @@ class Financeiro(models.Model):
             financeiro.lucro_mes_anterior = lucro_mes_anterior
             financeiro.despesas = despesas
             financeiro.comparar_lucros_mes_anterior_e_atual = comparar_lucros
-            financeiro.comparar_lucros_mes_anterior_e_atual_porcentagem = (
-                f"{comparar_lucros_porcentagem:.2}"
-            )
+            financeiro.comparar_lucros_mes_anterior_e_atual_porcentagem = comparar_lucros_porcentagem
             financeiro.lucro_planos = lucro_planos
             financeiro.lucro_total = lucro_total
             financeiro.receita_total = receita

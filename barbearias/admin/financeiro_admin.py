@@ -14,6 +14,32 @@ class FinanceiroAdmin(DjangoObjectActions, admin.ModelAdmin):
         'despesas',
     ]
     
+    fieldsets = [
+        ['Financeiro',
+            {
+                'fields': [
+                    'barbearia',
+                    'lucro_total',
+                    'receita_total',
+                    'lucro_planos',
+                    'despesas',
+                ]
+            }
+        ],
+        ['Lucros Mensais',
+            {
+                'fields': [
+                    'lucro_mes_anterior',
+                    'renda_mensal',
+                    'comparar_lucros_mes_anterior_e_atual',
+                    'comparar_lucros_mes_anterior_e_atual_porcentagem',
+                    'prejuizo',
+                    'lucro',
+                ]
+            }
+        ],
+    ]
+    
     autocomplete_fields = [
         'barbearia',
     ]
