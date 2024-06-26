@@ -54,13 +54,14 @@ class FinanceiroAdmin(DjangoObjectActions, admin.ModelAdmin):
     ]
     
     def atualizar_todos_os_financeiros(self, request, obj):
-        Financeiro.atualizar_todas_as_financas(self, obj)
+        # Financeiro.atualizar_todas_as_financas(self, obj)
+        Financeiro().atualizar_todas_as_financas(obj)
     
     def atualizar_financas(self, request, obj):
-        Financeiro.atualizar_financas(self, obj)
+        Financeiro().atualizar_financas(obj)
     
     def limpar_financeiro(self, request, obj):
-        Financeiro.limpar_financeiro(self, obj)
+        Financeiro().limpar_financeiro(obj)
     
     def has_add_permission(self, request, obj=None):
         return False
