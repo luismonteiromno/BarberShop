@@ -746,7 +746,18 @@
   
   ul.messagelist li {
     color: var(--secondary-color);
-    background: var(--sucess) url(http://localhost:8000/static/admin/img/icon-yes.svg) 40px 12px no-repeat;
+    background: var(--sucess) url(http://localhost:8000/static/admin/img/icon-yes.svg) 40px 12px no-repeat !important;
+    display: block;
+    font-weight: 400;
+    font-size: 13px;
+    padding: 10px 10px 10px 65px;
+    margin: 0 0 10px 0;
+    background-size: 16px auto;
+  }
+
+  ul.messagelist li.warning {
+    background: var(--delete-hover) url(http://localhost:8000/static/admin/img/icon-alert.svg) 40px 14px no-repeat !important;
+    background-size: 14px auto;
     display: block;
     font-weight: 400;
     font-size: 13px;

@@ -96,7 +96,7 @@ class BarbeariaAdmin(DjangoObjectActions, nested_admin.NestedModelAdmin):
     ]
 
     def atualizar_todas_as_financas(self, request, obj):
-        Financeiro().atualizar_todas_as_financas(self, obj)
+        Financeiro().atualizar_todas_as_financas(obj)
 
     def exportar_dados(self, request, obj):
         from django.http import HttpResponse
