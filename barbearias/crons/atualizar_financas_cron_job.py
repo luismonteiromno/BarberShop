@@ -17,4 +17,5 @@ class AtualizarFinancasCronJob(CronJobBase):
     def do(self):
         barbearias = Barbearia.objects.all()
         for barbearia in barbearias:
+            print(barbearia)
             Financeiro.atualizar_financas(self, barbearia)

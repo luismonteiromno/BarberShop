@@ -40,14 +40,15 @@ class Cliente(models.Model):
         except:
             for user in cliente:
                 user = Cliente.objects.get(pk=user.id)
-        if user.credito < 50:
-            if user.credito:
+        if user.credito:
+            if user.credito < 50:
                 user.credito += Decimal(random())
             else:
                 user.credito = Decimal(random())
         else:
             user.credito = 50
         user.save()
+        print(f"Crédito atualizado para o cliente {user}")
 
     def __str__(self):
         return self.cliente.email

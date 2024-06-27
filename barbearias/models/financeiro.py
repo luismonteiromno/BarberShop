@@ -152,17 +152,16 @@ class Financeiro(models.Model):
         )
 
         with transaction.atomic():
-            financeiro.renda_mensal = lucro_mes
-            financeiro.lucro_mes_anterior = lucro_mes_anterior
-            financeiro.despesas = despesas
-            financeiro.comparar_lucros_mes_anterior_e_atual = comparar_lucros
-            financeiro.comparar_lucros_mes_anterior_e_atual_porcentagem = comparar_lucros_porcentagem
-            financeiro.lucro_planos = lucro_planos
-            financeiro.lucro_total = lucro_total
-            financeiro.receita_total = receita
-            financeiro.prejuizo = lucro_total < 0
-            financeiro.lucro = lucro_total > 0
-            financeiro.save()
+            Financeiro.objects.filter(barbearia=barbearia).update(
+                lucro_mes_anterior=lucro_mes_anterior,
+                renda_mensal=lucro_mes,
+                despesas=despesas,
+                comparar_lucros_mes_anterior_e_atual_porcentagem=comparar_lucros_porcentagem,
+                lucro_planos=lucro_planos,
+                lucro_total=lucro_total,
+                receita_total=receita,
+                comparar_lucros_mes_anterior_e_atual=comparar_lucros,
+            )
 
     # def atualizar_todas_as_financas(self, barbearias):
     #     import pendulum
