@@ -15,7 +15,7 @@ class AgendamentoAdmin(DjangoObjectActions, admin.ModelAdmin):
     list_display = [
         'id',
         'numero_do_agendamento',
-        'usuario',
+        'cliente',
         'data_marcada',
     ]
     
@@ -26,7 +26,8 @@ class AgendamentoAdmin(DjangoObjectActions, admin.ModelAdmin):
     
     readonly_fields = [
         'numero_do_agendamento',
-        'usuario',
+        'cliente',
+        'desconto_do_usuario',
         'preco_do_servico',
         'agendamento_cancelado'
     ]

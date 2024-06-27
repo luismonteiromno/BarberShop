@@ -35,3 +35,52 @@ print(barbearia.orcamento)
 from barbearias.crons import AtualizarFinancasCronJob
 job = AtualizarFinancasCronJob()
 job.do()
+
+
+
+from barbearias.models import Barbearia
+
+Barbearia.objects.bulk_create([
+    Barbearia(
+        nome_da_barbearia='Barbershop',
+        cnpj='12345678901234',
+        rua='Rua 1',
+        bairro='Bairro A',
+        complemento='',
+        cidade='Cidade A',
+        estado='SP',
+        cep='00000-000',
+        tipo_de_barbearia='Loja Própria',
+        horario_de_abertura='08:00',
+        horario_de_fechamento='21:00',
+        dono=None
+    ),
+    Barbearia(
+        nome_da_barbearia='Barbershop 2',
+        cnpj='98765432109876',
+        rua='Rua Teste 2, 456',
+        bairro='Bairro B',
+        complemento='',
+        cidade='Cidade B',
+        estado='RJ',
+        cep='11111-111',
+        tipo_de_barbearia='Loja Própria',
+        horario_de_abertura='08:00',
+        horario_de_fechamento='21:00',
+        dono=None
+    ),
+    Barbearia(
+        nome_da_barbearia='Barbershop 3',
+        cnpj='12345678901234',
+        rua='Rua Teste 3, 789',
+        bairro='Bairro C',
+        complemento='',
+        cidade='Cidade C',
+        estado='MG',
+        cep='22222-222',
+        tipo_de_barbearia='Loja Própria',
+        horario_de_abertura='08:00',
+        horario_de_fechamento='21:00',
+        dono=None
+    )
+])

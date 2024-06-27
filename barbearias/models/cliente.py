@@ -8,10 +8,11 @@ from decimal import Decimal
 
 
 class Cliente(models.Model):
-    cliente = models.ForeignKey(
+    cliente = models.OneToOneField(
         User,
         verbose_name='Cliente',
         on_delete=models.SET_NULL,
+        unique=True,
         blank=True,
         null=True,
     )
@@ -39,13 +40,13 @@ class Cliente(models.Model):
         except:
             for user in cliente:
                 user = Cliente.objects.get(pk=user.id)
-        if user.credito < 100:
+        if user.credito < 50:
             if user.credito:
                 user.credito += Decimal(random())
             else:
                 user.credito = Decimal(random())
         else:
-            user.credito = 100
+            user.credito = 50
         user.save()
 
     def __str__(self):

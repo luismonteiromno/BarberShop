@@ -28,25 +28,24 @@ def registrar_lucros(sender, instance, created, **kwargs):
     receita = sum(lucro.preco_do_servico for lucro in agendamentos)
         
     with transaction.atomic():
-        if created:
-            financeiro = Financeiro.objects.create(
-                barbearia=barbearia,
-                renda_mensal=lucro_mes,
-                despesas=despesas,
-                lucro_total=lucro_total,
-                receita_total=receita,
-                prejuizo=lucro_total < 0,
-                lucro=lucro_total > 0
-            )
-        else:
-            financeiro = Financeiro.objects.get(pk=barbearia.id)
-            financeiro.renda_mensal = lucro_mes
-            financeiro.despesas = despesas
-            financeiro.lucro_total = lucro_total
-            financeiro.receita_total = receita
-            financeiro.prejuizo = lucro_total < 0
-            financeiro.lucro = lucro_total > 0
-            financeiro.save()
+        defaults = {
+            "renda_mensal": lucro_mes,
+            "despesas": despesas,
+            "lucro_total": lucro_total,
+            "receita_total": receita,
+            "prejuizo": lucro_total < 0,
+            "lucro": lucro_total > 0,
+        }
+        Financeiro.objects.update_or_create(
+            barbearia=barbearia, 
+            renda_mensal=lucro_mes,
+            despesas=despesas,
+            lucro_total=lucro_total,
+            receita_total=receita,
+            prejuizo=lucro_total < 0,
+            lucro=lucro_total > 0,
+            defaults=defaults
+        )
             
 # @receiver(post_save, sender=Barbeiro)
 # def atualizar_lucros(sender, instance, created, **kwargs):

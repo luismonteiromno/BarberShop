@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from django.db import models
 
 from .agendamento import Agendamento
-
+from barbearias.models import Cliente
 
 class MeuAgendamento(models.Model):
     agendamento = models.ForeignKey(
@@ -14,7 +14,7 @@ class MeuAgendamento(models.Model):
     )
     
     cliente = models.ForeignKey(
-        User,
+        Cliente,
         verbose_name='Cliente',
         on_delete=models.SET_NULL,
         blank=True,

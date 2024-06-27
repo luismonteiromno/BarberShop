@@ -185,6 +185,8 @@ class Barbearia(models.Model):
         user = get_current_user()
         if not self.pk:
             self.dono = user
+        else:
+            self.dono = user
         super().save(*args, **kwargs)
 
     def __str__(self):

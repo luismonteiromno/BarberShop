@@ -5,6 +5,7 @@ from crum import get_current_user
 from django.contrib.auth.models import User
 from django.db import models
 
+from barbearias.models import Cliente
 from .servico import Servico
 
 
@@ -26,8 +27,8 @@ class Agendamento(models.Model):
         null=True
     )
     
-    usuario = models.ForeignKey(
-        User,
+    cliente = models.ForeignKey(
+        Cliente,
         verbose_name='Usuário',
         on_delete=models.SET_NULL,
         blank=True,
@@ -36,6 +37,14 @@ class Agendamento(models.Model):
     
     preco_do_servico = models.DecimalField(
         'Preço do serviço',
+        max_digits=10,
+        decimal_places=2,
+        blank=True,
+        null=True
+    )
+    
+    desconto_do_usuario = models.DecimalField(
+        'Desconto atráves do crédito do cliente',
         max_digits=10,
         decimal_places=2,
         blank=True,
@@ -84,24 +93,27 @@ class Agendamento(models.Model):
     
     @property
     def preco_total(self):
-        if self.pk:
-            return Decimal(self.servico.preco)
+        user = get_current_user()
+        self.desconto_do_usuario = user.cliente.credito if user.cliente.credito else 0
+        if self.pk and self.desconto_do_usuario:
+            desconto = (self.desconto_do_usuario / 100) * self.servico.preco
+            return self.servico.preco - desconto
         else:
             return Decimal(self.servico.preco)
 
     def save(self, *args, **kwargs):
+        user = get_current_user()
         if not self.pk:
-            user = get_current_user()
-            self.usuario = user
+            self.cliente = Cliente.objects.get(cliente=user)
             self.numero_do_agendamento = self.formatar_numero_do_pedido
-            self.preco_do_servico = self.preco_total
-        else:
+            if user.cliente.credito:
+                self.desconto_do_usuario = user.cliente.credito / 100
             self.preco_do_servico = self.preco_total
         super().save(*args, **kwargs)
     
     def __str__(self):
         data_formatada = datetime.strftime(self.data_marcada, '%d/%m/%Y às %H:%M:%S')
-        return f"{self.usuario} - {data_formatada}"
+        return f"{self.cliente} - {data_formatada}"
     
     class Meta:
         verbose_name = 'Agendamento'

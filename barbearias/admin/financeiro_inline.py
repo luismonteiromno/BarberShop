@@ -9,6 +9,10 @@ class FinanceiroInline(nested_admin.NestedTabularInline):
     extra = 0
     max_num = 0
     can_delete = False
+    
+    def has_add_permission(self, request, obj=None):
+        return False
 
     def has_change_permission(self, request, obj=None):
         return False
+    

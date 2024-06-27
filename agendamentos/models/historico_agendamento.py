@@ -2,6 +2,7 @@ from django.contrib.auth.models import User
 from django.db import models
 
 from .servico import Servico
+from barbearias.models import Cliente
 
 
 class HistoricoDeAgendamento(models.Model):
@@ -22,7 +23,7 @@ class HistoricoDeAgendamento(models.Model):
     )
     
     cliente = models.ForeignKey(
-        User, 
+        Cliente, 
         verbose_name='Cliente',
         on_delete=models.SET_NULL,
         blank=True,

@@ -32,7 +32,7 @@ class ClienteAdmin(DjangoObjectActions, admin.ModelAdmin):
     
     def atualizar_credito(self, request, obj):
         Cliente().atualizar_credito_cliente(obj)
-        if obj.credito == 100:
+        if obj.credito == 50:
             self.message_user(
                 request,
                 "O cliente já possui o crédito máximo",
@@ -48,7 +48,7 @@ class ClienteAdmin(DjangoObjectActions, admin.ModelAdmin):
     def atualizar_creditos(self, request, obj):
         Cliente().atualizar_credito_cliente(obj)
         for instancia in obj:
-            if instancia.credito == 100:
+            if instancia.credito == 50:
                 self.message_user(
                     request,
                     f"O cliente {instancia.cliente} já possui o crédito máximo",
