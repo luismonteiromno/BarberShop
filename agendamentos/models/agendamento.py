@@ -75,22 +75,22 @@ class Agendamento(models.Model):
         ano = datetime.today().year
         mes = datetime.today().month
         agendamento_id = 0
-        
+
         ultimo_agendamento = Agendamento.objects.last()
-        
+
         if ultimo_agendamento:
             agendamento_id = int(ultimo_agendamento.numero_do_agendamento[12:]) + 1
         if not ultimo_agendamento or agendamento_id == 0:
             agendamento_id += 1
-            
+
         if agendamento_id < 10:
-            agendamento_id = f'0{agendamento_id}'
+            agendamento_id = f"0{agendamento_id}"
         if mes < 10:
-            mes = f'0{mes}'
-            
-        numero_agendamento = f'BBSHP{ano}{mes}{agendamento_id}'
-        return numero_agendamento        
-    
+            mes = f"0{mes}"
+
+        numero_agendamento = f"BBSHP{ano}{mes}{agendamento_id}"
+        return numero_agendamento
+
     @property
     def preco_total(self):
         user = get_current_user()
@@ -110,11 +110,11 @@ class Agendamento(models.Model):
                 self.desconto_do_usuario = user.cliente.credito / 100
             self.preco_do_servico = self.preco_total
         super().save(*args, **kwargs)
-    
+
     def __str__(self):
-        data_formatada = datetime.strftime(self.data_marcada, '%d/%m/%Y às %H:%M:%S')
+        data_formatada = datetime.strftime(self.data_marcada, "%d/%m/%Y às %H:%M:%S")
         return f"{self.cliente} - {data_formatada}"
-    
+
     class Meta:
-        verbose_name = 'Agendamento'
-        verbose_name_plural = 'Agendamentos'
+        verbose_name = "Agendamento"
+        verbose_name_plural = "Agendamentos"

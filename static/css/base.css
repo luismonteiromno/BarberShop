@@ -494,9 +494,6 @@
     }
     
     /* Links de navegação */
-    .module h2, .module caption, .inline-group h2 {
-      background-color: var(--primary-color-faded);
-    }
     
     /* Breadcrumbs */
     div.breadcrumbs {
@@ -779,6 +776,8 @@
   .module h2, .module caption, .inline-group {
     font-weight: 800;
     color: var(--secondary-color);
+    font-size: 18px;
+    background-color: var(--primary-color-faded);
     /* background-color: var(--color-module); */
   }
   
