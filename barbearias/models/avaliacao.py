@@ -16,6 +16,13 @@ class Avaliacao(models.Model):
         null=True
     )
     
+    comentario = models.TextField(
+        'Comentário',
+        max_length=500,
+        blank=True,
+        null=True,
+    )
+    
     barbearia = models.ForeignKey(
         Barbearia,
         verbose_name='Barbearia',

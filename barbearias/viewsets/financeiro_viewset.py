@@ -56,3 +56,11 @@ class FinanceiroViewSet(ModelViewSet):
             queryset = queryset.filter(receita_total=Decimal(receita_total))
 
         return queryset
+
+    def create(self, request, *args, **kwargs):
+        from rest_framework import status
+        from rest_framework.response import Response
+        
+        return Response({
+            'error': 'Essa ação não está disponivel'
+        }, status=status.HTTP_403_FORBIDDEN)

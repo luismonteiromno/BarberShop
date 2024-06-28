@@ -79,10 +79,10 @@ class Agendamento(models.Model):
         ultimo_agendamento = Agendamento.objects.last()
 
         if ultimo_agendamento:
-            agendamento_id = int(ultimo_agendamento.numero_do_agendamento[12:]) + 1
-        if not ultimo_agendamento or agendamento_id == 0:
+            agendamento_id = int(ultimo_agendamento.numero_do_agendamento[11:]) + 1
+        elif not ultimo_agendamento or agendamento_id == 0:
             agendamento_id += 1
-
+       
         if agendamento_id < 10:
             agendamento_id = f"0{agendamento_id}"
         if mes < 10:
