@@ -66,6 +66,7 @@ INSTALLED_APPS = [
     #apps
     'agendamentos',
     'barbearias',
+    'cargos',
     'usuarios',
     'utilidades',
     #libs

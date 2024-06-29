@@ -47,5 +47,5 @@ class BarbeariaViewSet(ModelViewSet):
         if tipo_da_barbearia:
             queryset = queryset.filter(tipo_de_barbearia=tipo_da_barbearia)
         
-        return queryset
+        return queryset.order_by('id')
     

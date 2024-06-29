@@ -170,11 +170,11 @@ class Barbearia(models.Model):
 
     @property
     def media_das_avaliacoes_0_a_5(self):
-        media = self.avaliacao_set.aggregate(Avg("avaliacao"))["avaliacao__avg"]
+        media = self.avaliacao_set.aggregate(media_avaliacao=Avg("avaliacao"))["media_avaliacao"]
         if media:
             return Decimal(media).quantize(Decimal("0.0"))
         else:
-            return "Nenhuma avaliação"
+            return Decimal(0.0)
 
     @property
     def ultima_avaliacao(self):

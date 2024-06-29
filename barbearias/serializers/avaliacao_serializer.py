@@ -7,5 +7,5 @@ class AvaliacaoSerializer(ModelSerializer):
     class Meta:
         model = Avaliacao
         fields = '__all__'
-        read_only_fields = ['avaliacao', 'barbearia', 'usuario']
+        read_only_fields = ['avaliacao', 'barbearia', 'comentario', 'usuario']
         

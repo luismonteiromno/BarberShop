@@ -95,7 +95,7 @@ class Agendamento(models.Model):
     def preco_total(self):
         user = get_current_user()
         self.desconto_do_usuario = user.cliente.credito if user.cliente.credito else 0
-        if self.pk and self.desconto_do_usuario:
+        if self.desconto_do_usuario > 0:
             desconto = (self.desconto_do_usuario / 100) * self.servico.preco
             return self.servico.preco - desconto
         else:

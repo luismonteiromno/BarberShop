@@ -12,6 +12,7 @@ class BarbeiroAdmin(admin.ModelAdmin):
         'barbeiro',
         'barbearia',
         'avaliacao',
+        'salario',
         'freelancer'
     ]
     
@@ -30,6 +31,7 @@ class BarbeiroAdmin(admin.ModelAdmin):
     
     autocomplete_fields = [
         'barbearia',
+        'servicos'
     ]
     
     search_fields = [
@@ -37,9 +39,9 @@ class BarbeiroAdmin(admin.ModelAdmin):
         'barbearia__nome_da_barbearia',
     ]
     
-    filter_horizontal = [
-        'servicos'
-    ]
+    # filter_horizontal = [
+    #     'servicos'
+    # ]
     
     list_select_related = [
         'barbearia',

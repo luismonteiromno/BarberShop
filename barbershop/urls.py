@@ -35,9 +35,11 @@ from barbearias.viewsets import (
     ClienteViewSet,
     ContatoViewSet,
     FinanceiroViewSet,
+    FuncionarioViewSet,
     PlanosDeFidelidadeViewSet,
 )
 from barbearias.viewsets.plano_fidelidade_viewset import PlanosDeFidelidadeViewSet
+from cargos.viewsets import CargoViewSet
 from utilidades.viewsets import AvisoViewSet, PromocaoViewSet
 
 admin.site.site_header = "BarberShop Admin"
@@ -55,8 +57,10 @@ main_router.register(r"barbeiros", BarbeiroViewSet, basename="barbeiros")
 main_router.register(
     r"categorias-servicos", CategoriaDoServicoViewSet, basename="categorias-servicos"
 )
+main_router.register(r"cargos", CargoViewSet, basename="cargos")
 main_router.register(r"clientes", ClienteViewSet, basename="clientes")
 main_router.register(r"contatos", ContatoViewSet, basename="contatos")
+main_router.register(r"funcionarios", FuncionarioViewSet, basename="funcionarios")
 main_router.register(r"financeiros", FinanceiroViewSet, basename="financeiros")
 main_router.register(
     r"historico-agendamentos",

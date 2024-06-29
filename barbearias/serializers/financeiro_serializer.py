@@ -15,7 +15,8 @@ class FinanceiroSerializer(ModelSerializer):
             "receita_total",
             "prejuizo",
             "lucro",
-            "barbearia" "lucro_mes_anterior",
+            "barbearia",
+            "lucro_mes_anterior",
             "comparar_lucros_mes_anterior_e_atual",
             "comparar_lucros_mes_anterior_e_atual_porcentagem",
         ]

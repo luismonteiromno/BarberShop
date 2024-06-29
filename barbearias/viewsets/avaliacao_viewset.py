@@ -29,3 +29,12 @@ class AvaliacaoViewSet(ModelViewSet):
             queryset = queryset.filter(avaliacao=Decimal(avaliacao))
         
         return queryset
+    
+    def create(self, request, *args, **kwargs):
+        from rest_framework.response import Response
+        from rest_framework import status
+        
+        return Response(
+            {'error': 'Essa ação não está disponivel'},
+            status=status.HTTP_403_FORBIDDEN
+        )

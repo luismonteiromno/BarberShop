@@ -4,6 +4,7 @@ from .barbeiro_viewset import BarbeiroViewSet
 from .cliente_viewset import ClienteViewSet
 from .contato_viewset import ContatoViewSet
 from .financeiro_viewset import FinanceiroViewSet
+from .funcionario_viewset import FuncionarioViewSet
 from .plano_fidelidade_viewset import PlanosDeFidelidadeViewSet
 
 __all__ = [
@@ -13,5 +14,6 @@ __all__ = [
     ClienteViewSet,
     ContatoViewSet,
     FinanceiroViewSet,
+    FuncionarioViewSet,
     PlanosDeFidelidadeViewSet,
 ]
