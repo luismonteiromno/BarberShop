@@ -1,5 +1,17 @@
-pip install -r requirements.txt
+# Backend
+## Instalar requirements
+#### pip install -r requirements.txt
 
-python manage.py migrate
+## Executar as migrações
+#### python manage.py migrate
 
-python manage runserver
+## Rodar Back
+#### python manage runserver
+
+# Frontend
+
+## Instalar dependências
+#### npm/yarn i
+
+## Rodar Front
+#### npm/yarn run dev
