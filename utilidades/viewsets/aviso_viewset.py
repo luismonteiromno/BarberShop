@@ -35,7 +35,7 @@ class AvisoViewSet(ModelViewSet):
             queryset = queryset.filter(data_de_inicio__gte=data_de_inicio)
             
         if data_de_encerramento:
-            queryset = queryset.filter(data_de_encerramento__lt=data_de_encerramento)
+            queryset = queryset.filter(data_de_encerramento__lte=data_de_encerramento)
         
         return queryset
     

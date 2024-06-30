@@ -26,6 +26,10 @@ class MeuAgendamento(models.Model):
         default=False
     )
     
+    @property
+    def servico(self):
+        return self.agendamento.servico if self.agendamento else None
+    
     def cancelar_o_agendamento(self, obj):
         obj.cancelar_agendamento = True
         obj.agendamento.agendamento_cancelado = True

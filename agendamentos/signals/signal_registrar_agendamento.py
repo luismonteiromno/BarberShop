@@ -1,3 +1,4 @@
+from decimal import Decimal
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.db import transaction
@@ -18,6 +19,8 @@ def agendamento_criado(sender, instance, created, **kwargs):
                 barbeiro=instance.escolher_barbeiro,
                 data_do_agendamento=instance.data_marcada,
             )
+            cliente.credito = Decimal(0)
+            cliente.save()
         
         
 @receiver(post_save, sender=Agendamento)

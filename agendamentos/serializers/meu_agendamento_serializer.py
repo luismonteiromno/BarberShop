@@ -1,9 +1,14 @@
-from rest_framework.serializers import ModelSerializer
+from rest_framework import serializers
 
 from ..models import MeuAgendamento
 
 
-class MeuAgendamentoSerializer(ModelSerializer):
+class MeuAgendamentoSerializer(serializers.ModelSerializer):
+    servico = serializers.SerializerMethodField()
+    
+    def get_servico(self, obj):
+        return str(obj.servico)
+    
     class Meta:
         model = MeuAgendamento
         fields = '__all__'
