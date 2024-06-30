@@ -17,6 +17,10 @@ class Cargo(models.Model):
         ]
     )
     
+    @property
+    def funcionarios_com_esse_cargo(self):
+        return self.funcionario_set.all().count()
+    
     def __str__(self):
         return self.nome_do_cargo
     

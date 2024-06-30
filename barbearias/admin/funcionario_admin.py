@@ -11,7 +11,9 @@ class FuncionarioAdmin(admin.ModelAdmin):
     ]
 
     autocomplete_fields = [
+        "barbearia",
         "cargo",
     ]
 
     list_select_related = ["cargo"]
+    

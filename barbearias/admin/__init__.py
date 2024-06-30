@@ -7,6 +7,7 @@ from .cliente_inline import ClienteInline
 from .contato_inline import ContatoInline
 from .financeiro_admin import FinanceiroAdmin
 from .funcionario_admin import FuncionarioAdmin
+from .funcionario_inline import FuncionarioInline
 from .plano_fidelidade_admin import PlanosDeFidelidadeAdmin
 
 __all__ = [
@@ -19,5 +20,6 @@ __all__ = [
     ClienteInline,
     FinanceiroAdmin,
     FuncionarioAdmin,
+    FuncionarioInline,
     PlanosDeFidelidadeAdmin,
 ]

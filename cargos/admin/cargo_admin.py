@@ -7,6 +7,7 @@ class CargoAdmin(admin.ModelAdmin):
     list_display = [
         'nome_do_cargo',
         'nivel_hierarquico',
+        'funcionarios_com_esse_cargo',
     ]
     
     search_fields = [

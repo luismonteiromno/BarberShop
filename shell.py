@@ -39,7 +39,16 @@ job.do()
 credito = AtualizarClienteCronJob()
 credito.do()
 
-
+from barbearias.models import Financeiro
+financeiro = Financeiro.objects.get(id=1)
+financeiro.renda_mensal,  = 0
+financeiro.lucro_mes_anterior = 0
+financeiro.despesas = 0
+financeiro.comparar_lucros_mes_anterior_e_atual = 0
+financeiro.lucro_planos = 0
+financeiro.lucro_total = 0
+financeiro.receita_total = 0
+financeiro.prejuizo, financeiro.lucro = False
 
 from barbearias.models import Barbearia
 

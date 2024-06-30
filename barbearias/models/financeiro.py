@@ -88,6 +88,7 @@ class Financeiro(models.Model):
             barbearia = Barbearia.objects.get(pk=financeiro.id)
 
         barbeiros = barbearia.barbeiro_set.all()
+        funcionarios = barbearia.funcionario_set.all()
         planos = barbearia.planosdefidelidade_set.all()
 
         agendamentos = Agendamento.objects.filter(
@@ -100,7 +101,9 @@ class Financeiro(models.Model):
         )
         lucro_mensal = agendamentos.filter(data_marcada__month=pendulum.now().month)
 
-        despesas = Decimal(sum(barbeiro.salario for barbeiro in barbeiros))
+        despesa_barbeiro = Decimal(sum(barbeiro.salario for barbeiro in barbeiros))
+        despesa_funcionario = Decimal(sum(funcionario.salario for funcionario in funcionarios))
+        despesas = despesa_barbeiro + despesa_funcionario
 
         # lucro_planos = Decimal(sum(lucro.preco*lucro.quantidade_de_usuarios for lucro in planos))
         lucro_planos = Decimal(0.00)
@@ -162,59 +165,6 @@ class Financeiro(models.Model):
                 receita_total=receita,
                 comparar_lucros_mes_anterior_e_atual=comparar_lucros,
             )
-
-    # def atualizar_todas_as_financas(self, barbearias):
-    #     import pendulum
-
-    #     from agendamentos.models import Agendamento
-
-    #     # mes_anterior = datetime.now() - relativedelta(months=1)
-    #     mes_anterior = pendulum.now().subtract(months=1)
-    #     for barbearia in barbearias:
-    #         barbearia = Barbearia.objects.get(pk=barbearia.id)
-
-    #         barbeiros = barbearia.barbeiro_set.all()
-    #         planos = barbearia.planosdefidelidade_set.all()
-
-    #         agendamentos = (
-    #             Agendamento.objects.filter(
-    #                 data_marcada__lt=pendulum.now(),
-    #                 servico__disponivel_na_barbearia=barbearia,
-    #                 agendamento_cancelado=False
-    #             )
-    #         )
-    #         lucro_mes_anterior = agendamentos.filter(
-    #             data_marcada__month=mes_anterior.month,
-    #             data_marcada__year=mes_anterior.year
-    #         )
-    #         lucro_mensal = agendamentos.filter(
-    #             data_marcada__month=pendulum.now().month
-    #         )
-    #         financeiros = barbearia.financeiro.__dict__
-
-    #         despesas = Decimal(sum(barbeiro.salario for barbeiro in barbeiros))
-    #         lucro_planos = Decimal(sum(lucro.preco for lucro in planos))
-    #         lucro_total = (Decimal(sum(lucro.preco_do_servico for lucro in agendamentos)) + lucro_planos) - despesas
-    #         lucro_mes = Decimal(sum(lucro.preco_do_servico for lucro in lucro_mensal)) + lucro_planos
-    #         lucro_mes_anterior = (Decimal(sum(lucro.preco_do_servico for lucro in lucro_mes_anterior)) + lucro_planos) - despesas
-    #         receita = Decimal(sum(lucro.preco_do_servico for lucro in agendamentos))
-
-    #         comparar_lucros = Decimal(
-    #             lucro_mes - lucro_mes_anterior
-    #         )
-    #         ...
-    #         with transaction.atomic():
-    #             for financeiro in list(financeiros):
-    #                 financeiro.renda_mensal = lucro_mes
-    #                 financeiro.lucro_mes_anterior = lucro_mes_anterior
-    #                 financeiro.despesas = despesas
-    #                 financeiro.comparar_lucros_mes_anterior_e_atual = comparar_lucros
-    #                 financeiro.lucro_planos = lucro_planos
-    #                 financeiro.lucro_total = lucro_total
-    #                 financeiro.receita_total = receita
-    #                 financeiro.prejuizo = lucro_total < 0
-    #                 financeiro.lucro = lucro_total > 0
-    #                 financeiro.save()
 
     def atualizar_todas_as_financas(self, financeiros):
         for financeiro in financeiros:

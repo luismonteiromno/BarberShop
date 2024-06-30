@@ -15,6 +15,7 @@ from .avaliacao_inline import AvaliacaoInline
 from .barbeiro_inline import BarbeiroInline
 from .contato_inline import ContatoInline
 from .financeiro_inline import FinanceiroInline
+from .funcionario_inline import FuncionarioInline
 from .plano_fidelidade_inline import PlanosDeFidelidadeInline
 
 
@@ -79,6 +80,7 @@ class BarbeariaAdmin(DjangoObjectActions, nested_admin.NestedModelAdmin):
         BarbeiroInline,
         ContatoInline,
         FinanceiroInline,
+        FuncionarioInline,
         PlanosDeFidelidadeInline,
         ServicoInline,
     ]
