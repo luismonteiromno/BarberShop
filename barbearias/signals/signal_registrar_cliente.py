@@ -10,7 +10,6 @@ def registrar_cliente(sender, instance, created, **kwargs):
     planos = PlanosDeFidelidade.objects.filter(
         nome=instance.plano_de_fidelidade
     )
-    
     with transaction.atomic():
         if created:
             for plano in planos:

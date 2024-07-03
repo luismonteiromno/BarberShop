@@ -1,36 +1,44 @@
 from django.contrib import admin, messages
 from django_object_actions import DjangoObjectActions
 
+import pendulum
 from ..models import MeuAgendamento
 
 
 @admin.register(MeuAgendamento)
 class MeuAgendamentoAdmin(DjangoObjectActions, admin.ModelAdmin):
     list_display = [
-        "agendamento",
-        "cliente",
-        "servico",
-        "cancelar_agendamento",
+        'agendamento',
+        'cliente',
+        'servico',
+        'cancelar_agendamento',
     ]
 
     fieldsets = [
         [
-            "Detalhes do agendamento",
-            {"fields": ["agendamento", "cliente", "cancelar_agendamento"]},
+            'Detalhes do agendamento',
+            {'fields': ['agendamento', 'cliente', 'cancelar_agendamento']},
         ]
     ]
 
-    readonly_fields = ["agendamento", "cliente", "cancelar_agendamento"]
+    readonly_fields = ['agendamento', 'cliente', 'cancelar_agendamento']
 
-    change_actions = ["cancelar_o_agendamento"]
+    change_actions = ['cancelar_o_agendamento']
 
     def cancelar_o_agendamento(self, request, obj):
-        MeuAgendamento.cancelar_o_agendamento(self, obj)
-        self.message_user(
-            request, 
-            "Agendamento cancelado com sucesso!", 
-            level=messages.SUCCESS
-        )
+        if obj.agendamento.data_marcada < pendulum.now():
+            self.message_user(
+                request,
+                'Você não pode cancelar um agendamento que já passou.',
+                level=messages.WARNING,
+            )
+        else:
+            MeuAgendamento.cancelar_o_agendamento(self, obj)
+            self.message_user(
+                request,
+                'Agendamento cancelado com sucesso!',
+                level=messages.SUCCESS,
+            )
 
     def get_queryset(self, request):
         import pendulum
@@ -39,7 +47,8 @@ class MeuAgendamentoAdmin(DjangoObjectActions, admin.ModelAdmin):
 
         if not request.user.is_superuser:
             queryset = queryset.filter(
-                agendamento__data_marcada__gt=pendulum.now(), cliente=request.user
+                agendamento__data_marcada__gt=pendulum.now(),
+                cliente=request.user,
             )
 
         return queryset

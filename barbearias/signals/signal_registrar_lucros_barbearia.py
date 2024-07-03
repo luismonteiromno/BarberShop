@@ -37,13 +37,20 @@ def registrar_lucros(sender, instance, created, **kwargs):
             data_marcada__lt=pendulum.now(),
             servico__disponivel_na_barbearia=barbearia,
             agendamento_cancelado=False,
-        )
-        lucro_anterior = agendamentos.filter(
-            data_marcada__month=mes_anterior.month, data_marcada__year=mes_anterior.year
-        )
-        lucro_mensal = agendamentos.filter(data_marcada__month=pendulum.now().month)
+        ).select_related('servico__disponivel_na_barbearia')
 
-        despesa_barbeiro = Decimal(sum(barbeiro.salario for barbeiro in barbeiros))
+        lucro_anterior = agendamentos.filter(
+            data_marcada__month=mes_anterior.month,
+            data_marcada__year=mes_anterior.year,
+        )
+
+        lucro_mensal = agendamentos.filter(
+            data_marcada__month=pendulum.now().month
+        )
+
+        despesa_barbeiro = Decimal(
+            sum(barbeiro.salario for barbeiro in barbeiros)
+        )
         despesa_funcionario = Decimal(
             sum(funcionario.salario for funcionario in funcionarios)
         )
@@ -54,7 +61,9 @@ def registrar_lucros(sender, instance, created, **kwargs):
         for lucro in planos:
             lucro_planos = lucro.preco * lucro.quantidade_de_usuarios
 
-        receita = Decimal(sum(lucro.preco_do_servico for lucro in agendamentos))
+        receita = Decimal(
+            sum(lucro.preco_do_servico for lucro in agendamentos)
+        )
         lucro_total = (
             Decimal(sum(lucro.preco_do_servico for lucro in agendamentos))
             + lucro_planos
@@ -68,11 +77,13 @@ def registrar_lucros(sender, instance, created, **kwargs):
             Decimal(sum(lucro.preco_do_servico for lucro in lucro_anterior))
             + lucro_planos
         ) - despesas
-        receita = Decimal(sum(lucro.preco_do_servico for lucro in agendamentos))
+        receita = Decimal(
+            sum(lucro.preco_do_servico for lucro in agendamentos)
+        )
 
         comparar_lucros = Decimal(lucro_mes - lucro_mes_anterior)
         comparar_lucros_porcentagem = Decimal(comparar_lucros / 100).quantize(
-            Decimal("0.0")
+            Decimal('0.0')
         )
         # como é porcentagem ent segue a seguinte regra
         # 1 = 100%
@@ -88,14 +99,14 @@ def registrar_lucros(sender, instance, created, **kwargs):
         # 0,0 = 0%
 
         print(
-            f"Lucro do mês: {lucro_mes}",
-            f"Lucro do mês anterior: {lucro_mes_anterior}",
-            f"Despesas: {despesas}",
-            f"comparar valores porcentagem: {comparar_lucros_porcentagem}",
-            f"Lucro dos planos: {lucro_planos}",
-            f"Lucro total: {lucro_total}",
-            f"Receita total: {receita}",
-            f"Comparar lucros: {comparar_lucros}",
+            f'Lucro do mês: {lucro_mes}',
+            f'Lucro do mês anterior: {lucro_mes_anterior}',
+            f'Despesas: {despesas}',
+            f'comparar valores porcentagem: {comparar_lucros_porcentagem}',
+            f'Lucro dos planos: {lucro_planos}',
+            f'Lucro total: {lucro_total}',
+            f'Receita total: {receita}',
+            f'Comparar lucros: {comparar_lucros}',
         )
 
         with transaction.atomic():

@@ -60,7 +60,7 @@ class BarbeariaAdmin(DjangoObjectActions, nested_admin.NestedModelAdmin):
 
     autocomplete_fields = ["dono"]
 
-    # list_select_related = ["dono"]
+    list_select_related = ["dono"]
 
     filter_horizontal = ["funcionarios"]
 
@@ -143,5 +143,5 @@ class BarbeariaAdmin(DjangoObjectActions, nested_admin.NestedModelAdmin):
                 Q(dono=request.user) | Q(funcionarios=request.user)
             )
 
-        return queryset.select_related('dono')
+        return queryset
 

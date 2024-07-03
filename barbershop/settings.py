@@ -15,6 +15,7 @@ import environ
 from decouple import config
 
 from pathlib import Path
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 # BASE_DIR = Path(__file__).resolve().parent.parent
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -26,7 +27,9 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-7l&_)0af+6=9g)$p(#u55w#qmlihu7s4*nsdwgl$9l$12$zir$'
+SECRET_KEY = (
+    'django-insecure-7l&_)0af+6=9g)$p(#u55w#qmlihu7s4*nsdwgl$9l$12$zir$'
+)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,15 +40,30 @@ CORS_ALLOWED_ORIGINS = [
     'http://localhost:8080',
     'http://127.0.0.1:8080',
 ]
-CORS_ALLOW_ALL_ORIGINS = True
-CORS_ALLOW_METHODS = [
-    'GET', 
-    'POST', 
-    'PUT', 
-    'PATCH', 
-    'DELETE', 
-    'OPTIONS'
+INTERNAL_IPS = [
+    # ...
+    "127.0.0.1",
+    # ...
 ]
+
+# DEBUG_TOOLBAR_PANELS = [
+#     'debug_toolbar.panels.history.HistoryPanel',
+#     'debug_toolbar.panels.versions.VersionsPanel',
+#     'debug_toolbar.panels.timer.TimerPanel',
+#     'debug_toolbar.panels.settings.SettingsPanel',
+#     'debug_toolbar.panels.headers.HeadersPanel',
+#     'debug_toolbar.panels.request.RequestPanel',
+#     'debug_toolbar.panels.sql.SQLPanel',
+#     'debug_toolbar.panels.staticfiles.StaticFilesPanel',
+#     'debug_toolbar.panels.templates.TemplatesPanel',
+#     'debug_toolbar.panels.cache.CachePanel',
+#     'debug_toolbar.panels.signals.SignalsPanel',
+#     'debug_toolbar.panels.redirects.RedirectsPanel',
+#     'debug_toolbar.panels.profiling.ProfilingPanel',
+# ]
+
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_METHODS = ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS']
 CORS_ALLOW_HEADERS = [
     'Accept',
     'Accept-Encoding',
@@ -63,16 +81,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #apps
+    # apps
     'agendamentos',
     'barbearias',
     'cargos',
     'usuarios',
     'utilidades',
-    #libs
+    # libs
     'rest_framework',
     'advanced_filters',
     'colorfield',
+    'debug_toolbar',
     'django_admin_listfilter_dropdown',
     'django_cron',
     'django_filters',
@@ -81,7 +100,7 @@ INSTALLED_APPS = [
     'import_export',
     'nested_admin',
     'tinymce',
-    'corsheaders'
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -92,6 +111,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'crum.CurrentRequestUserMiddleware',
@@ -102,7 +122,7 @@ ROOT_URLCONF = 'barbershop.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, "templates")],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -117,7 +137,9 @@ TEMPLATES = [
 
 REST_FRAMEWORK = {
     # Adicionar o botao de Filtros na API
-    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
+    'DEFAULT_FILTER_BACKENDS': [
+        'django_filters.rest_framework.DjangoFilterBackend'
+    ],
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     'PAGE_SIZE': 10,
     #
@@ -139,9 +161,7 @@ WSGI_APPLICATION = 'barbershop.wsgi.application'
 
 USE_POSTGRES = config('USE_POSTGRES', default=False, cast=bool)
 if USE_POSTGRES:
-    DATABASES = {
-        'default': env.db()
-    }
+    DATABASES = {'default': env.db()}
 else:
     DATABASES = {
         'default': {
@@ -186,9 +206,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
@@ -199,31 +219,31 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 TINYMCE_DEFAULT_CONFIG = {
-    'theme': "silver",
+    'theme': 'silver',
     'branding': False,
     'skin': 'oxide-dark',
-    "height": 500,
-    'plugins': '''
+    'height': 500,
+    'plugins': """
             textcolor save link image media preview codesample contextmenu
             table code lists fullscreen  insertdatetime  nonbreaking
             contextmenu directionality searchreplace wordcount visualblocks
             visualchars code fullscreen autolink lists  charmap print  hr
             anchor pagebreak
-            ''',
-    'toolbar1': '''
+            """,
+    'toolbar1': """
             fullscreen preview bold italic underline | fontselect,
             fontsizeselect  | forecolor backcolor | alignleft alignright |
             aligncenter alignjustify | indent outdent | bullist numlist table |
             | link image media | codesample |
-            ''',
-    'toolbar2': '''
+            """,
+    'toolbar2': """
             visualblocks visualchars |
             charmap hr pagebreak nonbreaking anchor |  code |
-            ''',
+            """,
     'contextmenu': 'formats | link image',
     'menubar': True,
     'statusbar': True,
-    "file_picker_callback": """function (cb, value, meta) {
+    'file_picker_callback': """function (cb, value, meta) {
         var input = document.createElement("input");
         input.setAttribute("type", "file");
         if (meta.filetype == "image") {
@@ -247,7 +267,6 @@ TINYMCE_DEFAULT_CONFIG = {
         };
         input.click();
     }""",
-
 }
 
 ISORT_SETTINGS = {
@@ -259,5 +278,5 @@ ISORT_SETTINGS = {
 
 CRON_CLASSES = [
     'barbearias.crons.AtualizarClienteCronJob',
-    'barbearias.crons.AtualizarFinancasCronJob'
+    'barbearias.crons.AtualizarFinancasCronJob',
 ]

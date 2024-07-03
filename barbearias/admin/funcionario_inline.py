@@ -6,4 +6,6 @@ from ..models import Funcionario
 class FuncionarioInline(nested_admin.NestedStackedInline):
     model = Funcionario
     extra = 0
-    
+    autocomplete_fields = [
+        'cargo'
+    ]

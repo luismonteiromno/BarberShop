@@ -7,3 +7,6 @@ from ..models import Servico
 class ServicoInline(nested_admin.NestedStackedInline):
     model = Servico
     extra = 0
+    autocomplete_fields = [
+        'categoria'
+    ]

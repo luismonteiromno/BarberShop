@@ -8,7 +8,7 @@ from ..models import AvaliacaoDoBarbeiro, Barbeiro
 @receiver(post_save, sender=AvaliacaoDoBarbeiro)
 def atualizar_avaliacao(sender, created, instance, **kwargs):
     barbeiro = Barbeiro.objects.get(id=instance.barbeiro.id)
-    barbeiro.avaliacao = barbeiro.barbeiro_avaliacao.aggregate(Avg("avaliacao"))[
-        "avaliacao__avg"
-    ]
+    barbeiro.avaliacao = barbeiro.barbeiro_avaliacao.aggregate(
+        media_avaliacao=Avg('avaliacao')
+    )['media_avaliacao']
     barbeiro.save()

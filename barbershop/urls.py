@@ -83,4 +83,5 @@ urlpatterns = [
     path("api-auth/", include("rest_framework.urls", namespace="rest_framework")),
     path("_nested_admin/", include("nested_admin.urls")),
     path("tinymce/", include("tinymce.urls")),
+    path("__debug__/", include("debug_toolbar.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
