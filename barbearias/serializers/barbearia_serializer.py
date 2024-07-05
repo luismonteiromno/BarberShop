@@ -1,9 +1,6 @@
 from rest_framework import serializers
-
+from .validators import hora_de_funcionamento
 from ..models import Barbearia
-
-from decimal import Decimal
-
 
 class BarbeariaSerializer(serializers.ModelSerializer):
     avisos_recentes = serializers.SerializerMethodField()
@@ -13,18 +10,23 @@ class BarbeariaSerializer(serializers.ModelSerializer):
     orcamento = serializers.SerializerMethodField()
     quantidade_de_agendamentos = serializers.SerializerMethodField()
     ultima_avaliacao = serializers.SerializerMethodField()
-
+    
     def get_avisos_recentes(self, obj):
         aviso = obj.avisos_recentes
-        return aviso if aviso else None
+        aviso_dicionario = {
+            'aviso': str(aviso) if aviso else None,
+            'descricao': str(aviso.aviso) if aviso else None,
+            'data_de_inicio': str(aviso.data_de_inicio) if aviso else None,
+            'data_de_encerramento': str(aviso.data_de_encerramento) if aviso else None,
+        }
+        return aviso_dicionario
 
     def get_ultimo_agendamento(self, obj):
         ultima_agendamento = obj.ultimo_agendamento
         return str(ultima_agendamento) if ultima_agendamento else None
 
     def get_media_das_avaliacoes(self, obj):
-        media = obj.media_das_avaliacoes_0_a_5
-        return media
+        return obj.media_das_avaliacoes_0_a_5
 
     def get_numero_de_contatos(self, obj):
         return obj.numero_de_contatos
@@ -37,23 +39,23 @@ class BarbeariaSerializer(serializers.ModelSerializer):
 
     def get_ultima_avaliacao(self, obj):
         if obj.ultima_avaliacao:
-            ultima_avaliacao = {
-                "avaliacao": (
-                    str(obj.ultima_avaliacao) if obj.ultima_avaliacao else None
-                ),
-                "comentario": (
-                    str(obj.ultima_avaliacao.comentario)
-                    if obj.ultima_avaliacao.comentario
-                    else None
-                ),
+            return {
+                'avaliacao': str(obj.ultima_avaliacao),
+                'comentario': str(obj.ultima_avaliacao.comentario) if obj.ultima_avaliacao.comentario else None,
             }
         else:
-            ultima_avaliacao = {
-                "avaliacao": None,
-                "comentario": None,
+            return {
+                'avaliacao': None,
+                'comentario': None,
             }
-        return ultima_avaliacao
+            
+    def validate_horario_de_abertura(self, value):
+        abertura = self.initial_data.get('horario_de_abertura')
+        fechamento = self.initial_data.get('horario_de_fechamento')
+        if hora_de_funcionamento(abertura, fechamento):
+            raise serializers.ValidationError('Horário de abertura não pode ser maior ou igual ao horário de fechamento.')
+        return value
 
     class Meta:
         model = Barbearia
-        fields = "__all__"
+        fields = '__all__'

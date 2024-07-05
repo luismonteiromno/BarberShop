@@ -87,9 +87,13 @@ class Financeiro(models.Model):
             # Caso o valor do parâmetro venha do Cron
             barbearia = Barbearia.objects.get(pk=financeiro.id)
 
-        barbeiros = barbearia.barbeiro_set.all()
-        funcionarios = barbearia.funcionario_set.all()
-        planos = barbearia.planosdefidelidade_set.all()
+        barbeiros = barbearia.barbeiro_set.all().select_related('barbearia')
+        funcionarios = barbearia.funcionario_set.all().select_related(
+            'barbearia'
+        )
+        planos = barbearia.planosdefidelidade_set.all().select_related(
+            'barbearia'
+        )
 
         agendamentos = Agendamento.objects.filter(
             data_marcada__lt=pendulum.now(),
@@ -97,9 +101,12 @@ class Financeiro(models.Model):
             agendamento_cancelado=False,
         )
         lucro_anterior = agendamentos.filter(
-            data_marcada__month=mes_anterior.month, data_marcada__year=mes_anterior.year
+            data_marcada__month=mes_anterior.month, 
+            data_marcada__year=mes_anterior.year
         )
-        lucro_mensal = agendamentos.filter(data_marcada__month=pendulum.now().month)
+        lucro_mensal = agendamentos.filter(
+            data_marcada__month=pendulum.now().month
+        )
 
         despesa_barbeiro = Decimal(sum(barbeiro.salario for barbeiro in barbeiros))
         despesa_funcionario = Decimal(sum(funcionario.salario for funcionario in funcionarios))
@@ -170,10 +177,10 @@ class Financeiro(models.Model):
         for financeiro in financeiros:
             try:
                 # Caso o Parâmetro venha do Admin de Barbearias
-                self.atualizar_financas(self, financeiro)
+                self.atualizar_financas(financeiro)
             except:
                 # Caso o Parâmetro venha do Admin de Finanças
-                Financeiro.atualizar_financas(self, financeiro)
+                Financeiro().atualizar_financas(financeiro)
 
     def limpar_financeiro(self, financeiro):
         financeiro.renda_mensal = 0

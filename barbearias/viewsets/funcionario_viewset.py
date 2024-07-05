@@ -13,7 +13,6 @@ class FuncionarioViewSet(ModelViewSet):
     
     filterset_fields = [
         'nome',
-        'cpf',
     ]
     
     def get_queryset(self):
@@ -21,7 +20,10 @@ class FuncionarioViewSet(ModelViewSet):
         
         barbearia = self.request.query_params.get('barbearia')
         cargo = self.request.query_params.get('cargo')
+        clt = self.request.query_params.get('clt')
+        cpf = self.request.query_params.get('cpf')
         nivel = self.request.query_params.get('nivel')
+        pj = self.request.query_params.get('pj')
         salario = self.request.query_params.get('salario')
         salario_maior_que = self.request.query_params.get('salario_maior_que')
         salario_menor_que = self.request.query_params.get('salario_menor_que')
@@ -32,8 +34,17 @@ class FuncionarioViewSet(ModelViewSet):
         if cargo:
             queryset = queryset.filter(cargo__nome_do_cargo__icontains=cargo)
             
+        if clt:
+            queryset = queryset.filter(clt=clt)
+            
+        if cpf:
+            queryset = queryset.filter(cpf=cpf)  
+            
         if nivel:
             queryset = queryset.filter(cargo__nivel_hierarquico__icontains=nivel)
+            
+        if pj:
+            queryset = queryset.filter(pj=pj)  
             
         if salario:
             queryset = queryset.filter(salario=salario)

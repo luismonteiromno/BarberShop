@@ -6,3 +6,12 @@ class FuncionarioSerializer(serializers.ModelSerializer):
         model = Funcionario
         fields = '__all__'
         
+    def validate_salario(self, value):
+        if value < 0:
+            raise serializers.ValidationError('O salário não pode ser negativo!')
+        return value
+    
+    def validate_cargo(self, value):
+        if value is None:
+            raise serializers.ValidationError('O cargo é obrigatório!')
+        return value

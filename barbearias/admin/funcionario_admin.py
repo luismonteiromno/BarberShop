@@ -5,15 +5,14 @@ from ..models import Funcionario
 @admin.register(Funcionario)
 class FuncionarioAdmin(admin.ModelAdmin):
     list_display = [
-        "nome",
-        "cpf",
-        "cargo",
+        'nome',
+        'cpf',
+        'cargo',
     ]
 
     autocomplete_fields = [
-        "barbearia",
-        "cargo",
+        'barbearia',
+        'cargo',
     ]
 
-    list_select_related = ["cargo"]
-    
+    list_select_related = ['barbearia', 'cargo']

@@ -39,6 +39,16 @@ class Funcionario(models.Model):
         null=True,
     )
     
+    pj = models.BooleanField(
+        'Pessoa Jurídica',
+        default=False,
+    )
+    
+    clt = models.BooleanField(
+        'CLT',
+        default=False,
+    )
+    
     def __str__(self):
         return self.nome or self.cpf
     
