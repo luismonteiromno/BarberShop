@@ -45,7 +45,11 @@ class BarbeiroAdmin(admin.ModelAdmin):
         'barbearia',
     ]
 
-    list_filter = ['barbearia', ServicoFilter, BarbeariaFilter]
+    list_filter = [
+        # 'barbearia',
+        ServicoFilter,
+        BarbeariaFilter,
+    ]
 
     readonly_fields = [
         'avaliacao',
