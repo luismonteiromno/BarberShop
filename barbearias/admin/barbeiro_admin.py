@@ -47,6 +47,7 @@ class BarbeiroAdmin(admin.ModelAdmin):
 
     list_filter = [
         # 'barbearia',
+        'salario',
         ServicoFilter,
         BarbeariaFilter,
     ]

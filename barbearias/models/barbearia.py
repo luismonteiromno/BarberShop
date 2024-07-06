@@ -37,8 +37,9 @@ class Barbearia(models.Model):
     )
     
     funcionarios = models.ManyToManyField(
-        User,
+        'barbearias.Funcionario',
         verbose_name='Funcionários',
+        related_name='funcionario',
         blank=True
     )
     
