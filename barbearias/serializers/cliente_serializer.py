@@ -1,9 +1,11 @@
-from rest_framework.serializers import ModelSerializer
+from rest_framework import serializers
 
 from ..models import Cliente
 
 
-class ClienteSerializer(ModelSerializer):
+class ClienteSerializer(serializers.ModelSerializer):
+    credito = serializers.ReadOnlyField()
+    
     class Meta:
         model = Cliente
         fields = '__all__'

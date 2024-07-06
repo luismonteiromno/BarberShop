@@ -3,7 +3,9 @@ from rest_framework import serializers
 from ..models import Barbeiro
 
 
-class BarbeiroSerializer(serializers.ModelSerializer):
+class BarbeiroSerializer(serializers.ModelSerializer):    
+    avaliacao = serializers.ReadOnlyField()
+    
     class Meta:
         model = Barbeiro
         fields = '__all__'

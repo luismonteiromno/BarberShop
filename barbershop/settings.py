@@ -93,6 +93,7 @@ INSTALLED_APPS = [
     'colorfield',
     'debug_toolbar',
     'django_admin_listfilter_dropdown',
+    'admin_auto_filters',
     'django_cron',
     'django_filters',
     'django_editorjs',

@@ -21,6 +21,7 @@ class Funcionario(models.Model):
     
     cpf = models.CharField(
         'CPF',
+        unique=True,
         max_length=14,
     )
     
