@@ -1,8 +1,13 @@
 from django.contrib import admin, messages
 from django_object_actions import DjangoObjectActions
+from admin_auto_filters.filters import AutocompleteFilter
 
 from ..models import Cliente
 
+
+class ClienteFilter(AutocompleteFilter):
+    title = 'Plano de Fidelidade'
+    field_name = 'plano_de_fidelidade'
 
 @admin.register(Cliente)
 class ClienteAdmin(DjangoObjectActions, admin.ModelAdmin):
@@ -18,7 +23,12 @@ class ClienteAdmin(DjangoObjectActions, admin.ModelAdmin):
     
     list_select_related = ['cliente']
     
+    list_filter = [
+        ClienteFilter,
+    ]
+    
     readonly_fields = [
+        'cliente',
         'credito'
     ]
     

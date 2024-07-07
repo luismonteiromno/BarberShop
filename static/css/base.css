@@ -11,6 +11,7 @@
       --color-back-models: #0e0d0dea;
       --color-module: #000;
       --change-color: #000;
+      --search-color: #f10b64;
       --sucess: #099644;
     }
     
@@ -502,7 +503,7 @@
     
     /* Botões e Inputs */
     .button, input[type=submit], input[type=button], .submit-row input, a.button {
-      background: var(--primary-color-faded);
+      background: var(--search-color);
     }
     
     .button.default, input[type=submit].default, .submit-row input.default {

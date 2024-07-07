@@ -4,7 +4,15 @@ from django.contrib import admin, messages
 from django_object_actions import DjangoObjectActions
 
 from ..models import HistoricoDeAgendamento
+from admin_auto_filters.filters import AutocompleteFilter
 
+class BarbeiroFilter(AutocompleteFilter):
+    title = 'Barbeiro'
+    field_name = 'barbeiro'
+    
+class ServicoFilter(AutocompleteFilter):
+    title = 'Nome do Serviço'
+    field_name ='servico_fornecido'
 
 @admin.register(HistoricoDeAgendamento)
 class HistoricoDeAgendamentoAdmin(DjangoObjectActions, admin.ModelAdmin):
@@ -17,10 +25,14 @@ class HistoricoDeAgendamentoAdmin(DjangoObjectActions, admin.ModelAdmin):
         'barbearia',
     ]
     
-    list_filter = [
-        'barbeiro',
-        'servico_fornecido',
+    search_fields = [
         'servico_fornecido__disponivel_na_barbearia'
+    ]
+    
+    list_filter = [
+        BarbeiroFilter,
+        'servico_fornecido__disponivel_na_barbearia',
+        ServicoFilter,
     ]
     
     changelist_actions = [

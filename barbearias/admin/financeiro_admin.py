@@ -1,9 +1,13 @@
 from django.contrib import admin
 from django_object_actions import DjangoObjectActions
+from admin_auto_filters.filters import AutocompleteFilter
 from import_export.admin import ImportExportModelAdmin
 
 from ..models import Financeiro
 
+class BarbeariaFilter(AutocompleteFilter):
+    title = 'Barbearia'
+    field_name = 'barbearia'
 
 @admin.register(Financeiro)
 class FinanceiroAdmin(DjangoObjectActions, admin.ModelAdmin):
@@ -42,6 +46,10 @@ class FinanceiroAdmin(DjangoObjectActions, admin.ModelAdmin):
     
     autocomplete_fields = [
         'barbearia',
+    ]
+    
+    list_filter = [
+        BarbeariaFilter,
     ]
   
     change_actions = [

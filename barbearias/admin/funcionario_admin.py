@@ -3,8 +3,13 @@ from ..models import Funcionario
 
 from global_functions.filter import SingleTextInputFilter
 
-from .filters import CargoFilter
 
+from admin_auto_filters.filters import AutocompleteFilter
+
+class CargoFilter(AutocompleteFilter):
+    title = 'Cargo'
+    field_name = 'cargo'
+    
 
 class CPFBarbeiroFilter(SingleTextInputFilter):
     title = 'CPF do Barbeiro'

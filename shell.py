@@ -51,6 +51,7 @@ financeiro.receita_total = 0
 financeiro.prejuizo, financeiro.lucro = False
 
 from barbearias.models import Barbearia
+from shell import barbearia
 
 Barbearia.objects.bulk_create([
     Barbearia(
@@ -96,3 +97,11 @@ Barbearia.objects.bulk_create([
         dono=None
     )
 ])
+
+
+# limpar financeiros
+
+from barbearias.models import Financeiro
+
+financeiro = Financeiro.objects.filter(barbearia__isnull=True)
+financeiro.delete()

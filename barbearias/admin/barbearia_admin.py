@@ -3,6 +3,7 @@ import xlsxwriter
 
 import nested_admin
 import pandas as pd
+from admin_auto_filters.filters import AutocompleteFilter
 from django.contrib import admin, messages
 from django.db import transaction
 from django.db.models import Q
@@ -20,6 +21,10 @@ from .financeiro_inline import FinanceiroInline
 from .funcionario_inline import FuncionarioInline
 from .plano_fidelidade_inline import PlanosDeFidelidadeInline
 
+
+class DonoFilter(AutocompleteFilter):
+    title = 'Dono'
+    field_name = 'dono'
 
 @admin.register(Barbearia)
 class BarbeariaAdmin(DjangoObjectActions, nested_admin.NestedModelAdmin):
@@ -61,6 +66,10 @@ class BarbeariaAdmin(DjangoObjectActions, nested_admin.NestedModelAdmin):
     ]
 
     autocomplete_fields = ['dono']
+    
+    list_filter = [
+        DonoFilter,
+    ]
 
     list_select_related = ['dono']
 

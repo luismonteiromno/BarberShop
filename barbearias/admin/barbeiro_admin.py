@@ -2,11 +2,16 @@ from django.contrib import admin
 from django.contrib.auth.models import User
 
 from ..models import Barbeiro
-from .filters import (
-    BarbeariaFilter,
-    ServicoFilter,
-)
 
+from admin_auto_filters.filters import AutocompleteFilter
+
+class BarbeariaFilter(AutocompleteFilter):
+    title = 'Barbearia'
+    field_name = 'barbearia'
+
+class ServicoFilter(AutocompleteFilter):
+    title = 'Barbeiro'
+    field_name = 'barbeiro'
 
 @admin.register(Barbeiro)
 class BarbeiroAdmin(admin.ModelAdmin):
