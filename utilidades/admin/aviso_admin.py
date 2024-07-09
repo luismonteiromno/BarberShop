@@ -2,6 +2,12 @@ from datetime import datetime
 
 from django.contrib import admin, messages
 from django_object_actions import DjangoObjectActions
+from rangefilter.filters import (
+    DateRangeFilterBuilder,
+    DateTimeRangeFilterBuilder,
+    NumericRangeFilterBuilder,
+    DateRangeQuickSelectListFilterBuilder,
+)
 
 from ..forms import AvisoForm
 from ..models import Aviso
@@ -18,6 +24,11 @@ class AvisoAdmin(DjangoObjectActions, admin.ModelAdmin):
 
     autocomplete_fields = [
         'barbearia'
+    ]
+    
+    list_filter = [
+        ('data_de_inicio', DateRangeFilterBuilder()),
+        ('data_de_encerramento', DateRangeFilterBuilder()),
     ]
     
     changelist_actions = [

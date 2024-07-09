@@ -2,6 +2,12 @@ from django.contrib import admin
 
 from ..models import PlanosDeFidelidade
 from .cliente_inline import ClienteInline
+from rangefilter.filters import (
+    DateRangeFilterBuilder,
+    DateTimeRangeFilterBuilder,
+    NumericRangeFilterBuilder,
+    DateRangeQuickSelectListFilterBuilder,
+)
 
 
 @admin.register(PlanosDeFidelidade)
@@ -23,6 +29,10 @@ class PlanosDeFidelidadeAdmin(admin.ModelAdmin):
     
     autocomplete_fields = [
         'barbearia'
+    ]
+    
+    list_filter = [
+        ('usuarios', NumericRangeFilterBuilder())
     ]
     
     readonly_fields = [

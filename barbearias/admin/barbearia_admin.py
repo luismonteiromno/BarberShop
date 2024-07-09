@@ -25,6 +25,10 @@ from .plano_fidelidade_inline import PlanosDeFidelidadeInline
 class DonoFilter(AutocompleteFilter):
     title = 'Dono'
     field_name = 'dono'
+    
+class FuncionarioFilter(AutocompleteFilter):
+    title = 'Funcionário'
+    field_name = 'funcionarios'
 
 @admin.register(Barbearia)
 class BarbeariaAdmin(DjangoObjectActions, nested_admin.NestedModelAdmin):
@@ -70,6 +74,8 @@ class BarbeariaAdmin(DjangoObjectActions, nested_admin.NestedModelAdmin):
     
     list_filter = [
         DonoFilter,
+        FuncionarioFilter,
+        'media_das_avaliacoes',
     ]
 
     list_select_related = ['dono']

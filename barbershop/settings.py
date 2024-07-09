@@ -100,6 +100,7 @@ INSTALLED_APPS = [
     'django_object_actions',
     'import_export',
     'nested_admin',
+    'rangefilter',
     'tinymce',
     'corsheaders',
 ]
