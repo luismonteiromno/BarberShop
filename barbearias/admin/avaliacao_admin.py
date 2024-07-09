@@ -1,7 +1,12 @@
 from django.contrib import admin
+from admin_auto_filters.filters import AutocompleteFilter
 
 from ..models import Avaliacao
 
+
+class BarbeariaFilter(AutocompleteFilter):
+    title = 'Barbearia'
+    field_name = 'barbearia'
 
 @admin.register(Avaliacao)
 class AvaliacaoAdmin(admin.ModelAdmin):
@@ -13,6 +18,10 @@ class AvaliacaoAdmin(admin.ModelAdmin):
     
     autocomplete_fields = [
         'barbearia'
+    ]
+    
+    list_filter = [
+        BarbeariaFilter,
     ]
     
     readonly_fields = [

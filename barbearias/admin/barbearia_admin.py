@@ -37,7 +37,7 @@ class BarbeariaAdmin(DjangoObjectActions, nested_admin.NestedModelAdmin):
         'numero_de_contatos',
         'avisos_recentes',
         'ultima_avaliacao',
-        'media_das_avaliacoes_0_a_5',
+        'media_das_avaliacoes',
     ]
 
     fieldsets = [
@@ -56,6 +56,7 @@ class BarbeariaAdmin(DjangoObjectActions, nested_admin.NestedModelAdmin):
                     'estado',
                     'cep',
                     'tipo_de_barbearia',
+                    'media_das_avaliacoes',
                     'horario_de_abertura',
                     'horario_de_fechamento',
                     'data_de_criacao',
@@ -84,6 +85,7 @@ class BarbeariaAdmin(DjangoObjectActions, nested_admin.NestedModelAdmin):
         'dono',
         'data_de_criacao',
         'data_de_atualizacao',
+        'media_das_avaliacoes'
     ]
 
     inlines = [

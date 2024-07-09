@@ -1,7 +1,7 @@
   /* Definição das variáveis de cores */
   :root {
       --primary-color: #000; /* Cor do header: Preto */
-      --primary-color-faded: #fc13c9; /* Cor dos APPS: Verde NEON */
+      --primary-color-faded: #f12469; /* Cor dos APPS: Verde NEON */
       --models-color: #ffffff; /* Cor dos Models: branco */
       --secondary-color: #fff; /* Cor do footer: branco */
       --terciary-color: #b60ee9;
@@ -571,6 +571,7 @@
     div.breadcrumbs {
       padding: 10px 40px;
       border: none;
+      font-weight: 900;
       color: var(--color-hover);
       text-align: left;
     }

@@ -2,13 +2,13 @@ from django.dispatch import receiver
 from django.db.models import Avg
 from django.db.models.signals import post_save
 
-from ..models import AvaliacaoDoBarbeiro, Barbeiro
+from ..models import Avaliacao, Barbearia
 
 
-@receiver(post_save, sender=AvaliacaoDoBarbeiro)
+@receiver(post_save, sender=Avaliacao)
 def atualizar_avaliacao(sender, created, instance, **kwargs):
-    barbeiro = Barbeiro.objects.get(id=instance.barbeiro.id)
-    barbeiro.avaliacao = barbeiro.barbeiro_avaliacao.aggregate(
+    barbearia = Barbearia.objects.get(id=instance.barbearia.id)
+    barbearia.avaliacao = barbearia.avaliacao_set.aggregate(
         media_avaliacao=Avg('avaliacao')
     )['media_avaliacao']
-    barbeiro.save()
+    barbearia.save()

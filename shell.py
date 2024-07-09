@@ -101,7 +101,7 @@ Barbearia.objects.bulk_create([
 
 # limpar financeiros
 
-from barbearias.models import Financeiro
+from barbearias.models import Financeiro, Avaliacao
 
 financeiro = Financeiro.objects.filter(barbearia__isnull=True)
 financeiro.delete()

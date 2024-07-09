@@ -93,6 +93,15 @@ class Barbearia(models.Model):
         null=True
     )
     
+    media_das_avaliacoes = models.DecimalField(
+        'Média das avaliações',
+        max_digits=5,
+        decimal_places=1,
+        blank=True,
+        null=True,
+        default=Decimal('0.0')
+    )
+    
     horario_de_abertura = models.TimeField(
         'Horário de abertura',
         blank=True,
