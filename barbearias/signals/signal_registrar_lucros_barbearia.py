@@ -2,6 +2,7 @@ import pendulum
 from decimal import Decimal
 from django.db import transaction
 from django.db.models.signals import post_save
+from django.db import transaction
 from django.dispatch import receiver
 
 from agendamentos.models import Agendamento, Servico
@@ -12,18 +13,19 @@ from ..models import Barbearia, Barbeiro, Financeiro
 @receiver(post_save, sender=Barbearia)
 def registrar_lucros(sender, instance, created, **kwargs):
     if created:
-        Financeiro.objects.create(
-            lucro_mes_anterior=0,
-            renda_mensal=0,
-            despesas=0,
-            comparar_lucros_mes_anterior_e_atual_porcentagem=0,
-            lucro_planos=0,
-            lucro_total=0,
-            receita_total=0,
-            comparar_lucros_mes_anterior_e_atual=0,
-            prejuizo=False,
-            lucro=False,
-        )
+        with transaction.atomic():
+            Financeiro.objects.create(
+                lucro_mes_anterior=0,
+                renda_mensal=0,
+                despesas=0,
+                comparar_lucros_mes_anterior_e_atual_porcentagem=0,
+                lucro_planos=0,
+                lucro_total=0,
+                receita_total=0,
+                comparar_lucros_mes_anterior_e_atual=0,
+                prejuizo=False,
+                lucro=False,
+            )
     else:
         mes_anterior = pendulum.now().subtract(months=1)
 

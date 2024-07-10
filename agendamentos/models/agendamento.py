@@ -76,7 +76,10 @@ class Agendamento(models.Model):
         mes = datetime.today().month
         agendamento_id = 0
 
-        ultimo_agendamento = Agendamento.objects.last()
+        ultimo_agendamento = Agendamento.objects.filter(
+            data_marcada__year=ano,
+            data_marcada__month=mes
+        ).last()
 
         if ultimo_agendamento:
             agendamento_id = int(ultimo_agendamento.numero_do_agendamento[11:]) + 1

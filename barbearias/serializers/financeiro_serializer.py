@@ -1,9 +1,11 @@
-from rest_framework.serializers import ModelSerializer
+from rest_framework import serializers
 
 from ..models import Financeiro
 
 
-class FinanceiroSerializer(ModelSerializer):
+class FinanceiroSerializer(serializers.ModelSerializer):
+    barbearia = serializers.StringRelatedField()
+
     class Meta:
         model = Financeiro
         fields = "__all__"
