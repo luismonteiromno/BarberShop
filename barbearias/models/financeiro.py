@@ -9,7 +9,7 @@ from ..models import Barbearia
 class Financeiro(models.Model):
     barbearia = models.OneToOneField(
         Barbearia,
-        verbose_name="Barbearia",
+        verbose_name='Barbearia',
         on_delete=models.SET_NULL,
         unique=True,
         blank=True,
@@ -17,12 +17,16 @@ class Financeiro(models.Model):
     )
 
     lucro_mes_anterior = models.DecimalField(
-        "Lucro do mês anterior", max_digits=10, decimal_places=5, blank=True, null=True
+        'Lucro do mês anterior',
+        max_digits=10,
+        decimal_places=5,
+        blank=True,
+        null=True,
     )
 
     renda_mensal = models.DecimalField(
-        "Renda mensal",
-        help_text="Seu Lucro do mês",
+        'Renda mensal',
+        help_text='Seu Lucro do mês',
         max_digits=10,
         decimal_places=2,
         blank=True,
@@ -30,8 +34,8 @@ class Financeiro(models.Model):
     )
 
     despesas = models.DecimalField(
-        "Despesas",
-        help_text="Salários, produtos etc...",
+        'Despesas',
+        help_text='Salários, produtos etc...',
         max_digits=10,
         decimal_places=2,
         blank=True,
@@ -39,7 +43,7 @@ class Financeiro(models.Model):
     )
 
     comparar_lucros_mes_anterior_e_atual = models.DecimalField(
-        "Lucro do mês atual em comparação ao anterior",
+        'Lucro do mês atual em comparação ao anterior',
         max_digits=10,
         decimal_places=2,
         blank=True,
@@ -47,7 +51,7 @@ class Financeiro(models.Model):
     )
 
     comparar_lucros_mes_anterior_e_atual_porcentagem = models.DecimalField(
-        "Lucro do mês atual em comparação ao anterior(Porcentagem)",
+        'Lucro do mês atual em comparação ao anterior(Porcentagem)',
         max_digits=5,
         decimal_places=2,
         blank=True,
@@ -55,7 +59,7 @@ class Financeiro(models.Model):
     )
 
     lucro_planos = models.DecimalField(
-        "Lucro dos planos de fidelidade",
+        'Lucro dos planos de fidelidade',
         max_digits=10,
         decimal_places=2,
         blank=True,
@@ -63,31 +67,39 @@ class Financeiro(models.Model):
     )
 
     lucro_total = models.DecimalField(
-        "Lucro total", max_digits=10, decimal_places=2, blank=True, null=True
+        'Lucro total', max_digits=10, decimal_places=2, blank=True, null=True
     )
 
     receita_total = models.DecimalField(
-        "Receita total", max_digits=10, decimal_places=2, blank=True, null=True
+        'Receita total', max_digits=10, decimal_places=2, blank=True, null=True
     )
 
-    prejuizo = models.BooleanField("Prejuízo", default=False)
+    prejuizo = models.BooleanField('Prejuízo', default=False)
 
-    lucro = models.BooleanField("Lucro", default=False)
+    lucro = models.BooleanField('Lucro', default=False)
 
     def atualizar_financas(self, financeiro):
         import pendulum
 
         from agendamentos.models import Agendamento
+        from .barbeiro import Barbeiro
 
         mes_anterior = pendulum.now().subtract(months=1)
         try:
             # Caso o valor do parâmetro venha do Admin
             barbearia = Barbearia.objects.get(pk=financeiro.barbearia.id)
+            barbeiros = Barbeiro.objects.prefetch_related('barbearias').filter(
+                barbearias__in=[financeiro.barbearia.id]
+            )
+            ...
         except:
             # Caso o valor do parâmetro venha do Cron
             barbearia = Barbearia.objects.get(pk=financeiro.id)
+            barbeiros = Barbeiro.objects.prefetch_related('barbearias').filter(
+                barbearias__in=[financeiro.id]
+            )
+            ...
 
-        barbeiros = barbearia.barbeiro_set.all().select_related('barbearia')
         funcionarios = barbearia.funcionario_set.all().select_related(
             'barbearia'
         )
@@ -101,15 +113,19 @@ class Financeiro(models.Model):
             agendamento_cancelado=False,
         )
         lucro_anterior = agendamentos.filter(
-            data_marcada__month=mes_anterior.month, 
-            data_marcada__year=mes_anterior.year
+            data_marcada__month=mes_anterior.month,
+            data_marcada__year=mes_anterior.year,
         )
         lucro_mensal = agendamentos.filter(
             data_marcada__month=pendulum.now().month
         )
 
-        despesa_barbeiro = Decimal(sum(barbeiro.salario for barbeiro in barbeiros))
-        despesa_funcionario = Decimal(sum(funcionario.salario for funcionario in funcionarios))
+        despesa_barbeiro = Decimal(
+            sum(barbeiro.salario for barbeiro in barbeiros)
+        )
+        despesa_funcionario = Decimal(
+            sum(funcionario.salario for funcionario in funcionarios)
+        )
         despesas = despesa_barbeiro + despesa_funcionario
 
         # lucro_planos = Decimal(sum(lucro.preco*lucro.quantidade_de_usuarios for lucro in planos))
@@ -117,12 +133,14 @@ class Financeiro(models.Model):
         for lucro in planos:
             lucro_planos = lucro.preco * lucro.quantidade_de_usuarios
 
-        receita = Decimal(sum(lucro.preco_do_servico for lucro in agendamentos))
+        receita = Decimal(
+            sum(lucro.preco_do_servico for lucro in agendamentos)
+        )
         lucro_total = (
             Decimal(sum(lucro.preco_do_servico for lucro in agendamentos))
             + lucro_planos
         ) - despesas
-        
+
         lucro_mes = (
             Decimal(sum(lucro.preco_do_servico for lucro in lucro_mensal))
             + lucro_planos
@@ -131,11 +149,13 @@ class Financeiro(models.Model):
             Decimal(sum(lucro.preco_do_servico for lucro in lucro_anterior))
             + lucro_planos
         ) - despesas
-        receita = Decimal(sum(lucro.preco_do_servico for lucro in agendamentos))
-           
+        receita = Decimal(
+            sum(lucro.preco_do_servico for lucro in agendamentos)
+        )
+
         comparar_lucros = Decimal(lucro_mes - lucro_mes_anterior)
-        comparar_lucros_porcentagem = (
-            Decimal(comparar_lucros / 100).quantize(Decimal("0.0"))
+        comparar_lucros_porcentagem = Decimal(comparar_lucros / 100).quantize(
+            Decimal('0.0')
         )
         # como é porcentagem ent segue a seguinte regra
         # 1 = 100%
@@ -151,14 +171,14 @@ class Financeiro(models.Model):
         # 0,0 = 0%
 
         print(
-            f"Lucro do mês: {lucro_mes}",
-            f"Lucro do mês anterior: {lucro_mes_anterior}",
-            f"Despesas: {despesas}",
-            f"comparar valores porcentagem: {comparar_lucros_porcentagem}",
-            f"Lucro dos planos: {lucro_planos}",
-            f"Lucro total: {lucro_total}",
-            f"Receita total: {receita}",
-            f"Comparar lucros: {comparar_lucros}",
+            f'Lucro do mês: {lucro_mes}',
+            f'Lucro do mês anterior: {lucro_mes_anterior}',
+            f'Despesas: {despesas}',
+            f'comparar valores porcentagem: {comparar_lucros_porcentagem}',
+            f'Lucro dos planos: {lucro_planos}',
+            f'Lucro total: {lucro_total}',
+            f'Receita total: {receita}',
+            f'Comparar lucros: {comparar_lucros}',
         )
 
         with transaction.atomic():
@@ -182,7 +202,7 @@ class Financeiro(models.Model):
                 # Caso o Parâmetro venha do Admin de Finanças
                 Financeiro().atualizar_financas(financeiro)
 
-    def limpar_financeiro(self, financeiro):
+    def _limpar_financeiro(self, financeiro):
         financeiro.renda_mensal = 0
         financeiro.lucro_mes_anterior = 0
         financeiro.despesas = 0
@@ -198,5 +218,5 @@ class Financeiro(models.Model):
         return self.barbearia.nome_da_barbearia
 
     class Meta:
-        verbose_name = "Finança"
-        verbose_name_plural = "Finanças"
+        verbose_name = 'Finança'
+        verbose_name_plural = 'Finanças'

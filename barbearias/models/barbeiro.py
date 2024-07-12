@@ -22,12 +22,9 @@ class Barbeiro(models.Model):
         blank=True,
     )
     
-    barbearia = models.ForeignKey(
+    barbearias = models.ManyToManyField(
         Barbearia,
-        verbose_name='Barbearia',
-        on_delete=models.SET_NULL,
-        blank=True,
-        null=True,
+        verbose_name='Barbearia que o barbeiro trabalha',
     )
     
     salario = models.DecimalField(

@@ -1,4 +1,5 @@
 from datetime import datetime
+import pendulum
 
 from django.contrib import admin, messages
 from django_object_actions import DjangoObjectActions
@@ -46,7 +47,7 @@ class HistoricoDeAgendamentoAdmin(DjangoObjectActions, admin.ModelAdmin):
     def deletar_historico(self, request, obj):
         if obj:
             for instance in obj:
-                agora = datetime.now().strftime('%d/%m/%Y %H:%M')
+                agora = pendulum.now().strftime('%d/%m/%Y %H:%M')
                 data_de_agendamento = instance.data_do_agendamento.strftime(
                     '%d/%m/%Y %H:%M'
                 )
@@ -85,7 +86,7 @@ class HistoricoDeAgendamentoAdmin(DjangoObjectActions, admin.ModelAdmin):
 
         queryset = super().get_queryset(request)
 
-        hoje = datetime.now()
+        hoje = pendulum.now()
 
         if not request.user.is_superuser:
             queryset = (

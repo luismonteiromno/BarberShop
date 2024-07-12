@@ -69,7 +69,7 @@ class FinanceiroAdmin(DjangoObjectActions, admin.ModelAdmin):
         Financeiro().atualizar_financas(obj)
     
     def limpar_financeiro(self, request, obj):
-        Financeiro().limpar_financeiro(obj)
+        Financeiro()._limpar_financeiro(obj)
     
     def has_add_permission(self, request, obj=None):
         return False

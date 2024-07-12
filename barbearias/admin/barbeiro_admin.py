@@ -17,7 +17,6 @@ class ServicoFilter(AutocompleteFilter):
 class BarbeiroAdmin(admin.ModelAdmin):
     list_display = [
         'barbeiro',
-        'barbearia',
         'avaliacao',
         'salario',
         'freelancer',
@@ -39,16 +38,14 @@ class BarbeiroAdmin(admin.ModelAdmin):
         ]
     ]
 
-    autocomplete_fields = ['barbearia', 'servicos']
+    autocomplete_fields = ['barbearias', 'servicos']
 
     search_fields = [
         'nome_do_barbeiro',
-        'barbearia__nome_da_barbearia',
+        'barbearias__nome_da_barbearia',
     ]
 
-    list_select_related = [
-        'barbearia',
-    ]
+    list_select_related = True
 
     list_filter = [
         # 'barbearia',

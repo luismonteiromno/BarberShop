@@ -15,7 +15,6 @@ from agendamentos.admin.servico_inline import ServicoInline
 
 from ..models import Barbearia, Financeiro
 from .avaliacao_inline import AvaliacaoInline
-from .barbeiro_inline import BarbeiroInline
 from .contato_inline import ContatoInline
 from .financeiro_inline import FinanceiroInline
 from .funcionario_inline import FuncionarioInline
@@ -25,10 +24,12 @@ from .plano_fidelidade_inline import PlanosDeFidelidadeInline
 class DonoFilter(AutocompleteFilter):
     title = 'Dono'
     field_name = 'dono'
-    
+
+
 class FuncionarioFilter(AutocompleteFilter):
     title = 'Funcionário'
     field_name = 'funcionarios'
+
 
 @admin.register(Barbearia)
 class BarbeariaAdmin(DjangoObjectActions, nested_admin.NestedModelAdmin):
@@ -71,7 +72,7 @@ class BarbeariaAdmin(DjangoObjectActions, nested_admin.NestedModelAdmin):
     ]
 
     autocomplete_fields = ['dono']
-    
+
     list_filter = [
         DonoFilter,
         FuncionarioFilter,
@@ -91,12 +92,11 @@ class BarbeariaAdmin(DjangoObjectActions, nested_admin.NestedModelAdmin):
         'dono',
         'data_de_criacao',
         'data_de_atualizacao',
-        'media_das_avaliacoes'
+        'media_das_avaliacoes',
     ]
 
     inlines = [
         AvaliacaoInline,
-        BarbeiroInline,
         ContatoInline,
         FinanceiroInline,
         FuncionarioInline,

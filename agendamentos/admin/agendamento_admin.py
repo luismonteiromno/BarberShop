@@ -19,7 +19,7 @@ class AgendamentoAdmin(DjangoObjectActions, admin.ModelAdmin):
         'data_marcada',
     ]
 
-    autocomplete_fields = ['servico', 'escolher_barbeiro']
+    autocomplete_fields = ['servico']
 
     readonly_fields = [
         'numero_do_agendamento',
