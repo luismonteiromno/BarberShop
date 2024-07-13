@@ -51,7 +51,7 @@ class Cliente(models.Model):
         print(f"Crédito atualizado para o cliente {user}")
 
     def __str__(self):
-        return self.cliente.email
+        return self.cliente.email or str(self.cliente)
 
     class Meta:
         verbose_name = "Cliente"

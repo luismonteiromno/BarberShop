@@ -7,8 +7,11 @@ from ..models import Barbearia, Barbeiro
 @receiver(post_save, sender=Barbeiro)
 def registrar_funcionario(sender, instance, created, **kwargs):
     if created:
-        barbearia = Barbearia.objects.get(id=instance.barbearia.id)
-        barbearia.funcionarios.add(instance.id)
+        for barbearia in instance.barbearias.all():
+            barbearia_que_trabalha = Barbearia.objects.get(id=instance.barbearia.id)
+            barbearia_que_trabalha.barbeiros.add(instance.id)
     else:
-        barbearia = Barbearia.objects.get(id=instance.barbearia.id)
-        barbearia.funcionarios.add(instance.id)
+        for barbearia in instance.barbearias.all():
+            print(barbearia)
+            barbearia_que_trabalha = Barbearia.objects.get(pk=barbearia.id)
+            barbearia_que_trabalha.barbeiros.add(instance.id)

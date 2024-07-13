@@ -1,4 +1,8 @@
+from django.contrib.auth.models import User
 from django.contrib import admin, messages
+from django.db.models.fields.related import ForeignKey
+from django.forms.models import ModelChoiceField
+from django.http import HttpRequest
 from django_object_actions import DjangoObjectActions
 from admin_auto_filters.filters import AutocompleteFilter
 
@@ -17,7 +21,7 @@ class ClienteAdmin(DjangoObjectActions, admin.ModelAdmin):
     ]
     
     autocomplete_fields = [
-        'cliente',
+        # 'cliente',
         'plano_de_fidelidade',
     ]
     
@@ -28,7 +32,7 @@ class ClienteAdmin(DjangoObjectActions, admin.ModelAdmin):
     ]
     
     readonly_fields = [
-        'cliente',
+        # 'cliente',
         'credito'
     ]
     
@@ -70,4 +74,12 @@ class ClienteAdmin(DjangoObjectActions, admin.ModelAdmin):
                     "Todos os créditos foram atualizados com sucesso",
                     level=messages.SUCCESS
                 )
+                
+    def formfield_for_foreignkey(self, db_field, request,  **kwargs):
+        from django.db.models import Q
+        if db_field.name == 'cliente':
+            kwargs['queryset'] = User.objects.filter(
+               ~Q(profile__tipo_do_usuario='Barbeiro')
+            )
+        return super().formfield_for_foreignkey(db_field, request, **kwargs)
     

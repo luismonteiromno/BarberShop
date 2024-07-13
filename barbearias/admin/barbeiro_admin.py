@@ -7,7 +7,7 @@ from admin_auto_filters.filters import AutocompleteFilter
 
 class BarbeariaFilter(AutocompleteFilter):
     title = 'Barbearia'
-    field_name = 'barbearia'
+    field_name = 'barbearias'
 
 class ServicoFilter(AutocompleteFilter):
     title = 'Barbeiro'
@@ -28,7 +28,7 @@ class BarbeiroAdmin(admin.ModelAdmin):
             {
                 'fields': [
                     'barbeiro',
-                    'barbearia',
+                    'barbearias',
                     'servicos',
                     'salario',
                     'avaliacao',
@@ -70,7 +70,7 @@ class BarbeiroAdmin(admin.ModelAdmin):
 
         if not request.user.is_superuser:
             queryset = queryset.filter(
-                barbearia__dono=request.user
-            ).select_related('barbearia__dono')
+                barbearias=request.user
+            ).prefetch_related('barbearias')
 
         return queryset

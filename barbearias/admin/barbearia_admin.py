@@ -53,6 +53,7 @@ class BarbeariaAdmin(DjangoObjectActions, nested_admin.NestedModelAdmin):
                     'nome_da_barbearia',
                     'dono',
                     'cnpj',
+                    'barbeiros',
                     'funcionarios',
                     'rua',
                     'bairro',
@@ -81,7 +82,7 @@ class BarbeariaAdmin(DjangoObjectActions, nested_admin.NestedModelAdmin):
 
     list_select_related = ['dono']
 
-    filter_horizontal = ['funcionarios']
+    filter_horizontal = ['barbeiros', 'funcionarios']
 
     search_fields = [
         'nome_da_barbearia',

@@ -43,6 +43,12 @@ class Barbearia(models.Model):
         blank=True
     )
     
+    barbeiros = models.ManyToManyField(
+        'barbearias.Barbeiro',
+        verbose_name='Barbeiros',
+        blank=True
+    )
+    
     rua = models.CharField(
         'Rua',
         max_length=100,

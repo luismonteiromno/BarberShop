@@ -51,7 +51,6 @@ financeiro.receita_total = 0
 financeiro.prejuizo, financeiro.lucro = False
 
 from barbearias.models import Barbearia
-from shell import barbearia
 
 Barbearia.objects.bulk_create([
     Barbearia(
@@ -66,7 +65,7 @@ Barbearia.objects.bulk_create([
         tipo_de_barbearia='Loja Própria',
         horario_de_abertura='08:00',
         horario_de_fechamento='21:00',
-        dono=None
+        dono_id=1
     ),
     Barbearia(
         nome_da_barbearia='Barbershop 2',
@@ -80,7 +79,7 @@ Barbearia.objects.bulk_create([
         tipo_de_barbearia='Loja Própria',
         horario_de_abertura='08:00',
         horario_de_fechamento='21:00',
-        dono=None
+        dono_id=1
     ),
     Barbearia(
         nome_da_barbearia='Barbershop 3',
@@ -94,7 +93,7 @@ Barbearia.objects.bulk_create([
         tipo_de_barbearia='Loja Própria',
         horario_de_abertura='08:00',
         horario_de_fechamento='21:00',
-        dono=None
+        dono_id=1
     )
 ])
 
@@ -105,3 +104,14 @@ from barbearias.models import Financeiro, Avaliacao
 
 financeiro = Financeiro.objects.filter(barbearia__isnull=True)
 financeiro.delete()
+
+
+from agendamentos.models import Agendamento
+from barbearias.models import Barbeiro, Barbearia
+
+
+barbearia = Barbearia.objects.all()
+barbeiros = Barbeiro.objects.prefetch_related('barbearias').all()
+for i in barbeiros:
+    print(i)
+...

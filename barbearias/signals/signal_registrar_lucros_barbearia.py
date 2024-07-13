@@ -15,6 +15,7 @@ def registrar_lucros(sender, instance, created, **kwargs):
     if created:
         with transaction.atomic():
             Financeiro.objects.create(
+                barbearia_id=instance.id,
                 lucro_mes_anterior=0,
                 renda_mensal=0,
                 despesas=0,
@@ -31,7 +32,12 @@ def registrar_lucros(sender, instance, created, **kwargs):
 
         barbearia = Barbearia.objects.get(pk=instance.id)
 
-        barbeiros = barbearia.barbeiro_set.all()
+        barbeiros = []
+        todos_os_barbeiros = Barbeiro.objects.all()
+        for barbeiro in todos_os_barbeiros:
+            if barbeiro.barbearias.filter(pk=barbearia.id).exists():
+                barbeiros.append(barbeiro)
+                
         funcionarios = barbearia.funcionario_set.all()
         planos = barbearia.planosdefidelidade_set.all()
 
