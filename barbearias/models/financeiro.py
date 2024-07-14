@@ -189,6 +189,8 @@ class Financeiro(models.Model):
                 lucro_total=lucro_total,
                 receita_total=receita,
                 comparar_lucros_mes_anterior_e_atual=comparar_lucros,
+                prejuizo=comparar_lucros < 0,
+                lucro=comparar_lucros > 0,
             )
 
     def atualizar_todas_as_financas(self, financeiros):

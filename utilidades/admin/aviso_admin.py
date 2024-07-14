@@ -9,6 +9,8 @@ from rangefilter.filters import (
     DateRangeQuickSelectListFilterBuilder,
 )
 
+from modules import DadosDeMercado
+
 from ..forms import AvisoForm
 from ..models import Aviso
 
@@ -32,7 +34,11 @@ class AvisoAdmin(DjangoObjectActions, admin.ModelAdmin):
     ]
     
     changelist_actions = [
-        'remover_anuncios_passados'
+        'remover_anuncios_passados',
+        'cotacoes',
+        'dividendos',
+        'desdobramentos',
+        'lista_de_ativos',
     ]
     
     form = AvisoForm
@@ -44,3 +50,19 @@ class AvisoAdmin(DjangoObjectActions, admin.ModelAdmin):
             if data_atual >= data_marcada:
                 instance.delete()
                 self.message_user(request, 'Histórico de anúncio deletado com sucesso!')
+    
+    def cotacoes(self, request, obj):
+        print(DadosDeMercado().cotacoes('WEGE3'))
+        print(DadosDeMercado().cotacoes('WEGE3', period_init='2024-06-01', period_end='2024-07-01'))
+                
+    def dividendos(self, request, obj):
+        print(DadosDeMercado().dividendos('WEGE3'))
+        print(DadosDeMercado().dividendos('WEGE3', date_from='2024-06-01'))
+        
+    def desdobramentos(self, request, obj):
+        print(DadosDeMercado().desdobramentos('WEGE3'))
+        
+    def lista_de_ativos(self, request, obj):
+        print(DadosDeMercado().lista_de_ativos())
+        print(DadosDeMercado().lista_de_ativos(tipo_do_ativo='stock'))
+        print(DadosDeMercado().lista_de_ativos(tipo_do_ativo='reit'))

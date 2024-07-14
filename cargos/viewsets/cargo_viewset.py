@@ -14,3 +14,13 @@ class CargoViewSet(ModelViewSet):
         'nome_do_cargo',
         'nivel_hierarquico',
     ]
+    
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        
+        funcao = self.request.query_params.get('funcao')
+        
+        if funcao:
+            queryset = queryset.filter(nivel_hierarquico__icontains=funcao)
+            
+        return queryset

@@ -4,6 +4,7 @@ from crum import get_current_user
 from django.contrib.auth.models import User
 from django.db import models
 from django.db.models import Avg
+import pendulum
 
 
 class Barbearia(models.Model):
@@ -167,12 +168,17 @@ class Barbearia(models.Model):
         from agendamentos.models import Agendamento
 
         if self.pk:
-            agendamentos = (
+            agendamento = (
                 Agendamento.objects.filter(servico__disponivel_na_barbearia=self.pk)
                 .select_related("servico")
                 .last()
             )
-            return agendamentos
+            if agendamento:  
+                if (
+                    agendamento.data_marcada.date().day - pendulum.now().day
+                ) == 2:
+                    return None
+            return agendamento
         else:
             return None
 
