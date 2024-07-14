@@ -1,7 +1,7 @@
   /* Definição das variáveis de cores */
   :root {
       --primary-color: #000; /* Cor do header: Preto */
-      --primary-color-faded: #fc13c9; /* Cor dos APPS: Verde NEON */
+      --primary-color-faded: #f12469; /* Cor dos APPS: Verde NEON */
       --models-color: #ffffff; /* Cor dos Models: branco */
       --secondary-color: #fff; /* Cor do footer: branco */
       --terciary-color: #b60ee9;
@@ -11,6 +11,7 @@
       --color-back-models: #0e0d0dea;
       --color-module: #000;
       --change-color: #000;
+      --search-color: #f10b64;
       --sucess: #099644;
     }
     
@@ -502,7 +503,7 @@
     
     /* Botões e Inputs */
     .button, input[type=submit], input[type=button], .submit-row input, a.button {
-      background: var(--primary-color-faded);
+      background: var(--search-color);
     }
     
     .button.default, input[type=submit].default, .submit-row input.default {
@@ -570,6 +571,7 @@
     div.breadcrumbs {
       padding: 10px 40px;
       border: none;
+      font-weight: 900;
       color: var(--color-hover);
       text-align: left;
     }
@@ -826,3 +828,20 @@
   transition: background-color .2s;
   display: grid;
 } */
+
+.admindatefilter .button, .admindatefilter input[type=submit], .admindatefilter input[type=button], .admindatefilter .submit-row input, .admindatefilter a.button, .admindatefilter .button, .admindatefilter input[type=reset] {
+  background: var(--primary-color-faded) !important;
+  padding: 4px 5px;
+  border: none;
+  border-radius: 4px;
+  color: var(--button-fg);
+  cursor: pointer;
+}
+
+.numericrangefilter .button, .numericrangefilter input[type="submit"], .numericrangefilter input[type="button"], .numericrangefilter .submit-row input, .numericrangefilter a.button, .numericrangefilter .button, .numericrangefilter input[type="reset"] {
+  border-width: initial;
+  border-style: none;
+  border-color: initial;
+  color: var(--darkreader-text--button-fg, #e8e6e3);
+  background: var(--primary-color-faded) !important;
+}
