@@ -3,7 +3,8 @@
     <h2>Lista de Barbearias</h2>
     <ul v-if="barbearias.length > 0">
       <li v-for="barbearia in barbearias" :key="barbearia.id">
-        {{ barbearia.nome_da_barbearia }}
+        {{ barbearia.nome_da_barbearia }} - {{ barbearia.orcamento }}
+        <router-link to="/agendamentos">Ver agendamentos</router-link>
       </li>
     </ul>
     <p v-else>Nenhuma barbearia encontrada.</p>
@@ -22,7 +23,7 @@ export default {
   async created() {
     try {
       const response = await api.get('barbearias/');
-      console.log('Dados recebidos:', response.data); // Verifique os dados recebidos
+      console.log('Dados recebidos:', response.data);
       this.barbearias = response.data.results;
     } catch (error) {
       console.error('Erro ao buscar barbearias:', error);
