@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
-from django.db import models
+from django.db import models, transaction
 
+import pendulum
 from .plano_fidelidade import PlanosDeFidelidade
 
 from random import random
@@ -49,6 +50,21 @@ class Cliente(models.Model):
             user.credito = 50
         user.save()
         print(f"Crédito atualizado para o cliente {user}")
+        
+    def gerar_chave_aleatoria(self, cliente):
+        import secrets
+        from .chave_pix import ChavePix
+        with transaction.atomic():
+            token_pix = secrets.token_hex(32)
+            ChavePix.objects.create(
+                cliente=cliente,
+                pix=f"pix-{token_pix}",
+                chave_aleatoria=True,
+                data_de_criacao=pendulum.now(),
+                data_de_atualizacao=pendulum.now(),
+            )
+            print(f"Chave PIX gerada para o cliente {cliente}: pix-{token_pix}")
+        
 
     def __str__(self):
         return self.cliente.email or str(self.cliente)

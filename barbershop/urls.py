@@ -32,56 +32,72 @@ from barbearias.viewsets import (
     AvaliacaoViewSet,
     BarbeariaViewSet,
     BarbeiroViewSet,
+    CartaoViewSet,
+    ChavePixViewSet,
     ClienteViewSet,
     ContatoViewSet,
     FinanceiroViewSet,
     FuncionarioViewSet,
     PlanosDeFidelidadeViewSet,
 )
-from barbearias.viewsets.plano_fidelidade_viewset import PlanosDeFidelidadeViewSet
+from barbearias.viewsets.plano_fidelidade_viewset import (
+    PlanosDeFidelidadeViewSet,
+)
 from cargos.viewsets import CargoViewSet
 from utilidades.viewsets import AvisoViewSet, PromocaoViewSet
 
-admin.site.site_header = "BarberShop Admin"
-admin.site.index_title = "BarberShop Administração"
-admin.site.site_title = "BarberShop"
+admin.site.site_header = 'BarberShop Admin'
+admin.site.index_title = 'BarberShop Administração'
+admin.site.site_title = 'BarberShop'
 
 main_router = DefaultRouter()
 
 
-main_router.register(r"avaliacoes", AvaliacaoViewSet, basename="avaliacoes")
-main_router.register(r"avisos", AvisoViewSet, basename="avisos")
-main_router.register(r"agendamentos", AgendamentoViewSet, basename="agendamentos")
-main_router.register(r"barbearias", BarbeariaViewSet, basename="barbearias")
-main_router.register(r"barbeiros", BarbeiroViewSet, basename="barbeiros")
+main_router.register(r'avaliacoes', AvaliacaoViewSet, basename='avaliacoes')
+main_router.register(r'avisos', AvisoViewSet, basename='avisos')
 main_router.register(
-    r"categorias-servicos", CategoriaDoServicoViewSet, basename="categorias-servicos"
+    r'agendamentos', AgendamentoViewSet, basename='agendamentos'
 )
-main_router.register(r"cargos", CargoViewSet, basename="cargos")
-main_router.register(r"clientes", ClienteViewSet, basename="clientes")
-main_router.register(r"contatos", ContatoViewSet, basename="contatos")
-main_router.register(r"funcionarios", FuncionarioViewSet, basename="funcionarios")
-main_router.register(r"financeiros", FinanceiroViewSet, basename="financeiros")
+main_router.register(r'barbearias', BarbeariaViewSet, basename='barbearias')
+main_router.register(r'barbeiros', BarbeiroViewSet, basename='barbeiros')
 main_router.register(
-    r"historico-agendamentos",
+    r'categorias-servicos',
+    CategoriaDoServicoViewSet,
+    basename='categorias-servicos',
+)
+main_router.register(r'cargos', CargoViewSet, basename='cargos')
+main_router.register(r'cartoes', CartaoViewSet, basename='cartoes')
+main_router.register(r'chave-pix', ChavePixViewSet, basename='chave-pix')
+main_router.register(r'clientes', ClienteViewSet, basename='clientes')
+main_router.register(r'contatos', ContatoViewSet, basename='contatos')
+main_router.register(
+    r'funcionarios', FuncionarioViewSet, basename='funcionarios'
+)
+main_router.register(r'financeiros', FinanceiroViewSet, basename='financeiros')
+main_router.register(
+    r'historico-agendamentos',
     HistoricoDeAgendamentoViewSet,
-    basename="historico-agendamentos",
+    basename='historico-agendamentos',
 )
 main_router.register(
-    r"meus-agendamentos", MeuAgendamentoViewSet, basename="meu-agendamentos"
+    r'meus-agendamentos', MeuAgendamentoViewSet, basename='meu-agendamentos'
 )
 main_router.register(
-    r"planos-fidelidade", PlanosDeFidelidadeViewSet, basename="planos-fidelidade"
+    r'planos-fidelidade',
+    PlanosDeFidelidadeViewSet,
+    basename='planos-fidelidade',
 )
-main_router.register(r"promocoes", PromocaoViewSet, basename="promocoes")
-main_router.register(r"servicos", ServicoViewSet, basename="servicos")
+main_router.register(r'promocoes', PromocaoViewSet, basename='promocoes')
+main_router.register(r'servicos', ServicoViewSet, basename='servicos')
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
-    path("", Home.as_view(), name="Home"),
-    path("api/", include(main_router.urls)),
-    path("api-auth/", include("rest_framework.urls", namespace="rest_framework")),
-    path("_nested_admin/", include("nested_admin.urls")),
-    path("tinymce/", include("tinymce.urls")),
-    path("__debug__/", include("debug_toolbar.urls")),
+    path('admin/', admin.site.urls),
+    path('', Home.as_view(), name='Home'),
+    path('api/', include(main_router.urls)),
+    path(
+        'api-auth/', include('rest_framework.urls', namespace='rest_framework')
+    ),
+    path('_nested_admin/', include('nested_admin.urls')),
+    path('tinymce/', include('tinymce.urls')),
+    path('__debug__/', include('debug_toolbar.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

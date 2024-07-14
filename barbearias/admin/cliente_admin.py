@@ -1,3 +1,4 @@
+from typing import Any
 from django.contrib.auth.models import User
 from django.contrib import admin, messages
 from django.db.models.fields.related import ForeignKey
@@ -8,6 +9,8 @@ from admin_auto_filters.filters import AutocompleteFilter
 
 from ..models import Cliente
 
+from .cartao_inline import CartaoInline
+from .chave_pix_inline import ChavePixInline
 
 class ClienteFilter(AutocompleteFilter):
     title = 'Plano de Fidelidade'
@@ -37,12 +40,22 @@ class ClienteAdmin(DjangoObjectActions, admin.ModelAdmin):
     ]
     
     change_actions = [
-        'atualizar_credito'
+        'atualizar_credito',
+        'gerar_chave_aleatoria'
     ]
     
     changelist_actions = [
         'atualizar_creditos'
     ]
+    
+    inlines = [
+        CartaoInline,
+        ChavePixInline
+    ]
+    
+    def gerar_chave_aleatoria(self, request, obj):
+        Cliente().gerar_chave_aleatoria(obj)
+    gerar_chave_aleatoria.label = 'Gerar Chave Aleatória'
     
     def atualizar_credito(self, request, obj):
         Cliente().atualizar_credito_cliente(obj)

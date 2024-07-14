@@ -135,6 +135,24 @@ class Barbearia(models.Model):
         null=True
     )
     
+    usuario_de_criacao = models.ForeignKey(
+        User,
+        verbose_name='Usuário de criação',
+        related_name='usuario_criacao',
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+    )
+    
+    usuario_de_atualizacao = models.ForeignKey(
+        User,
+        verbose_name='Usuário de atualização',
+        related_name='usuario_atualizacao',
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+    )
+    
     @property
     def orcamento(self):
         orcamento = self.financeiro.lucro_total
@@ -207,8 +225,10 @@ class Barbearia(models.Model):
         user = get_current_user()
         if not self.pk:
             self.dono = user
+            self.usuario_de_criacao = user
         else:
             self.dono = user
+            self.usuario_de_atualizacao = user
         super().save(*args, **kwargs)
 
     def __str__(self):

@@ -3,6 +3,7 @@ from django.db import models
 from tinymce.models import HTMLField
 
 from .barbearia import Barbearia
+from .metodo_de_pagamento import MetodoDePagamento
 
 
 class PlanosDeFidelidade(models.Model):
@@ -41,6 +42,12 @@ class PlanosDeFidelidade(models.Model):
         decimal_places=2,
         blank=True,
         null=True,
+    )
+    
+    metodo_de_pagamento = models.ManyToManyField(
+        MetodoDePagamento,
+        verbose_name='Método de pagamento',
+        blank=True
     )
     
     quantidade_de_cortes = models.PositiveIntegerField(

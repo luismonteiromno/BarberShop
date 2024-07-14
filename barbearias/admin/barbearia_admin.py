@@ -67,6 +67,8 @@ class BarbeariaAdmin(DjangoObjectActions, nested_admin.NestedModelAdmin):
                     'horario_de_fechamento',
                     'data_de_criacao',
                     'data_de_atualizacao',
+                    'usuario_de_criacao',
+                    'usuario_de_atualizacao',
                 ]
             },
         ],
@@ -94,6 +96,8 @@ class BarbeariaAdmin(DjangoObjectActions, nested_admin.NestedModelAdmin):
         'data_de_criacao',
         'data_de_atualizacao',
         'media_das_avaliacoes',
+        'usuario_de_criacao',
+        'usuario_de_atualizacao',
     ]
 
     inlines = [
