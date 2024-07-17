@@ -11,4 +11,7 @@ class ChavePixInline(nested_admin.NestedTabularInline):
         'data_de_criacao',
         'data_de_atualizacao',
     ]
+    
+    def has_change_permission(self, request, obj=None):
+        return False
             

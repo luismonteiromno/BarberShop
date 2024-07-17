@@ -54,16 +54,22 @@ class Cliente(models.Model):
     def gerar_chave_aleatoria(self, cliente):
         import secrets
         from .chave_pix import ChavePix
+        
         with transaction.atomic():
             token_pix = secrets.token_hex(32)
-            ChavePix.objects.create(
-                cliente=cliente,
-                pix=f"pix-{token_pix}",
-                chave_aleatoria=True,
-                data_de_criacao=pendulum.now(),
-                data_de_atualizacao=pendulum.now(),
-            )
-            print(f"Chave PIX gerada para o cliente {cliente}: pix-{token_pix}")
+            if ChavePix.objects.filter(
+                chave_aleatoria=True
+            ).count() == 1:
+                raise Exception("Muitas chaves PIX aleatórias já existem")
+            else: 
+                ChavePix.objects.create(
+                    cliente=cliente,
+                    pix=f"pix-{token_pix}",
+                    chave_aleatoria=True,
+                    data_de_criacao=pendulum.now(),
+                    data_de_atualizacao=pendulum.now(),
+                )
+                print(f"Chave PIX gerada para o cliente {cliente}: pix-{token_pix}")
         
 
     def __str__(self):

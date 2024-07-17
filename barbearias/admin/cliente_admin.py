@@ -54,7 +54,14 @@ class ClienteAdmin(DjangoObjectActions, admin.ModelAdmin):
     ]
     
     def gerar_chave_aleatoria(self, request, obj):
-        Cliente().gerar_chave_aleatoria(obj)
+        try:
+            Cliente().gerar_chave_aleatoria(obj)
+        except:
+            self.message_user(
+                request,
+                "Você só pode ter UMA chave PIX aleatória!",
+                level=messages.WARNING
+            )
     gerar_chave_aleatoria.label = 'Gerar Chave Aleatória'
     
     def atualizar_credito(self, request, obj):
