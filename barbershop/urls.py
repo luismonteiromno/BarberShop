@@ -45,6 +45,7 @@ from barbearias.viewsets.plano_fidelidade_viewset import (
 )
 from cargos.viewsets import CargoViewSet
 from utilidades.viewsets import AvisoViewSet, PromocaoViewSet
+from barbershop.settings import STATIC_ROOT
 
 admin.site.site_header = 'BarberShop Admin'
 admin.site.index_title = 'BarberShop Administração'
@@ -100,4 +101,6 @@ urlpatterns = [
     path('_nested_admin/', include('nested_admin.urls')),
     path('tinymce/', include('tinymce.urls')),
     path('__debug__/', include('debug_toolbar.urls')),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] 
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) 
+urlpatterns += static(settings.STATIC_URL, document_root=STATIC_ROOT)

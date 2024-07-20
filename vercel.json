@@ -2,17 +2,28 @@
   "version": 2,
   "builds": [
     {
-      "src": "barbershop/manage.py",
+      "src": "barbershop/wsgi.py",
       "use": "@vercel/python",
       "config": {
-        "maxLambdaSize": "50mb"
+        "maxLambdaSize": "50mb", "runtime": "python3.8.10"
+      }
+    },
+    {
+      "src": "build_file.sh",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "staticfiles_build"
       }
     }
   ],
   "routes": [
     {
+      "src": "/static/(.*)",
+      "dest": "/static/$1"
+    },
+    {
       "src": "/(.*)",
-      "dest": "barbershop/manage.py"
+      "dest": "barbershop/wsgi.py"
     }
   ]
 }
