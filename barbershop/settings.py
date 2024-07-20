@@ -34,7 +34,7 @@ SECRET_KEY = (
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*', 'vercel.app']
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:8080',
