@@ -5,20 +5,11 @@
       "src": "barbershop/manage.py",
       "use": "@vercel/python",
       "config": {
-        "maxLambdaSize": "50mb",
-        "buildCommand": "python manage.py collectstatic --noinput"
+        "maxLambdaSize": "50mb"
       }
     }
   ],
   "routes": [
-    {
-      "src": "/static/(.*)",
-      "dest": "barbershop/static/$1"
-    },
-    {
-      "src": "/media/(.*)",
-      "dest": "barbershop/media/$1"
-    },
     {
       "src": "/(.*)",
       "dest": "barbershop/manage.py"
