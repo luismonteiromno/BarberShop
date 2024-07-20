@@ -1,4 +1,6 @@
+from typing import Any
 from django.contrib import admin
+from django.http import HttpRequest
 
 from ..models import PlanosDeFidelidade
 from .cliente_inline import ClienteInline
@@ -36,9 +38,16 @@ class PlanosDeFidelidadeAdmin(admin.ModelAdmin):
     ]
     
     readonly_fields = [
-        'usuarios'
+        'usuarios',
     ]
     
     inlines = [
         ClienteInline,
     ]
+    
+    filter_horizontal = ['metodo_de_pagamento']
+    
+    def get_readonly_fields(self, request, obj):
+        if not request.user.is_superuser:
+            return self.readonly_fields + ['metodo_de_pagamento']
+        return super().get_readonly_fields(request, obj)

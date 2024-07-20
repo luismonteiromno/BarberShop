@@ -29,6 +29,10 @@ class DonoFilter(AutocompleteFilter):
 class FuncionarioFilter(AutocompleteFilter):
     title = 'Funcionário'
     field_name = 'funcionarios'
+    
+class MetodoDePagamentoFilter(AutocompleteFilter):
+    title = 'Metódo de Pagamento'
+    field_name = 'metodo_de_pagamento'
 
 
 @admin.register(Barbearia)
@@ -53,6 +57,7 @@ class BarbeariaAdmin(DjangoObjectActions, nested_admin.NestedModelAdmin):
                     'nome_da_barbearia',
                     'dono',
                     'cnpj',
+                    'metodo_de_pagamento',
                     'barbeiros',
                     'funcionarios',
                     'rua',
@@ -79,12 +84,13 @@ class BarbeariaAdmin(DjangoObjectActions, nested_admin.NestedModelAdmin):
     list_filter = [
         DonoFilter,
         FuncionarioFilter,
+        MetodoDePagamentoFilter,
         'media_das_avaliacoes',
     ]
 
     list_select_related = ['dono']
 
-    filter_horizontal = ['barbeiros', 'funcionarios']
+    filter_horizontal = ['barbeiros', 'funcionarios', 'metodo_de_pagamento']
 
     search_fields = [
         'nome_da_barbearia',

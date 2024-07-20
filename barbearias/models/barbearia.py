@@ -6,6 +6,7 @@ from django.db import models
 from django.db.models import Avg
 import pendulum
 
+from .metodo_de_pagamento import MetodoDePagamento
 
 class Barbearia(models.Model):
     TIPO_BARBEARIA = (
@@ -35,6 +36,12 @@ class Barbearia(models.Model):
         max_length=19,
         blank=True,
         null=True
+    )
+    
+    metodo_de_pagamento = models.ManyToManyField(
+        MetodoDePagamento,
+        verbose_name='Métodos de pagamento aceitáveis',
+        blank=True
     )
     
     funcionarios = models.ManyToManyField(

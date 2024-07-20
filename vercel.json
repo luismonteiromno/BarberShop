@@ -1,0 +1,27 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "backend/manage.py",
+      "use": "@vercel/python",
+      "config": {
+        "maxLambdaSize": "50mb",
+        "buildCommand": "python manage.py collectstatic --noinput"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/static/(.*)",
+      "dest": "backend/static/$1"
+    },
+    {
+      "src": "/media/(.*)",
+      "dest": "backend/media/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "backend/manage.py"
+    }
+  ]
+}

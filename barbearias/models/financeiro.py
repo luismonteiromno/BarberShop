@@ -87,16 +87,14 @@ class Financeiro(models.Model):
             # Caso o valor do parâmetro venha do Admin
             barbearia = Barbearia.objects.get(pk=financeiro.barbearia.id)
             barbeiros = Barbeiro.objects.prefetch_related('barbearias').filter(
-                barbearias__in=[financeiro.barbearia.id]
+                barbearias__in=[financeiro.id]
             )
-            ...
         except:
             # Caso o valor do parâmetro venha do Cron
             barbearia = Barbearia.objects.get(pk=financeiro.id)
             barbeiros = Barbeiro.objects.prefetch_related('barbearias').filter(
                 barbearias__in=[financeiro.id]
             )
-            ...
 
         funcionarios = barbearia.funcionario_set.all().select_related(
             'barbearia'

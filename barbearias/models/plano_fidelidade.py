@@ -46,7 +46,7 @@ class PlanosDeFidelidade(models.Model):
     
     metodo_de_pagamento = models.ManyToManyField(
         MetodoDePagamento,
-        verbose_name='Método de pagamento',
+        verbose_name='Métodos de pagamento aceitáveis',
         blank=True
     )
     
@@ -72,7 +72,7 @@ class PlanosDeFidelidade(models.Model):
         super().save(*args, **kwargs)
     
     def __str__(self):
-        return self.nome
+        return str(self.nome)
     
     class Meta:
         verbose_name = 'Plano de fidelidade'
