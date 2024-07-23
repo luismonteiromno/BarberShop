@@ -1,7 +1,8 @@
 from decimal import Decimal
 
 from django.db import models, transaction
-from django.db.models import Q
+from django.db.models import F, Q, Sum, Value
+from django.db.models.functions import Coalesce
 
 from ..models import Barbearia
 
@@ -117,37 +118,40 @@ class Financeiro(models.Model):
         )
 
         despesa_barbeiro = Decimal(
-            sum(barbeiro.salario for barbeiro in barbeiros)
-        )
+            barbeiros.aggregate(salario_total=Sum('salario'))['salario_total']
+        ) if barbeiros else 0
+        
         despesa_funcionario = Decimal(
-            sum(funcionario.salario for funcionario in funcionarios)
-        )
+            funcionarios.aggregate(salario_total=Sum('salario'))['salario_total']
+        ) if funcionarios else 0
+        
         despesas = despesa_barbeiro + despesa_funcionario
 
-        # lucro_planos = Decimal(sum(lucro.preco*lucro.quantidade_de_usuarios for lucro in planos))
-        lucro_planos = Decimal(0.00)
-        for lucro in planos:
-            lucro_planos = lucro.preco * lucro.quantidade_de_usuarios
+        lucro_planos = (planos.aggregate(
+                preco=Sum(F('preco') * F('usuarios'))
+        )) if planos else Decimal(0)
 
-        receita = Decimal(
-            sum(lucro.preco_do_servico for lucro in agendamentos)
-        )
+        receita = (
+                agendamentos.aggregate(receita_total=Sum('preco_do_servico'))['receita_total']
+        ) or Decimal(0)
+        
         lucro_total = (
-            Decimal(sum(lucro.preco_do_servico for lucro in agendamentos))
-            + lucro_planos
-        ) - despesas
+            agendamentos.aggregate(
+                lucro_total=Sum('preco_do_servico')
+            )['lucro_total']
+        ) + lucro_planos - despesas if agendamentos else Decimal(0)
 
         lucro_mes = (
-            Decimal(sum(lucro.preco_do_servico for lucro in lucro_mensal))
-            + lucro_planos
-        ) - despesas
+            lucro_mensal.aggregate(
+                lucro_mes=Sum('preco_do_servico')
+            )['lucro_mes']
+        ) + lucro_planos - despesas if lucro_mensal else Decimal(0)
+        
         lucro_mes_anterior = (
-            Decimal(sum(lucro.preco_do_servico for lucro in lucro_anterior))
-            + lucro_planos
-        ) - despesas
-        receita = Decimal(
-            sum(lucro.preco_do_servico for lucro in agendamentos)
-        )
+            lucro_anterior.aggregate(
+                lucro_mes_anterior=Sum('preco_do_servico')
+            )['lucro_mes_anterior']
+        ) + lucro_planos - despesas if lucro_anterior else Decimal(0)
 
         comparar_lucros = Decimal(lucro_mes - lucro_mes_anterior)
         comparar_lucros_porcentagem = Decimal(comparar_lucros / 100).quantize(
