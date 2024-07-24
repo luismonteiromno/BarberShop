@@ -139,23 +139,23 @@ class Financeiro(models.Model):
             agendamentos.aggregate(
                 lucro_total=Sum('preco_do_servico')
             )['lucro_total']
-        ) + lucro_planos - despesas if agendamentos else Decimal(0)
+        ) + lucro_planos - despesas if agendamentos else Decimal('0.00')
 
         lucro_mes = (
             lucro_mensal.aggregate(
                 lucro_mes=Sum('preco_do_servico')
             )['lucro_mes']
-        ) + lucro_planos - despesas if lucro_mensal else Decimal(0)
+        ) + lucro_planos - despesas if lucro_mensal else Decimal('0.00')
         
         lucro_mes_anterior = (
             lucro_anterior.aggregate(
                 lucro_mes_anterior=Sum('preco_do_servico')
             )['lucro_mes_anterior']
-        ) + lucro_planos - despesas if lucro_anterior else Decimal(0)
+        ) + lucro_planos - despesas if lucro_anterior else Decimal('0.00')
 
         comparar_lucros = Decimal(lucro_mes - lucro_mes_anterior)
         comparar_lucros_porcentagem = Decimal(comparar_lucros / 100).quantize(
-            Decimal('0.0')
+            Decimal('0.00')
         )
         # como é porcentagem ent segue a seguinte regra
         # 1 = 100%
