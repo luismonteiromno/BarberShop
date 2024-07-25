@@ -15,6 +15,16 @@ class ChavePix(models.Model):
         unique=True,
     )
     
+    telefone = models.BooleanField(
+        'Telefone',
+        default=False,
+    )
+    
+    cpf_cnpj = models.BooleanField(
+        'CPF/CNPJ',
+        default=False
+    )
+    
     chave_aleatoria = models.BooleanField(
         'Chave aleatória',
         default=False,

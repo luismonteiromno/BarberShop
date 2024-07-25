@@ -31,7 +31,7 @@ class FuncionarioFilter(AutocompleteFilter):
     field_name = 'funcionarios'
     
 class MetodoDePagamentoFilter(AutocompleteFilter):
-    title = 'Metódo de Pagamento'
+    title = 'Metódo de Pagamento Aceito'
     field_name = 'metodo_de_pagamento'
 
 
@@ -164,7 +164,7 @@ class BarbeariaAdmin(DjangoObjectActions, nested_admin.NestedModelAdmin):
                 'Lucro planos': f"R$ {financeiro['lucro_planos']}",
                 'Lucro mes anterior': f'R$ {lucro_mes_anterior}',
                 'Lucros mes anterior/atual': f"R$ {financeiro['comparar_lucros_mes_anterior_e_atual']}",
-                'Lucros mes anterior/atual porcentagem': f"%{financeiro['comparar_lucros_mes_anterior_e_atual_porcentagem']}",
+                'Lucros em porcentagem': f"%{financeiro['comparar_lucros_mes_anterior_e_atual_porcentagem']}",
                 'Lucro': financeiro['lucro'],
                 'Prejuizo': financeiro['prejuizo'],
             }
@@ -176,7 +176,7 @@ class BarbeariaAdmin(DjangoObjectActions, nested_admin.NestedModelAdmin):
 
                 worksheet.set_default_row(15)
                 for column, value in enumerate(df.columns.values):
-                    worksheet.set_column(column, column, 40)
+                    worksheet.set_column(column, 20)
 
             output.seek(0)
 
