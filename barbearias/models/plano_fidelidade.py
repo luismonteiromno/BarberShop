@@ -10,9 +10,7 @@ class PlanosDeFidelidade(models.Model):
     barbearia = models.ForeignKey(
         Barbearia,
         verbose_name='Barbearia',
-        on_delete=models.SET_NULL,
-        blank=True,
-        null=True
+        on_delete=models.PROTECT
     )
     
     nome = models.CharField(

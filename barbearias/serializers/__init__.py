@@ -7,6 +7,7 @@ from .cliente_serializer import ClienteSerializer
 from .contato_serializer import ContatoSerializer
 from .financeiro_serializer import FinanceiroSerializer
 from .funcionario_serializer import FuncionarioSerializer
+from .metodo_de_pagamento_serializer import MetodoDePagamentoSerializer
 from .plano_fidelidade_serializer import PlanosDeFidelidadeSerializer
 
 __all__ = [
@@ -19,5 +20,6 @@ __all__ = [
     ContatoSerializer,
     FinanceiroSerializer,
     FuncionarioSerializer,
+    MetodoDePagamentoSerializer,
     PlanosDeFidelidadeSerializer,
 ]

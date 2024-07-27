@@ -11,6 +11,11 @@ from rangefilter.filters import (
     DateRangeQuickSelectListFilterBuilder,
 )
 
+from admin_auto_filters.filters import AutocompleteFilter
+
+class MetodoDePagamentoFilter(AutocompleteFilter):
+    title = 'Método de Pagamento'
+    field_name ='metodo_de_pagamento'
 
 @admin.register(PlanosDeFidelidade)
 class PlanosDeFidelidadeAdmin(admin.ModelAdmin):
@@ -22,7 +27,7 @@ class PlanosDeFidelidadeAdmin(admin.ModelAdmin):
     
     search_fields = [
         'nome'
-        'barbearia__nome_da_barbearia'
+        'barbearia__nome_da_barbearia',
     ]
     
     exclude = [
@@ -34,7 +39,8 @@ class PlanosDeFidelidadeAdmin(admin.ModelAdmin):
     ]
     
     list_filter = [
-        ('usuarios', NumericRangeFilterBuilder())
+        ('usuarios', NumericRangeFilterBuilder()),
+        MetodoDePagamentoFilter
     ]
     
     readonly_fields = [

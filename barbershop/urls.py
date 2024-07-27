@@ -38,6 +38,7 @@ from barbearias.viewsets import (
     ContatoViewSet,
     FinanceiroViewSet,
     FuncionarioViewSet,
+    MetodoDePagamentoViewSet,
     PlanosDeFidelidadeViewSet,
 )
 from barbearias.viewsets.plano_fidelidade_viewset import (
@@ -54,7 +55,7 @@ admin.site.site_title = 'BarberShop'
 main_router = DefaultRouter()
 
 
-main_router.register(r'avaliacoe', AvaliacaoViewSet, basename='avaliacoe')
+main_router.register(r'avaliacao', AvaliacaoViewSet, basename='avaliacao')
 main_router.register(r'aviso', AvisoViewSet, basename='aviso')
 main_router.register(
     r'agendamento', AgendamentoViewSet, basename='agendamento'
@@ -62,13 +63,13 @@ main_router.register(
 main_router.register(r'barbearia', BarbeariaViewSet, basename='barbearia')
 main_router.register(r'barbeiro', BarbeiroViewSet, basename='barbeiro')
 main_router.register(
-    r'categoria-servico',
+    r'categoria_servico',
     CategoriaDoServicoViewSet,
-    basename='categoria-servico',
+    basename='categoria_servico',
 )
 main_router.register(r'cargo', CargoViewSet, basename='cargo')
-main_router.register(r'cartoes', CartaoViewSet, basename='cartoe')
-main_router.register(r'chave-pix', ChavePixViewSet, basename='chave-pix')
+main_router.register(r'cartao', CartaoViewSet, basename='cartao')
+main_router.register(r'chave_pix', ChavePixViewSet, basename='chave_pix')
 main_router.register(r'cliente', ClienteViewSet, basename='cliente')
 main_router.register(r'contato', ContatoViewSet, basename='contato')
 main_router.register(
@@ -76,17 +77,18 @@ main_router.register(
 )
 main_router.register(r'financeiro', FinanceiroViewSet, basename='financeiro')
 main_router.register(
-    r'historico-agendamento',
+    r'historico_agendamento',
     HistoricoDeAgendamentoViewSet,
-    basename='historico-agendamento',
+    basename='historico_agendamento',
+)
+main_router.register(r'metodo_pagamento', MetodoDePagamentoViewSet, basename='metodo_pagamento')
+main_router.register(
+    r'meu_agendamento', MeuAgendamentoViewSet, basename='meu_agendamento'
 )
 main_router.register(
-    r'meu-agendamento', MeuAgendamentoViewSet, basename='meu-agendamento'
-)
-main_router.register(
-    r'plano-fidelidade',
+    r'plano_fidelidade',
     PlanosDeFidelidadeViewSet,
-    basename='plano-fidelidade',
+    basename='plano_fidelidade',
 )
 main_router.register(r'promocao', PromocaoViewSet, basename='promocao')
 main_router.register(r'servico', ServicoViewSet, basename='servico')

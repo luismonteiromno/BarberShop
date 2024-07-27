@@ -6,7 +6,7 @@ class ChavePix(models.Model):
     cliente = models.ForeignKey(
         Cliente,
         verbose_name='Cliente',
-        on_delete=models.CASCADE
+        on_delete=models.PROTECT
     )
     
     pix = models.CharField(
