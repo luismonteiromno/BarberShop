@@ -1,10 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import ListarBarbearias from '../components/ListarBarbearias.vue';
-import Agendamentos from '../components/Agendamentos.vue';
+import agendamento from '../components/agendamento.vue';
+import financeiro from '../components/financeiro.vue';
+import listarBarbearia from '../components/listarBarbearia.vue';
 
 const routes = [
-  { path: '/', component: ListarBarbearias },
-  { path: '/agendamentos', component: Agendamentos }
+  { path: '/', component: listarBarbearia },
+  { path: '/agendamentos', component: agendamento },
+  { path: '/financeiro', component: financeiro}
 ];
 
 const router = createRouter({

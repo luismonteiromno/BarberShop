@@ -141,14 +141,14 @@ class Financeiro(models.Model):
 
         lucro_planos = (
             (
-                planos.values('preco')
-                .annotate(cliente_count=Count('usuarios'))
-                .filter(cliente_count__gte=1)
-                .annotate(lucro_planos=F('preco') * F('usuarios'))
-                .values_list('lucro_planos', flat=True)
-            )
-            if planos
-            else Decimal('0.00')
+                (
+                    planos.values('preco')
+                    .annotate(cliente_count=Count('usuarios'))
+                    .filter(cliente_count__gte=1)
+                    .annotate(lucro_planos=F('preco') * F('usuarios'))
+                    .values_list('lucro_planos', flat=True)
+                )
+            ) if planos else Decimal('0.00')
         )
 
         receita = (
@@ -159,38 +159,38 @@ class Financeiro(models.Model):
 
         lucro_total = (
             (
-                agendamentos.aggregate(lucro_total=Sum('preco_do_servico'))[
-                    'lucro_total'
-                ]
-            )
-            + lucro_planos[0]
-            - despesas
-            if agendamentos
-            else Decimal('0.00')
+                (
+                    agendamentos.aggregate(
+                        lucro_total=Sum('preco_do_servico')
+                    )['lucro_total']
+                )
+                + lucro_planos[0]
+                - despesas
+            ) if agendamentos else Decimal('0.00')
         )
 
         lucro_mes = (
             (
-                lucro_mensal.aggregate(lucro_mes=Sum('preco_do_servico'))[
-                    'lucro_mes'
-                ]
-            )
-            + lucro_planos[0]
-            - despesas
-            if lucro_mensal
-            else Decimal('0.00')
+                (
+                    lucro_mensal.aggregate(lucro_mes=Sum('preco_do_servico'))[
+                        'lucro_mes'
+                    ]
+                )
+                + lucro_planos[0]
+                - despesas
+            ) if lucro_mensal else Decimal('0.00')
         )
 
         lucro_mes_anterior = (
             (
-                lucro_anterior.aggregate(
-                    lucro_mes_anterior=Sum('preco_do_servico')
-                )['lucro_mes_anterior']
-            )
-            + lucro_planos[0]
-            - despesas
-            if lucro_anterior
-            else Decimal('0.00')
+                (
+                    lucro_anterior.aggregate(
+                        lucro_mes_anterior=Sum('preco_do_servico')
+                    )['lucro_mes_anterior']
+                )
+                + lucro_planos[0]
+                - despesas
+            ) if lucro_anterior else Decimal('0.00')
         )
 
         comparar_lucros = Decimal(lucro_mes - lucro_mes_anterior)
@@ -216,7 +216,7 @@ class Financeiro(models.Model):
             f'Lucro do mês anterior: {lucro_mes_anterior}',
             f'Despesas: {despesas}',
             f'comparar valores porcentagem: {comparar_lucros_porcentagem}',
-            f'Lucro dos planos: {lucro_planos[0]}',
+            f'Lucro dos planos: {lucro_planos[0] if lucro_planos else Decimal("0.00")}',
             f'Lucro total: {lucro_total}',
             f'Receita total: {receita}',
             f'Comparar lucros: {comparar_lucros}',
