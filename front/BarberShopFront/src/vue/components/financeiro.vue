@@ -20,14 +20,28 @@
           <tr v-for="financeiro in financeiros" :key="financeiro.id">
             <td>{{ financeiro.barbearia }}</td>
             <td>{{ financeiro.receita_total }}</td>
-            <td>{{ financeiro.lucro_total }}</td>
-            <td>{{ financeiro.lucro_planos }}</td>
+            <td class="has-text-success">{{ financeiro.lucro_total }}</td>
+            <td class="has-text-success">{{ financeiro.lucro_planos }}</td>
             <td>{{ financeiro.renda_mensal }}</td>
-            <td>{{ financeiro.despesas }}</td>
-            <td>{{ financeiro.comparar_lucros_mes_anterior_e_atual }}</td>
-            <td>{{ financeiro.comparar_lucros_mes_anterior_e_atual_porcentagem }}</td>
-            <td>{{ financeiro.prejuizo }}</td>
-            <td>{{ financeiro.lucro }}</td>
+            <td class="has-text-danger">{{ financeiro.despesas }}</td>
+            <td class="has-text-info">{{ financeiro.comparar_lucros_mes_anterior_e_atual }}</td>
+            <td class="has-text-info">{{ financeiro.comparar_lucros_mes_anterior_e_atual_porcentagem }}</td>
+            <td>
+              <span v-if="financeiro.prejuizo == true" class="icon has-text-sucess">
+                <i class="fas fa-check"></i>
+              </span>
+              <span v-else class="icon has-text-danger">
+                <i class="fas fa-times"></i>
+              </span>
+            </td>
+            <td>
+              <span v-if="financeiro.lucro == true" class="icon has-text-success">
+                <i class="fas fa-check"></i>
+              </span>
+              <span v-else class="icon has-text-danger">
+                <i class="fas fa-times"></i>
+              </span>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -36,14 +50,14 @@
   
   <script>
   import api from '../../services/api/api';
-  import 'bulma/css/bulma.css'
-
+  import 'bulma/css/bulma.css';
+  import '@fortawesome/fontawesome-free/css/all.css';
   
   export default {
     data() {
       return {
         financeiros: [],
-      }
+      };
     },
     async created() {
       try {
@@ -52,8 +66,8 @@
       } catch (error) {
         this.error = error.message;
       }
-    }
-  }
+    },
+  };
   </script>
   
   <style scoped>
@@ -63,6 +77,23 @@
   
   .title {
     margin-bottom: 2rem;
+  }
+  
+  /* Custom colors for different types of data */
+  .has-text-success {
+    color: #23d160; /* Green for profits */
+  }
+  
+  .has-text-danger {
+    color: #ff3860; /* Red for expenses and losses */
+  }
+  
+  .has-text-info {
+    color: #209cee; /* Blue for comparisons */
+  }
+  
+  .icon {
+    font-size: 1.2rem;
   }
   </style>
   
