@@ -2,6 +2,7 @@ from .avaliacao_admin import AvaliacaoAdmin
 from .avaliacao_barbeiro_admin import AvaliacaoDoBarbeiroAdmin
 from .barbearia_admin import BarbeariaAdmin
 from .barbeiro_admin import BarbeiroAdmin
+from .cartao_admin import CartaoAdmin
 from .cliente_admin import ClienteAdmin
 from .cliente_inline import ClienteInline
 from .contato_inline import ContatoInline
@@ -16,9 +17,10 @@ __all__ = [
     AvaliacaoDoBarbeiroAdmin,
     BarbeariaAdmin,
     BarbeiroAdmin,
+    CartaoAdmin,
     ClienteAdmin,
-    ContatoInline,
     ClienteInline,
+    ContatoInline,
     FinanceiroAdmin,
     FuncionarioAdmin,
     FuncionarioInline,

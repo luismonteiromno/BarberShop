@@ -33,6 +33,11 @@ class Cartao(models.Model):
         null=True,
     )
     
+    cartao_bloqueado = models.BooleanField(
+        'Cartão bloqueado',
+        default=False
+    )
+    
     validade = models.DateField(
         'Validade do cartão',
         blank=True,
@@ -54,7 +59,7 @@ class Cartao(models.Model):
     )
     
     def __str__(self):
-        return f'{self.titular.nome}'
+        return f'{self.titular}'
     
     class Meta:
         verbose_name = 'Cartão'

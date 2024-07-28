@@ -28,6 +28,10 @@ class ClienteAdmin(DjangoObjectActions, admin.ModelAdmin):
         'plano_de_fidelidade',
     ]
     
+    search_fields = [
+        'cliente'
+    ]
+    
     list_select_related = ['cliente']
     
     list_filter = [
