@@ -10,7 +10,7 @@ class Cartao(models.Model):
     titular = models.ForeignKey(
         Cliente,
         verbose_name='Titular do cartão',
-        on_delete=models.CASCADE
+        on_delete=models.PROTECT
     )
     
     numero = models.CharField(

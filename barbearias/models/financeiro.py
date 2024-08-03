@@ -65,6 +65,14 @@ class Financeiro(models.Model):
         null=True,
     )
 
+    lucro_produtos = models.DecimalField(
+        'Lucro dos produtos',
+        max_digits=10,
+        decimal_places=2,
+        blank=True,
+        null=True,
+    )
+
     lucro_total = models.DecimalField(
         'Lucro total', max_digits=10, decimal_places=2, blank=True, null=True
     )
@@ -97,12 +105,12 @@ class Financeiro(models.Model):
                 barbearias__in=[financeiro.id]
             )
 
-        funcionarios = barbearia.funcionario_set.all().select_related(
-            'barbearia'
-        )
-        planos = barbearia.planosdefidelidade_set.all().select_related(
-            'barbearia'
-        )
+        funcionarios = barbearia.funcionario_set.all()
+        planos = barbearia.planosdefidelidade_set.all()
+
+        produtos = barbearia.produto_set.filter(ativo=True).aggregate(
+            lucro_produtos=Sum('preco')
+        )['lucro_produtos']
 
         agendamentos = Agendamento.objects.filter(
             data_marcada__lt=pendulum.now(),
@@ -225,6 +233,7 @@ class Financeiro(models.Model):
             f'comparar valores porcentagem: {comparar_lucros_porcentagem}',
             f'Lucro dos planos: {lucro_planos if lucro_planos else Decimal("0.00")}',
             f'Lucro total: {lucro_total}',
+            f'lucro_produtos: {produtos}',
             f'Receita total: {receita}',
             f'Comparar lucros: {comparar_lucros}',
         )
@@ -237,6 +246,7 @@ class Financeiro(models.Model):
                 comparar_lucros_mes_anterior_e_atual_porcentagem=comparar_lucros_porcentagem,
                 lucro_planos=lucro_planos,
                 lucro_total=lucro_total,
+                lucro_produtos=produtos,
                 receita_total=receita,
                 comparar_lucros_mes_anterior_e_atual=comparar_lucros,
                 prejuizo=comparar_lucros < 0,
@@ -259,6 +269,7 @@ class Financeiro(models.Model):
         financeiro.comparar_lucros_mes_anterior_e_atual = 0
         financeiro.lucro_planos = 0
         financeiro.lucro_total = 0
+        financeiro.lucro_produtos = 0
         financeiro.receita_total = 0
         financeiro.prejuizo = False
         financeiro.lucro = False

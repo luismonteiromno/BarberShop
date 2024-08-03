@@ -41,12 +41,9 @@ from barbearias.viewsets import (
     MetodoDePagamentoViewSet,
     PlanosDeFidelidadeViewSet,
 )
-from barbearias.viewsets.plano_fidelidade_viewset import (
-    PlanosDeFidelidadeViewSet,
-)
-from cargos.viewsets import CargoViewSet
-from utilidades.viewsets import AvisoViewSet, PromocaoViewSet
 from barbershop.settings import STATIC_ROOT
+from cargos.viewsets import CargoViewSet
+from utilidades.viewsets import AvisoViewSet, ProdutoViewSet, PromocaoViewSet
 
 admin.site.site_header = 'BarberShop Admin'
 admin.site.index_title = 'BarberShop Administração'
@@ -81,7 +78,9 @@ main_router.register(
     HistoricoDeAgendamentoViewSet,
     basename='historico_agendamento',
 )
-main_router.register(r'metodo_pagamento', MetodoDePagamentoViewSet, basename='metodo_pagamento')
+main_router.register(
+    r'metodo_pagamento', MetodoDePagamentoViewSet, basename='metodo_pagamento'
+)
 main_router.register(
     r'meu_agendamento', MeuAgendamentoViewSet, basename='meu_agendamento'
 )
@@ -90,6 +89,7 @@ main_router.register(
     PlanosDeFidelidadeViewSet,
     basename='plano_fidelidade',
 )
+main_router.register(r'produto', ProdutoViewSet, basename='produto')
 main_router.register(r'promocao', PromocaoViewSet, basename='promocao')
 main_router.register(r'servico', ServicoViewSet, basename='servico')
 
@@ -103,6 +103,6 @@ urlpatterns = [
     path('_nested_admin/', include('nested_admin.urls')),
     path('tinymce/', include('tinymce.urls')),
     path('__debug__/', include('debug_toolbar.urls')),
-] 
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) 
+]
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 urlpatterns += static(settings.STATIC_URL, document_root=STATIC_ROOT)
