@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 import os
 import environ
 from decouple import config
+import logging
 
 from pathlib import Path
 
@@ -23,6 +24,52 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 env = environ.Env(DEBUG=(bool, True))
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
+LOG_FILE = config('LOG_FILE', default=os.path.join(BASE_DIR, 'logs.log'))
+
+# Configuração de logging
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'standard': {
+            'format': '%(asctime)s [%(levelname)s] %(name)s: %(message)s'
+        },
+    },
+    'handlers': {
+        'console': {
+            'level': 'INFO',
+            'class': 'logging.StreamHandler',
+            'formatter': 'standard',
+        },
+        'file': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'filename': LOG_FILE,
+            'encoding': 'utf-8',
+            'formatter': 'standard',
+        },
+    },
+    'loggers': {
+        logger_name: {
+            'level': 'INFO',
+            'handlers': ['file'],
+            'propagate': False,
+        }
+        for logger_name in (
+            'django.request',
+            'django.db.backends',
+            'agendamentos',
+            'barbearias',
+            'cargos',
+            'usuarios',
+            'utilidades',
+        )
+    },
+    'root': {
+        'level': 'INFO',
+        'handlers': ['file'],
+    },
+}
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
