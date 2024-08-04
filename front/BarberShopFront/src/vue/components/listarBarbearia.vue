@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <h2 class="title has-text-centered">Lista de Barbearias</h2>
+    <router-link to="/criar-barbearia" class="button is-primary">Adicionar Nova Barbearia</router-link>
     <div v-if="barbearias.length > 0" class="list">
       <div v-for="barbearia in barbearias" :key="barbearia.id" class="box">
         <div class="content">
@@ -14,6 +15,7 @@
     <p v-else class="has-text-centered">Nenhuma barbearia encontrada.</p>
   </div>
 </template>
+
 
 <script>
 import api from '@/services/api/api';

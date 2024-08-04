@@ -48,12 +48,6 @@ class PlanosDeFidelidade(models.Model):
         blank=True
     )
     
-    quantidade_de_cortes = models.PositiveIntegerField(
-        'Quantidade de cortes',
-        blank=True,
-        null=True,
-    )
-    
     usuarios = models.PositiveIntegerField(
         'Quantidade de usuários que possuem esse plano',
         blank=True,

@@ -13,7 +13,6 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 import os
 import environ
 from decouple import config
-import logging
 
 from pathlib import Path
 
