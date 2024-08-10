@@ -1,7 +1,8 @@
 from decimal import Decimal
+from typing import Type
 
 from django.db import models, transaction
-from django.db.models import F, Q, Sum, Value, Count
+from django.db.models import Count, F, Q, Sum, Value
 from django.db.models.functions import Coalesce
 
 from ..models import Barbearia
@@ -85,10 +86,21 @@ class Financeiro(models.Model):
 
     lucro = models.BooleanField('Lucro', default=False)
 
+    def calcular_lucros(self, model: Type[models.Model]) -> Decimal:
+        lucro = model.aggregate(lucro=Sum('preco_do_servico'))['lucro'] or 0
+        return lucro
+
+    def calcular_salario(self, model: Type[models.Model]) -> Decimal:
+        salario_total = (
+            model.aggregate(salario_total=Sum('salario'))['salario_total'] or 0
+        )
+        return salario_total
+
     def atualizar_financas(self, financeiro):
         import pendulum
 
         from agendamentos.models import Agendamento
+
         from .barbeiro import Barbeiro
 
         mes_anterior = pendulum.now().subtract(months=1)
@@ -125,87 +137,30 @@ class Financeiro(models.Model):
             data_marcada__month=pendulum.now().month
         )
 
-        despesa_barbeiro = (
-            Decimal(
-                barbeiros.aggregate(salario_total=Sum('salario'))[
-                    'salario_total'
-                ]
-            )
-            if barbeiros
-            else Decimal('0.00')
-        )
-
-        despesa_funcionario = (
-            Decimal(
-                funcionarios.aggregate(salario_total=Sum('salario'))[
-                    'salario_total'
-                ]
-            )
-            if funcionarios
-            else Decimal('0.00')
-        )
+        despesa_barbeiro = self.calcular_salario(barbeiros)
+        despesa_funcionario = self.calcular_salario(funcionarios)
 
         despesas = despesa_barbeiro + despesa_funcionario
 
         lucro_planos = (
             (
-                (
-                    planos.filter(usuarios__gte=1)
-                    .values('preco')
-                    .annotate(lucro_planos=F('preco') * F('usuarios'))
-                    .aggregate(Sum('lucro_planos'))['lucro_planos__sum']
-                )
+                planos.filter(usuarios__gte=1)
+                .values('preco')
+                .annotate(lucro_planos=F('preco') * F('usuarios'))
+                .aggregate(Sum('lucro_planos'))['lucro_planos__sum']
             )
-            if planos
-            else Decimal('0.00')
-        )
+        ) or 0
 
-        receita = (
-            agendamentos.aggregate(receita_total=Sum('preco_do_servico'))[
-                'receita_total'
-            ]
-        ) or Decimal('0.00')
+        receita = (self.calcular_lucros(agendamentos)) or Decimal('0.00')
 
         lucro_total = (
-            (
-                (
-                    agendamentos.aggregate(
-                        lucro_total=Sum('preco_do_servico')
-                    )['lucro_total']
-                )
-                + lucro_planos
-                - despesas
-            )
-            if agendamentos
-            else Decimal('0.00')
+            self.calcular_lucros(agendamentos) + lucro_planos - despesas
         )
-
         lucro_mes = (
-            (
-                (
-                    lucro_mensal.aggregate(lucro_mes=Sum('preco_do_servico'))[
-                        'lucro_mes'
-                    ]
-                )
-                + lucro_planos
-                - despesas
-            )
-            if lucro_mensal
-            else Decimal('0.00')
+            self.calcular_lucros(lucro_mensal) + lucro_planos - despesas
         )
-
         lucro_mes_anterior = (
-            (
-                (
-                    lucro_anterior.aggregate(
-                        lucro_mes_anterior=Sum('preco_do_servico')
-                    )['lucro_mes_anterior']
-                )
-                + lucro_planos
-                - despesas
-            )
-            if lucro_anterior
-            else Decimal('0.00')
+            self.calcular_lucros(lucro_anterior) + lucro_planos - despesas
         )
 
         comparar_lucros = Decimal(lucro_mes - lucro_mes_anterior)

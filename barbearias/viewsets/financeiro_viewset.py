@@ -24,8 +24,8 @@ class FinanceiroViewSet(ModelViewSet):
         lucro_total_maior = self.request.query_params.get('lucro_total_maior')
         lucro_mensal = self.request.query_params.get('lucro_mensal')
         lucro_planos = self.request.query_params.get('lucro_planos')
+        lucro_produtos = self.request.query_params.get('lucro_produtos')
         lucro = self.request.query_params.get('lucro')
-        prejuizo = self.request.query_params.get('prejuizo')
         receita_total = self.request.query_params.get('receita_total')
 
         if not self.request.user.is_superuser:
@@ -57,18 +57,18 @@ class FinanceiroViewSet(ModelViewSet):
 
         if lucro_planos:
             queryset = queryset.filter(lucro_planos=Decimal(lucro_planos))
+            
+        if lucro_produtos:
+            queryset = queryset.filter(lucro_produtos=Decimal(lucro_produtos))
 
         if receita_total:
             queryset = queryset.filter(receita_total=Decimal(receita_total))
 
         if lucro:
             if lucro in ['false', 'False']:
-                queryset = queryset.filter(lucro=False)
-            else:
+                queryset = queryset.filter(prejuizo=True)
+            elif lucro in ['true', 'True']:
                 queryset = queryset.filter(lucro=True)
-
-        if prejuizo:
-            queryset = queryset.filter(prejuizo=(prejuizo))
 
         return queryset
 

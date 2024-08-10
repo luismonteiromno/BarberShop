@@ -5,7 +5,7 @@
       --models-color: #ffffff; /* Cor dos Models: branco */
       --secondary-color: #fff; /* Cor do footer: branco */
       --terciary-color: #b60ee9;
-      --color-hover: #6b2aa0; /* Cor do link ao passar mouse por cima: branco */
+      --color-hover: #802d64; /* Cor do link ao passar mouse por cima: branco */
       --delete-color: #fd044391; 
       --delete-hover: #550606; /* Cor do link ao passar mouse por do item de exclusao: Vermelho */
       --color-back-models: #0e0d0dea;
@@ -16,6 +16,10 @@
     }
     
     /* Seleção de texto */
+    * {
+      font-family: arial, 'Montserrat', sans-serif;
+    }
+    
     ::selection {
       background: var(--secondary-color);
       color: var(--primary-color);
@@ -115,9 +119,6 @@
     }
     
     /* Estilos gerais */
-    * {
-      font-family: 'Montserrat', sans-serif;
-    }
     
     .selector-chosen h2 {
       background: var(--primary-color-faded) !important;

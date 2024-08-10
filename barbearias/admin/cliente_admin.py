@@ -59,7 +59,12 @@ class ClienteAdmin(DjangoObjectActions, admin.ModelAdmin):
     
     def gerar_chave_aleatoria(self, request, obj):
         try:
-            Cliente().gerar_chave_aleatoria(obj)
+            successo = Cliente().gerar_chave_aleatoria(obj)
+            self.message_user(
+                request,
+                successo,
+                level=messages.SUCCESS
+            )
         except:
             self.message_user(
                 request,

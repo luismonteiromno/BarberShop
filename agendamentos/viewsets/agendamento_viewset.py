@@ -12,31 +12,49 @@ class AgendamentoViewSet(ModelViewSet):
     queryset = Agendamento.objects.all()
     serializer_class = AgendamentoSerializer
     permission_classes = [IsAuthenticated]
-    
-    filterset_fields = [
-        'servico'
-    ]
-    
+
+    filterset_fields = ['servico']
+
     def get_queryset(self):
         now = datetime.now()
-        queryset =  super().get_queryset()
-        
+        queryset = super().get_queryset()
+
         servico = self.request.query_params.get('servico')
-        numero_do_agendamento = self.request.query_params.get('numero_do_agendamento')
-        
+        numero_do_agendamento = self.request.query_params.get(
+            'numero_do_agendamento'
+        )
+        cliente = self.request.query_params.get('cliente')
+        barbeiro = self.request.query_params.get('barbeiro')
+
         if not self.request.user.is_superuser:
             queryset = queryset.filter(
-                Q(data_marcada__gte=now) &
-                Q(
-                    Q(escolher_barbeiro=self.request.user) |
-                    Q(usuario=self.request.user)
+                Q(data_marcada__gte=now)
+                & Q(
+                    Q(escolher_barbeiro=self.request.user)
+                    | Q(cliente=self.request.user)
                 )
             )
-        
+
+        if barbeiro:
+            queryset = queryset.filter(
+                Q(escolher_barbeiro__username__icontains=barbeiro)
+                | Q(escolher_barbeiro__cliente__email__icontains=barbeiro)
+            )
+
+        if cliente:
+            queryset = queryset.filter(
+                Q(cliente__cliente__username__icontains=cliente)
+                | Q(cliente__cliente__email__icontains=cliente)
+            )
+
         if servico:
-            queryset = queryset.filter(servico__nome_do_servico__icontains=servico)
-            
+            queryset = queryset.filter(
+                servico__nome_do_servico__icontains=servico
+            )
+
         if numero_do_agendamento:
-            queryset = queryset.filter(numero_do_agendamento__icontains=numero_do_agendamento)
-        
+            queryset = queryset.filter(
+                numero_do_agendamento__icontains=numero_do_agendamento
+            )
+
         return queryset

@@ -1,10 +1,11 @@
 import nested_admin
+from django.contrib import admin
 
 from ..forms import ChavePixForm
 from ..models import ChavePix
 
 
-class ChavePixInline(nested_admin.NestedTabularInline):
+class ChavePixInline(admin.TabularInline):
     model = ChavePix
     extra = 0
     readonly_fields = [

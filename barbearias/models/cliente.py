@@ -61,7 +61,7 @@ class Cliente(models.Model):
 
         with transaction.atomic():
             token_pix = secrets.token_hex(32)
-            if ChavePix.objects.filter(chave_aleatoria=True).count() == 1:
+            if ChavePix.objects.filter(cliente=cliente, chave_aleatoria=True).count() == 1:
                 raise Exception('Muitas chaves PIX aleatórias já existem')
             else:
                 ChavePix.objects.create(
@@ -74,6 +74,7 @@ class Cliente(models.Model):
                 print(
                     f'Chave PIX gerada para o cliente {cliente}: pix-{token_pix}'
                 )
+                return f'Chave PIX gerada para o cliente {cliente}: pix-{token_pix}'
 
     def __str__(self):
         return self.cliente.email or str(self.cliente)

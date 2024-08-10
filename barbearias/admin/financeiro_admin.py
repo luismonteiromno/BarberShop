@@ -142,6 +142,8 @@ class FinanceiroAdmin(DjangoObjectActions, admin.ModelAdmin):
             ] = f'attachment; filename=informacoes_dos_financeiros.xlsx'
 
             return response
+        
+    exportar_financeiros.label = 'Exportar todos os financeiros'
 
     def has_add_permission(self, request, obj=None):
         return False
