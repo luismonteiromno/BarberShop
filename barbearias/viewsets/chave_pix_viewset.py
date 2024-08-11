@@ -1,7 +1,6 @@
-from rest_framework.viewsets import ModelViewSet
-from rest_framework.permissions import IsAuthenticated
 from django.db.models import Q
-
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.viewsets import ModelViewSet
 
 from ..models import ChavePix
 from ..serializers import ChavePixSerializer
@@ -27,10 +26,10 @@ class ChavePixViewSet(ModelViewSet):
                 Q(cliente__cliente__username__icontains=cliente)
                 | Q(cliente__cliente__email__icontains=cliente)
             )
-            
+
         if chave_aleatoria in ['false', 'False']:
             queryset = queryset.filter(chave_aleatoria=False)
-            
+
         elif chave_aleatoria in ['true', 'True']:
             queryset = queryset.filter(chave_aleatoria=True)
 

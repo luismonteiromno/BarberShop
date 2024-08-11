@@ -9,21 +9,23 @@ class ClienteViewSet(ModelViewSet):
     queryset = Cliente.objects.all()
     serializer_class = ClienteSerializer
     permission_classes = [IsAuthenticated]
-    
+
     filterset_fields = [
         'cliente',
         'plano_de_fidelidade',
     ]
-    
+
     def get_queryset(self):
         queryset = super().get_queryset()
-        
+
         if not self.request.user.is_superuser:
             queryset = queryset.filter(cliente=self.request.user)
-            
+
         barbearia = self.request.query_params.get('barbearia')
-        
+
         if barbearia:
-            queryset = queryset.filter(plano_de_fidelidade__barbearia__nome_da_barbearia__icontains=barbearia) 
+            queryset = queryset.filter(
+                plano_de_fidelidade__barbearia__nome_da_barbearia__icontains=barbearia
+            )
 
         return queryset

@@ -88,13 +88,13 @@ class Financeiro(models.Model):
 
     def calcular_lucros(self, model: Type[models.Model]) -> Decimal:
         lucro = model.aggregate(lucro=Sum('preco_do_servico'))['lucro'] or 0
-        return lucro
+        return Decimal(lucro)
 
     def calcular_salario(self, model: Type[models.Model]) -> Decimal:
         salario_total = (
             model.aggregate(salario_total=Sum('salario'))['salario_total'] or 0
         )
-        return salario_total
+        return Decimal(salario_total)
 
     def atualizar_financas(self, financeiro):
         import pendulum

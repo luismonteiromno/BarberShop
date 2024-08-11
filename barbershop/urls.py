@@ -43,7 +43,13 @@ from barbearias.viewsets import (
 )
 from barbershop.settings import STATIC_ROOT
 from cargos.viewsets import CargoViewSet
-from utilidades.viewsets import AvisoViewSet, ProdutoViewSet, PromocaoViewSet
+from utilidades.viewsets import (
+    AvisoViewSet,
+    CompraViewSet,
+    NotaFiscalViewSet,
+    ProdutoViewSet,
+    PromocaoViewSet,
+)
 
 admin.site.site_header = 'BarberShop Admin'
 admin.site.index_title = 'BarberShop Administração'
@@ -68,6 +74,7 @@ main_router.register(r'cargo', CargoViewSet, basename='cargo')
 main_router.register(r'cartao', CartaoViewSet, basename='cartao')
 main_router.register(r'chave_pix', ChavePixViewSet, basename='chave_pix')
 main_router.register(r'cliente', ClienteViewSet, basename='cliente')
+main_router.register(r'compra', CompraViewSet, basename='compra')
 main_router.register(r'contato', ContatoViewSet, basename='contato')
 main_router.register(
     r'funcionario', FuncionarioViewSet, basename='funcionario'
@@ -84,6 +91,7 @@ main_router.register(
 main_router.register(
     r'meu_agendamento', MeuAgendamentoViewSet, basename='meu_agendamento'
 )
+main_router.register(r'notafiscal', NotaFiscalViewSet, basename='notafiscal')
 main_router.register(
     r'plano_fidelidade',
     PlanosDeFidelidadeViewSet,

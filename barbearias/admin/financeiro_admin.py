@@ -38,6 +38,7 @@ class FinanceiroAdmin(DjangoObjectActions, admin.ModelAdmin):
                     'lucro_total',
                     'receita_total',
                     'lucro_planos',
+                    'lucro_produtos',
                     'despesas',
                 ]
             },
@@ -111,6 +112,7 @@ class FinanceiroAdmin(DjangoObjectActions, admin.ModelAdmin):
                         'comparar_lucros_mes_anterior_e_atual': instance.comparar_lucros_mes_anterior_e_atual,
                         'comparar_lucros_mes_anterior_e_atual_porcentagem': instance.comparar_lucros_mes_anterior_e_atual_porcentagem,
                         'lucro_planos': instance.lucro_planos,
+                        'lucro_produtos': instance.lucro_produtos or 0
                     }
                 )
 

@@ -11,30 +11,30 @@ class AvaliacaoViewSet(ModelViewSet):
     queryset = Avaliacao.objects.all()
     serializer_class = AvaliacaoSerializer
     permission_classes = [IsAuthenticated]
-    
-    filterset_fields = [
-        'barbearia'
-    ]
-    
+
+    filterset_fields = ['barbearia']
+
     def get_queryset(self):
         queryset = super().get_queryset()
-        
+
         nome_da_barbearia = self.request.query_params.get('nome_da_barbearia')
-        avaliacao =  self.request.query_params.get('avaliacao')
-        
+        avaliacao = self.request.query_params.get('avaliacao')
+
         if nome_da_barbearia:
-            queryset = queryset.filter(barbearia__nome_da_barbearia__icontains=nome_da_barbearia)
-            
+            queryset = queryset.filter(
+                barbearia__nome_da_barbearia__icontains=nome_da_barbearia
+            )
+
         if avaliacao:
             queryset = queryset.filter(avaliacao=Decimal(avaliacao))
-        
+
         return queryset
-    
+
     def create(self, request, *args, **kwargs):
-        from rest_framework.response import Response
         from rest_framework import status
-        
+        from rest_framework.response import Response
+
         return Response(
             {'error': 'Essa ação não está disponivel'},
-            status=status.HTTP_403_FORBIDDEN
+            status=status.HTTP_403_FORBIDDEN,
         )

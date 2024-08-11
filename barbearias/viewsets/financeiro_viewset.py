@@ -1,6 +1,6 @@
 from decimal import Decimal
-from django.db.models import Q
 
+from django.db.models import Q
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.viewsets import ModelViewSet
 
@@ -33,7 +33,7 @@ class FinanceiroViewSet(ModelViewSet):
                 Q(barbearia__dono=self.request.user)
                 | Q(barbearia__funcionarios=self.request.user)
             )
-        
+
         if barbearia:
             queryset = queryset.filter(
                 barbearia__nome_da_barbearia__icontains=barbearia
@@ -57,7 +57,7 @@ class FinanceiroViewSet(ModelViewSet):
 
         if lucro_planos:
             queryset = queryset.filter(lucro_planos=Decimal(lucro_planos))
-            
+
         if lucro_produtos:
             queryset = queryset.filter(lucro_produtos=Decimal(lucro_produtos))
 
