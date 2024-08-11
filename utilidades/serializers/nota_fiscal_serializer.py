@@ -11,5 +11,6 @@ class NotaFiscalSerializer(serializers.ModelSerializer):
             'data_emissao',
             'data_vencimento',
             'produto',
+            'quantidade_comprada',
             'cliente',
         ]

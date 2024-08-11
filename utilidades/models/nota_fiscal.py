@@ -20,6 +20,11 @@ class NotaFiscal(models.Model):
         on_delete=models.PROTECT,
     )
     
+    quantidade_comprada = models.PositiveIntegerField(
+        'Quantidade comprada',
+        default=0
+    )
+    
     valor_total = models.DecimalField(
         'Valor total',
         max_digits=10,

@@ -1,9 +1,12 @@
-from django.db import transaction
-from django.dispatch import receiver
-from django.db.models.signals import post_save
-
 import secrets
-from ..models import Compra, NotaFiscal
+
+from django.db import transaction
+from django.db.models import F
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+
+from ..models import Compra, NotaFiscal, Produto
+
 
 @receiver(post_save, sender=Compra)
 def emitir_nota_fiscal(sender, instance, created, **kwargs):
@@ -13,7 +16,11 @@ def emitir_nota_fiscal(sender, instance, created, **kwargs):
             NotaFiscal.objects.create(
                 cliente=instance.cliente,
                 produto=instance.produto,
+                quantidade_comprada=instance.quantidade,
                 numero=f'NF-{nota_fiscal}',
-                data_emissao=instance.data_compra,
-                valor_total=instance.preco_total
+                data_emissao=instance.data_da_compra,
+                valor_total=instance.preco_total,
+            )
+            Produto.objects.filter(id=instance.produto.id).update(
+                quantidade=F('quantidade') - instance.quantidade
             )

@@ -100,6 +100,7 @@ class Financeiro(models.Model):
         import pendulum
 
         from agendamentos.models import Agendamento
+        from utilidades.models import Compra
 
         from .barbeiro import Barbeiro
 
@@ -120,9 +121,12 @@ class Financeiro(models.Model):
         funcionarios = barbearia.funcionario_set.all()
         planos = barbearia.planosdefidelidade_set.all()
 
-        produtos = barbearia.produto_set.filter(ativo=True).aggregate(
-            lucro_produtos=Sum('preco')
-        )['lucro_produtos']
+        produtos = (
+            Compra.objects.filter(produto__barbearia=barbearia).aggregate(
+                lucro=Sum('preco_total')
+            )['lucro']
+            or 0
+        )
 
         agendamentos = Agendamento.objects.filter(
             data_marcada__lt=pendulum.now(),
@@ -151,16 +155,27 @@ class Financeiro(models.Model):
             )
         ) or 0
 
-        receita = (self.calcular_lucros(agendamentos)) or Decimal('0.00')
+        receita = (
+            self.calcular_lucros(agendamentos) + lucro_planos + produtos
+        ) or Decimal('0.00')
 
         lucro_total = (
-            self.calcular_lucros(agendamentos) + lucro_planos - despesas
+            self.calcular_lucros(agendamentos)
+            + lucro_planos
+            + produtos
+            - despesas
         )
         lucro_mes = (
-            self.calcular_lucros(lucro_mensal) + lucro_planos - despesas
+            self.calcular_lucros(lucro_mensal)
+            + lucro_planos
+            + produtos
+            - despesas
         )
         lucro_mes_anterior = (
-            self.calcular_lucros(lucro_anterior) + lucro_planos - despesas
+            self.calcular_lucros(lucro_anterior)
+            + lucro_planos
+            + produtos
+            - despesas
         )
 
         comparar_lucros = Decimal(lucro_mes - lucro_mes_anterior)
