@@ -25,10 +25,11 @@ class CompraAdmin(admin.ModelAdmin):
     ]
     
     readonly_fields = [
+        'preco_unitario',
         'preco_total'
     ]
 
     def get_readonly_fields(self, request, obj):
         if obj:
-            return self.readonly_fields + ['quantidade']
+            return self.readonly_fields + ['quantidade', 'produto']
         return super().get_readonly_fields(request, obj)

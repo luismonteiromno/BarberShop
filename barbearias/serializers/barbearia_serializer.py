@@ -1,6 +1,7 @@
 from rest_framework import serializers
-from .validators import hora_de_funcionamento
+
 from ..models import Barbearia
+from .validators import hora_de_funcionamento
 
 
 class BarbeariaSerializer(serializers.ModelSerializer):
@@ -22,6 +23,10 @@ class BarbeariaSerializer(serializers.ModelSerializer):
             if aviso
             else None,
         }
+
+        if all(value is None for value in aviso_dicionario.values()):
+            return 'Nenhum aviso recente'
+
         return aviso_dicionario
 
     def get_ultimo_agendamento(self, obj):
@@ -49,11 +54,8 @@ class BarbeariaSerializer(serializers.ModelSerializer):
                 else None,
             }
         else:
-            return {
-                'avaliacao': None,
-                'comentario': None,
-            }
-
+            return 'Nenhuma avaliação'
+        
     def validate_horario_de_abertura(self, value):
         abertura = self.initial_data.get('horario_de_abertura')
         fechamento = self.initial_data.get('horario_de_fechamento')

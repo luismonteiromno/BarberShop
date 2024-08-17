@@ -13,12 +13,21 @@ class Compra(models.Model):
     produto = models.ForeignKey(
         Produto,
         verbose_name='Produto',
-        on_delete=models.PROTECT,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
     )
     
     quantidade = models.PositiveIntegerField(
         'Quantidade',
         help_text='Quantidade de unidades do produto',
+    )
+    
+    preco_unitario = models.DecimalField(
+        'Preço unitário',
+        max_digits=10,
+        decimal_places=2,
+        default=0.00
     )
 
     preco_total = models.DecimalField(
@@ -37,6 +46,7 @@ class Compra(models.Model):
         return self.produto.preco * self.quantidade
     
     def save(self, *args, **kwargs):
+        self.preco_unitario = self.produto.preco
         self.preco_total = self.calcular_preco_total
         super().save(*args, **kwargs)
 

@@ -25,6 +25,13 @@ class NotaFiscal(models.Model):
         default=0
     )
     
+    valor_unitario = models.DecimalField(
+        'Valor unitário',
+        max_digits=10,
+        decimal_places=2,
+        default=0.00
+    )
+    
     valor_total = models.DecimalField(
         'Valor total',
         max_digits=10,

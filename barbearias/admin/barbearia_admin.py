@@ -1,14 +1,14 @@
+from decimal import Decimal
 from io import BytesIO
-import xlsxwriter
 
 import nested_admin
 import pandas as pd
+import xlsxwriter
 from admin_auto_filters.filters import AutocompleteFilter
 from django.contrib import admin, messages
 from django.db import transaction
 from django.db.models import Q
 from django_object_actions import DjangoObjectActions
-from decimal import Decimal
 from import_export.admin import ImportExportModelAdmin
 
 from agendamentos.admin.servico_inline import ServicoInline
@@ -29,7 +29,8 @@ class DonoFilter(AutocompleteFilter):
 class FuncionarioFilter(AutocompleteFilter):
     title = 'Funcionário'
     field_name = 'funcionarios'
-    
+
+
 class MetodoDePagamentoFilter(AutocompleteFilter):
     title = 'Metódo de Pagamento Aceito'
     field_name = 'metodo_de_pagamento'
