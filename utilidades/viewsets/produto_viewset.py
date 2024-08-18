@@ -16,12 +16,16 @@ class ProdutoViewSet(ModelViewSet):
         queryset = super().get_queryset()
 
         categoria = self.request.query_params.get('categoria')
+        quantidade = self.request.query_params.get('quantidade')
         preco_menor_que = self.request.query_params.get('preco_menor_que')
         preco = self.request.query_params.get('preco')
         preco_maior_que = self.request.query_params.get('preco_maior_que')
 
         if categoria:
             queryset = queryset.filter(categorias__nome=categoria)
+
+        if quantidade:
+            queryset = queryset.filter(quantidade=int(quantidade))
 
         if preco_menor_que:
             queryset = queryset.filter(preco__lte=Decimal(preco_menor_que))

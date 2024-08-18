@@ -1,5 +1,8 @@
+from typing import Any
 from admin_auto_filters.filters import AutocompleteFilter
 from django.contrib import admin
+from django.db.models.query import QuerySet
+from django.http import HttpRequest
 from rangefilter.filters import NumericRangeFilter
 
 from agendamentos.admin.servico_admin import BarbeariaFilter
@@ -41,3 +44,9 @@ class ProdutoAdmin(admin.ModelAdmin):
         CategoriaDoServicoFilter,
         ('quantidade', NumericRangeFilter),
     ]
+
+
+    def get_queryset(self, request):
+        queryset = super().get_queryset(request)
+        
+        return queryset.exclude(quantidade=0)

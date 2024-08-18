@@ -1,15 +1,23 @@
-from typing import Any
 from django.contrib import admin
-from django.http import HttpRequest
+from admin_auto_filters.filters import AutocompleteFilter
 
 from ..models import Compra
 
+class ClienteAutoCompleteFilter(AutocompleteFilter):
+    title = 'Cliente'
+    field_name = 'cliente'
+
+class ProdutoAutoCompleteFilter(AutocompleteFilter):
+    title = 'Produto'
+    field_name = 'produto'
 
 @admin.register(Compra)
 class CompraAdmin(admin.ModelAdmin):
     list_display = [
         'id',
         'cliente',
+        'preco_total',
+        'preco_unitario',
         'produto'
     ]
 
@@ -19,12 +27,18 @@ class CompraAdmin(admin.ModelAdmin):
         'produto'
     ]
     
+    list_filters = [
+        ClienteAutoCompleteFilter,
+        ProdutoAutoCompleteFilter,
+    ]
+    
     autocomplete_fields = [
         'cliente',
         'produto'
     ]
     
     readonly_fields = [
+        'cliente',
         'preco_unitario',
         'preco_total'
     ]

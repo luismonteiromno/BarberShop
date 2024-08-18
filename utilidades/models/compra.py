@@ -1,4 +1,5 @@
 from django.db import models
+from crum import get_current_user
 
 from barbearias.models import Cliente
 from .produto import Produto
@@ -46,6 +47,11 @@ class Compra(models.Model):
         return self.produto.preco * self.quantidade
     
     def save(self, *args, **kwargs):
+        user = get_current_user()
+        if not self.pk:
+            self.cliente = Cliente.objects.get(cliente=user)
+            self.preco_unitario = self.produto.preco
+    
         self.preco_unitario = self.produto.preco
         self.preco_total = self.calcular_preco_total
         super().save(*args, **kwargs)

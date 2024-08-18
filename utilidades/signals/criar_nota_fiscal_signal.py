@@ -19,6 +19,7 @@ def emitir_nota_fiscal(sender, instance, created, **kwargs):
                 quantidade_comprada=instance.quantidade,
                 numero=f'NF-{nota_fiscal}',
                 data_emissao=instance.data_da_compra,
+                valor_unitario=instance.preco_unitario,
                 valor_total=instance.preco_total,
             )
             Produto.objects.filter(id=instance.produto.id).update(

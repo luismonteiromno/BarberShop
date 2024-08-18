@@ -104,7 +104,7 @@ class Financeiro(models.Model):
 
         from .barbeiro import Barbeiro
 
-        mes_anterior = pendulum.now().subtract(months=1)
+        mes_anterior = pendulum.now().date().subtract(months=1)
         try:
             # Caso o valor do parâmetro venha do Admin
             barbearia = Barbearia.objects.get(pk=financeiro.barbearia.id)

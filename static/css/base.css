@@ -17,7 +17,7 @@
     
     /* Seleção de texto */
     * {
-      font-family: arial, 'Montserrat', sans-serif;
+      font-family: 'Montserrat', sans-serif !important;
     }
     
     ::selection {
