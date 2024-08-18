@@ -86,11 +86,11 @@ class Financeiro(models.Model):
 
     lucro = models.BooleanField('Lucro', default=False)
 
-    def calcular_lucros(self, model: Type[models.Model]) -> Decimal:
+    def lucros(self, model: Type[models.Model]) -> Decimal:
         lucro = model.aggregate(lucro=Sum('preco_do_servico'))['lucro'] or 0
         return Decimal(lucro)
 
-    def calcular_salario(self, model: Type[models.Model]) -> Decimal:
+    def salarios(self, model: Type[models.Model]) -> Decimal:
         salario_total = (
             model.aggregate(salario_total=Sum('salario'))['salario_total'] or 0
         )
@@ -141,8 +141,9 @@ class Financeiro(models.Model):
             data_marcada__month=pendulum.now().month
         )
 
-        despesa_barbeiro = self.calcular_salario(barbeiros)
-        despesa_funcionario = self.calcular_salario(funcionarios)
+        calcular = Financeiro()
+        despesa_barbeiro = calcular.salarios(barbeiros)
+        despesa_funcionario = calcular.salarios(funcionarios)
 
         despesas = despesa_barbeiro + despesa_funcionario
 
@@ -156,23 +157,17 @@ class Financeiro(models.Model):
         ) or 0
 
         receita = (
-            self.calcular_lucros(agendamentos) + lucro_planos + produtos
+            calcular.lucros(agendamentos) + lucro_planos + produtos
         ) or Decimal('0.00')
 
         lucro_total = (
-            self.calcular_lucros(agendamentos)
-            + lucro_planos
-            + produtos
-            - despesas
+            calcular.lucros(agendamentos) + lucro_planos + produtos - despesas
         )
         lucro_mes = (
-            self.calcular_lucros(lucro_mensal)
-            + lucro_planos
-            + produtos
-            - despesas
+            calcular.lucros(lucro_mensal) + lucro_planos + produtos - despesas
         )
         lucro_mes_anterior = (
-            self.calcular_lucros(lucro_anterior)
+            calcular.lucros(lucro_anterior)
             + lucro_planos
             + produtos
             - despesas

@@ -115,3 +115,12 @@ barbeiros = Barbeiro.objects.prefetch_related('barbearias').all()
 for i in barbeiros:
     print(i)
 ...
+
+# Metódos de iteração
+from functools import reduce
+
+array = [1, 2, 3, 4 ,5]
+
+print(reduce(lambda x, y: x+y*2, array))
+print(list(map(lambda x: x*2, array)))
+print(list(filter(lambda x: x>2, array)))
