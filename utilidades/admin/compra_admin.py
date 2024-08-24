@@ -23,7 +23,8 @@ class CompraAdmin(admin.ModelAdmin):
 
     search_fields = [
         'id',
-        'cliente',
+        'cliente__cliente__email',
+        'cliente__cliente__username',
         'produto'
     ]
     

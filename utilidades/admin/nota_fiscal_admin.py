@@ -25,7 +25,7 @@ class NotaFiscalAdmin(DjangoObjectActions, admin.ModelAdmin):
         'data_emissao',
     ]
 
-    search_fields = ['numero', 'cliente__nome']
+    search_fields = ['numero', 'cliente__cliente__email']
 
     autocomplete_fields = ['cliente', 'produto']
 
@@ -48,6 +48,8 @@ class NotaFiscalAdmin(DjangoObjectActions, admin.ModelAdmin):
                 {
                     'Barbearia': instance.barbearia,
                     'Número': instance.numero,
+                    'Compra': instance.compra,
+                    'Produto': instance.produto,
                     'Cliente': instance.cliente.cliente,
                     'Status': instance.status,
                     'Valor Unitário': f' R$ {Decimal(instance.valor_unitario).quantize(Decimal("0.00"))}',

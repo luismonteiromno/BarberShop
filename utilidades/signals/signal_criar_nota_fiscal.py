@@ -33,6 +33,6 @@ def emitir_nota_fiscal(sender, instance, created, **kwargs):
                 quantidade=F('quantidade') - instance.quantidade
             )
     else:
-        NotaFiscal.objects.filter(compra=instance.id).update(
+        NotaFiscal.objects.filter(compra=instance).update(
             status=instance.status
         )
