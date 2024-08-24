@@ -44,9 +44,5 @@ class ProdutoAdmin(admin.ModelAdmin):
         CategoriaDoServicoFilter,
         ('quantidade', NumericRangeFilter),
     ]
-
-
-    def get_queryset(self, request):
-        queryset = super().get_queryset(request)
-        
-        return queryset.exclude(quantidade=0)
+    
+    list_editable = ['quantidade']

@@ -6,6 +6,8 @@ from .promocao import Promocao
 
 __all__ = [
     Aviso,
+    Compra,
+    NotaFiscal,
     Produto,
     Promocao
 ]

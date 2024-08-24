@@ -124,3 +124,14 @@ array = [1, 2, 3, 4 ,5]
 print(reduce(lambda x, y: x+y*2, array))
 print(list(map(lambda x: x*2, array)))
 print(list(filter(lambda x: x>2, array)))
+
+from django.db.models.utils import list_to_queryset
+from barbearias.models import *
+
+# Querysets
+barbearias = Barbearia.objects.all()
+barbearias_filtradas = barbearias.filter(nome_da_barbearia__contains='Barbershop')
+barbearias_ordenadas = barbearias_filtradas.order_by('nome_da_barbearia')
+barbearias_paginadas = barbearias_ordenadas.paginate(page=1, per_page=10)
+barbearias_list = list_to_queryset(barbearias_paginadas.object_list)
+print(barbearias_list)

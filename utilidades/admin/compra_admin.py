@@ -39,11 +39,20 @@ class CompraAdmin(admin.ModelAdmin):
     
     readonly_fields = [
         'cliente',
+        'nota_fiscal',
         'preco_unitario',
-        'preco_total'
+        'preco_total',
     ]
 
     def get_readonly_fields(self, request, obj):
         if obj:
             return self.readonly_fields + ['quantidade', 'produto']
+        if not obj:
+            return self.readonly_fields + ['status']
         return super().get_readonly_fields(request, obj)
+    
+    def get_search_results(self, request, queryset, search_term):
+        # Filtra apenas produtos com quantidade maior que 0
+        queryset, use_distinct = super().get_search_results(request, queryset, search_term)
+        queryset = queryset.filter(quantidade__gt=0)
+        return queryset, use_distinct
