@@ -30,7 +30,7 @@ class NomeDoServicoFilter(SingleTextInputFilter):
 class ServicoAdmin(admin.ModelAdmin):
     list_display = [
         'nome_do_servico', 
-        'tempo_de_duracao', 
+        'tempo_de_duracao_minutos', 
         'preco',
         'promocao_atual',
         'ultima_promocao'

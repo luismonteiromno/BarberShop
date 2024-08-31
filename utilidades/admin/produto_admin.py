@@ -47,4 +47,4 @@ class ProdutoAdmin(admin.ModelAdmin):
     
     list_editable = ['quantidade']
     
-    readonly_fields = ['quantidade_total_vendida']
+    readonly_fields = ['quantidade_total_vendida', 'lucro_atraves_desse_produto']

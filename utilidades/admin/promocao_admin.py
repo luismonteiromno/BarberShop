@@ -14,7 +14,6 @@ class PlanoFidelidadeFilter(AutocompleteFilter):
 @admin.register(Promocao)
 class PromocaoAdmin(admin.ModelAdmin):
     list_display = [
-        'servico',
         'nome_da_promocao',
         'inicio_da_promocao',
         'fim_da_promocao',
@@ -22,6 +21,7 @@ class PromocaoAdmin(admin.ModelAdmin):
     
     fields = [
         'servico',
+        'produto',
         'plano_fidelidade',
         'nome_da_promocao',
         'inicio_da_promocao',
@@ -35,5 +35,6 @@ class PromocaoAdmin(admin.ModelAdmin):
     
     autocomplete_fields = [
         'servico',
+        'produto',
         'plano_fidelidade',
     ]

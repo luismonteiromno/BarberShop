@@ -12,8 +12,10 @@ class Financeiro(models.Model):
     barbearia = models.OneToOneField(
         Barbearia,
         verbose_name='Barbearia',
-        on_delete=models.CASCADE,
+        on_delete=models.SET_NULL,
         unique=True,
+        null=True,
+        blank=True
     )
 
     lucro_mes_anterior = models.DecimalField(

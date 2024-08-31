@@ -52,7 +52,7 @@ class NotaFiscalAdmin(DjangoObjectActions, admin.ModelAdmin):
                     'Produto': instance.produto,
                     'Cliente': instance.cliente.cliente,
                     'Status': instance.status,
-                    'Valor Unitário': f' R$ {Decimal(instance.valor_unitario).quantize(Decimal("0.00"))}',
+                    'Valor Unitário': f'R$ {Decimal(instance.valor_unitario).quantize(Decimal("0.00"))}',
                     'Valor Total': f'R$ {Decimal(instance.valor_total).quantize(Decimal("0.00"))}',
                     'Data de emissão': instance.data_emissao.strftime('%d/%m/%Y'),
                 }

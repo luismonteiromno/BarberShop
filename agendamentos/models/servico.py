@@ -73,8 +73,8 @@ class Servico(models.Model):
        null=True,
     )
     
-    tempo_de_duracao = models.TimeField(
-        'Tempo de duração',
+    tempo_de_duracao_minutos = models.PositiveIntegerField(
+        'Tempo de Duração (em minutos)',
         blank=True,
         null=True
     )

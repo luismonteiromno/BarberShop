@@ -10,6 +10,14 @@ class Promocao(models.Model):
         null=True,
     )
     
+    produto = models.ForeignKey(
+        'utilidades.Produto',
+        verbose_name='Produto',
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+    )
+    
     plano_fidelidade = models.ForeignKey(
         'barbearias.PlanosDeFidelidade',
         verbose_name='Plano de fidelidade',
