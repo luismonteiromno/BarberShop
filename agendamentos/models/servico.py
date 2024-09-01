@@ -1,5 +1,6 @@
 from datetime import datetime
 
+import pendulum
 from django.db import models
 from django_editorjs import EditorJsField
 from tinymce.models import HTMLField
@@ -91,16 +92,17 @@ class Servico(models.Model):
     def ultima_promocao(self):
         promocao = self.promocao_set.order_by('-inicio_da_promocao').last()
         if promocao:
-           return promocao
+            return promocao
         else:
             return None
           
     @property
     def promocao_atual(self):
+        hoje = pendulum.now().date()
         promocao = (
           self.promocao_set.filter(
-            inicio_da_promocao__lte=datetime.now().date(),
-            fim_da_promocao__gte=datetime.now().date()
+            inicio_da_promocao__lte=hoje,
+            fim_da_promocao__gte=hoje
           )
           .order_by('-inicio_da_promocao')
           .last()
