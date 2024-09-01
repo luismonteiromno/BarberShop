@@ -204,10 +204,11 @@ class Barbearia(models.Model):
                 .select_related('servico')
                 .last()
             )
-            if agendamento:
-                return agendamento
-            else:
+            
+            if not agendamento:
                 return 'Nenhum agendamento'
+            
+            return agendamento
 
     @property
     def proximo_agendamento(self):
@@ -224,10 +225,11 @@ class Barbearia(models.Model):
                 .order_by('data_marcada')
                 .first()
             )
-            if agendamento:
-                return agendamento
-            else:
+            
+            if not agendamento:
                 return 'Nenhum agendamento'
+            
+            return agendamento
 
     @property
     def avisos_recentes(self):
@@ -242,10 +244,11 @@ class Barbearia(models.Model):
         media = self.avaliacao_set.aggregate(media_avaliacao=Avg('avaliacao'))[
             'media_avaliacao'
         ]
-        if media:
-            return Decimal(media).quantize(Decimal('0.0'))
-        else:
-            return Decimal(0.0)
+        
+        if not media:
+            return Decimal('0.00')
+        
+        return Decimal(media).quantize(Decimal('0.00'))
 
     @property
     def ultima_avaliacao(self):

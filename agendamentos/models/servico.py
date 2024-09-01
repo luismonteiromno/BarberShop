@@ -91,10 +91,11 @@ class Servico(models.Model):
     @property
     def ultima_promocao(self):
         promocao = self.promocao_set.order_by('-inicio_da_promocao').last()
-        if promocao:
-            return promocao
-        else:
-            return None
+        
+        if not promocao:
+            return 'Nenhuma promoção'
+        
+        return promocao
           
     @property
     def promocao_atual(self):
@@ -107,10 +108,11 @@ class Servico(models.Model):
           .order_by('-inicio_da_promocao')
           .last()
         )
-        if promocao:
-            return promocao
-        else:
+        
+        if not promocao:
             return 'Nenhuma promoção no momento'
+        
+        return promocao
       
     
     def __str__(self):
