@@ -106,7 +106,7 @@ class Servico(models.Model):
           .last()
         )
         if promocao:
-           return promocao
+            return promocao
         else:
             return 'Nenhuma promoção no momento'
       

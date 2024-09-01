@@ -1,12 +1,13 @@
 from decimal import Decimal, InvalidOperation
 
+import pendulum
 from crum import get_current_user
 from django.contrib.auth.models import User
 from django.db import models
 from django.db.models import Avg
-import pendulum
 
 from .metodo_de_pagamento import MetodoDePagamento
+
 
 class Barbearia(models.Model):
     TIPO_BARBEARIA = (
@@ -193,33 +194,56 @@ class Barbearia(models.Model):
         from agendamentos.models import Agendamento
 
         if self.pk:
+            hoje = pendulum.now().date()
+            ontem = hoje.subtract(days=1)
             agendamento = (
-                Agendamento.objects.filter(servico__disponivel_na_barbearia=self.pk)
-                .select_related("servico")
+                Agendamento.objects.filter(
+                    servico__disponivel_na_barbearia=self.pk,
+                    data_marcada__range=(ontem, hoje),
+                )
+                .select_related('servico')
                 .last()
             )
-            if agendamento:  
-                if (
-                    agendamento.data_marcada.date().day - pendulum.now().day
-                ) == 2:
-                    return None
-            return agendamento
-        else:
-            return None
+            if agendamento:
+                return agendamento
+            else:
+                return 'Nenhum agendamento'
+
+    @property
+    def proximo_agendamento(self):
+        from agendamentos.models import Agendamento
+
+        if self.pk:
+            hoje = pendulum.now()
+            agendamento = (
+                Agendamento.objects.filter(
+                    servico__disponivel_na_barbearia=self.pk,
+                    data_marcada__gt=hoje,
+                )
+                .select_related('servico')
+                .order_by('data_marcada')
+                .first()
+            )
+            if agendamento:
+                return agendamento
+            else:
+                return 'Nenhum agendamento'
 
     @property
     def avisos_recentes(self):
         if self.pk:
-            avisos = self.aviso_set.order_by("-data_de_inicio").last()
+            avisos = self.aviso_set.order_by('-data_de_inicio').last()
             return avisos
         else:
             return None
 
     @property
     def media_das_avaliacoes_0_a_5(self):
-        media = self.avaliacao_set.aggregate(media_avaliacao=Avg("avaliacao"))["media_avaliacao"]
+        media = self.avaliacao_set.aggregate(media_avaliacao=Avg('avaliacao'))[
+            'media_avaliacao'
+        ]
         if media:
-            return Decimal(media).quantize(Decimal("0.0"))
+            return Decimal(media).quantize(Decimal('0.0'))
         else:
             return Decimal(0.0)
 
@@ -242,5 +266,5 @@ class Barbearia(models.Model):
         return self.nome_da_barbearia
 
     class Meta:
-        verbose_name = "Barbearia"
-        verbose_name_plural = "Barbearias"
+        verbose_name = 'Barbearia'
+        verbose_name_plural = 'Barbearias'

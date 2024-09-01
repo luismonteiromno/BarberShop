@@ -35,10 +35,9 @@ class Produto(models.Model):
         default=Decimal('0.00'),
     )
 
-    tipo_do_produto = models.ForeignKey(
+    tipo_do_produto = models.ManyToManyField(
         CategoriaDoServico,
         verbose_name='Tipo do produto',
-        on_delete=models.PROTECT,
     )
 
     quantidade = models.PositiveIntegerField(

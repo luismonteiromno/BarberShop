@@ -127,7 +127,7 @@ class Agendamento(models.Model):
 
     def __str__(self):
         data_formatada = datetime.strftime(
-            self.data_marcada, '%d/%m/%Y às %H:%M:%S'
+            self.data_marcada, '%d/%m/%Y às %H:%M'
         )
         return f'{self.cliente} - {data_formatada}'
 

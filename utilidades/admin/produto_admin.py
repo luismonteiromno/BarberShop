@@ -25,8 +25,8 @@ class ProdutoAdmin(admin.ModelAdmin):
     list_display = [
         'nome',
         'preco',
-        'tipo_do_produto',
         'quantidade',
+        'ativo'
     ]
 
     search_fields = [
