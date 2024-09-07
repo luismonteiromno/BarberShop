@@ -126,8 +126,7 @@ class Financeiro(models.Model):
         produtos = (
             Compra.objects.filter(produto__barbearia=barbearia).aggregate(
                 lucro=Sum('preco_total')
-            )['lucro']
-            or 0
+            )['lucro'] or Decimal('0.00')
         )
 
         agendamentos = Agendamento.objects.filter(
@@ -143,9 +142,9 @@ class Financeiro(models.Model):
             data_marcada__month=pendulum.now().month
         )
 
-        calcular = Financeiro()
-        despesa_barbeiro = calcular.salarios(barbeiros)
-        despesa_funcionario = calcular.salarios(funcionarios)
+        # calcular = Financeiro()
+        despesa_barbeiro = self.salarios(barbeiros)
+        despesa_funcionario = self.salarios(funcionarios)
 
         despesas = despesa_barbeiro + despesa_funcionario
 
@@ -154,22 +153,23 @@ class Financeiro(models.Model):
                 planos.filter(usuarios__gte=1)
                 .values('preco')
                 .annotate(lucro_planos=F('preco') * F('usuarios'))
-                .aggregate(Sum('lucro_planos'))['lucro_planos__sum']
+                .aggregate(Sum('lucro_planos'))['lucro_planos__sum'] 
+                or Decimal('0.00')
             )
-        ) or 0
+        )
 
         receita = (
-            calcular.lucros(agendamentos) + lucro_planos + produtos
+            self.lucros(agendamentos) + lucro_planos + produtos
         ) or Decimal('0.00')
 
         lucro_total = (
-            calcular.lucros(agendamentos) + lucro_planos + produtos - despesas
+            self.lucros(agendamentos) + lucro_planos + produtos - despesas
         )
         lucro_mes = (
-            calcular.lucros(lucro_mensal) + lucro_planos + produtos - despesas
+            self.lucros(lucro_mensal) + lucro_planos + produtos - despesas
         )
         lucro_mes_anterior = (
-            calcular.lucros(lucro_anterior)
+            self.lucros(lucro_anterior)
             + lucro_planos
             + produtos
             - despesas

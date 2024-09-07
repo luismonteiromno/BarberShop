@@ -126,10 +126,7 @@ class Agendamento(models.Model):
         super().save(*args, **kwargs)
 
     def __str__(self):
-        data_formatada = datetime.strftime(
-            self.data_marcada, '%d/%m/%Y às %H:%M'
-        )
-        return f'{self.cliente} - {data_formatada}'
+        return f'{self.cliente} - {self.data_marcada.strftime("%d/%m/%Y às %H:%M")}'
 
     class Meta:
         verbose_name = 'Agendamento'
