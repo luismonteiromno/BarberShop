@@ -81,14 +81,14 @@ class Produto(models.Model):
     def pegar_quantidade(self):
         quantidade = self.compra_set.aggregate(
             quantidade_total=Sum('quantidade')
-        ).get('quantidade_total', Decimal('0.00'))
+        )['quantidade_total'] or Decimal('0.00')
         return quantidade
 
     @property
     def lucro_total(self):
         lucro = self.compra_set.aggregate(
             lucro=Sum('preco_total')
-        ).get('lucro', Decimal('0.00'))
+        )['lucro'] or Decimal('0.00')
         return lucro
 
     def save(self, *args, **kwargs):
