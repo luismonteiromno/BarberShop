@@ -13,6 +13,20 @@ class NotaFiscalViewSet(ModelViewSet):
     permission_classes = [IsAuthenticated]
 
     filterset_fields = ['cliente']
+    
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        
+        valor_total = self.request.query_params.get('valor_total')
+        status = self.request.query_params.get('status')
+        
+        if valor_total:
+            queryset = queryset.filter(valor_total__gte=valor_total)
+            
+        if status:
+            queryset = queryset.filter(status=status)
+        
+        return queryset
 
     def create(self, request, *args, **kwargs):
         return Response(

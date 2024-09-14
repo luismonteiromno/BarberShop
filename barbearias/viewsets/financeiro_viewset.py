@@ -3,6 +3,8 @@ from decimal import Decimal
 from django.db.models import Q
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.viewsets import ModelViewSet
+from rest_framework.decorators import action
+from rest_framework.response import Response
 
 from ..models import Financeiro
 from ..serializers import FinanceiroSerializer
@@ -80,3 +82,9 @@ class FinanceiroViewSet(ModelViewSet):
             {'error': 'Essa ação não está disponivel'},
             status=status.HTTP_403_FORBIDDEN,
         )
+        
+    @action(detail=False, methods=['GET'])
+    def ordenar_por_lucro_total(self, request):
+        queryset = self.get_queryset().order_by('-lucro_total')
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)

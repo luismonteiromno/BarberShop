@@ -12,5 +12,9 @@ class NotaFiscalSerializer(serializers.ModelSerializer):
             'data_vencimento',
             'produto',
             'quantidade_comprada',
+            'valor_unitario',
+            'status',
+            'barbearia',
+            'compra',
             'cliente',
         ]

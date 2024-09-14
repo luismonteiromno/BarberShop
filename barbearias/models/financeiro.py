@@ -142,9 +142,9 @@ class Financeiro(models.Model):
             data_marcada__month=pendulum.now().month
         )
 
-        # calcular = Financeiro()
-        despesa_barbeiro = self.salarios(barbeiros)
-        despesa_funcionario = self.salarios(funcionarios)
+        calcular = Financeiro()
+        despesa_barbeiro = calcular.salarios(barbeiros)
+        despesa_funcionario = calcular.salarios(funcionarios)
 
         despesas = despesa_barbeiro + despesa_funcionario
 
@@ -159,17 +159,17 @@ class Financeiro(models.Model):
         )
 
         receita = (
-            self.lucros(agendamentos) + lucro_planos + produtos
+            calcular.lucros(agendamentos) + lucro_planos + produtos
         ) or Decimal('0.00')
 
         lucro_total = (
-            self.lucros(agendamentos) + lucro_planos + produtos - despesas
+            calcular.lucros(agendamentos) + lucro_planos + produtos - despesas
         )
         lucro_mes = (
-            self.lucros(lucro_mensal) + lucro_planos + produtos - despesas
+            calcular.lucros(lucro_mensal) + lucro_planos + produtos - despesas
         )
         lucro_mes_anterior = (
-            self.lucros(lucro_anterior)
+            calcular.lucros(lucro_anterior)
             + lucro_planos
             + produtos
             - despesas
@@ -229,18 +229,19 @@ class Financeiro(models.Model):
                 # Caso o Parâmetro venha do Admin de Finanças
                 Financeiro().atualizar_financas(financeiro)
 
-    def _limpar_financeiro(self, financeiro):
-        financeiro.renda_mensal = 0
-        financeiro.lucro_mes_anterior = 0
-        financeiro.despesas = 0
-        financeiro.comparar_lucros_mes_anterior_e_atual = 0
-        financeiro.lucro_planos = 0
-        financeiro.lucro_total = 0
-        financeiro.lucro_produtos = 0
-        financeiro.receita_total = 0
-        financeiro.prejuizo = False
-        financeiro.lucro = False
-        financeiro.save()
+    def _limpar_financeiro(self, barbearia):
+        Financeiro.objects.filter(barbearia_id=barbearia.id).update(    
+            renda_mensal=0,
+            lucro_mes_anterior=0,
+            despesas=0,
+            comparar_lucros_mes_anterior_e_atual=0,
+            lucro_planos=0,
+            lucro_total=0,
+            lucro_produtos=0,
+            receita_total=0,
+            prejuizo=False,
+            lucro=False
+        )
 
     def __str__(self):
         return self.barbearia.nome_da_barbearia

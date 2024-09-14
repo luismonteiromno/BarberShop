@@ -1,7 +1,7 @@
 from decimal import Decimal
 
 from admin_auto_filters.filters import AutocompleteFilter
-from django.contrib import admin
+from django.contrib import admin, messages
 from django_object_actions import DjangoObjectActions
 
 from ..models import NotaFiscal
@@ -43,6 +43,7 @@ class NotaFiscalAdmin(DjangoObjectActions, admin.ModelAdmin):
         from django.http import HttpResponse
 
         data = []
+        
         for instance in objs:
             data.append(
                 {
@@ -58,6 +59,9 @@ class NotaFiscalAdmin(DjangoObjectActions, admin.ModelAdmin):
                 }
             )
 
+        if not data:
+            return self.message_user(request, 'Nenhum registro encontrado.', level=messages.WARNING)
+        
         output = BytesIO()
         workbook = xlsxwriter.Workbook(output)
         worksheet = workbook.add_worksheet()

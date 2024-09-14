@@ -326,6 +326,7 @@ ISORT_SETTINGS = {
 }
 
 CRON_CLASSES = [
+    'agendamentos.crons.AtualizarAgendamentosCronJob',
     'barbearias.crons.AtualizarClienteCronJob',
     'barbearias.crons.AtualizarFinancasCronJob',
 ]

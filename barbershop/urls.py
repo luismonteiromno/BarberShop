@@ -66,13 +66,13 @@ main_router.register(
 main_router.register(r'barbearia', BarbeariaViewSet, basename='barbearia')
 main_router.register(r'barbeiro', BarbeiroViewSet, basename='barbeiro')
 main_router.register(
-    r'categoria_servico',
+    r'categoria-servico',
     CategoriaDoServicoViewSet,
-    basename='categoria_servico',
+    basename='categoria-servico',
 )
 main_router.register(r'cargo', CargoViewSet, basename='cargo')
 main_router.register(r'cartao', CartaoViewSet, basename='cartao')
-main_router.register(r'chave_pix', ChavePixViewSet, basename='chave_pix')
+main_router.register(r'chave-pix', ChavePixViewSet, basename='chave-pix')
 main_router.register(r'cliente', ClienteViewSet, basename='cliente')
 main_router.register(r'compra', CompraViewSet, basename='compra')
 main_router.register(r'contato', ContatoViewSet, basename='contato')
@@ -81,21 +81,21 @@ main_router.register(
 )
 main_router.register(r'financeiro', FinanceiroViewSet, basename='financeiro')
 main_router.register(
-    r'historico_agendamento',
+    r'historico-agendamento',
     HistoricoDeAgendamentoViewSet,
-    basename='historico_agendamento',
+    basename='historico-agendamento',
 )
 main_router.register(
-    r'metodo_pagamento', MetodoDePagamentoViewSet, basename='metodo_pagamento'
+    r'metodo-pagamento', MetodoDePagamentoViewSet, basename='metodo-pagamento'
 )
 main_router.register(
-    r'meu_agendamento', MeuAgendamentoViewSet, basename='meu_agendamento'
+    r'meu-agendamento', MeuAgendamentoViewSet, basename='meu-agendamento'
 )
-main_router.register(r'notafiscal', NotaFiscalViewSet, basename='notafiscal')
+main_router.register(r'nota-fiscal', NotaFiscalViewSet, basename='nota-fiscal')
 main_router.register(
-    r'plano_fidelidade',
+    r'plano-fidelidade',
     PlanosDeFidelidadeViewSet,
-    basename='plano_fidelidade',
+    basename='plano-fidelidade',
 )
 main_router.register(r'produto', ProdutoViewSet, basename='produto')
 main_router.register(r'promocao', PromocaoViewSet, basename='promocao')

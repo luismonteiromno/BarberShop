@@ -49,10 +49,8 @@ class Compra(models.Model):
     )
     
     STATUS = (
-        ('Pendente', 'Pendente'),
         ('Em andamento', 'Em andamento'),
         ('Cancelada', 'Cancelada'),
-        ('Preparando envio', 'Preparando envio'),
         ('Enviada', 'Enviada'),
         ('A caminho', 'A caminho'),
         ('Entregue', 'Entregue'),
@@ -62,7 +60,7 @@ class Compra(models.Model):
         'Status',
         max_length=20,
         choices=STATUS,
-        default='Pendente',
+        default='Em andamento',
         blank=True,
         null=True,
     )

@@ -53,6 +53,11 @@ class Agendamento(models.Model):
     )
 
     data_marcada = models.DateTimeField('Data marcada', blank=True, null=True)
+    
+    passou_da_data = models.BooleanField(
+        'Passou da data marcada',
+        default=False,
+    )
 
     numero_do_agendamento = models.CharField(
         'Número do agendamento',

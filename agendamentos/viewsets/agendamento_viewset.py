@@ -1,7 +1,9 @@
 from datetime import datetime
 
 from django.db.models import Q
-from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework.decorators import action
+from rest_framework.permissions import AllowAny, IsAuthenticated
+from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
 
 from ..models import Agendamento
@@ -58,3 +60,13 @@ class AgendamentoViewSet(ModelViewSet):
             )
 
         return queryset
+
+    @action(detail=False, methods=['GET'])
+    def ordenar_por_data_proxima(self, request):
+        queryset = (
+            self.get_queryset()
+            .exclude(passou_da_data=True)
+            .order_by('data_marcada')
+        )
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
