@@ -1,17 +1,17 @@
   /* Definição das variáveis de cores */
   :root {
       --primary-color: #000; /* Cor do header: Preto */
-      --primary-color-faded: #f12469; /* Cor dos APPS: Verde NEON */
+      --primary-color-faded: #07395a; /* Cor dos APPS:*/
       --models-color: #ffffff; /* Cor dos Models: branco */
       --secondary-color: #fff; /* Cor do footer: branco */
-      --terciary-color: #b60ee9;
-      --color-hover: #802d64; /* Cor do link ao passar mouse por cima: branco */
-      --delete-color: #fd044391; 
-      --delete-hover: #550606; /* Cor do link ao passar mouse por do item de exclusao: Vermelho */
+      --terciary-color: #226592;
+      --color-hover: #1e92e6; /* Cor do link ao passar mouse por cima: branco */
+      --delete-color: #04aefd91; 
+      --delete-hover: #062855; /* Cor do link ao passar mouse por do item de exclusao: Vermelho */
       --color-back-models: #0e0d0dea;
       --color-module: #000;
-      --change-color: #000;
-      --search-color: #f10b64;
+      --change-color: #000; 
+      --search-color: #0bb0f1;
       --sucess: #099644;
     }
     
