@@ -24,7 +24,7 @@ class ClienteAdmin(DjangoObjectActions, admin.ModelAdmin):
     ]
     
     autocomplete_fields = [
-        # 'cliente',
+        'cliente',
         'plano_de_fidelidade',
     ]
     

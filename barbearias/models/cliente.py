@@ -45,9 +45,13 @@ class Cliente(models.Model):
         except:
             for user in cliente:
                 user = Cliente.objects.get(pk=user.id)
+                
         logger.info(f'Cliente {user}')
         logger.info(f'Crédito atual: {user.credito}')
-        if int(user.credito) < 50:
+        
+        credito_atual = user.credito if user.credito else Decimal('0.00')
+        if credito_atual < 50:
+            user.credito = credito_atual
             user.credito += Decimal(random())
             user.save()
             logger.info(f'Crédito atualizado para: {user.credito}')

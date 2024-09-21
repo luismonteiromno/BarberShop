@@ -2,7 +2,7 @@ from decimal import Decimal
 from typing import Type
 
 from django.db import models, transaction
-from django.db.models import Count, F, Q, Sum, Value
+from django.db.models import Count, DecimalField, F, Q, Sum, Value
 from django.db.models.functions import Coalesce
 
 from ..models import Barbearia
@@ -15,7 +15,7 @@ class Financeiro(models.Model):
         on_delete=models.SET_NULL,
         unique=True,
         null=True,
-        blank=True
+        blank=True,
     )
 
     lucro_mes_anterior = models.DecimalField(
@@ -89,13 +89,21 @@ class Financeiro(models.Model):
     lucro = models.BooleanField('Lucro', default=False)
 
     def lucros(self, model: Type[models.Model]) -> Decimal:
-        lucro = model.aggregate(lucro=Sum('preco_do_servico'))['lucro'] or 0
+        lucro = model.aggregate(
+            total=Coalesce(
+                Sum('preco_do_servico', output_field=DecimalField()),
+                Value(Decimal('0.00')),
+            )
+        )['total']
         return Decimal(lucro)
 
     def salarios(self, model: Type[models.Model]) -> Decimal:
-        salario_total = (
-            model.aggregate(salario_total=Sum('salario'))['salario_total'] or 0
-        )
+        salario_total = model.aggregate(
+            salario_total=Coalesce(
+                Sum('salario', output_field=DecimalField()),
+                Value(Decimal('0.00')),
+            )
+        )['salario_total']
         return Decimal(salario_total)
 
     def atualizar_financas(self, financeiro):
@@ -123,11 +131,16 @@ class Financeiro(models.Model):
         funcionarios = barbearia.funcionario_set.all()
         planos = barbearia.planosdefidelidade_set.all()
 
-        produtos = (
-            Compra.objects.filter(produto__barbearia=barbearia).aggregate(
-                lucro=Sum('preco_total')
-            )['lucro'] or Decimal('0.00')
-        )
+        produtos = Compra.objects.filter(
+            produto__barbearia=barbearia
+        ).aggregate(
+            total=Coalesce(
+                Sum('preco_total', output_field=DecimalField()),
+                Value(Decimal('0.00')),
+            )
+        )[
+            'total'
+        ]
 
         agendamentos = Agendamento.objects.filter(
             data_marcada__lt=pendulum.now(),
@@ -149,14 +162,15 @@ class Financeiro(models.Model):
         despesas = despesa_barbeiro + despesa_funcionario
 
         lucro_planos = (
-            (
-                planos.filter(usuarios__gte=1)
-                .values('preco')
-                .annotate(lucro_planos=F('preco') * F('usuarios'))
-                .aggregate(Sum('lucro_planos'))['lucro_planos__sum'] 
-                or Decimal('0.00')
-            )
-        )
+            planos.filter(usuarios__gte=1)
+            .annotate(lucro_planos=F('preco') * F('usuarios'))
+            .aggregate(
+                lucro_total=Coalesce(
+                    Sum('lucro_planos', output_field=DecimalField()),
+                    Value(Decimal('0.00')),
+                ),
+            )['lucro_total']
+        ) or Decimal('0.00')
 
         receita = (
             calcular.lucros(agendamentos) + lucro_planos + produtos
@@ -230,7 +244,7 @@ class Financeiro(models.Model):
                 Financeiro().atualizar_financas(financeiro)
 
     def _limpar_financeiro(self, barbearia):
-        Financeiro.objects.filter(barbearia_id=barbearia.id).update(    
+        Financeiro.objects.filter(barbearia_id=barbearia.id).update(
             renda_mensal=0,
             lucro_mes_anterior=0,
             despesas=0,
@@ -240,7 +254,7 @@ class Financeiro(models.Model):
             lucro_produtos=0,
             receita_total=0,
             prejuizo=False,
-            lucro=False
+            lucro=False,
         )
 
     def __str__(self):
