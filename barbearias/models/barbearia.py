@@ -199,7 +199,7 @@ class Barbearia(models.Model):
             agendamento = (
                 Agendamento.objects.filter(
                     servico__disponivel_na_barbearia=self.pk,
-                    data_marcada__range=(ontem, hoje),
+                    data_marcada__range=[ontem, hoje],
                 )
                 .select_related('servico')
                 .last()
