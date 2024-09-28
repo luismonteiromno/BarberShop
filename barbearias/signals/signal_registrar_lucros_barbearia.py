@@ -1,11 +1,14 @@
-import pendulum
 from decimal import Decimal
+
+import pendulum
 from django.db import transaction
+from django.db.models import DecimalField, F, Sum, Value
+from django.db.models.functions import Coalesce
 from django.db.models.signals import post_save
-from django.db import transaction
 from django.dispatch import receiver
 
-from agendamentos.models import Agendamento, Servico
+from agendamentos.models import Agendamento
+from utilidades.models import Compra
 
 from ..models import Barbearia, Barbeiro, Financeiro
 
@@ -28,71 +31,79 @@ def registrar_lucros(sender, instance, created, **kwargs):
                 lucro=False,
             )
     else:
-        mes_anterior = pendulum.now().subtract(months=1)
-
+        mes_anterior = pendulum.now().date().subtract(months=1)
+        
         barbearia = Barbearia.objects.get(pk=instance.id)
+        barbeiros = Barbeiro.objects.prefetch_related('barbearias').filter(
+            barbearias__in=[instance.id]
+        )
 
-        barbeiros = []
-        todos_os_barbeiros = Barbeiro.objects.all()
-        for barbeiro in todos_os_barbeiros:
-            if barbeiro.barbearias.filter(pk=barbearia.id).exists():
-                barbeiros.append(barbeiro)
-                
         funcionarios = barbearia.funcionario_set.all()
         planos = barbearia.planosdefidelidade_set.all()
+
+        produtos = Compra.objects.filter(
+            produto__barbearia=barbearia
+        ).aggregate(
+            total=Coalesce(
+                Sum('preco_total', output_field=DecimalField()),
+                Value(Decimal('0.00')),
+            )
+        )[
+            'total'
+        ]
 
         agendamentos = Agendamento.objects.filter(
             data_marcada__lt=pendulum.now(),
             servico__disponivel_na_barbearia=barbearia,
             agendamento_cancelado=False,
-        ).select_related('servico__disponivel_na_barbearia')
-
+        )
         lucro_anterior = agendamentos.filter(
             data_marcada__month=mes_anterior.month,
             data_marcada__year=mes_anterior.year,
         )
-
         lucro_mensal = agendamentos.filter(
             data_marcada__month=pendulum.now().month
         )
 
-        despesa_barbeiro = Decimal(
-            sum(barbeiro.salario for barbeiro in barbeiros)
-        )
-        despesa_funcionario = Decimal(
-            sum(funcionario.salario for funcionario in funcionarios)
-        )
+        calcular = Financeiro()
+        despesa_barbeiro = calcular.salarios(barbeiros)
+        despesa_funcionario = calcular.salarios(funcionarios)
+
         despesas = despesa_barbeiro + despesa_funcionario
 
-        # lucro_planos = Decimal(sum(lucro.preco*lucro.quantidade_de_usuarios for lucro in planos))
-        lucro_planos = Decimal(0.00)
-        for lucro in planos:
-            lucro_planos = lucro.preco * lucro.quantidade_de_usuarios
+        lucro_planos = (
+            planos.filter(usuarios__gte=1)
+            .annotate(lucro_planos=F('preco') * F('usuarios'))
+            .aggregate(
+                lucro_total=Coalesce(
+                    Sum('lucro_planos', output_field=DecimalField()),
+                    Value(Decimal('0.00')),
+                ),
+            )['lucro_total']
+        ) or Decimal('0.00')
 
-        receita = Decimal(
-            sum(lucro.preco_do_servico for lucro in agendamentos)
-        )
+        receita = (
+            calcular.lucros(agendamentos) + lucro_planos + produtos
+        ) or Decimal('0.00')
+
         lucro_total = (
-            Decimal(sum(lucro.preco_do_servico for lucro in agendamentos))
-            + lucro_planos
-        ) - despesas
-
+            calcular.lucros(agendamentos) + lucro_planos + produtos - despesas
+        )
         lucro_mes = (
-            Decimal(sum(lucro.preco_do_servico for lucro in lucro_mensal))
-            + lucro_planos
-        ) - despesas
+            calcular.lucros(lucro_mensal) + lucro_planos + produtos - despesas
+        )
         lucro_mes_anterior = (
-            Decimal(sum(lucro.preco_do_servico for lucro in lucro_anterior))
+            calcular.lucros(lucro_anterior)
             + lucro_planos
-        ) - despesas
-        receita = Decimal(
-            sum(lucro.preco_do_servico for lucro in agendamentos)
+            + produtos
+            - despesas
         )
 
         comparar_lucros = Decimal(lucro_mes - lucro_mes_anterior)
         comparar_lucros_porcentagem = Decimal(comparar_lucros / 100).quantize(
-            Decimal('0.0')
+            Decimal('0.00')
         )
+
         # como é porcentagem ent segue a seguinte regra
         # 1 = 100%
         # 0,9 = 90%
@@ -111,8 +122,9 @@ def registrar_lucros(sender, instance, created, **kwargs):
             f'Lucro do mês anterior: {lucro_mes_anterior}',
             f'Despesas: {despesas}',
             f'comparar valores porcentagem: {comparar_lucros_porcentagem}',
-            f'Lucro dos planos: {lucro_planos}',
+            f'Lucro dos planos: {lucro_planos if lucro_planos else Decimal("0.00")}',
             f'Lucro total: {lucro_total}',
+            f'lucro_produtos: {produtos}',
             f'Receita total: {receita}',
             f'Comparar lucros: {comparar_lucros}',
         )
@@ -125,6 +137,9 @@ def registrar_lucros(sender, instance, created, **kwargs):
                 comparar_lucros_mes_anterior_e_atual_porcentagem=comparar_lucros_porcentagem,
                 lucro_planos=lucro_planos,
                 lucro_total=lucro_total,
+                lucro_produtos=produtos,
                 receita_total=receita,
                 comparar_lucros_mes_anterior_e_atual=comparar_lucros,
+                prejuizo=comparar_lucros < 0,
+                lucro=comparar_lucros > 0,
             )

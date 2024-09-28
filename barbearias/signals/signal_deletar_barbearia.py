@@ -28,9 +28,9 @@ def deletar_financeiro(sender, instance, using, **kwargs):
 
 @receiver(pre_delete, sender=Barbearia)
 def deletar_funcionario(sender, instance, using, **kwargs):
-    Funcionario.objects.filter(barbearias=instance).delete()
+    Funcionario.objects.filter(barbearia=instance).delete()
 
 
 @receiver(pre_delete, sender=Barbearia)
 def deletar_plano_de_fidelidade(sender, instance, using, **kwargs):
-    PlanosDeFidelidade.objects.filter(funcionario=instance).delete()
+    PlanosDeFidelidade.objects.filter(barbearia=instance).delete()

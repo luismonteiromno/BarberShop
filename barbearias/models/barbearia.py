@@ -254,6 +254,14 @@ class Barbearia(models.Model):
     def ultima_avaliacao(self):
         ultima_avaliacao = self.avaliacao_set.last()
         return ultima_avaliacao
+    
+    @property
+    def ultima_venda(self):
+        return (
+            self.notafiscal_set.last() 
+            if self.notafiscal_set.last() 
+            else 'Nenhuma venda'
+        )
 
     def save(self, *args, **kwargs):
         user = get_current_user()
@@ -261,7 +269,7 @@ class Barbearia(models.Model):
             self.dono = user
             self.usuario_de_criacao = user
         else:
-            self.dono = user
+            # self.dono = user
             self.usuario_de_atualizacao = user
         super().save(*args, **kwargs)
 

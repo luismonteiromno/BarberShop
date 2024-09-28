@@ -43,6 +43,7 @@ class BarbeariaAdmin(DjangoObjectActions, nested_admin.NestedModelAdmin):
         'dono',
         'quantidade_de_agendamentos',
         'orcamento',
+        'ultima_venda',
         'ultimo_agendamento',
         'proximo_agendamento',
         'numero_de_contatos',

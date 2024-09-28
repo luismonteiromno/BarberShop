@@ -74,12 +74,11 @@ class Agendamento(models.Model):
 
     @property
     def formatar_numero_do_pedido(self):
-        ano = datetime.today().year
-        mes = datetime.today().month
+        hoje = datetime.today()
         agendamento_id = 0
 
         ultimo_agendamento = Agendamento.objects.filter(
-            data_marcada__year=ano, data_marcada__month=mes
+            data_marcada__year=hoje.year, data_marcada__month=hoje.month
         ).last()
 
         if ultimo_agendamento:
@@ -94,7 +93,7 @@ class Agendamento(models.Model):
         if mes < 10:
             mes = f'0{mes}'
 
-        numero_agendamento = f'BBSHP{ano}{mes}{agendamento_id}'
+        numero_agendamento = f'BBSHP{hoje.month}{mes}{agendamento_id}'
         return numero_agendamento
 
     @property
