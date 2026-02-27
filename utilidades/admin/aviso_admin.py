@@ -9,7 +9,6 @@ from rangefilter.filters import (
     DateRangeQuickSelectListFilterBuilder,
 )
 
-from modules import DadosDeMercado
 
 from ..forms import AvisoForm
 from ..models import Aviso

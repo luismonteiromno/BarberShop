@@ -1,18 +1,53 @@
-version: '3'
-
 services:
-  backend:
-    build: .
+  postgres:
+    image: postgres:17
+    container_name: barbershop-postgres-1
+    environment:
+      POSTGRES_DB: idv_local
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
     ports:
-      - "8000:8000"
+      - "5432:5432"
+
+  barbershop:
+    build: .
+    container_name: barbershop-dev
     volumes:
       - .:/app
-
-  frontend:
-    build:
-      context: .
-      dockerfile: Dockerfile
+      - static_volume:/app/staticfiles
     ports:
-      - "8080:8080"
-    volumes:
-      - ./front:/app/front
+      - "8000:8000"
+      - "5678:5678"
+    environment:
+      DEBUG: "true"
+      DEV: "true"
+      DJANGO_DEBUGPY: "1"
+      DATABASE_NAME: idv_local
+      DATABASE_USER: postgres
+      DATABASE_PASSWORD: postgres
+      DATABASE_HOST: postgres
+      DATABASE_PORT: 5432
+    depends_on:
+      - postgres
+    command: >
+      sh -c "/env/bin/python manage.py collectstatic --noinput &&
+         /env/bin/python -m debugpy --listen 0.0.0.0:5678 --wait-for-client manage.py runserver 0.0.0.0:8000"
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: barbershop-pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    ports:
+      - "8080:80"
+    depends_on:
+      - postgres
+
+volumes:
+  postgres_data:
+  pgadmin_data:
+  static_volume:
